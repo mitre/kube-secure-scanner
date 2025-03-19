@@ -186,8 +186,8 @@ failed:
 EOF
 
 # Install the Helm chart with custom threshold
-helm install inspec-scanner ./helm-chart \
-  --set safCli.thresholdFilePath=/path/to/threshold.yml
+helm install standard-scanner ./helm-charts/standard-scanner \
+  --set common-scanner.safCli.thresholdFilePath=/path/to/threshold.yml
 ```
 
 ## Troubleshooting

@@ -1,0 +1,153 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-with-scanner
+  namespace: inspec-test
+  labels:
+    app: app-with-scanner
+    scanner: cinc-auditor
+spec:
+  shareProcessNamespace: true  # Enable shared process namespace
+  containers:
+  # Target container - this could be your application container
+  - name: app
+    image: gcr.io/distroless/java:11
+    # Example using a distroless Java container
+    command: ["java", "-jar", "/app/demo.jar"]
+    volumeMounts:
+    - name: shared-results
+      mountPath: /results
+    - name: app-volume
+      mountPath: /app
+    securityContext:
+      readOnlyRootFilesystem: true  # Common in distroless containers
+      allowPrivilegeEscalation: false
+      runAsNonRoot: true
+      runAsUser: 1000
+  
+  # CINC Auditor scanner sidecar
+  - name: cinc-scanner
+    image: mitre/cinc-auditor-scanner:latest
+    command: 
+    - "/bin/sh"
+    - "-c"
+    - |
+      # Wait for the main container to start fully
+      sleep 10
+      
+      echo "Starting CINC Auditor scan..."
+      
+      # Find the main process of the target container
+      # Look for Java process in this example
+      TARGET_PID=$(ps aux | grep -v grep | grep "java -jar" | awk '{print $2}')
+      
+      if [ -z "$TARGET_PID" ]; then
+        echo "ERROR: Could not find target process"
+        exit 1
+      fi
+      
+      echo "Target process identified: PID $TARGET_PID"
+      
+      # Run CINC Auditor against the target filesystem
+      cd /
+      cinc-auditor exec /opt/profiles/container-baseline \
+        -b os=linux \
+        --target=/proc/$TARGET_PID/root \
+        --reporter cli json:/results/scan-results.json
+      
+      SCAN_EXIT_CODE=$?
+      
+      echo "Scan completed with exit code: $SCAN_EXIT_CODE"
+      
+      # Process results with SAF
+      if [ -f "/results/scan-results.json" ]; then
+        echo "Processing results with SAF CLI..."
+        saf summary --input /results/scan-results.json --output-md /results/scan-summary.md
+        
+        # Validate against threshold
+        if [ -f "/opt/thresholds/threshold.yml" ]; then
+          echo "Validating against threshold..."
+          saf threshold -i /results/scan-results.json -t /opt/thresholds/threshold.yml
+          THRESHOLD_RESULT=$?
+          echo "Threshold validation result: $THRESHOLD_RESULT" > /results/threshold-result.txt
+        fi
+      fi
+      
+      # Indicate scan is complete
+      touch /results/scan-complete
+      
+      # Keep container running to allow result retrieval
+      echo "Scan complete. Results available in /results directory."
+      echo "This container will remain running for 1 hour to allow result retrieval."
+      echo "Use 'kubectl cp' to copy results from the pod."
+      sleep 3600
+    volumeMounts:
+    - name: shared-results
+      mountPath: /results
+    - name: profiles
+      mountPath: /opt/profiles
+    - name: thresholds
+      mountPath: /opt/thresholds
+  
+  volumes:
+  - name: shared-results
+    emptyDir: {}
+  - name: app-volume
+    emptyDir: {}  # In a real scenario, this would be your application volume
+  - name: profiles
+    configMap:
+      name: inspec-profiles
+  - name: thresholds
+    configMap:
+      name: inspec-thresholds
+
+---
+# Example ConfigMap with a minimal threshold configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inspec-thresholds
+  namespace: inspec-test
+data:
+  threshold.yml: |
+    compliance:
+      min: 70
+    failed:
+      critical:
+        max: 0
+      high:
+        max: 2
+
+---
+# Example ConfigMap with a mock InSpec profile (in a real scenario, you'd mount actual profiles)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inspec-profiles
+  namespace: inspec-test
+data:
+  container-baseline.rb: |
+    # Example InSpec profile for container scanning
+    
+    title "Container Baseline"
+    
+    control "container-1.1" do
+      impact 0.7
+      title "Container files should have proper permissions"
+      desc "Critical files in the container should have proper permissions."
+      
+      describe file('/etc/passwd') do
+        it { should exist }
+        its('mode') { should cmp '0644' }
+      end
+    end
+    
+    control "container-1.2" do
+      impact 0.5
+      title "Container should not have unnecessary packages"
+      desc "Container should be minimal and not contain unnecessary packages."
+      
+      describe directory('/var/lib/apt') do
+        it { should_not exist }
+      end
+    end

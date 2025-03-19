@@ -43,12 +43,18 @@ git clone <repository-url>
 cd secure-inspec-k8s
 ```
 
-2. Install the Helm chart:
+2. Install the Helm charts:
 
 ```bash
-helm install inspec-scanner ./helm-chart \
-  --set targetNamespace=inspec-test \
-  --set serviceAccount.create=true \
+# Install all charts at once using the installer script
+./helm-charts/install-all.sh --namespace inspec-test --release-prefix scanner
+
+# Or install individual charts separately
+helm install scanner-infrastructure ./helm-charts/scanner-infrastructure \
+  --set targetNamespace=inspec-test
+
+helm install standard-scanner ./helm-charts/standard-scanner \
+  --set common-scanner.scanner-infrastructure.targetNamespace=inspec-test \
   --set testPod.deploy=true
 ```
 

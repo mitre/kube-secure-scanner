@@ -1,0 +1,49 @@
+CINC Auditor Sidecar Container Scanning
+=====================================
+
+Your sidecar-scanner chart has been deployed successfully.
+
+Namespace: {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }}
+Scanner image: {{ .Values.sidecarScanner.image }}
+
+{{- if .Values.testPod.deploy }}
+
+Test pod deployed:
+  Name: {{ .Values.testPod.name }}
+  Target container: {{ .Values.testPod.targetContainer.name }}
+  Target image: {{ .Values.testPod.targetContainer.image }}
+  Scanner container: {{ .Values.sidecarScanner.name }}
+
+To check the status of the scan:
+
+  kubectl wait --for=condition=ready pod/{{ .Values.testPod.name }} -n {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }}
+  kubectl exec -it {{ .Values.testPod.name }} -n {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }} -c {{ .Values.sidecarScanner.name }} -- ls -la /results
+
+To retrieve scan results:
+
+  kubectl cp {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }}/{{ .Values.testPod.name }}:/results/scan-results.json ./results.json -c {{ .Values.sidecarScanner.name }}
+  kubectl cp {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }}/{{ .Values.testPod.name }}:/results/scan-summary.md ./summary.md -c {{ .Values.sidecarScanner.name }}
+
+{{- else }}
+
+No test pod was deployed. To use this chart with your own containers, modify pod definitions 
+to include the scanner sidecar container and enable shared process namespace:
+
+```yaml
+spec:
+  shareProcessNamespace: true
+  containers:
+  - name: your-app
+    # Your container config
+  - name: scanner
+    image: {{ .Values.sidecarScanner.image }}
+    # Scanner configuration
+```
+
+{{- end }}
+
+For more information, see the chart documentation or run:
+
+  helm get notes {{ .Release.Name }} -n {{ .Release.Namespace }}
+
+Happy scanning!

@@ -1,0 +1,262 @@
+name: CINC Auditor Sidecar Container Scan
+
+on:
+  workflow_dispatch:
+    inputs:
+      kubernetes_version:
+        description: 'Kubernetes version to use'
+        required: true
+        default: 'v1.28.3'
+      target_image:
+        description: 'Target container image to scan'
+        required: true
+        default: 'busybox:latest'
+      is_distroless:
+        description: 'Is the target a distroless container?'
+        required: true
+        default: 'false'
+        type: boolean
+      threshold:
+        description: 'Minimum passing score (0-100)'
+        required: true
+        default: '70'
+  
+jobs:
+  sidecar-scan:
+    name: Sidecar Container Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Kubernetes
+        id: kind
+        uses: helm/kind-action@v1.8.0
+        with:
+          version: v0.20.0
+          cluster_name: scan-cluster
+          config: |
+            kind: Cluster
+            apiVersion: kind.x-k8s.io/v1alpha4
+            nodes:
+            - role: control-plane
+              kubeadmConfigPatches:
+                - |
+                  kind: InitConfiguration
+                  nodeRegistration:
+                    kubeletExtraArgs:
+                      feature-gates: "EphemeralContainers=true"
+                      "system-reserved": "cpu=500m,memory=500Mi"
+              image: kindest/node:${{ github.event.inputs.kubernetes_version }}
+      
+      - name: Get cluster status
+        run: |
+          kubectl get nodes
+          kubectl cluster-info
+      
+      - name: Build CINC Auditor Scanner container
+        run: |
+          # Create a Dockerfile for the CINC Auditor scanner container
+          cat > Dockerfile.scanner << EOF
+          FROM ruby:3.0-slim
+          
+          # Install dependencies
+          RUN apt-get update && apt-get install -y \
+              curl \
+              gnupg \
+              procps \
+              nodejs \
+              npm \
+              && rm -rf /var/lib/apt/lists/*
+          
+          # Install CINC Auditor
+          RUN curl -L https://omnitruck.cinc.sh/install.sh | bash -s -- -P cinc-auditor
+          
+          # Install SAF CLI
+          RUN npm install -g @mitre/saf
+          
+          # Copy profiles
+          COPY examples/cinc-profiles/container-baseline /opt/profiles/container-baseline
+          
+          # Verify installation
+          RUN cinc-auditor --version && \
+              saf --version
+          
+          # Create a simple script to scan in sidecar mode
+          RUN echo '#!/bin/bash \n\
+          TARGET_PID=\$(ps aux | grep -v grep | grep "\$1" | head -1 | awk "{print \\\$2}") \n\
+          echo "Target process identified: PID \$TARGET_PID" \n\
+          \n\
+          cinc-auditor exec /opt/profiles/\$2 \\\n\
+            -b os=linux \\\n\
+            --target=/proc/\$TARGET_PID/root \\\n\
+            --reporter cli json:/results/scan-results.json \n\
+          \n\
+          saf summary --input /results/scan-results.json --output-md /results/scan-summary.md \n\
+          \n\
+          saf threshold -i /results/scan-results.json -t /opt/thresholds/threshold.yml \n\
+          echo \$? > /results/threshold-result.txt \n\
+          \n\
+          touch /results/scan-complete \n\
+          ' > /usr/local/bin/run-scanner
+          
+          RUN chmod +x /usr/local/bin/run-scanner
+          
+          # Default command
+          CMD ["/bin/bash"]
+          EOF
+          
+          # Build the scanner image
+          docker build -t cinc-scanner:latest -f Dockerfile.scanner .
+          
+          # Load the image into kind
+          kind load docker-image cinc-scanner:latest --name scan-cluster
+      
+      - name: Create namespace and prepare environment
+        run: |
+          # Create namespace
+          kubectl create namespace inspec-test
+          
+          # Create threshold ConfigMap
+          cat > threshold.yml << EOF
+          compliance:
+            min: ${{ github.event.inputs.threshold }}
+          failed:
+            critical:
+              max: 0  # No critical failures allowed
+          EOF
+          
+          kubectl create configmap inspec-thresholds \
+            --from-file=threshold.yml=threshold.yml \
+            -n inspec-test
+      
+      - name: Deploy pod with scanner sidecar
+        run: |
+          # Create the pod with shared process namespace
+          cat <<EOF | kubectl apply -f -
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: app-scanner
+            namespace: inspec-test
+            labels:
+              app: scanner-pod
+          spec:
+            shareProcessNamespace: true  # Enable shared process namespace
+            containers:
+            # Target container to be scanned
+            - name: target
+              image: ${{ github.event.inputs.target_image }}
+              command: ["sleep", "3600"]
+              
+            # CINC Auditor scanner sidecar
+            - name: scanner
+              image: cinc-scanner:latest
+              command: 
+              - "/bin/bash"
+              - "-c"
+              - |
+                # Wait for the main container to start
+                sleep 10
+                
+                echo "Starting CINC Auditor scan..."
+                
+                # Use the script to find process and run scanner
+                run-scanner "sleep 3600" "container-baseline" 
+                
+                # Keep container running briefly to allow result retrieval
+                echo "Scan complete. Results available in /results directory."
+                sleep 300
+              volumeMounts:
+              - name: shared-results
+                mountPath: /results
+              - name: thresholds
+                mountPath: /opt/thresholds
+            
+            volumes:
+            - name: shared-results
+              emptyDir: {}
+            - name: thresholds
+              configMap:
+                name: inspec-thresholds
+          EOF
+          
+          # Wait for pod to be ready
+          kubectl wait --for=condition=ready pod/app-scanner -n inspec-test --timeout=300s
+          
+          # Verify the pod is ready
+          kubectl get pod app-scanner -n inspec-test
+      
+      - name: Wait for scan to complete and retrieve results
+        run: |
+          # Wait for scan to complete
+          echo "Waiting for scan to complete..."
+          until kubectl exec -it app-scanner -n inspec-test -c scanner -- ls /results/scan-complete >/dev/null 2>&1; do
+            echo "Scan in progress..."
+            sleep 5
+          done
+          
+          # Retrieve scan results
+          echo "Retrieving scan results..."
+          kubectl cp inspec-test/app-scanner:/results/scan-results.json ./scan-results.json -c scanner
+          kubectl cp inspec-test/app-scanner:/results/scan-summary.md ./scan-summary.md -c scanner
+          
+          # Check threshold result
+          if kubectl exec -it app-scanner -n inspec-test -c scanner -- cat /results/threshold-result.txt >/dev/null 2>&1; then
+            THRESHOLD_RESULT=$(kubectl exec -it app-scanner -n inspec-test -c scanner -- cat /results/threshold-result.txt)
+            echo "THRESHOLD_RESULT=${THRESHOLD_RESULT}" >> $GITHUB_ENV
+            
+            if [ "${THRESHOLD_RESULT}" -eq 0 ]; then
+              echo "✅ Security scan passed threshold requirements"
+            else
+              echo "❌ Security scan failed to meet threshold requirements"
+            fi
+          else
+            echo "Warning: Threshold result not found"
+            echo "THRESHOLD_RESULT=1" >> $GITHUB_ENV
+          fi
+          
+          # Display summary in job output
+          echo "============= SCAN SUMMARY ============="
+          cat scan-summary.md
+          echo "========================================"
+      
+      - name: Process results with SAF-CLI
+        run: |
+          # Install SAF CLI
+          npm install -g @mitre/saf
+          
+          # Generate reports
+          saf view -i scan-results.json --output scan-report.html
+          saf generate -i scan-results.json -o csv > results.csv
+          saf generate -i scan-results.json -o junit > junit-results.xml
+          
+          # Add to GitHub step summary
+          echo "## CINC Auditor Scan Results" > $GITHUB_STEP_SUMMARY
+          cat scan-summary.md >> $GITHUB_STEP_SUMMARY
+          
+          # Add threshold result to summary
+          if [ "${{ env.THRESHOLD_RESULT }}" -eq 0 ]; then
+            echo "## ✅ Security scan passed threshold requirements" >> $GITHUB_STEP_SUMMARY
+          else  
+            echo "## ❌ Security scan failed to meet threshold requirements" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "Threshold: ${{ github.event.inputs.threshold }}%" >> $GITHUB_STEP_SUMMARY
+      
+      - name: Upload CINC Auditor results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cinc-results
+          path: |
+            scan-results.json
+            scan-summary.md
+            scan-report.html
+            results.csv
+            junit-results.xml
+      
+      - name: Cleanup resources
+        if: always()
+        run: |
+          kubectl delete namespace inspec-test

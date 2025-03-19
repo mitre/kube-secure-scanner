@@ -11,13 +11,14 @@ helm-charts/
 ├── scanner-infrastructure/  # Core RBAC, service accounts, tokens
 ├── common-scanner/          # Common scanning components and utilities
 ├── standard-scanner/        # Standard container scanning (regular containers)
-└── distroless-scanner/      # Distroless container scanning (ephemeral containers)
+├── distroless-scanner/      # Distroless container scanning (ephemeral containers)
+└── sidecar-scanner/         # Sidecar container scanning (shared process namespace)
 ```
 
 ### Chart Inheritance
 
 The charts build on each other:
-- `standard-scanner` and `distroless-scanner` both depend on `common-scanner`
+- `standard-scanner`, `distroless-scanner`, and `sidecar-scanner` all depend on `common-scanner`
 - `common-scanner` depends on `scanner-infrastructure`
 - Values can be passed through each level of dependency
 
@@ -37,8 +38,13 @@ The charts build on each other:
 ├── standard-scanner/        # Regular container scanning
 │   └── test-pod.yaml        # Demo pods for regular containers
 │
-└── distroless-scanner/      # Distroless container scanning
-    └── test-pod.yaml        # Demo pods for distroless containers
+├── distroless-scanner/      # Distroless container scanning
+│   └── test-pod.yaml        # Demo pods for distroless containers
+│
+└── sidecar-scanner/         # Sidecar container scanning
+    ├── test-pod.yaml        # Demo pod with target and scanner sidecar
+    ├── configmap-profiles.yaml # InSpec profiles for scanning
+    └── configmap-thresholds.yaml # Threshold configurations
 ```
 
 ## Usage
@@ -63,7 +69,7 @@ KUBECONFIG=./kubeconfig.yaml cinc-auditor exec ./examples/cinc-profiles/containe
 
 ### Distroless Container Scanning
 
-For scanning distroless containers without shell access:
+For scanning distroless containers without shell access using the ephemeral debug container approach:
 
 ```bash
 # Install the distroless-scanner chart
@@ -76,6 +82,32 @@ helm install distroless-scanner ./helm-charts/distroless-scanner \
 
 # Run a scan using the specialized distroless scanning script
 ./scripts/scan-distroless-container.sh inspec-test distroless-target-helm distroless ./examples/cinc-profiles/container-baseline
+```
+
+### Sidecar Container Scanning
+
+For scanning containers using the sidecar approach with shared process namespace:
+
+```bash
+# Install the sidecar-scanner chart
+helm install sidecar-scanner ./helm-charts/sidecar-scanner \
+  --set common-scanner.scanner-infrastructure.targetNamespace=inspec-test \
+  --set testPod.deploy=true
+
+# Wait for the scan to complete
+kubectl wait --for=condition=ready pod/sidecar-target -n inspec-test
+
+# Check if scan is complete
+kubectl exec -n inspec-test sidecar-target -c scanner -- ls -la /results
+
+# Copy results if scan-complete file exists
+kubectl cp inspec-test/sidecar-target:/results/scan-results.json ./results.json -c scanner
+
+# Process results with SAF CLI
+saf summary --input ./results.json --output-md ./summary.md
+
+# Alternatively, use the scan script for new deployments
+./scripts/scan-with-sidecar.sh inspec-test my-app:latest ./profiles/container-baseline
 ```
 
 ### Advanced Configuration
@@ -174,6 +206,15 @@ Distroless container scanning:
 - Ephemeral container RBAC permissions
 - Specialized scanning for containers without shell access
 
+### sidecar-scanner
+
+Sidecar container scanning:
+- Process namespace sharing
+- Pre-deployed sidecar container with CINC Auditor
+- Direct filesystem access via /proc/PID/root
+- Support for both standard and distroless containers
+- Shared volume for results collection
+
 ## Customization
 
 Each chart has its own `values.yaml` file with customizable settings. To see all available options:
@@ -187,4 +228,7 @@ helm show values ./helm-charts/standard-scanner
 
 # View distroless-scanner values
 helm show values ./helm-charts/distroless-scanner
+
+# View sidecar-scanner values
+helm show values ./helm-charts/sidecar-scanner
 ```

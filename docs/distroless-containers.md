@@ -262,8 +262,29 @@ end
 3. Integration with CI/CD pipelines for distroless scanning
 4. Comprehensive documentation on distroless container scanning
 
+## Workflow Diagrams
+
+To better understand the approaches for scanning distroless containers, refer to the [Workflow Diagrams](overview/workflows.md) document, which includes:
+
+- Standard container scanning workflow
+- Modified transport plugin approach workflow
+- Debug container approach workflow
+- CI/CD integration with scanner services
+
+These visual representations help clarify the differences between approaches and their integration points.
+
+## GitLab CI Integration
+
+For implementing distroless container scanning in GitLab CI pipelines, see:
+
+- [Standard GitLab CI Integration](integration/gitlab.md)
+- [GitLab CI with Services](integration/gitlab-services.md) for an enhanced approach
+
+Our GitLab CI example with services includes a dedicated job for distroless container scanning using specialized service containers, making it easier to integrate into existing pipelines.
+
 ## References
 
 - [Kubernetes Ephemeral Containers Documentation](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/)
 - [Google Distroless Container Images](https://github.com/GoogleContainerTools/distroless)
 - [InSpec train-k8s-container transport](https://github.com/inspec/train-k8s-container)
+- [CINC Project Docker Images](https://gitlab.com/cinc-project/docker-images/-/tree/master/docker-auditor)

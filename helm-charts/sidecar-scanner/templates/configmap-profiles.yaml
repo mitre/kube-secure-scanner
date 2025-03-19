@@ -1,0 +1,66 @@
+{{- if .Values.testPod.deploy }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ default (printf "%s-profiles" .Release.Name) .Values.volumes.profiles.configMap.name }}
+  namespace: {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+data:
+  # Sample container baseline profile
+  {{ .Values.cincAuditor.inspecYml.name }}: |
+    # Example profile for container baseline testing
+    
+    title: "{{ .Values.cincAuditor.inspecYml.title }}"
+    name: "{{ .Values.cincAuditor.inspecYml.name }}"
+    version: "{{ .Values.cincAuditor.inspecYml.version }}"
+    maintainer: "Security Team"
+    summary: "Basic security tests for containers"
+    
+    supports:
+      {{- range .Values.cincAuditor.inspecYml.supports }}
+      - {{ . }}
+      {{- end }}
+    
+    controls:
+      - id: container-1
+        title: "Check for unsafe file permissions"
+        desc: "Ensure no world-writable files exist in the container filesystem"
+        impact: 0.7
+        tags:
+          - container
+          - security
+        refs:
+          - url: "https://docs.docker.com/engine/security/"
+            ref: "Docker Security"
+        code: |
+          describe command('find / -type f -perm -o+w -not -path "/proc/*" -not -path "/sys/*" -not -path "/dev/*" 2>/dev/null') do
+            its('stdout') { should be_empty }
+          end
+      
+      - id: container-2
+        title: "Check SSH is not installed"
+        desc: "Container should not have SSH server installed"
+        impact: 0.5
+        tags:
+          - container
+          - security
+        code: |
+          describe package('openssh-server') do
+            it { should_not be_installed }
+          end
+
+      - id: container-3
+        title: "Check for sensitive information in environment variables"
+        desc: "Container should not have credentials in environment variables"
+        impact: 0.7
+        tags:
+          - container
+          - security
+        code: |
+          describe command('env | grep -i key\\|pass\\|secret\\|token\\|credential') do
+            its('stdout') { should be_empty }
+          end
+{{- end }}

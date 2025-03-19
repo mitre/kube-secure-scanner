@@ -1,0 +1,28 @@
+{{- if .Values.testPod.deploy }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ default (printf "%s-thresholds" .Release.Name) .Values.volumes.thresholds.configMap.name }}
+  namespace: {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+data:
+  # Default threshold configuration
+  threshold.yml: |
+    # Minimum compliance score required
+    compliance:
+      min: 70
+    
+    # Maximum number of failures allowed by impact
+    failed:
+      critical:
+        max: 0
+      high:
+        max: 0
+      medium:
+        max: 2
+      low:
+        max: 5
+{{- end }}

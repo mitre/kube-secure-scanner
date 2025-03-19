@@ -4,10 +4,11 @@ This project provides a comprehensive platform for securely scanning Kubernetes 
 
 ## Project Overview
 
-Our solution offers two distinct technical approaches for container scanning:
+Our solution offers three distinct technical approaches for container scanning:
 
 1. **Enhanced Transport Approach**: Modified train-k8s-container plugin for direct, API-based scanning through the Kubernetes management node
-2. **Debug Sidecar Approach**: Ephemeral debug container with chroot-based scanning for distroless containers
+2. **Debug Container Approach**: Ephemeral debug container with chroot-based scanning for distroless containers
+3. **Sidecar Container Approach**: CINC Auditor sidecar container with shared process namespace for any container type
 
 These approaches can be deployed via:
 - Self-contained shell scripts for direct management and testing
@@ -39,10 +40,21 @@ Both approaches support:
 
 ### Distroless Container Support Status
 
-Distroless container scanning is currently implemented using ephemeral debug containers (via `kubectl debug`). This approach has some limitations:
+We now provide three distinct approaches for scanning distroless containers:
 
-- **Current Implementation**: The `scan-distroless-container.sh` script demonstrates this approach but contains placeholder code that needs custom implementation to work with your specific distroless containers.
-- **Future Work**: We plan to modify the train-k8s-container plugin to natively support distroless containers without requiring container-specific customization.
+1. **Ephemeral Debug Container** - Uses `kubectl debug` to attach a debug container and scan via chroot. This approach has some limitations:
+   - **Implementation**: The `scan-distroless-container.sh` script demonstrates this approach
+   - **Limitation**: Requires Kubernetes clusters with ephemeral container support enabled
+
+2. **Modified Transport Plugin** - Enhanced train-k8s-container plugin for direct, API-based scanning:
+   - **Implementation**: Currently a work in progress
+   - **Advantage**: No additional containers required, most efficient approach
+
+3. **Sidecar Container Approach** - Deploys a scanner sidecar in the same pod with shared process namespace:
+   - **Implementation**: Fully implemented in `scan-with-sidecar.sh` and integrated with CI/CD examples
+   - **Advantage**: Works with any Kubernetes cluster, requires no special features
+   - **Advantage**: Can scan any container type, including distroless containers
+   - **Limitation**: Must be deployed alongside the target container (can't scan existing containers)
 
 ## Directory Structure
 
@@ -50,37 +62,47 @@ Distroless container scanning is currently implemented using ephemeral debug con
 .
 ├── docs/                    # Comprehensive documentation
 │   ├── overview/            # Project overview and architecture
+│   │   └── workflows.md     # Workflow diagrams for all approaches
 │   ├── rbac/                # RBAC configuration guides
 │   ├── service-accounts/    # Service account setup
 │   ├── configuration/       # Kubeconfig generation
 │   ├── tokens/              # Token management
 │   ├── integration/         # CI/CD integration guides
+│   │   ├── gitlab.md        # Standard GitLab CI integration
+│   │   ├── gitlab-services.md # GitLab CI with services integration
+│   │   └── github-actions.md # GitHub Actions integration
 │   ├── saf-cli-integration.md # SAF CLI integration guide
 │   ├── thresholds.md        # Threshold configuration guide
-│   └── distroless-containers.md # Guide for scanning distroless containers
+│   ├── distroless-containers.md # Guide for scanning distroless containers
+│   └── sidecar-container-approach.md # Sidecar container scanning approach
 ├── scripts/                 # Automation scripts
 │   ├── generate-kubeconfig.sh  # Generate restricted kubeconfig
 │   ├── scan-container.sh    # End-to-end container scanning
 │   ├── scan-distroless-container.sh # Scanning distroless containers
+│   ├── scan-with-sidecar.sh # Scanning with sidecar container approach
 │   └── setup-minikube.sh    # Multi-node minikube setup script
 ├── kubernetes/              # Kubernetes manifests
 │   └── templates/           # Template YAML files
-├── helm-chart/              # Legacy Helm chart for deployment
-│   ├── templates/           # Helm templates
-│   └── values.yaml          # Configuration values
-├── helm-charts/             # Modular Helm charts
+├── helm-charts/             # Modular Helm charts for deployment
 │   ├── scanner-infrastructure/ # Core RBAC, service accounts
-│   ├── common-scanner/      # Common scanning components
+│   ├── common-scanner/      # Common scanning components 
 │   ├── standard-scanner/    # Standard container scanning
-│   └── distroless-scanner/  # Distroless container scanning
+│   ├── distroless-scanner/  # Distroless container scanning
+│   └── sidecar-scanner/     # Sidecar approach for container scanning
 ├── github-workflows/        # GitHub Actions workflow examples
 │   ├── setup-and-scan.yml   # Basic setup and scan workflow
 │   ├── dynamic-rbac-scanning.yml # Dynamic pod scanning with RBAC
-│   └── ci-cd-pipeline.yml   # Complete CI/CD pipeline with scanning
+│   ├── ci-cd-pipeline.yml   # Complete CI/CD pipeline with scanning
+│   └── sidecar-scanner.yml  # Sidecar container scanning workflow
 ├── gitlab-examples/         # GitLab CI examples
-│   └── gitlab-ci.yml        # GitLab CI configuration
+│   ├── gitlab-ci.yml        # Standard GitLab CI configuration
+│   ├── gitlab-ci-with-services.yml # GitLab CI with services
+│   ├── gitlab-ci-sidecar.yml # GitLab CI with sidecar approach
+│   └── gitlab-ci-sidecar-with-services.yml # GitLab CI sidecar with services
 └── examples/                # Example resources
-    └── cinc-profiles/       # Example CINC Auditor profiles
+    ├── cinc-profiles/       # Example CINC Auditor profiles
+    ├── cinc-auditor-scanner/ # Dockerfile for scanner sidecar container
+    └── sidecar-scanner-pod.yaml # Example sidecar container pod
 ```
 
 ## Quick Start
@@ -160,7 +182,11 @@ KUBECONFIG=./kubeconfig.yaml cinc-auditor exec ./examples/cinc-profiles/containe
   -t k8s-container://inspec-test/inspec-target/busybox
 ```
 
-#### Distroless Container Scanning (Experimental)
+#### Distroless Container Scanning
+
+We provide three approaches for scanning distroless containers:
+
+##### Approach 1: Ephemeral Debug Container (Requires Kubernetes 1.18+)
 
 ```bash
 # Install the distroless-scanner chart
@@ -173,7 +199,30 @@ helm install distroless-scanner ./helm-charts/distroless-scanner \
 ./scripts/scan-distroless-container.sh inspec-test distroless-target distroless ./examples/cinc-profiles/container-baseline
 ```
 
-> **Note on Distroless Scanning**: The current distroless scanning implementation is experimental and demonstrates the approach using ephemeral debug containers. The `scan-distroless-container.sh` script contains placeholder code that will need customization for your specific distroless containers. See the [Distroless Container Documentation](docs/distroless-containers.md) for more details.
+##### Approach 2: Sidecar Container (Recommended, works with any Kubernetes cluster)
+
+```bash
+# Deploy a pod with sidecar container for scanning
+kubectl apply -f examples/sidecar-scanner-pod.yaml
+
+# Wait for the pod to be ready
+kubectl wait --for=condition=ready pod/app-scanner -n inspec-test --timeout=300s
+
+# Check scan results directly from the sidecar
+kubectl exec -it app-scanner -n inspec-test -c scanner -- cat /results/scan-summary.md
+```
+
+##### Approach 3: Sidecar Container with CI/CD Integration
+
+We provide ready-to-use CI/CD examples for the sidecar approach:
+
+- GitLab CI: `gitlab-examples/gitlab-ci-sidecar.yml`
+- GitLab CI with Services: `gitlab-examples/gitlab-ci-sidecar-with-services.yml`
+- GitHub Actions: `github-workflows/sidecar-scanner.yml`
+
+These examples automatically deploy, scan, and retrieve results from a scanner sidecar container.
+
+See the [Distroless Container Documentation](docs/distroless-containers.md) and [Sidecar Container Approach](docs/sidecar-container-approach.md) for more details.
 
 ### Option 4: CI/CD Pipeline Integration
 
@@ -261,18 +310,31 @@ failed:
 
 For detailed documentation, see the following guides:
 
+### Core Documentation
 - [Project Overview](docs/overview/README.md)
 - [Quick Start Guide](docs/overview/quickstart.md)
 - [Security Considerations](docs/overview/security.md)
+
+### Approach-Specific Documentation
+- [Distroless Container Scanning](docs/distroless-containers.md) - All three approaches compared
+- [Sidecar Container Approach](docs/sidecar-container-approach.md) - Detailed guide for Approach 3
+
+### Visual Documentation
+- [Workflow Diagrams](docs/overview/workflows.md) - Mermaid diagrams for visual environments
+- [ASCII Text Diagrams](docs/overview/ascii-diagrams.md) - Terminal-friendly diagrams
+
+### Technical Implementation
 - [RBAC Configuration](docs/rbac/README.md)
 - [Service Account Management](docs/service-accounts/README.md)
 - [Token Management](docs/tokens/README.md)
 - [Kubeconfig Generation](docs/configuration/README.md)
 - [SAF CLI Integration](docs/saf-cli-integration.md)
 - [Threshold Configuration](docs/thresholds.md)
+
+### CI/CD Integration
 - [GitLab CI/CD Integration](docs/integration/gitlab.md)
+- [GitLab CI with Services](docs/integration/gitlab-services.md)
 - [GitHub Actions Integration](docs/integration/github-actions.md)
-- [Distroless Container Scanning](docs/distroless-containers.md)
 
 ## Requirements
 
@@ -282,10 +344,31 @@ For detailed documentation, see the following guides:
 - MITRE SAF CLI (for threshold validation)
 - Helm 3.2.0+ (for Helm deployment)
 
-## Current Limitations and Future Work
+## Current Status and Future Work
 
-1. **Distroless Container Scanning**: The current implementation is experimental and requires customization for your specific distroless containers. Future work will focus on modifying the train-k8s-container plugin for native distroless support.
+1. **Distroless Container Scanning**: 
+   - ✅ Implemented three distinct approaches:
+     - Ephemeral debug container (requires special cluster feature)
+     - Sidecar container with shared process namespace (works universally)
+     - Modified transport plugin (in progress)
+   - ✅ Integrated all approaches with CI/CD examples
+   - 🔄 Future work will focus on completing the transport plugin approach
 
-2. **Performance Optimization**: The current implementation focuses on functionality and security. Future work will optimize for performance with large-scale scanning.
+2. **Performance Optimization**: 
+   - ✅ Implemented services-based approach for GitLab CI
+   - ✅ Created optimized sidecar container implementations
+   - 🔄 Future work will focus on performance with large-scale scanning
 
-3. **Additional CI/CD Examples**: We plan to add examples for other CI/CD platforms and more complex scanning scenarios.
+3. **CI/CD Integration**:
+   - ✅ GitLab CI standard pipeline
+   - ✅ GitLab CI with services
+   - ✅ GitLab CI for sidecar approach
+   - ✅ GitLab CI with services for sidecar approach
+   - ✅ GitHub Actions for standard approach
+   - ✅ GitHub Actions for sidecar approach
+   - 🔄 Future work will include examples for other CI/CD platforms
+
+4. **Container Images**:
+   - 🔄 Future work will include building and publishing dedicated CINC Auditor scanner containers
+   - 🔄 Creating specialized debug container with CINC Auditor pre-installed
+   - 🔄 Creating sidecar container images with optimized configurations

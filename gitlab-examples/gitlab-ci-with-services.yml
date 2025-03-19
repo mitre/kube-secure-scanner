@@ -1,0 +1,325 @@
+stages:
+  - deploy
+  - scan
+  - report
+  - cleanup
+
+variables:
+  SCANNER_NAMESPACE: "inspec-test"
+  TARGET_LABEL: "app=target-app"
+  THRESHOLD_VALUE: "70"  # Minimum passing score (0-100)
+
+# Define a custom service image for CINC Auditor
+services:
+  - name: registry.example.com/cinc-auditor-scanner:latest
+    alias: cinc-scanner
+    entrypoint: ["sleep", "infinity"]
+
+deploy_container:
+  stage: deploy
+  script:
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    - |
+      cat <<EOF | kubectl apply -f -
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: scan-target-${CI_PIPELINE_ID}
+        namespace: ${SCANNER_NAMESPACE}
+        labels:
+          app: target-app
+          pipeline: "${CI_PIPELINE_ID}"
+      spec:
+        containers:
+        - name: target
+          image: registry.example.com/my-image:latest
+          command: ["sleep", "1h"]
+      EOF
+    - |
+      # Wait for pod to be ready
+      kubectl wait --for=condition=ready pod/scan-target-${CI_PIPELINE_ID} \
+        -n ${SCANNER_NAMESPACE} --timeout=120s
+    - |
+      # Save target info for later stages
+      echo "TARGET_POD=scan-target-${CI_PIPELINE_ID}" >> deploy.env
+      echo "TARGET_CONTAINER=target" >> deploy.env
+  artifacts:
+    reports:
+      dotenv: deploy.env
+
+create_access:
+  stage: scan
+  needs: [deploy_container]
+  script:
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    - |
+      # Create the role for this specific pod
+      cat <<EOF | kubectl apply -f -
+      apiVersion: rbac.authorization.k8s.io/v1
+      kind: Role
+      metadata:
+        name: scanner-role-${CI_PIPELINE_ID}
+        namespace: ${SCANNER_NAMESPACE}
+      rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "list"]
+      - apiGroups: [""]
+        resources: ["pods/exec"]
+        verbs: ["create"]
+        resourceNames: ["${TARGET_POD}"]
+      - apiGroups: [""]
+        resources: ["pods/log"]
+        verbs: ["get"]
+        resourceNames: ["${TARGET_POD}"]
+      EOF
+    - |
+      # Create service account
+      cat <<EOF | kubectl apply -f -
+      apiVersion: v1
+      kind: ServiceAccount
+      metadata:
+        name: scanner-sa-${CI_PIPELINE_ID}
+        namespace: ${SCANNER_NAMESPACE}
+      EOF
+    - |
+      # Create role binding
+      cat <<EOF | kubectl apply -f -
+      apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      metadata:
+        name: scanner-binding-${CI_PIPELINE_ID}
+        namespace: ${SCANNER_NAMESPACE}
+      subjects:
+      - kind: ServiceAccount
+        name: scanner-sa-${CI_PIPELINE_ID}
+        namespace: ${SCANNER_NAMESPACE}
+      roleRef:
+        kind: Role
+        name: scanner-role-${CI_PIPELINE_ID}
+        apiGroup: rbac.authorization.k8s.io
+      EOF
+    - |
+      # Generate token
+      TOKEN=$(kubectl create token scanner-sa-${CI_PIPELINE_ID} \
+        -n ${SCANNER_NAMESPACE} --duration=30m)
+      echo "SCANNER_TOKEN=${TOKEN}" >> scanner.env
+      
+      # Save cluster info
+      SERVER=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
+      CA_DATA=$(kubectl config view --raw --minify --flatten \
+        -o jsonpath='{.clusters[].cluster.certificate-authority-data}')
+      echo "CLUSTER_SERVER=${SERVER}" >> scanner.env
+      echo "CLUSTER_CA_DATA=${CA_DATA}" >> scanner.env
+  artifacts:
+    reports:
+      dotenv: scanner.env
+
+run_scan:
+  stage: scan
+  needs: [deploy_container, create_access]
+  # This job uses the cinc-scanner service container
+  # The service container already has CINC Auditor and the SAF CLI installed
+  script:
+    - |
+      # Create a kubeconfig file
+      cat > scan-kubeconfig.yaml << EOF
+      apiVersion: v1
+      kind: Config
+      preferences: {}
+      clusters:
+      - cluster:
+          server: ${CLUSTER_SERVER}
+          certificate-authority-data: ${CLUSTER_CA_DATA}
+        name: scanner-cluster
+      contexts:
+      - context:
+          cluster: scanner-cluster
+          namespace: ${SCANNER_NAMESPACE}
+          user: scanner-user
+        name: scanner-context
+      current-context: scanner-context
+      users:
+      - name: scanner-user
+        user:
+          token: ${SCANNER_TOKEN}
+      EOF
+    - |
+      # Copy kubeconfig and profiles to service container
+      docker cp scan-kubeconfig.yaml cinc-scanner:/tmp/
+      docker cp ${CINC_PROFILE_PATH} cinc-scanner:/tmp/profile
+      
+      # Run scan in service container
+      docker exec cinc-scanner bash -c "
+        KUBECONFIG=/tmp/scan-kubeconfig.yaml \
+        cinc-auditor exec /tmp/profile \
+        -t k8s-container://${SCANNER_NAMESPACE}/${TARGET_POD}/${TARGET_CONTAINER} \
+        --reporter json:/tmp/scan-results.json
+        
+        # Generate scan summary using SAF CLI
+        saf summary --input /tmp/scan-results.json --output-md /tmp/scan-summary.md
+        
+        # Check scan against threshold
+        saf threshold -i /tmp/scan-results.json -t ${THRESHOLD_VALUE}
+        echo \$? > /tmp/threshold_result.txt
+      "
+      
+      # Copy results back from service container
+      docker cp cinc-scanner:/tmp/scan-results.json ./scan-results.json
+      docker cp cinc-scanner:/tmp/scan-summary.md ./scan-summary.md
+      docker cp cinc-scanner:/tmp/threshold_result.txt ./threshold_result.txt
+      
+      # Display summary in job output
+      cat scan-summary.md
+      
+      # Process threshold result
+      THRESHOLD_RESULT=$(cat threshold_result.txt)
+      echo "THRESHOLD_PASSED=${THRESHOLD_RESULT}" >> scan.env
+      
+      if [ ${THRESHOLD_RESULT} -eq 0 ]; then
+        echo "✅ Security scan passed threshold requirements"
+      else
+        echo "❌ Security scan failed to meet threshold requirements"
+        # Uncomment to enforce threshold as a gate
+        # exit ${THRESHOLD_RESULT}
+      fi
+  artifacts:
+    paths:
+      - scan-results.json
+      - scan-summary.md
+    reports:
+      dotenv: scan.env
+
+# For distroless containers, we need a specialized approach
+run_distroless_scan:
+  stage: scan
+  needs: [deploy_container, create_access]
+  # This job will only run if the DISTROLESS variable is set to "true"
+  rules:
+    - if: $DISTROLESS == "true"
+  # Use our specialized distroless scanner service container
+  services:
+    - name: registry.example.com/distroless-scanner:latest
+      alias: distroless-scanner
+      entrypoint: ["sleep", "infinity"]
+  script:
+    - |
+      # Create a kubeconfig file
+      cat > scan-kubeconfig.yaml << EOF
+      apiVersion: v1
+      kind: Config
+      preferences: {}
+      clusters:
+      - cluster:
+          server: ${CLUSTER_SERVER}
+          certificate-authority-data: ${CLUSTER_CA_DATA}
+        name: scanner-cluster
+      contexts:
+      - context:
+          cluster: scanner-cluster
+          namespace: ${SCANNER_NAMESPACE}
+          user: scanner-user
+        name: scanner-context
+      current-context: scanner-context
+      users:
+      - name: scanner-user
+        user:
+          token: ${SCANNER_TOKEN}
+      EOF
+    - |
+      # Copy kubeconfig and profiles to distroless scanner service container
+      docker cp scan-kubeconfig.yaml distroless-scanner:/tmp/
+      docker cp ${CINC_PROFILE_PATH} distroless-scanner:/tmp/profile
+      
+      # Run specialized distroless scan in service container
+      docker exec distroless-scanner bash -c "
+        KUBECONFIG=/tmp/scan-kubeconfig.yaml \
+        /opt/scripts/scan-distroless.sh \
+        ${SCANNER_NAMESPACE} ${TARGET_POD} ${TARGET_CONTAINER} \
+        /tmp/profile /tmp/scan-results.json
+        
+        # Generate scan summary using SAF CLI
+        saf summary --input /tmp/scan-results.json --output-md /tmp/scan-summary.md
+        
+        # Check scan against threshold
+        saf threshold -i /tmp/scan-results.json -t ${THRESHOLD_VALUE}
+        echo \$? > /tmp/threshold_result.txt
+      "
+      
+      # Copy results back from service container
+      docker cp distroless-scanner:/tmp/scan-results.json ./scan-results.json
+      docker cp distroless-scanner:/tmp/scan-summary.md ./scan-summary.md
+      docker cp distroless-scanner:/tmp/threshold_result.txt ./threshold_result.txt
+      
+      # Display summary in job output
+      cat scan-summary.md
+      
+      # Process threshold result
+      THRESHOLD_RESULT=$(cat threshold_result.txt)
+      echo "THRESHOLD_PASSED=${THRESHOLD_RESULT}" >> scan.env
+      
+      if [ ${THRESHOLD_RESULT} -eq 0 ]; then
+        echo "✅ Security scan passed threshold requirements"
+      else
+        echo "❌ Security scan failed to meet threshold requirements"
+        # Uncomment to enforce threshold as a gate
+        # exit ${THRESHOLD_RESULT}
+      fi
+  artifacts:
+    paths:
+      - scan-results.json
+      - scan-summary.md
+    reports:
+      dotenv: scan.env
+
+generate_report:
+  stage: report
+  needs: [run_scan]
+  script:
+    - |
+      # Install SAF CLI if needed in this stage
+      which saf || npm install -g @mitre/saf
+      
+      # Generate a more comprehensive report
+      saf view -i scan-results.json --output scan-report.html
+      
+      # Create a simple markdown report for the MR
+      cat > scan-report.md << EOF
+      # Security Scan Results
+      
+      ## Summary
+      
+      $(cat scan-summary.md)
+      
+      ## Threshold Check
+      
+      ${THRESHOLD_PASSED} -eq 0 && echo "✅ **PASSED**" || echo "❌ **FAILED**"
+      
+      Threshold: ${THRESHOLD_VALUE}%
+      
+      ## Details
+      
+      For full results, see the artifacts.
+      EOF
+  artifacts:
+    paths:
+      - scan-report.html
+      - scan-report.md
+    when: always
+
+cleanup:
+  stage: cleanup
+  needs: [run_scan]
+  when: always  # Run even if previous stages failed
+  script:
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    - |
+      # Delete all resources
+      kubectl delete pod/${TARGET_POD} -n ${SCANNER_NAMESPACE} --ignore-not-found
+      kubectl delete role/scanner-role-${CI_PIPELINE_ID} -n ${SCANNER_NAMESPACE} --ignore-not-found
+      kubectl delete sa/scanner-sa-${CI_PIPELINE_ID} -n ${SCANNER_NAMESPACE} --ignore-not-found
+      kubectl delete rolebinding/scanner-binding-${CI_PIPELINE_ID} \
+        -n ${SCANNER_NAMESPACE} --ignore-not-found

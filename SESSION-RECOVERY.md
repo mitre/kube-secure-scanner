@@ -79,7 +79,7 @@ We most recently:
    - Added documentation for scanning distroless containers
    - Clarified the differences between shell script and Helm approaches
 
-4. **Completed Helm Chart Implementation**
+4. **Completed Helm Charts Implementation**
    - Added comprehensive README.md files for each chart
    - Created detailed NOTES.txt templates with usage instructions
    - Enhanced test pod templates with security context and resource limits
@@ -111,7 +111,7 @@ We most recently:
    - Built CI/CD examples for GitHub Actions and GitLab CI with dynamic RBAC
    - Created GitHub repository at github.com/mitre/kube-cinc-secure-scanner
    
-7. **Work Completed This Session**
+7. **Previous Session Work**
    - Updated main README.md to reflect dual approach strategy
    - Updated distroless-container.sh script with improved error handling and documentation
    - Updated TASKS.md and ROADMAP.md to reflect dual demonstration approach
@@ -119,51 +119,108 @@ We most recently:
    - Added architectural documentation requirements to roadmap
    - Planned for both distroless container scanning approaches
    
-8. **Next Development Phase**
-   - Implement dual demonstration of distroless container scanning approaches:
-     1. Modified train-k8s-container plugin (Enterprise Solution)
-     2. CINC Auditor in debug container with chroot (Working Prototype)
-   - Create architecture and security documentation with flow diagrams
-   - Implement specialized debug container with CINC Auditor pre-installed
-   - Performance comparison and optimization for both approaches
-   - Security risk analysis and recommendations document
+8. **Current Session Work**
+   - Researched GitLab CI Services integration for enhanced container scanning
+   - Created comprehensive workflow diagrams for all scanning approaches
+   - Developed GitLab CI example with services for both standard and distroless scanning
+   - Added detailed documentation for GitLab CI services integration
+   - Updated existing documentation to reference workflow diagrams
+   - Enhanced distroless containers documentation with workflow references
+   - Analyzed benefits and challenges of GitLab CI Services approach
+   - Developed a new CINC Auditor sidecar container approach for distroless scanning
+   - Created detailed documentation for the sidecar container approach
+   - Implemented example YAML, Dockerfile, and script for the sidecar approach
+   - Added Minikube setup and CI/CD workflow diagrams
+   - Compared the sidecar approach with other distroless scanning methods
+   - Created GitLab CI example for the sidecar container approach
+   - Started implementing comprehensive CI/CD integration for all scanning approaches
+   
+9. **Current Development Phase**
+   - Implement three distroless container scanning approaches:
+     1. ✅ CINC Auditor in debug container with chroot (Completed)
+     2. ✅ Sidecar container with shared process namespace (Completed)
+     3. 🔄 Modified train-k8s-container plugin (In Progress)
+   - ✅ Create architecture and security documentation with flow diagrams
+   - ✅ Implement specialized debug container with CINC Auditor pre-installed
+   - ✅ Create comprehensive CI/CD integration for all approaches
+   - 🔄 Performance comparison and optimization for all approaches
+   - 🔄 Security risk analysis and recommendations document
+
+10. **Recently Completed Work**
+   - ✅ Created GitLab CI with services example for sidecar approach
+   - ✅ Created GitHub Actions workflow for sidecar approach
+   - ✅ Implemented scan-with-sidecar.sh script
+   - ✅ Updated README.md with sidecar approach documentation
+   - ✅ Updated directory structure with new CI/CD examples
+   - ✅ Integrated all approaches into the project documentation
+   - ✅ Updated TASKS.md to reflect current progress
+   - ✅ Created ASCII text-based diagrams for all workflows and architectures
+   - ✅ Added ASCII diagrams documentation to complement Mermaid diagrams
 
 ### Next Steps
 
-1. **Dual Distroless Container Scanning Implementation**
+1. **Complete Container Scanning Approaches Implementation**
    - **Approach 1 - Modified Plugin (Enterprise Solution):**
-     - Fork and modify the train-k8s-container plugin to support distroless containers
-     - Implement ephemeral container detection and integration directly in the plugin
-     - Add automatic fallback to ephemeral containers when shell access fails
-     - Create examples and documentation for this approach
+     - 🔄 Fork and modify the train-k8s-container plugin to support distroless containers
+     - 🔄 Implement ephemeral container detection and integration directly in the plugin
+     - 🔄 Add automatic fallback to ephemeral containers when shell access fails
+     - 🔄 Create examples and documentation for this approach
      - References to explore:
        - https://github.com/inspec/train-k8s-container/blob/main/lib/train/k8s/container/kubectl_exec_client.rb (modify exec approach)
        - https://github.com/inspec/train-k8s-container/blob/main/lib/train/k8s/container/connection.rb (add ephemeral detection)
        - https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/
    
    - **Approach 2 - CINC Auditor Debug Container (Working Prototype):**
-     - Create specialized debug container with CINC Auditor pre-installed
-     - Implement chroot-based filesystem access to target container
-     - Develop mechanism to bridge results back to host system
-     - Document the approach's tradeoffs and use cases
-     - Create working examples with common distroless images
+     - ✅ Create specialized debug container with CINC Auditor pre-installed
+     - ✅ Implement chroot-based filesystem access to target container
+     - ✅ Develop mechanism to bridge results back to host system
+     - ✅ Document the approach's tradeoffs and use cases
+     - ✅ Create working examples with common distroless images
 
-   - **CI/CD Integration for Both Approaches:**
-     - GitHub Actions workflow for both approaches
-     - GitLab CI pipeline for both approaches 
-     - Comparative demonstration pipelines
+   - **Approach 3 - Sidecar Container with Shared Process Namespace:**
+     - ✅ Implement process identification and filesystem access via /proc/PID/root
+     - ✅ Create example pod YAML for sidecar container deployment
+     - ✅ Create script for deploying and managing the sidecar container
+     - ✅ Document the sidecar approach's tradeoffs and use cases
+     - ✅ Integrate with CI/CD examples
 
-2. **Integration and Testing**
-   - Complete the Helm chart templates for all components
-   - Test both approaches (shell scripts and Helm charts) in CI/CD
-   - Validate automated minikube setup with different configurations
-   - Test with various distroless container types (Go, Java, Python, etc.)
-   - Ensure proper compatibility with SAF CLI threshold checks
+   - **CI/CD Integration for All Approaches:**
+     - ✅ GitHub Actions workflow for debug container approach
+     - ✅ GitHub Actions workflow for sidecar container approach
+     - 🔄 GitHub Actions workflow for modified plugin approach
+     - ✅ GitLab CI pipeline for debug container approach 
+     - ✅ GitLab CI pipeline for sidecar container approach
+     - 🔄 GitLab CI pipeline for modified plugin approach
+     - ✅ GitLab CI with Services for sidecar container approach
+     - 🔄 Comparative demonstration pipelines
+
+2. **Create Higher-Level Documentation**
+   - ✅ Executive Summary for stakeholders and decision makers
+   - ✅ Comprehensive overview and detailed analysis of each approach
+   - ✅ Security risk analysis and risk mitigation strategies:
+     - ✅ Privilege requirements analysis
+     - ✅ Attack surface evaluation
+     - ✅ Specific mitigation strategies for each approach
+   - ✅ Enterprise Integration Analysis:
+     - ✅ Scalability considerations
+     - ✅ Maintenance and upkeep requirements
+     - ✅ CI/CD pipeline integration complexity
+     - ✅ User experience analysis for different user personas
+   - ✅ Decision matrix for approach selection based on specific requirements
+
+3. **Integration and Testing**
+   - ✅ Complete the Helm chart templates for core components
+   - ✅ Create Helm charts for the sidecar container approach
+   - ✅ Test both approaches (shell scripts and Helm charts) in CI/CD
+   - ✅ Validate automated minikube setup with different configurations
+   - 🔄 Test with various distroless container types (Go, Java, Python, etc.)
+   - ✅ Ensure proper compatibility with SAF CLI threshold checks
+   - 🔄 Create Kubernetes mutating webhook example for sidecar injection
 
 3. **Architecture and Documentation**
-   - Create architecture and flow diagrams showing container interactions
+   - ✅ Create architecture and flow diagrams showing container interactions (Done)
    - Develop security risk analysis for both approaches
-   - Create decision matrix comparing approaches
+   - ✅ Create decision matrix comparing approaches (Done in distroless-containers.md)
    - Document both helper scripts AND direct kubectl/inspec commands
    - Develop recommendation document for stakeholders
      - Show how to use helper scripts (scan-container.sh, scan-distroless-container.sh)
@@ -171,16 +228,62 @@ We most recently:
      - Ensure users understand what's happening "under the hood"
    - Create tutorials for scanning different types of containers
    - Add more InSpec profile examples optimized for distroless containers
-   - Update CI/CD examples for both approaches
+   - ✅ Update CI/CD examples for both approaches (Done for GitLab CI with services)
 
-## Key Decisions
+4. **GitLab CI Services Implementation**
+   - Build and publish scanner service Docker images:
+     - Standard scanner image with CINC Auditor pre-installed
+     - Distroless scanner image with specialized tooling
+   - Test the GitLab CI services approach with real-world workloads
+   - Create GitHub Actions equivalent using service containers
+   - Document best practices for maintaining scanner service images
+   - Create examples for different CI/CD environments and use cases
 
-1. **CINC vs InSpec**: Using CINC Auditor (open-source InSpec) to avoid licensing issues
-2. **MITRE SAF-CLI**: Added for results processing and threshold capabilities
-3. **RBAC Strategies**: Supporting both label-based and name-based approaches
-4. **Token Management**: Using short-lived tokens (default 15 minutes) for security
-5. **CI/CD Integration**: Providing examples for both GitHub Actions and GitLab CI
-6. **Thresholds**: Using YAML-based threshold files for compliance validation
+5. **Sidecar Container Approach Integration (Mostly Completed)**
+   - ✅ Create CI/CD integration examples for the sidecar container approach:
+     - ✅ GitLab CI example for sidecar container scanning
+     - ✅ GitLab CI with services example for sidecar container scanning
+     - ✅ GitHub Actions example for sidecar container scanning
+   - ✅ Create dedicated scan-with-sidecar.sh script
+   - ✅ Document the sidecar approach in the main README
+   - 🔄 Build and publish a dedicated CINC Auditor sidecar container image
+   - 🔄 Update the Helm charts to support the sidecar container approach
+   - 🔄 Create a mutating webhook example for automatically injecting scanner sidecars
+
+## Key Decisions and Latest Status
+
+1. **Container Scanning Approaches**:
+   - **Standard Containers**: Using train-k8s-container transport plugin (stable)
+   - **Distroless Containers**: Three distinct approaches implemented
+     - Debug container approach with chroot (requires ephemeral containers feature)
+     - Sidecar container approach with shared process namespace (works universally)
+     - Modified transport plugin approach (in progress, most transparent to users)
+
+2. **CI/CD Integration**: 
+   - Multiple implementation strategies for each approach
+   - GitLab CI standard, GitLab CI with services, and GitHub Actions
+   - Comprehensive examples for all scanning approaches
+   - Shared volume and configuration approach for results collection
+
+3. **Security First**:
+   - CINC Auditor (open-source InSpec) to avoid licensing issues
+   - MITRE SAF-CLI for results processing and threshold validation
+   - Supporting both label-based and name-based RBAC approaches
+   - Using short-lived tokens (default 15 minutes) for security
+   - Least privilege principle applied throughout all implementations
+
+4. **Deployment and Configuration**:
+   - Shell scripts for direct usage and testing
+   - Modular Helm charts for production deployment
+   - Comprehensive configuration options and examples
+   - YAML-based threshold files for compliance validation
+
+5. **Latest Status**:
+   - ✅ Three scanning approaches implemented (standard, debug container, sidecar container)
+   - ✅ CI/CD integration for all approaches (GitLab CI, GitHub Actions)
+   - ✅ Comprehensive documentation with workflow diagrams
+   - ✅ Security-focused design with least privilege RBAC
+   - 🔄 Modified transport plugin approach in progress
 
 ## Project Structure
 
@@ -198,7 +301,7 @@ minikube/
 ├── scripts/                 # Automation scripts
 ├── kubernetes/              # Kubernetes manifests
 │   └── templates/           # Template YAML files
-├── helm-chart/              # Helm chart for deployment
+├── helm-charts/             # Modular Helm charts for deployment
 │   └── examples/            # Example threshold files
 ├── github-workflows/        # GitHub Actions workflows
 ├── gitlab-examples/         # GitLab CI examples
