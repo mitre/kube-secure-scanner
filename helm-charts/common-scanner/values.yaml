@@ -1,0 +1,55 @@
+# Default values for common-scanner
+# This is a YAML-formatted file
+
+# Pass-through values for scanner-infrastructure
+scanner-infrastructure:
+  targetNamespace: inspec-test
+  serviceAccount:
+    create: true
+    name: inspec-scanner
+  rbac:
+    create: true
+
+# Script configuration
+scripts:
+  # Generate helper scripts
+  generate: true
+  # Directory to store generated scripts
+  directory: "/tmp/inspec-scanner"
+  # Include scan-container.sh script
+  includeScanScript: true
+  # Include scan-distroless-container.sh script 
+  includeDistrolessScanScript: false
+
+# SAF-CLI Configuration
+safCli:
+  # Enable SAF-CLI integration
+  enabled: true
+  # Path to external threshold file (threshold.yml or threshold.json)
+  # Can be left blank to use built-in threshold settings
+  thresholdFilePath: ""
+  # Threshold settings for quality gates
+  thresholdConfig:
+    compliance:
+      min: 70   # Default minimum compliance score
+    failed:
+      critical:
+        max: 0  # Zero critical failures allowed
+      high:
+        max: 2  # Maximum 2 high failures allowed
+    skipped:
+      total:
+        max: 5  # Maximum 5 skipped controls allowed
+    error:
+      total:
+        max: 0  # Zero error controls allowed
+  # Fail build if thresholds are not met (set to true for strict enforcement)
+  failOnThresholdError: false
+  # Report generation options
+  reports:
+    # Generate summary in Markdown format
+    generateSummary: true
+    # Generate HTML report view
+    generateHtmlReport: true
+    # Generate JSON summary
+    generateJsonSummary: false

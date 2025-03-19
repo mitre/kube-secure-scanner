@@ -1,0 +1,19 @@
+apiVersion: v2
+name: common-scanner
+description: Common components for Kubernetes container scanning
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - security
+  - compliance
+  - scanning
+  - inspec
+  - cinc
+  - saf
+maintainers:
+  - name: Security Team
+dependencies:
+  - name: scanner-infrastructure
+    version: 0.1.0
+    repository: "file://../scanner-infrastructure"

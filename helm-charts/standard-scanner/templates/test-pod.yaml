@@ -1,0 +1,42 @@
+{{- if .Values.testPod.deploy }}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ .Values.testPod.name }}
+  namespace: {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- with .Values.testPod.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  annotations:
+    description: "Test pod for standard container scanning"
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+  - name: {{ default "busybox" .Values.testPod.containerName }}
+    image: {{ .Values.testPod.image }}
+    command: {{ .Values.testPod.command | toJson }}
+    resources:
+      limits:
+        cpu: "100m"
+        memory: "128Mi"
+      requests:
+        cpu: "50m"
+        memory: "64Mi"
+    securityContext:
+      allowPrivilegeEscalation: false
+      privileged: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+          - ALL
+{{- end }}

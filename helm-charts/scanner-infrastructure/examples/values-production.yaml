@@ -1,0 +1,45 @@
+# Production values for scanner-infrastructure
+# These settings optimize for security in production environments
+
+# Target namespace for deployment
+targetNamespace: container-scanning-prod
+
+# Service account configuration
+serviceAccount:
+  create: true
+  name: inspec-scanner-prod
+  annotations:
+    security.compliance/approved: "true"
+    security.compliance/last-review: "2025-03-19"
+  labels:
+    app: inspec-scanner
+    purpose: security-scanning
+    environment: production
+
+# RBAC configuration
+rbac:
+  create: true
+  roleName: inspec-container-role-prod
+  roleBindingName: inspec-container-rolebinding-prod
+  useResourceNames: true
+  useLabelSelector: true
+  podSelectorLabels:
+    scan-target: "true"
+    environment: "production"
+  rules:
+    core:
+      enabled: true
+    ephemeralContainers:
+      enabled: true
+
+# Token configuration
+token:
+  duration: 15  # Very short-lived tokens in production
+  autoGenerate: true
+  path: "/var/run/tokens"
+
+# kubectl configuration
+kubectl:
+  generateConfig: true
+  configPath: "/var/run/secrets/kubeconfig.yaml"
+  contextName: "scanner-prod-context"

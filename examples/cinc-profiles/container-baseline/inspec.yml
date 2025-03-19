@@ -1,0 +1,10 @@
+name: container-baseline
+title: Container Baseline Security Profile
+maintainer: Security Team
+copyright: Security Team
+copyright_email: security@example.com
+license: Apache-2.0
+summary: Basic security checks for containers
+version: 0.1.0
+supports:
+  platform: os

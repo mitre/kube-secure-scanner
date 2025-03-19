@@ -1,0 +1,45 @@
+# CI/CD pipeline values for standard-scanner
+# These settings optimize for security and automation in CI/CD environments
+
+common-scanner:
+  # Infrastructure configuration
+  scanner-infrastructure:
+    targetNamespace: inspec-ci
+    serviceAccount:
+      create: true
+      name: inspec-scanner-ci
+    rbac:
+      create: true
+      useResourceNames: true
+      useLabelSelector: true
+      podSelectorLabels:
+        scan-target: "true"
+        environment: "ci"
+    token:
+      duration: 15  # Short-lived tokens for improved security
+  
+  # Script configuration  
+  scripts:
+    generate: true
+    includeScanScript: true
+  
+  # SAF CLI threshold configuration
+  safCli:
+    enabled: true
+    failOnThresholdError: true  # Fail pipeline if threshold not met
+    thresholdConfig:
+      compliance:
+        min: 90  # Higher compliance threshold for CI
+      failed:
+        critical:
+          max: 0  # No critical failures allowed
+        high:
+          max: 0  # No high failures allowed
+
+# Test pod configuration
+testPod:
+  deploy: false  # In CI, we scan actual application containers
+
+# CINC Auditor configuration
+cincAuditor:
+  defaultProfile: "container-baseline"

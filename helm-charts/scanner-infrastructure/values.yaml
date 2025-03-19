@@ -1,0 +1,60 @@
+# Default values for scanner-infrastructure
+# This is a YAML-formatted file
+
+# Target namespace for deployment
+targetNamespace: inspec-test
+
+# Service account configuration
+serviceAccount:
+  # Create the service account
+  create: true
+  # Name of the service account
+  name: inspec-scanner
+  # Annotations for the service account
+  annotations: {}
+  # Labels for the service account
+  labels:
+    app: inspec-scanner
+    purpose: security-scanning
+
+# RBAC configuration
+rbac:
+  # Create the role and role binding
+  create: true
+  # Role name
+  roleName: inspec-container-role
+  # Role binding name
+  roleBindingName: inspec-container-rolebinding
+  # Use resource names to restrict access
+  useResourceNames: true
+  # Use label selectors instead of resource names
+  useLabelSelector: false
+  # Labels to use for selecting pods
+  podSelectorLabels:
+    scan-target: "true"
+  # Rules for container exec
+  rules:
+    # Core API resources for pod access
+    core:
+      enabled: true
+    # Ephemeral containers (needed for distroless containers)
+    ephemeralContainers:
+      enabled: false
+
+# Token configuration
+token:
+  # Duration of tokens in minutes
+  duration: 60
+  # Auto-generate tokens for service accounts
+  autoGenerate: true
+  # Path to store token information
+  path: ""
+
+# kubectl configuration
+kubectl:
+  # Generate kubeconfig files automatically
+  generateConfig: true
+  # Path for generated kubeconfig file
+  configPath: "./kubeconfig.yaml"
+  # Context name
+  contextName: "scanner-context"

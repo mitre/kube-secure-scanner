@@ -1,0 +1,31 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: inspec-container-role
+  namespace: inspec-test
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list"]
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create"]
+  resourceNames: ["inspec-target"]  # Only allows exec into this pod
+- apiGroups: [""]
+  resources: ["pods/log"]
+  verbs: ["get"]
+  resourceNames: ["inspec-target"]  # Only allows logs from this pod
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: inspec-container-rolebinding
+  namespace: inspec-test
+subjects:
+- kind: ServiceAccount
+  name: inspec-scanner
+  namespace: inspec-test
+roleRef:
+  kind: Role
+  name: inspec-container-role
+  apiGroup: rbac.authorization.k8s.io

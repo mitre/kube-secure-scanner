@@ -1,0 +1,28 @@
+Thank you for installing {{ .Chart.Name }}.
+
+Your distroless container scanner has been deployed with the following settings:
+- Target namespace: {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }}
+- Service account: {{ .Values.common-scanner.scanner-infrastructure.serviceAccount.name }}
+- Minimum compliance threshold: {{ .Values.common-scanner.safCli.thresholdConfig.compliance.min }}%
+- Debug container image: {{ .Values.debugContainer.image }}
+
+{{- if .Values.testPod.deploy }}
+A test distroless pod has been deployed:
+- Pod name: {{ .Values.testPod.name }}
+- Container: {{ .Values.testPod.containerName }}
+- Image: {{ .Values.testPod.image }}
+{{- end }}
+
+To generate a kubeconfig file for scanning:
+
+    ./scripts/generate-kubeconfig.sh {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }} {{ .Values.common-scanner.scanner-infrastructure.serviceAccount.name }} ./kubeconfig.yaml
+
+To scan a distroless container:
+
+    ./scripts/scan-distroless-container.sh {{ .Values.common-scanner.scanner-infrastructure.targetNamespace }} {{ .Values.testPod.name }} {{ .Values.testPod.containerName }} ./examples/cinc-profiles/container-baseline
+
+The distroless scanner uses ephemeral debug containers to access the target container's filesystem. For more information about how this works, see:
+- Documentation: ./docs/distroless-containers.md
+- README: ./helm-charts/distroless-scanner/README.md
+
+IMPORTANT: Make sure your Kubernetes cluster supports ephemeral containers (Kubernetes v1.18+).

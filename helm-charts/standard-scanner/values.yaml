@@ -1,0 +1,51 @@
+# Default values for standard-scanner
+# This is a YAML-formatted file
+
+# Common scanner configuration
+common-scanner:
+  # Pass-through values for scanner-infrastructure
+  scanner-infrastructure:
+    targetNamespace: inspec-test
+    serviceAccount:
+      create: true
+      name: inspec-scanner
+    rbac:
+      create: true
+      rules:
+        ephemeralContainers:
+          enabled: false
+  
+  # Script configuration
+  scripts:
+    generate: true
+    includeScanScript: true
+    includeDistrolessScanScript: false
+
+# Test pod configuration
+testPod:
+  # Deploy a test pod
+  deploy: true
+  # Name of the test pod
+  name: inspec-target
+  # Container name
+  containerName: busybox
+  # Container image
+  image: busybox:latest
+  # Command to run in the container
+  command: ["sleep", "infinity"]
+  # Labels for the pod
+  labels:
+    app: inspec-target
+    scan-target: "true"
+
+# CINC Auditor configuration
+cincAuditor:
+  # Default profile to use for scanning
+  defaultProfile: ""
+  # Additional inspec.yml configuration
+  inspecYml:
+    name: container-baseline
+    title: Container Security Baseline
+    version: 1.0.0
+    supports:
+      - platform: k8s

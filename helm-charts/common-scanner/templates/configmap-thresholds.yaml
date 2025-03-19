@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-thresholds
+  namespace: {{ .Values.scanner-infrastructure.targetNamespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    component: thresholds
+data:
+  # Default threshold configuration for scanner
+  threshold.yml: |-
+    # Default threshold configuration for scanner
+    compliance:
+      min: {{ .Values.safCli.thresholdConfig.compliance.min }}
+    failed:
+      critical:
+        max: {{ .Values.safCli.thresholdConfig.failed.critical.max }}
+      high:
+        max: {{ .Values.safCli.thresholdConfig.failed.high.max }}
+    skipped:
+      total:
+        max: {{ .Values.safCli.thresholdConfig.skipped.total.max }}
+    error:
+      total:
+        max: {{ .Values.safCli.thresholdConfig.error.total.max }}
+  
+  # Strict threshold configuration for critical systems
+  threshold-strict.yml: |-
+    # Strict threshold configuration (100% compliance, zero failures)
+    compliance:
+      min: 100
+    failed:
+      critical:
+        max: 0
+      high:
+        max: 0
+      medium:
+        max: 0
+      low:
+        max: 0
+    skipped:
+      total:
+        max: 0
+    error:
+      total:
+        max: 0
+  
+  # Basic threshold configuration (more permissive)
+  threshold-basic.yml: |-
+    # Basic threshold configuration (acceptable for development)
+    compliance:
+      min: 60
+    failed:
+      critical:
+        max: 0
+      high:
+        max: 3
+      medium:
+        max: 5
+    skipped:
+      total:
+        max: 10
+    error:
+      total:
+        max: 1

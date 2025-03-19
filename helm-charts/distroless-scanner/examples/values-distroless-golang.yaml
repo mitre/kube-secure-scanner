@@ -1,0 +1,62 @@
+# Example values for distroless Go containers
+# These settings optimize for scanning Go-based distroless containers
+
+common-scanner:
+  # Infrastructure configuration
+  scanner-infrastructure:
+    targetNamespace: inspec-distroless-go
+    serviceAccount:
+      create: true
+      name: inspec-scanner-distroless
+    rbac:
+      create: true
+      rules:
+        ephemeralContainers:
+          enabled: true  # Required for distroless scanning
+  
+  # Script configuration  
+  scripts:
+    generate: true
+    includeDistrolessScanScript: true
+  
+  # SAF CLI threshold configuration
+  safCli:
+    enabled: true
+    thresholdConfig:
+      compliance:
+        min: 85
+      failed:
+        critical:
+          max: 0
+        high:
+          max: 1  # Allow one high finding for Go distroless
+
+# Test pod configuration
+testPod:
+  deploy: true
+  name: go-distroless
+  containerName: go-app
+  image: gcr.io/distroless/static-debian11:nonroot
+  command: ["/go-app", "serve"]
+  labels:
+    app: go-microservice
+    scan-target: "true"
+    distroless: "true"
+    language: "golang"
+
+# Debug container configuration
+debugContainer:
+  enabled: true
+  image: docker.io/cincproject/auditor:latest
+  namePrefix: debug-go
+  timeoutSeconds: 300
+
+# CINC Auditor configuration
+cincAuditor:
+  defaultProfile: "distroless-golang-baseline"
+  inspecYml:
+    name: distroless-golang-baseline
+    title: Distroless Go Application Security Baseline
+    version: 1.0.0
+    supports:
+      - platform: k8s

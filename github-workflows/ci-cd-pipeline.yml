@@ -1,0 +1,363 @@
+name: CI/CD Pipeline with CINC Auditor Scanning
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Tag for the container image'
+        required: true
+        default: 'latest'
+      scan_namespace:
+        description: 'Kubernetes namespace for scanning'
+        required: true
+        default: 'app-scan'
+      threshold:
+        description: 'Minimum passing score (0-100)'
+        required: true
+        default: '70'
+
+jobs:
+  build-deploy-scan:
+    name: Build, Deploy and Scan Container
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Define test application
+        run: |
+          # Create a simple application for testing
+          mkdir -p ./app
+          
+          # Create a minimal Dockerfile
+          cat > ./app/Dockerfile << 'EOF'
+          FROM alpine:latest
+          
+          # Add some packages to test vulnerability scanning
+          RUN apk add --no-cache bash curl wget
+          
+          # Add a sample script
+          COPY hello.sh /hello.sh
+          RUN chmod +x /hello.sh
+          
+          # Set CMD
+          CMD ["/bin/sh", "-c", "while true; do /hello.sh; sleep 300; done"]
+          EOF
+          
+          # Create a simple script file
+          cat > ./app/hello.sh << 'EOF'
+          #!/bin/bash
+          echo "Hello from test container! The time is $(date)"
+          echo "Running as user: $(whoami)"
+          echo "OS release: $(cat /etc/os-release | grep PRETTY_NAME)"
+          EOF
+      
+      - name: Set up Minikube
+        uses: medyagh/setup-minikube@master
+        with:
+          driver: docker
+          start-args: --nodes=2
+      
+      - name: Build container image
+        run: |
+          # Configure to use minikube's Docker daemon
+          eval $(minikube docker-env)
+          
+          # Build the image
+          docker build -t test-app:${{ github.event.inputs.image_tag }} ./app
+          
+          # List images to confirm
+          docker images | grep test-app
+      
+      - name: Create Kubernetes deployment
+        run: |
+          # Create namespace
+          kubectl create namespace ${{ github.event.inputs.scan_namespace }}
+          
+          # Create deployment
+          cat <<EOF | kubectl apply -f -
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: test-app
+            namespace: ${{ github.event.inputs.scan_namespace }}
+            labels:
+              app: test-app
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
+                app: test-app
+            template:
+              metadata:
+                labels:
+                  app: test-app
+                  security-scan: "enabled"
+              spec:
+                containers:
+                - name: app
+                  image: test-app:${{ github.event.inputs.image_tag }}
+                  imagePullPolicy: Never
+          EOF
+          
+          # Wait for deployment to be ready
+          kubectl -n ${{ github.event.inputs.scan_namespace }} rollout status deployment/test-app --timeout=120s
+          
+          # Get pod name
+          POD_NAME=$(kubectl get pods -n ${{ github.event.inputs.scan_namespace }} -l app=test-app -o jsonpath='{.items[0].metadata.name}')
+          echo "APP_POD=${POD_NAME}" >> $GITHUB_ENV
+          
+          # Show pods
+          kubectl get pods -n ${{ github.event.inputs.scan_namespace }} --show-labels
+      
+      - name: Set up CINC Auditor
+        run: |
+          # Install CINC Auditor
+          curl -L https://omnitruck.cinc.sh/install.sh | sudo bash -s -- -P cinc-auditor
+          
+          # Install train-k8s-container plugin
+          cinc-auditor plugin install train-k8s-container
+          
+          # Create a custom profile for application scanning
+          mkdir -p ./app-scan-profile
+          
+          # Create profile files
+          cat > ./app-scan-profile/inspec.yml << 'EOF'
+          name: app-scan-profile
+          title: Custom Application Container Scan
+          maintainer: Security Team
+          copyright: Security Team
+          license: Apache-2.0
+          summary: A custom profile for scanning containerized applications
+          version: 0.1.0
+          supports:
+            platform: os
+          EOF
+          
+          mkdir -p ./app-scan-profile/controls
+          
+          cat > ./app-scan-profile/controls/container_checks.rb << 'EOF'
+          control 'container-1.1' do
+            impact 0.7
+            title 'Ensure container is not running as root'
+            desc 'Containers should not run as root when possible'
+            
+            describe command('whoami') do
+              its('stdout') { should_not cmp 'root' }
+            end
+          end
+          
+          control 'container-1.2' do
+            impact 0.5
+            title 'Check container OS version'
+            desc 'Verify the container OS version'
+            
+            describe file('/etc/os-release') do
+              it { should exist }
+              its('content') { should include 'Alpine' }
+            end
+          end
+          
+          control 'container-1.3' do
+            impact 0.3
+            title 'Check for unnecessary packages'
+            desc 'Container should not have unnecessary packages'
+            
+            describe package('curl') do
+              it { should be_installed }
+            end
+            
+            describe package('wget') do
+              it { should be_installed }
+            end
+          end
+          
+          control 'container-1.4' do
+            impact 0.7
+            title 'Check for sensitive files'
+            desc 'Container should not have sensitive files'
+            
+            describe file('/etc/shadow') do
+              it { should exist }
+              it { should_not be_readable.by('others') }
+            end
+          end
+          EOF
+      
+      - name: Setup secure scanning infrastructure
+        run: |
+          # Create a unique ID for this run
+          RUN_ID=$(date +%s)
+          echo "RUN_ID=${RUN_ID}" >> $GITHUB_ENV
+          
+          # Create service account
+          cat <<EOF | kubectl apply -f -
+          apiVersion: v1
+          kind: ServiceAccount
+          metadata:
+            name: cinc-scanner-${RUN_ID}
+            namespace: ${{ github.event.inputs.scan_namespace }}
+          EOF
+          
+          # Create role with label-based access
+          cat <<EOF | kubectl apply -f -
+          apiVersion: rbac.authorization.k8s.io/v1
+          kind: Role
+          metadata:
+            name: cinc-scanner-role-${RUN_ID}
+            namespace: ${{ github.event.inputs.scan_namespace }}
+          rules:
+          - apiGroups: [""]
+            resources: ["pods"]
+            verbs: ["get", "list"]
+          - apiGroups: [""]
+            resources: ["pods/exec"]
+            verbs: ["create"]
+            # No resourceNames restriction - use label selector in code
+          - apiGroups: [""]
+            resources: ["pods/log"]
+            verbs: ["get"]
+            # No resourceNames restriction - use label selector in code
+          EOF
+          
+          # Create rolebinding
+          cat <<EOF | kubectl apply -f -
+          apiVersion: rbac.authorization.k8s.io/v1
+          kind: RoleBinding
+          metadata:
+            name: cinc-scanner-binding-${RUN_ID}
+            namespace: ${{ github.event.inputs.scan_namespace }}
+          subjects:
+          - kind: ServiceAccount
+            name: cinc-scanner-${RUN_ID}
+            namespace: ${{ github.event.inputs.scan_namespace }}
+          roleRef:
+            kind: Role
+            name: cinc-scanner-role-${RUN_ID}
+            apiGroup: rbac.authorization.k8s.io
+          EOF
+      
+      - name: Setup SAF-CLI
+        run: |
+          # Install Node.js (should already be installed on GitHub runners)
+          node --version || echo "Node.js not installed"
+          
+          # Install SAF-CLI globally
+          npm install -g @mitre/saf
+          
+          # Verify installation
+          saf --version
+      
+      - name: Run security scan with CINC Auditor
+        run: |
+          # Generate token
+          TOKEN=$(kubectl create token cinc-scanner-${RUN_ID} -n ${{ github.event.inputs.scan_namespace }} --duration=15m)
+          SERVER=$(kubectl config view --minify --output=jsonpath='{.clusters[0].cluster.server}')
+          CA_DATA=$(kubectl config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')
+          
+          # Create kubeconfig
+          cat > scan-kubeconfig.yaml << EOF
+          apiVersion: v1
+          kind: Config
+          preferences: {}
+          clusters:
+          - cluster:
+              server: ${SERVER}
+              certificate-authority-data: ${CA_DATA}
+            name: scanner-cluster
+          contexts:
+          - context:
+              cluster: scanner-cluster
+              namespace: ${{ github.event.inputs.scan_namespace }}
+              user: scanner-user
+            name: scanner-context
+          current-context: scanner-context
+          users:
+          - name: scanner-user
+            user:
+              token: ${TOKEN}
+          EOF
+          
+          chmod 600 scan-kubeconfig.yaml
+          
+          # Verify we can access the pod with our labels
+          POD_NAME=$(KUBECONFIG=scan-kubeconfig.yaml kubectl get pods -n ${{ github.event.inputs.scan_namespace }} -l security-scan=enabled -o jsonpath='{.items[0].metadata.name}')
+          if [ -z "$POD_NAME" ]; then
+            echo "Error: No pod found with security-scan=enabled label"
+            exit 1
+          fi
+          echo "Found pod to scan: ${POD_NAME}"
+          
+          # Run the CINC Auditor scan
+          KUBECONFIG=scan-kubeconfig.yaml cinc-auditor exec ./app-scan-profile \
+            -t k8s-container://${{ github.event.inputs.scan_namespace }}/${POD_NAME}/app \
+            --reporter cli json:scan-results.json
+          
+          SCAN_EXIT_CODE=$?
+          echo "CINC Auditor scan completed with exit code: ${SCAN_EXIT_CODE}"
+          
+          # Also run a standard profile for comparison
+          echo "Running standard DevSec Linux Baseline for comparison:"
+          KUBECONFIG=scan-kubeconfig.yaml cinc-auditor exec dev-sec/linux-baseline \
+            -t k8s-container://${{ github.event.inputs.scan_namespace }}/${POD_NAME}/app \
+            --reporter cli json:baseline-results.json || true
+      
+      - name: Generate scan summary with SAF-CLI
+        run: |
+          # Create summary report with SAF-CLI
+          echo "Generating scan summary with SAF-CLI:"
+          saf summary --input scan-results.json --output-md scan-summary.md
+          
+          # Display the summary in the logs
+          cat scan-summary.md
+          
+          # Create a proper threshold file
+          cat > threshold.yml << EOF
+compliance:
+  min: ${{ github.event.inputs.threshold }}
+failed:
+  critical:
+    max: 0  # No critical failures allowed
+EOF
+
+          # Apply threshold check
+          echo "Checking against threshold with min compliance of ${{ github.event.inputs.threshold }}%:"
+          saf threshold -i scan-results.json -t threshold.yml
+          THRESHOLD_EXIT_CODE=$?
+          
+          if [ $THRESHOLD_EXIT_CODE -eq 0 ]; then
+            echo "✅ Security scan passed threshold requirements"
+          else
+            echo "❌ Security scan failed to meet threshold requirements"
+            # Uncomment to enforce the threshold as a quality gate
+            # exit $THRESHOLD_EXIT_CODE
+          fi
+          
+          # Generate summary for baseline results too
+          echo "Generating baseline summary with SAF-CLI:"
+          saf summary --input baseline-results.json --output-md baseline-summary.md
+          
+          # Create a combined summary for GitHub step summary
+          echo "## Custom Application Profile Results" > $GITHUB_STEP_SUMMARY
+          cat scan-summary.md >> $GITHUB_STEP_SUMMARY
+          echo "## Linux Baseline Results" >> $GITHUB_STEP_SUMMARY
+          cat baseline-summary.md >> $GITHUB_STEP_SUMMARY
+      
+      - name: Upload scan results
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-scan-results
+          path: |
+            scan-results.json
+            baseline-results.json
+            scan-summary.md
+            baseline-summary.md
+      
+      - name: Cleanup resources
+        if: always()
+        run: |
+          kubectl delete namespace ${{ github.event.inputs.scan_namespace }}

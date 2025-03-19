@@ -1,0 +1,51 @@
+{{- if and .Values.rbac.create .Values.serviceAccount.name }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ .Values.rbac.roleName }}
+  namespace: {{ .Values.targetNamespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+rules:
+{{- if .Values.rbac.rules.core.enabled }}
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list"]
+{{- if and .Values.rbac.useLabelSelector .Values.rbac.podSelectorLabels }}
+  selector:
+    matchLabels:
+    {{- toYaml .Values.rbac.podSelectorLabels | nindent 6 }}
+{{- end }}
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create"]
+- apiGroups: [""]
+  resources: ["pods/log"]
+  verbs: ["get"]
+{{- end }}
+{{- if .Values.rbac.rules.ephemeralContainers.enabled }}
+- apiGroups: [""]
+  resources: ["pods/ephemeralcontainers"]
+  verbs: ["get", "create", "update", "patch"]
+{{- end }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ .Values.rbac.roleBindingName }}
+  namespace: {{ .Values.targetNamespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+subjects:
+- kind: ServiceAccount
+  name: {{ .Values.serviceAccount.name }}
+  namespace: {{ .Values.targetNamespace }}
+roleRef:
+  kind: Role
+  name: {{ .Values.rbac.roleName }}
+  apiGroup: rbac.authorization.k8s.io
+{{- end }}

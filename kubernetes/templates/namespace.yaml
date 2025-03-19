@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: inspec-test
+  labels:
+    purpose: security-scanning
+    app: inspec-scanner

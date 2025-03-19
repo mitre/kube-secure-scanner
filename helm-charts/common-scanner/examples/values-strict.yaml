@@ -1,0 +1,60 @@
+# Strict security configuration for common-scanner
+# These settings enforce high security requirements for all container scanning
+
+# Pass-through values for scanner-infrastructure
+scanner-infrastructure:
+  targetNamespace: inspec-secure
+  serviceAccount:
+    create: true
+    name: inspec-scanner-secure
+    annotations:
+      security.compliance/approved: "true"
+    labels:
+      security-level: "strict"
+  rbac:
+    create: true
+    useResourceNames: true
+    useLabelSelector: false
+    rules:
+      core:
+        enabled: true
+      ephemeralContainers:
+        enabled: true
+  token:
+    duration: 15  # Very short-lived tokens (15 minutes)
+    autoGenerate: true
+
+# Script configuration
+scripts:
+  generate: true
+  directory: "/security/inspec-scanner"
+  includeScanScript: true
+  includeDistrolessScanScript: true
+
+# SAF-CLI Configuration with strict thresholds
+safCli:
+  enabled: true
+  thresholdFilePath: ""
+  thresholdConfig:
+    compliance:
+      min: 100   # Require 100% compliance
+    failed:
+      critical:
+        max: 0   # No critical failures allowed
+      high:
+        max: 0   # No high failures allowed
+      medium:
+        max: 0   # No medium failures allowed
+      low:
+        max: 0   # No low failures allowed
+    skipped:
+      total:
+        max: 0   # No skipped controls allowed
+    error:
+      total:
+        max: 0   # No error controls allowed
+  failOnThresholdError: true  # Fail if thresholds are not met
+  reports:
+    generateSummary: true
+    generateHtmlReport: true
+    generateJsonSummary: true
