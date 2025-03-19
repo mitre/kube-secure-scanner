@@ -103,39 +103,55 @@ We most recently:
 
 6. **Current Project Status (March 19, 2025)**
    - Implemented a complete working solution for standard container scanning
-   - Implemented a working solution for distroless containers using ephemeral debug containers
+   - Created proof-of-concept for distroless containers using ephemeral debug containers
    - Completed all helper scripts for setup, scanning, and configuration
    - Finished modular Helm chart structure with proper dependencies
    - Created comprehensive documentation for all components
    - Implemented SAF CLI integration for threshold validation
    - Built CI/CD examples for GitHub Actions and GitLab CI with dynamic RBAC
-   - Created a roadmap for future development
+   - Created GitHub repository at github.com/mitre/kube-cinc-secure-scanner
    
-7. **Work In Progress**
-   - Main README.md updates to reflect current state
-   - Final review of scripts, Helm charts, and CI/CD workflows
-   - Testing with various distroless container types
-
+7. **Work Completed This Session**
+   - Updated main README.md to reflect dual approach strategy
+   - Updated distroless-container.sh script with improved error handling and documentation
+   - Updated TASKS.md and ROADMAP.md to reflect dual demonstration approach
+   - Created and pushed initial codebase to MITRE GitHub repository
+   - Added architectural documentation requirements to roadmap
+   - Planned for both distroless container scanning approaches
+   
 8. **Next Development Phase**
-   - Modifying the train-k8s-container plugin for native distroless support
-   - Performance optimization
-   - Security review and hardening
-   - Project release preparation
+   - Implement dual demonstration of distroless container scanning approaches:
+     1. Modified train-k8s-container plugin (Enterprise Solution)
+     2. CINC Auditor in debug container with chroot (Working Prototype)
+   - Create architecture and security documentation with flow diagrams
+   - Implement specialized debug container with CINC Auditor pre-installed
+   - Performance comparison and optimization for both approaches
+   - Security risk analysis and recommendations document
 
 ### Next Steps
 
-1. **Distroless Container Scanning Implementation**
-   - Fork and modify the train-k8s-container plugin to support distroless containers
-   - Implement ephemeral container detection and integration directly in the plugin
-   - Add automatic fallback to ephemeral containers when shell access fails
-   - Create examples and documentation for this approach
-   - Create specialized pipeline examples for distroless containers:
-     - GitHub Actions workflow for distroless container scanning
-     - GitLab CI pipeline for distroless container scanning
-   - References to explore:
-     - https://github.com/inspec/train-k8s-container/blob/main/lib/train/k8s/container/kubectl_exec_client.rb (modify exec approach)
-     - https://github.com/inspec/train-k8s-container/blob/main/lib/train/k8s/container/connection.rb (add ephemeral detection)
-     - https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/
+1. **Dual Distroless Container Scanning Implementation**
+   - **Approach 1 - Modified Plugin (Enterprise Solution):**
+     - Fork and modify the train-k8s-container plugin to support distroless containers
+     - Implement ephemeral container detection and integration directly in the plugin
+     - Add automatic fallback to ephemeral containers when shell access fails
+     - Create examples and documentation for this approach
+     - References to explore:
+       - https://github.com/inspec/train-k8s-container/blob/main/lib/train/k8s/container/kubectl_exec_client.rb (modify exec approach)
+       - https://github.com/inspec/train-k8s-container/blob/main/lib/train/k8s/container/connection.rb (add ephemeral detection)
+       - https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/
+   
+   - **Approach 2 - CINC Auditor Debug Container (Working Prototype):**
+     - Create specialized debug container with CINC Auditor pre-installed
+     - Implement chroot-based filesystem access to target container
+     - Develop mechanism to bridge results back to host system
+     - Document the approach's tradeoffs and use cases
+     - Create working examples with common distroless images
+
+   - **CI/CD Integration for Both Approaches:**
+     - GitHub Actions workflow for both approaches
+     - GitLab CI pipeline for both approaches 
+     - Comparative demonstration pipelines
 
 2. **Integration and Testing**
    - Complete the Helm chart templates for all components
@@ -144,9 +160,12 @@ We most recently:
    - Test with various distroless container types (Go, Java, Python, etc.)
    - Ensure proper compatibility with SAF CLI threshold checks
 
-3. **Documentation and Examples**
-   - Complete documentation for both approaches
-   - Document both helper scripts AND direct kubectl/inspec commands:
+3. **Architecture and Documentation**
+   - Create architecture and flow diagrams showing container interactions
+   - Develop security risk analysis for both approaches
+   - Create decision matrix comparing approaches
+   - Document both helper scripts AND direct kubectl/inspec commands
+   - Develop recommendation document for stakeholders
      - Show how to use helper scripts (scan-container.sh, scan-distroless-container.sh)
      - Show the equivalent direct kubectl and inspec commands for users who prefer that approach
      - Ensure users understand what's happening "under the hood"
