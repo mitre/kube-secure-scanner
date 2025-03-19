@@ -1,10 +1,20 @@
 # Secure CINC Auditor Kubernetes Container Scanning
 
-This project provides a comprehensive solution for securely scanning Kubernetes containers using CINC Auditor (open source InSpec) with the train-k8s-container transport.
+This project provides a comprehensive platform for securely scanning Kubernetes containers through multiple methodologies, leveraging CINC Auditor (open source InSpec) with security-focused RBAC configurations. It enables secure container compliance scanning across both standard and distroless containers in any Kubernetes environment.
 
 ## Project Overview
 
-This solution addresses the security concerns around container scanning by implementing:
+Our solution offers two distinct technical approaches for container scanning:
+
+1. **Enhanced Transport Approach**: Modified train-k8s-container plugin for direct, API-based scanning through the Kubernetes management node
+2. **Debug Sidecar Approach**: Ephemeral debug container with chroot-based scanning for distroless containers
+
+These approaches can be deployed via:
+- Self-contained shell scripts for direct management and testing
+- Modular Helm charts for declarative, enterprise deployment
+- CI/CD integration with GitHub Actions and GitLab CI for both minikube-based and existing Kubernetes clusters
+
+The platform works in both local minikube environments and existing production Kubernetes clusters, with specialized security controls that address the fundamental challenges of privileged container scanning:
 
 1. **Least Privilege Access** - Restrict scanning to specific containers only
 2. **Dynamic Access Control** - Create temporary, targeted access for scanning
