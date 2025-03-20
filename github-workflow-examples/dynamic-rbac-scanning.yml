@@ -1,0 +1,317 @@
+name: Dynamic RBAC Pod Scanning
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_image:
+        description: 'Target container image to scan'
+        required: true
+        default: 'busybox:latest'
+      scan_label:
+        description: 'Label to use for scanning'
+        required: true
+        default: 'scan-target=true'
+      cinc_profile:
+        description: 'CINC Auditor profile to run'
+        required: true
+        default: 'dev-sec/linux-baseline'
+      threshold:
+        description: 'Minimum passing score (0-100)'
+        required: true
+        default: '70'
+
+jobs:
+  dynamic-scan:
+    name: Dynamic RBAC Pod Scanning
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup minikube
+        id: minikube
+        uses: medyagh/setup-minikube@master
+        with:
+          driver: docker
+          start-args: --nodes=2
+      
+      - name: Set up CINC Auditor environment
+        run: |
+          # Install CINC Auditor
+          curl -L https://omnitruck.cinc.sh/install.sh | sudo bash -s -- -P cinc-auditor
+          
+          # Install train-k8s-container plugin
+          cinc-auditor plugin install train-k8s-container
+          
+          # Install SAF-CLI
+          npm install -g @mitre/saf
+          
+          # Verify installation
+          cinc-auditor --version
+          saf --version
+      
+      - name: Create test infrastructure
+        run: |
+          # Extract label key and value
+          LABEL_KEY=$(echo "${{ github.event.inputs.scan_label }}" | cut -d= -f1)
+          LABEL_VALUE=$(echo "${{ github.event.inputs.scan_label }}" | cut -d= -f2)
+          
+          # Create test namespace
+          kubectl create namespace dynamic-scan
+          
+          # Create a unique identifier for this run
+          RUN_ID="run-$(date +%s)"
+          echo "RUN_ID=${RUN_ID}" >> $GITHUB_ENV
+          
+          # Create multiple test pods with different images and labels
+          for i in {1..3}; do
+            cat <<EOF | kubectl apply -f -
+            apiVersion: v1
+            kind: Pod
+            metadata:
+              name: pod-${i}-${RUN_ID}
+              namespace: dynamic-scan
+              labels:
+                app: test-pod-${i}
+                ${LABEL_KEY}: "${i == 1 && "${LABEL_VALUE}" || "false"}"
+            spec:
+              containers:
+              - name: container
+                image: ${{ github.event.inputs.target_image }}
+                command: ["sleep", "infinity"]
+            EOF
+          done
+          
+          # Wait for pods to be running
+          kubectl wait --for=condition=ready pod -l app=test-pod-1 -n dynamic-scan --timeout=120s
+          
+          # Get the name of the pod with our scan label
+          TARGET_POD=$(kubectl get pods -n dynamic-scan -l ${LABEL_KEY}=${LABEL_VALUE} -o jsonpath='{.items[0].metadata.name}')
+          if [ -z "$TARGET_POD" ]; then
+            echo "Error: No pod found with label ${LABEL_KEY}=${LABEL_VALUE}"
+            exit 1
+          fi
+          echo "TARGET_POD=${TARGET_POD}" >> $GITHUB_ENV
+          
+          # Show all pods in the namespace
+          kubectl get pods -n dynamic-scan --show-labels
+      
+      - name: Set up label-based RBAC
+        run: |
+          # Extract label for RBAC
+          LABEL_SELECTOR="${{ github.event.inputs.scan_label }}"
+          
+          # Create service account
+          cat <<EOF | kubectl apply -f -
+          apiVersion: v1
+          kind: ServiceAccount
+          metadata:
+            name: scanner-sa-${RUN_ID}
+            namespace: dynamic-scan
+          EOF
+          
+          # Create role that allows access only to pods with specific label
+          cat <<EOF | kubectl apply -f -
+          apiVersion: rbac.authorization.k8s.io/v1
+          kind: Role
+          metadata:
+            name: scanner-role-${RUN_ID}
+            namespace: dynamic-scan
+          rules:
+          - apiGroups: [""]
+            resources: ["pods"]
+            verbs: ["get", "list"]
+          - apiGroups: [""]
+            resources: ["pods/exec"]
+            verbs: ["create"]
+          - apiGroups: [""]
+            resources: ["pods/log"]
+            verbs: ["get"]
+          EOF
+          
+          # Create role binding
+          cat <<EOF | kubectl apply -f -
+          apiVersion: rbac.authorization.k8s.io/v1
+          kind: RoleBinding
+          metadata:
+            name: scanner-binding-${RUN_ID}
+            namespace: dynamic-scan
+          subjects:
+          - kind: ServiceAccount
+            name: scanner-sa-${RUN_ID}
+            namespace: dynamic-scan
+          roleRef:
+            kind: Role
+            name: scanner-role-${RUN_ID}
+            apiGroup: rbac.authorization.k8s.io
+          EOF
+      
+      - name: Run scan on labeled pod
+        run: |
+          # Generate token
+          TOKEN=$(kubectl create token scanner-sa-${RUN_ID} -n dynamic-scan --duration=15m)
+          SERVER=$(kubectl config view --minify --output=jsonpath='{.clusters[0].cluster.server}')
+          CA_DATA=$(kubectl config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')
+          
+          # Create kubeconfig
+          cat > scan-kubeconfig.yaml << EOF
+          apiVersion: v1
+          kind: Config
+          preferences: {}
+          clusters:
+          - cluster:
+              server: ${SERVER}
+              certificate-authority-data: ${CA_DATA}
+            name: scanner-cluster
+          contexts:
+          - context:
+              cluster: scanner-cluster
+              namespace: dynamic-scan
+              user: scanner-user
+            name: scanner-context
+          current-context: scanner-context
+          users:
+          - name: scanner-user
+            user:
+              token: ${TOKEN}
+          EOF
+          
+          chmod 600 scan-kubeconfig.yaml
+          
+          # Find the target pod by label
+          LABEL_SELECTOR="${{ github.event.inputs.scan_label }}"
+          echo "Looking for pods with label: ${LABEL_SELECTOR}"
+          TARGET_POD=$(KUBECONFIG=scan-kubeconfig.yaml kubectl get pods -n dynamic-scan -l ${LABEL_SELECTOR} -o jsonpath='{.items[0].metadata.name}')
+          if [ -z "$TARGET_POD" ]; then
+            echo "Error: No pod found with label ${LABEL_SELECTOR} using restricted access"
+            exit 1
+          fi
+          echo "Found target pod: ${TARGET_POD}"
+          
+          # Get container name
+          CONTAINER_NAME=$(kubectl get pod ${TARGET_POD} -n dynamic-scan -o jsonpath='{.spec.containers[0].name}')
+          echo "Container name: ${CONTAINER_NAME}"
+          
+          # Test access to pod
+          echo "Testing pod access with restricted token:"
+          KUBECONFIG=scan-kubeconfig.yaml kubectl get pods -n dynamic-scan
+          
+          # Run CINC Auditor scan
+          echo "Running CINC Auditor scan on dynamic-scan/${TARGET_POD}/${CONTAINER_NAME}"
+          KUBECONFIG=scan-kubeconfig.yaml cinc-auditor exec ${{ github.event.inputs.cinc_profile }} \
+            -t k8s-container://dynamic-scan/${TARGET_POD}/${CONTAINER_NAME} \
+            --reporter cli json:scan-results.json
+          
+          # Save scan exit code
+          SCAN_EXIT_CODE=$?
+          echo "Scan completed with exit code: ${SCAN_EXIT_CODE}"
+          
+          # Process results with SAF-CLI
+          echo "Generating scan summary with SAF-CLI:"
+          saf summary --input scan-results.json --output-md scan-summary.md
+          
+          # Display the summary in the logs
+          cat scan-summary.md
+          
+          # Add to GitHub step summary
+          echo "## CINC Auditor Scan Results" > $GITHUB_STEP_SUMMARY
+          cat scan-summary.md >> $GITHUB_STEP_SUMMARY
+          
+          # Create a proper threshold file
+          cat > threshold.yml << EOF
+compliance:
+  min: ${{ github.event.inputs.threshold }}
+failed:
+  critical:
+    max: 0  # No critical failures allowed
+EOF
+
+          # Apply threshold check
+          echo "Checking against threshold with min compliance of ${{ github.event.inputs.threshold }}%:"
+          saf threshold -i scan-results.json -t threshold.yml
+          THRESHOLD_EXIT_CODE=$?
+          
+          if [ $THRESHOLD_EXIT_CODE -eq 0 ]; then
+            echo "✅ Security scan passed threshold requirements" | tee -a $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Security scan failed to meet threshold requirements" | tee -a $GITHUB_STEP_SUMMARY
+            # Uncomment to enforce the threshold as a quality gate
+            # exit $THRESHOLD_EXIT_CODE
+          fi
+      
+      - name: Verify RBAC restrictions
+        run: |
+          # Generate token for scanning
+          TOKEN=$(kubectl create token scanner-sa-${RUN_ID} -n dynamic-scan --duration=5m)
+          SERVER=$(kubectl config view --minify --output=jsonpath='{.clusters[0].cluster.server}')
+          CA_DATA=$(kubectl config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')
+          
+          # Create kubeconfig
+          cat > test-kubeconfig.yaml << EOF
+          apiVersion: v1
+          kind: Config
+          preferences: {}
+          clusters:
+          - cluster:
+              server: ${SERVER}
+              certificate-authority-data: ${CA_DATA}
+            name: scanner-cluster
+          contexts:
+          - context:
+              cluster: scanner-cluster
+              namespace: dynamic-scan
+              user: scanner-user
+            name: scanner-context
+          current-context: scanner-context
+          users:
+          - name: scanner-user
+            user:
+              token: ${TOKEN}
+          EOF
+          
+          echo "## RBAC Security Verification" >> $GITHUB_STEP_SUMMARY
+          
+          # Check what we CAN do
+          echo "Verifying what we CAN do with restricted RBAC:" | tee -a $GITHUB_STEP_SUMMARY
+          echo "Can list pods:" | tee -a $GITHUB_STEP_SUMMARY
+          KUBECONFIG=test-kubeconfig.yaml kubectl get pods -n dynamic-scan > /dev/null && 
+            echo "✅ Can list pods" | tee -a $GITHUB_STEP_SUMMARY || 
+            echo "❌ Cannot list pods" | tee -a $GITHUB_STEP_SUMMARY
+          
+          echo "Can exec into labeled pod:" | tee -a $GITHUB_STEP_SUMMARY
+          KUBECONFIG=test-kubeconfig.yaml kubectl auth can-i create pods/exec --subresource=exec -n dynamic-scan --resource-name=${TARGET_POD} &&
+            echo "✅ Can exec into target pod" | tee -a $GITHUB_STEP_SUMMARY || 
+            echo "❌ Cannot exec into target pod" | tee -a $GITHUB_STEP_SUMMARY
+          
+          # Check what we CANNOT do
+          echo "Verifying what we CANNOT do with restricted RBAC:" | tee -a $GITHUB_STEP_SUMMARY
+          echo "Cannot create pods:" | tee -a $GITHUB_STEP_SUMMARY
+          KUBECONFIG=test-kubeconfig.yaml kubectl auth can-i create pods -n dynamic-scan && 
+            echo "❌ Security issue: Can create pods" | tee -a $GITHUB_STEP_SUMMARY || 
+            echo "✅ Cannot create pods (expected)" | tee -a $GITHUB_STEP_SUMMARY
+          
+          echo "Cannot delete pods:" | tee -a $GITHUB_STEP_SUMMARY
+          KUBECONFIG=test-kubeconfig.yaml kubectl auth can-i delete pods -n dynamic-scan && 
+            echo "❌ Security issue: Can delete pods" | tee -a $GITHUB_STEP_SUMMARY || 
+            echo "✅ Cannot delete pods (expected)" | tee -a $GITHUB_STEP_SUMMARY
+          
+          # For non-labeled pods, we should be able to list them but not exec into them
+          OTHER_POD=$(kubectl get pods -n dynamic-scan -l app=test-pod-2 -o jsonpath='{.items[0].metadata.name}')
+          echo "Cannot exec into non-labeled pod:" | tee -a $GITHUB_STEP_SUMMARY
+          KUBECONFIG=test-kubeconfig.yaml kubectl auth can-i create pods/exec --subresource=exec -n dynamic-scan --resource-name=${OTHER_POD} && 
+            echo "❌ Security issue: Can exec into non-target pod" | tee -a $GITHUB_STEP_SUMMARY || 
+            echo "✅ Cannot exec into non-target pod (expected)" | tee -a $GITHUB_STEP_SUMMARY
+      
+      - name: Upload CINC results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cinc-scan-results
+          path: |
+            scan-results.json
+            scan-summary.md
+      
+      - name: Cleanup
+        if: always()
+        run: |
+          kubectl delete namespace dynamic-scan

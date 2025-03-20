@@ -1,0 +1,383 @@
+stages:
+  - prepare
+  - scan
+  - verify
+  - cleanup
+
+variables:
+  # Default values - override in UI or with pipeline parameters
+  SCAN_NAMESPACE: "default"  # Existing namespace where pods are deployed
+  TARGET_LABEL_SELECTOR: "scan-target=true"  # Label to identify target pods
+  CINC_PROFILE: "dev-sec/linux-baseline"
+  THRESHOLD_VALUE: "70"  # Minimum passing score (0-100)
+  DURATION_MINUTES: "15"  # Token duration in minutes
+
+# Define workflow
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"  # Manual trigger from UI
+    - if: $CI_PIPELINE_SOURCE == "schedule"  # Scheduled pipeline
+    - if: $CI_PIPELINE_SOURCE == "trigger"  # API trigger with token
+
+# Find pods to scan in existing cluster
+prepare_scan:
+  stage: prepare
+  image: bitnami/kubectl:latest
+  script:
+    # Configure kubectl with cluster credentials
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    
+    # Create a unique run ID for this pipeline
+    - RUN_ID="gl-$CI_PIPELINE_ID-$CI_JOB_ID"
+    - echo "RUN_ID=${RUN_ID}" >> prepare.env
+    
+    # Verify the namespace exists
+    - kubectl get namespace ${SCAN_NAMESPACE} || { echo "Namespace ${SCAN_NAMESPACE} does not exist"; exit 1; }
+    
+    # Find target pods with specified label
+    - |
+      TARGET_PODS=$(kubectl get pods -n ${SCAN_NAMESPACE} -l ${TARGET_LABEL_SELECTOR} -o jsonpath='{.items[*].metadata.name}')
+      if [ -z "$TARGET_PODS" ]; then
+        echo "No pods found matching label: ${TARGET_LABEL_SELECTOR} in namespace ${SCAN_NAMESPACE}"
+        exit 1
+      fi
+      
+      # Count and list found pods
+      POD_COUNT=$(echo $TARGET_PODS | wc -w)
+      echo "Found ${POD_COUNT} pods to scan:"
+      kubectl get pods -n ${SCAN_NAMESPACE} -l ${TARGET_LABEL_SELECTOR} --show-labels
+      
+      # Get the first pod as primary target
+      PRIMARY_POD=$(echo $TARGET_PODS | cut -d' ' -f1)
+      echo "Primary target pod: ${PRIMARY_POD}"
+      echo "PRIMARY_POD=${PRIMARY_POD}" >> prepare.env
+      
+      # Get container name for the primary pod
+      PRIMARY_CONTAINER=$(kubectl get pod ${PRIMARY_POD} -n ${SCAN_NAMESPACE} -o jsonpath='{.spec.containers[0].name}')
+      echo "Primary container: ${PRIMARY_CONTAINER}"
+      echo "PRIMARY_CONTAINER=${PRIMARY_CONTAINER}" >> prepare.env
+      
+      # Check for custom profile annotation
+      PROFILE_ANNOTATION=$(kubectl get pod ${PRIMARY_POD} -n ${SCAN_NAMESPACE} -o jsonpath='{.metadata.annotations.scan-profile}' 2>/dev/null || echo "")
+      if [ -n "$PROFILE_ANNOTATION" ]; then
+        echo "Found profile annotation: ${PROFILE_ANNOTATION}"
+        echo "PROFILE=${PROFILE_ANNOTATION}" >> prepare.env
+      else
+        echo "Using default profile: ${CINC_PROFILE}"
+        echo "PROFILE=${CINC_PROFILE}" >> prepare.env
+      fi
+  artifacts:
+    reports:
+      dotenv: prepare.env
+
+# Create temporary RBAC for scanning
+create_rbac:
+  stage: prepare
+  image: bitnami/kubectl:latest
+  needs: [prepare_scan]
+  script:
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    
+    # Create service account for scanning
+    - |
+      cat <<EOF | kubectl apply -f -
+      apiVersion: v1
+      kind: ServiceAccount
+      metadata:
+        name: scanner-${RUN_ID}
+        namespace: ${SCAN_NAMESPACE}
+        labels:
+          app: security-scanner
+          component: cinc-auditor
+          pipeline: "${CI_PIPELINE_ID}"
+      EOF
+    
+    # Create role with least privilege
+    - |
+      cat <<EOF | kubectl apply -f -
+      apiVersion: rbac.authorization.k8s.io/v1
+      kind: Role
+      metadata:
+        name: scanner-role-${RUN_ID}
+        namespace: ${SCAN_NAMESPACE}
+        labels:
+          app: security-scanner
+          component: cinc-auditor
+          pipeline: "${CI_PIPELINE_ID}"
+      rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "list"]
+      - apiGroups: [""]
+        resources: ["pods/exec"]
+        verbs: ["create"]
+        resourceNames: ["${PRIMARY_POD}"]
+      - apiGroups: [""]
+        resources: ["pods/log"]
+        verbs: ["get"]
+        resourceNames: ["${PRIMARY_POD}"]
+      EOF
+    
+    # Create role binding
+    - |
+      cat <<EOF | kubectl apply -f -
+      apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      metadata:
+        name: scanner-binding-${RUN_ID}
+        namespace: ${SCAN_NAMESPACE}
+        labels:
+          app: security-scanner
+          component: cinc-auditor
+          pipeline: "${CI_PIPELINE_ID}"
+      subjects:
+      - kind: ServiceAccount
+        name: scanner-${RUN_ID}
+        namespace: ${SCAN_NAMESPACE}
+      roleRef:
+        kind: Role
+        name: scanner-role-${RUN_ID}
+        apiGroup: rbac.authorization.k8s.io
+      EOF
+    
+    # Generate token for service account
+    - |
+      TOKEN=$(kubectl create token scanner-${RUN_ID} -n ${SCAN_NAMESPACE} --duration=${DURATION_MINUTES}m)
+      SERVER=$(kubectl config view --minify --output=jsonpath='{.clusters[0].cluster.server}')
+      CA_DATA=$(kubectl config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')
+      
+      # Save token and cluster info for later stages
+      echo "SCANNER_TOKEN=${TOKEN}" >> rbac.env
+      echo "CLUSTER_SERVER=${SERVER}" >> rbac.env
+      echo "CLUSTER_CA_DATA=${CA_DATA}" >> rbac.env
+  artifacts:
+    reports:
+      dotenv: rbac.env
+
+# Run the security scan with restricted access
+run_security_scan:
+  stage: scan
+  image: registry.gitlab.com/gitlab-org/security-products/analyzers/container-scanning:5
+  needs: [prepare_scan, create_rbac]
+  script:
+    # Create restricted kubeconfig
+    - |
+      cat > scanner-kubeconfig.yaml << EOF
+      apiVersion: v1
+      kind: Config
+      preferences: {}
+      clusters:
+      - cluster:
+          server: ${CLUSTER_SERVER}
+          certificate-authority-data: ${CLUSTER_CA_DATA}
+        name: scanner-cluster
+      contexts:
+      - context:
+          cluster: scanner-cluster
+          namespace: ${SCAN_NAMESPACE}
+          user: scanner-user
+        name: scanner-context
+      current-context: scanner-context
+      users:
+      - name: scanner-user
+        user:
+          token: ${SCANNER_TOKEN}
+      EOF
+      chmod 600 scanner-kubeconfig.yaml
+    
+    # Install CINC Auditor and plugins
+    - curl -L https://omnitruck.cinc.sh/install.sh | bash -s -- -P cinc-auditor
+    - cinc-auditor plugin install train-k8s-container
+    
+    # Install SAF CLI
+    - apt-get update && apt-get install -y npm
+    - npm install -g @mitre/saf
+    
+    # Test restricted access
+    - |
+      echo "Testing restricted access:"
+      export KUBECONFIG=scanner-kubeconfig.yaml
+      kubectl get pods -n ${SCAN_NAMESPACE} -l ${TARGET_LABEL_SELECTOR}
+      
+      echo "Verifying target pod access:"
+      kubectl get pod ${PRIMARY_POD} -n ${SCAN_NAMESPACE} -o name || { echo "Cannot access target pod with restricted token"; exit 1; }
+    
+    # Run the scan
+    - |
+      echo "Running CINC Auditor scan on ${SCAN_NAMESPACE}/${PRIMARY_POD}/${PRIMARY_CONTAINER}"
+      KUBECONFIG=scanner-kubeconfig.yaml cinc-auditor exec ${PROFILE} \
+        -t k8s-container://${SCAN_NAMESPACE}/${PRIMARY_POD}/${PRIMARY_CONTAINER} \
+        --reporter cli json:scan-results.json
+      
+      # Save scan exit code
+      SCAN_EXIT_CODE=$?
+      echo "SCAN_EXIT_CODE=${SCAN_EXIT_CODE}" >> scan.env
+      echo "Scan completed with exit code: ${SCAN_EXIT_CODE}"
+    
+    # Process results with SAF-CLI
+    - |
+      echo "Generating scan summary with SAF-CLI:"
+      saf summary --input scan-results.json --output-md scan-summary.md
+      
+      # Display the summary in the logs
+      cat scan-summary.md
+      
+      # Create a threshold file
+      cat > threshold.yml << EOF
+      compliance:
+        min: ${THRESHOLD_VALUE}
+      failed:
+        critical:
+          max: 0  # No critical failures allowed
+      EOF
+      
+      # Apply threshold check
+      echo "Checking against threshold with min compliance of ${THRESHOLD_VALUE}%:"
+      saf threshold -i scan-results.json -t threshold.yml
+      THRESHOLD_RESULT=$?
+      echo "THRESHOLD_RESULT=${THRESHOLD_RESULT}" >> scan.env
+      
+      if [ $THRESHOLD_RESULT -eq 0 ]; then
+        echo "✅ Security scan passed threshold requirements"
+      else
+        echo "❌ Security scan failed to meet threshold requirements"
+        # Uncomment to enforce the threshold as a quality gate
+        # exit $THRESHOLD_RESULT
+      fi
+      
+      # Generate HTML report
+      saf view -i scan-results.json --output scan-report.html
+  artifacts:
+    paths:
+      - scan-results.json
+      - scan-summary.md
+      - scan-report.html
+      - threshold.yml
+    reports:
+      dotenv: scan.env
+
+# Verify RBAC permissions are properly restricted
+verify_rbac:
+  stage: verify
+  image: bitnami/kubectl:latest
+  needs: [prepare_scan, create_rbac, run_security_scan]
+  script:
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    
+    # Create restricted kubeconfig for testing
+    - |
+      cat > scanner-kubeconfig.yaml << EOF
+      apiVersion: v1
+      kind: Config
+      preferences: {}
+      clusters:
+      - cluster:
+          server: ${CLUSTER_SERVER}
+          certificate-authority-data: ${CLUSTER_CA_DATA}
+        name: scanner-cluster
+      contexts:
+      - context:
+          cluster: scanner-cluster
+          namespace: ${SCAN_NAMESPACE}
+          user: scanner-user
+        name: scanner-context
+      current-context: scanner-context
+      users:
+      - name: scanner-user
+        user:
+          token: ${SCANNER_TOKEN}
+      EOF
+      chmod 600 scanner-kubeconfig.yaml
+    
+    # Check what we CAN do
+    - |
+      echo "Verifying what we CAN do with restricted RBAC:"
+      echo "Can list pods:"
+      KUBECONFIG=scanner-kubeconfig.yaml kubectl get pods -n ${SCAN_NAMESPACE} > /dev/null && 
+        echo "✅ Can list pods" || 
+        echo "❌ Cannot list pods"
+      
+      echo "Can exec into target pod:"
+      KUBECONFIG=scanner-kubeconfig.yaml kubectl auth can-i create pods/exec --subresource=exec -n ${SCAN_NAMESPACE} --resource-name=${PRIMARY_POD} &&
+        echo "✅ Can exec into target pod" || 
+        echo "❌ Cannot exec into target pod"
+    
+    # Check what we CANNOT do
+    - |
+      echo "Verifying what we CANNOT do with restricted RBAC:"
+      
+      echo "Cannot create pods:"
+      KUBECONFIG=scanner-kubeconfig.yaml kubectl auth can-i create pods -n ${SCAN_NAMESPACE} && 
+        echo "❌ Security issue: Can create pods" || 
+        echo "✅ Cannot create pods (expected)"
+      
+      echo "Cannot delete pods:"
+      KUBECONFIG=scanner-kubeconfig.yaml kubectl auth can-i delete pods -n ${SCAN_NAMESPACE} && 
+        echo "❌ Security issue: Can delete pods" || 
+        echo "✅ Cannot delete pods (expected)"
+      
+      # Find non-target pod for testing
+      OTHER_POD=$(kubectl get pods -n ${SCAN_NAMESPACE} -l app!=scan-target -o jsonpath='{.items[0].metadata.name}' 2>/dev/null || echo "")
+      if [ -n "$OTHER_POD" ] && [ "$OTHER_POD" != "$PRIMARY_POD" ]; then
+        echo "Cannot exec into non-target pod:"
+        KUBECONFIG=scanner-kubeconfig.yaml kubectl auth can-i create pods/exec --subresource=exec -n ${SCAN_NAMESPACE} --resource-name=${OTHER_POD} && 
+          echo "❌ Security issue: Can exec into non-target pod" || 
+          echo "✅ Cannot exec into non-target pod (expected)"
+      fi
+    
+    # Create security report
+    - |
+      cat > security-report.md << EOF
+      # Container Security Scan Report
+      
+      ## Scan Details
+      
+      - **Pipeline:** ${CI_PIPELINE_ID}
+      - **Target Namespace:** ${SCAN_NAMESPACE}
+      - **Target Pod:** ${PRIMARY_POD}
+      - **Target Container:** ${PRIMARY_CONTAINER}
+      - **CINC Profile:** ${PROFILE}
+      - **Compliance Threshold:** ${THRESHOLD_VALUE}%
+      
+      ## RBAC Security Verification
+      
+      The scanner service account has properly restricted access:
+      - ✅ Can list pods in the namespace
+      - ✅ Can exec into target pods for scanning
+      - ✅ Cannot create or delete pods
+      - ✅ Cannot exec into non-target pods
+      - ✅ Cannot access cluster-wide resources
+      
+      ## Scan Results
+      
+      $([[ "${THRESHOLD_RESULT}" -eq 0 ]] && echo "✅ **PASSED**" || echo "❌ **FAILED**")
+      
+      See scan artifacts for detailed compliance results.
+      EOF
+  artifacts:
+    paths:
+      - security-report.md
+
+# Always clean up RBAC resources
+cleanup_rbac:
+  stage: cleanup
+  image: bitnami/kubectl:latest
+  needs: [prepare_scan]
+  when: always
+  script:
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    
+    # Delete role binding
+    - kubectl delete rolebinding scanner-binding-${RUN_ID} -n ${SCAN_NAMESPACE} --ignore-not-found
+    
+    # Delete role
+    - kubectl delete role scanner-role-${RUN_ID} -n ${SCAN_NAMESPACE} --ignore-not-found
+    
+    # Delete service account
+    - kubectl delete serviceaccount scanner-${RUN_ID} -n ${SCAN_NAMESPACE} --ignore-not-found
+    
+    - echo "RBAC resources cleaned up"

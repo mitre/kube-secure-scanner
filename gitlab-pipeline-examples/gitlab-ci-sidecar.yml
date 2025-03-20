@@ -1,0 +1,273 @@
+stages:
+  - deploy
+  - scan
+  - report
+  - cleanup
+
+variables:
+  SCANNER_NAMESPACE: "inspec-test"
+  TARGET_LABEL: "app=target-app"
+  THRESHOLD_VALUE: "70"  # Minimum passing score (0-100)
+  TARGET_IMAGE: "registry.example.com/my-image:latest"  # Target image to scan
+  # If scanning a distroless image, set this to true
+  IS_DISTROLESS: "false"
+
+deploy_sidecar_pod:
+  stage: deploy
+  script:
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    - |
+      # Create the namespace if it doesn't exist
+      kubectl get namespace ${SCANNER_NAMESPACE} || kubectl create namespace ${SCANNER_NAMESPACE}
+      
+      # Create ConfigMap for CINC profile
+      cat > container-baseline.rb << EOF
+      # Example CINC Auditor profile for container scanning
+      
+      title "Container Baseline"
+      
+      control "container-1.1" do
+        impact 0.7
+        title "Container files should have proper permissions"
+        desc "Critical files in the container should have proper permissions."
+        
+        describe file('/etc/passwd') do
+          it { should exist }
+          its('mode') { should cmp '0644' }
+        end
+      end
+      
+      control "container-1.2" do
+        impact 0.5
+        title "Container should not have unnecessary packages"
+        desc "Container should be minimal and not contain unnecessary packages."
+        
+        describe directory('/var/lib/apt') do
+          it { should_not exist }
+        end
+      end
+      EOF
+      
+      kubectl create configmap inspec-profiles-${CI_PIPELINE_ID} \
+        --from-file=container-baseline=container-baseline.rb \
+        -n ${SCANNER_NAMESPACE}
+      
+      # Create ConfigMap for threshold
+      cat > threshold.yml << EOF
+      compliance:
+        min: ${THRESHOLD_VALUE}
+      failed:
+        critical:
+          max: 0
+      EOF
+      
+      kubectl create configmap inspec-thresholds-${CI_PIPELINE_ID} \
+        --from-file=threshold.yml=threshold.yml \
+        -n ${SCANNER_NAMESPACE}
+      
+      # Deploy the pod with sidecar scanner
+      cat <<EOF | kubectl apply -f -
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: app-scanner-${CI_PIPELINE_ID}
+        namespace: ${SCANNER_NAMESPACE}
+        labels:
+          app: scanner-pod
+          pipeline: "${CI_PIPELINE_ID}"
+      spec:
+        shareProcessNamespace: true  # Enable shared process namespace
+        containers:
+        # Target container to be scanned
+        - name: target
+          image: ${TARGET_IMAGE}
+          command: ["sleep", "3600"]
+          # For distroless containers, adjust command accordingly
+          
+        # CINC Auditor scanner sidecar
+        - name: scanner
+          image: ruby:3.0-slim
+          command: 
+          - "/bin/bash"
+          - "-c"
+          - |
+            # Install dependencies
+            apt-get update
+            apt-get install -y curl gnupg procps nodejs npm
+            
+            # Install CINC Auditor
+            curl -L https://omnitruck.cinc.sh/install.sh | bash -s -- -P cinc-auditor
+            
+            # Install SAF CLI
+            npm install -g @mitre/saf
+            
+            # Wait for the main container to start
+            sleep 10
+            
+            echo "Starting CINC Auditor scan..."
+            
+            # Find the main process of the target container
+            TARGET_PID=\$(ps aux | grep -v grep | grep "sleep 3600" | head -1 | awk '{print \$2}')
+            
+            if [ -z "\$TARGET_PID" ]; then
+              echo "ERROR: Could not find target process"
+              exit 1
+            fi
+            
+            echo "Target process identified: PID \$TARGET_PID"
+            
+            # Run CINC Auditor against the target filesystem
+            cd /
+            cinc-auditor exec /opt/profiles/container-baseline \
+              -b os=linux \
+              --target=/proc/\$TARGET_PID/root \
+              --reporter cli json:/results/scan-results.json
+            
+            SCAN_EXIT_CODE=\$?
+            
+            echo "Scan completed with exit code: \$SCAN_EXIT_CODE"
+            
+            # Process results with SAF
+            if [ -f "/results/scan-results.json" ]; then
+              echo "Processing results with SAF CLI..."
+              saf summary --input /results/scan-results.json --output-md /results/scan-summary.md
+              
+              # Validate against threshold
+              if [ -f "/opt/thresholds/threshold.yml" ]; then
+                echo "Validating against threshold..."
+                saf threshold -i /results/scan-results.json -t /opt/thresholds/threshold.yml
+                THRESHOLD_RESULT=\$?
+                echo "Threshold validation result: \$THRESHOLD_RESULT" > /results/threshold-result.txt
+              fi
+            fi
+            
+            # Indicate scan is complete
+            touch /results/scan-complete
+            
+            # Keep container running briefly to allow result retrieval
+            echo "Scan complete. Results available in /results directory."
+            sleep 300
+          volumeMounts:
+          - name: shared-results
+            mountPath: /results
+          - name: profiles
+            mountPath: /opt/profiles
+          - name: thresholds
+            mountPath: /opt/thresholds
+        
+        volumes:
+        - name: shared-results
+          emptyDir: {}
+        - name: profiles
+          configMap:
+            name: inspec-profiles-${CI_PIPELINE_ID}
+        - name: thresholds
+          configMap:
+            name: inspec-thresholds-${CI_PIPELINE_ID}
+      EOF
+      
+      # Wait for pod to be ready
+      kubectl wait --for=condition=ready pod/app-scanner-${CI_PIPELINE_ID} -n ${SCANNER_NAMESPACE} --timeout=300s
+      
+      # Save pod name for later stages
+      echo "SCANNER_POD=app-scanner-${CI_PIPELINE_ID}" >> deploy.env
+    - |
+      # Verify the pod is ready
+      kubectl get pod app-scanner-${CI_PIPELINE_ID} -n ${SCANNER_NAMESPACE}
+  artifacts:
+    reports:
+      dotenv: deploy.env
+
+retrieve_results:
+  stage: scan
+  needs: [deploy_sidecar_pod]
+  script:
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    - |
+      # Wait for scan to complete
+      echo "Waiting for scan to complete..."
+      until kubectl exec -it ${SCANNER_POD} -n ${SCANNER_NAMESPACE} -c scanner -- ls /results/scan-complete >/dev/null 2>&1; do
+        echo "Scan in progress..."
+        sleep 5
+      done
+      
+      # Retrieve scan results
+      echo "Retrieving scan results..."
+      kubectl cp ${SCANNER_NAMESPACE}/${SCANNER_POD}:/results/scan-results.json ./scan-results.json -c scanner
+      kubectl cp ${SCANNER_NAMESPACE}/${SCANNER_POD}:/results/scan-summary.md ./scan-summary.md -c scanner
+      
+      # Check threshold result
+      if kubectl exec -it ${SCANNER_POD} -n ${SCANNER_NAMESPACE} -c scanner -- cat /results/threshold-result.txt >/dev/null 2>&1; then
+        THRESHOLD_RESULT=$(kubectl exec -it ${SCANNER_POD} -n ${SCANNER_NAMESPACE} -c scanner -- cat /results/threshold-result.txt)
+        echo "THRESHOLD_PASSED=${THRESHOLD_RESULT}" >> scan.env
+        
+        if [ "${THRESHOLD_RESULT}" -eq 0 ]; then
+          echo "✅ Security scan passed threshold requirements"
+        else
+          echo "❌ Security scan failed to meet threshold requirements"
+        fi
+      else
+        echo "Warning: Threshold result not found"
+        echo "THRESHOLD_PASSED=1" >> scan.env
+      fi
+      
+      # Display summary in job output
+      echo "============= SCAN SUMMARY ============="
+      cat scan-summary.md
+      echo "========================================"
+  artifacts:
+    paths:
+      - scan-results.json
+      - scan-summary.md
+    reports:
+      dotenv: scan.env
+
+generate_report:
+  stage: report
+  needs: [retrieve_results]
+  script:
+    - |
+      # Install SAF CLI if needed in this stage
+      which saf || npm install -g @mitre/saf
+      
+      # Generate a more comprehensive report
+      saf view -i scan-results.json --output scan-report.html
+      
+      # Create a simple markdown report for the MR
+      cat > scan-report.md << EOF
+      # Security Scan Results
+      
+      ## Summary
+      
+      $(cat scan-summary.md)
+      
+      ## Threshold Check
+      
+      ${THRESHOLD_PASSED} -eq 0 && echo "✅ **PASSED**" || echo "❌ **FAILED**"
+      
+      Threshold: ${THRESHOLD_VALUE}%
+      
+      ## Details
+      
+      For full results, see the artifacts.
+      EOF
+  artifacts:
+    paths:
+      - scan-report.html
+      - scan-report.md
+    when: always
+
+cleanup:
+  stage: cleanup
+  needs: [retrieve_results]
+  when: always  # Run even if previous stages failed
+  script:
+    - echo "$KUBE_CONFIG" | base64 -d > kubeconfig.yaml
+    - export KUBECONFIG=kubeconfig.yaml
+    - |
+      # Delete all resources
+      kubectl delete pod/${SCANNER_POD} -n ${SCANNER_NAMESPACE} --ignore-not-found
+      kubectl delete configmap/inspec-profiles-${CI_PIPELINE_ID} -n ${SCANNER_NAMESPACE} --ignore-not-found
+      kubectl delete configmap/inspec-thresholds-${CI_PIPELINE_ID} -n ${SCANNER_NAMESPACE} --ignore-not-found

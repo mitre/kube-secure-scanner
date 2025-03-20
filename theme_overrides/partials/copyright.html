@@ -1,0 +1,13 @@
+<!-- 
+  This template extends the base Material theme to add a dynamic year
+  in the copyright notice.
+-->
+{% if config.copyright %}
+<div class="md-copyright">
+  {% if config.copyright.startswith("©") %}
+    © {{ build_date_utc.strftime("%Y") }} {{ config.copyright[2:] }}
+  {% else %}
+    {{ config.copyright }}
+  {% endif %}
+</div>
+{% endif %}

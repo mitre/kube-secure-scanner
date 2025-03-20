@@ -1,0 +1,27 @@
+stages:
+  - validate
+  - scan
+
+variables:
+  KUBE_CONTEXT: my-k8s-cluster
+  SCANNER_VERSION: 1.2.0
+  THRESHOLD_FILE: thresholds/production.yaml
+
+validate_config:
+  stage: validate
+  script:
+    - kubectl --context $KUBE_CONTEXT config view
+    - kubectl --context $KUBE_CONTEXT get namespaces
+  tags:
+    - kubernetes
+
+scan_containers:
+  stage: scan
+  script:
+    - ./scripts/scan-container.sh --namespace default --threshold $THRESHOLD_FILE
+  artifacts:
+    paths:
+      - scan-results/
+    expire_in: 1 week
+  tags:
+    - kubernetes
