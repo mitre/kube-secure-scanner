@@ -55,17 +55,17 @@ The platform works in both local minikube environments and existing production K
 ## Quick Navigation
 
 - [Quickstart Guide](overview/quickstart.md)
-- [Security Considerations](overview/security.md)
+- [Security Considerations](security/overview.md)
 - [Executive Summary](overview/executive-summary.md)
-- [Approach Decision Matrix](overview/approach-decision-matrix.md)
-- [Security Risk Analysis](overview/security-risk-analysis.md)
+- [Approach Decision Matrix](approaches/decision-matrix.md)
+- [Security Risk Analysis](security/risk-analysis.md)
 - [Enterprise Integration Analysis](overview/enterprise-integration-analysis.md)
 
 ### Scanning Approaches
-- [Kubernetes API Approach](distroless-containers.md) (Enterprise Recommended)
-- [Debug Container Approach](debugging-distroless.md)
-- [Sidecar Container Approach](sidecar-container-approach.md)
-- [Direct Commands Reference](direct-commands.md)
+- [Kubernetes API Approach](approaches/kubernetes-api.md) (Enterprise Recommended)
+- [Debug Container Approach](approaches/debug-container.md)
+- [Sidecar Container Approach](approaches/sidecar-container.md)
+- [Direct Commands Reference](approaches/direct-commands.md)
 
 ### Integration
 - [GitHub Actions Integration](integration/github-actions.md)
