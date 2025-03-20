@@ -99,13 +99,13 @@ This enhancement is backed by detailed analysis against major security standards
 
 For organizations needing comprehensive, standards-compliant container security at scale, this strategic roadmap provides a clear path that minimizes security risks while maximizing scanning capabilities.
 
-For detailed compliance analysis, see [Security Compliance Analysis](security-compliance.md).
+For detailed compliance analysis, see [Security Compliance Analysis](../security/compliance.md).
 
 ## Getting Started
 
 See [Quickstart Guide](quickstart.md) for implementation steps.
 
 For detailed information on approaches:
-- [Approach Comparison](approach-comparison.md)
-- [Security Compliance Analysis](security-compliance.md)
-- [Approach Decision Matrix](approach-decision-matrix.md)
+- [Approach Comparison](../approaches/comparison.md)
+- [Security Compliance Analysis](../security/compliance.md)
+- [Approach Decision Matrix](../approaches/decision-matrix.md)

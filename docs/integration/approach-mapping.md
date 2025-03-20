@@ -168,20 +168,20 @@ This pipeline uses GitLab services to provide:
 Use this guide to select the appropriate CI/CD implementation:
 
 1. **For Standard Containers in Production:**
-   - GitHub: Use `github-workflows/existing-cluster-scanning.yml`
-   - GitLab: Use `gitlab-examples/gitlab-ci.yml` or `gitlab-examples/gitlab-ci-with-services.yml`
+   - GitHub: Use `github-workflow-examples/existing-cluster-scanning.yml`
+   - GitLab: Use `gitlab-pipeline-examples/gitlab-ci.yml` or `gitlab-pipeline-examples/gitlab-ci-with-services.yml`
 
 2. **For Distroless Containers:**
-   - GitHub: Use `github-workflows/setup-and-scan.yml` with distroless configuration
-   - GitLab: Use `gitlab-examples/existing-cluster-scanning.yml` with distroless configuration or `gitlab-examples/gitlab-ci-with-services.yml` with distroless service
+   - GitHub: Use `github-workflow-examples/setup-and-scan.yml` with distroless configuration
+   - GitLab: Use `gitlab-pipeline-examples/existing-cluster-scanning.yml` with distroless configuration or `gitlab-pipeline-examples/gitlab-ci-with-services.yml` with distroless service
 
 3. **For Universal Scanning (both standard and distroless):**
-   - GitHub: Use `github-workflows/sidecar-scanner.yml`
-   - GitLab: Use `gitlab-examples/gitlab-ci-sidecar.yml` or `gitlab-examples/gitlab-ci-sidecar-with-services.yml`
+   - GitHub: Use `github-workflow-examples/sidecar-scanner.yml`
+   - GitLab: Use `gitlab-pipeline-examples/gitlab-ci-sidecar.yml` or `gitlab-pipeline-examples/gitlab-ci-sidecar-with-services.yml`
 
 4. **For Local Development and Testing:**
-   - GitHub: Use `github-workflows/setup-and-scan.yml`
-   - GitLab: Use `gitlab-examples/gitlab-ci.yml` with minikube setup
+   - GitHub: Use `github-workflow-examples/setup-and-scan.yml`
+   - GitLab: Use `gitlab-pipeline-examples/gitlab-ci.yml` with minikube setup
 
 ## Features Comparison
 

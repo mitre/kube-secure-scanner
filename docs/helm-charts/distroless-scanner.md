@@ -260,6 +260,6 @@ kubectl debug -it -n inspec-test distroless-target-helm --image=alpine:latest --
 After successfully installing and using the distroless scanner:
 
 1. Review the [Customization](customization.md) guide for tailoring your scanning environment
-2. Explore [Security Considerations](security.md) for hardening recommendations
+2. Explore [Security Considerations](../security/overview.md) for hardening recommendations
 3. Learn about [CI/CD Integration](../integration/github-actions.md) for automated scanning
 4. Consider moving to the [Sidecar Scanner](sidecar-scanner.md) for an alternative approach

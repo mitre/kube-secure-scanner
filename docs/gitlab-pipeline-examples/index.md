@@ -55,7 +55,7 @@ These pipeline examples are designed to be adapted to your specific environment.
     We strongly recommend the Kubernetes API Approach (standard GitLab CI example) for enterprise-grade container scanning. Our highest priority is enhancing the train-k8s-container plugin to support distroless containers. The other examples provide interim solutions until this enhancement is complete.
 
 For detailed information on which scanning approach to use in different scenarios, see:
-- [Approach Comparison](../overview/approach-comparison.md)
-- [Approach Decision Matrix](../overview/approach-decision-matrix.md)
+- [Approach Comparison](../approaches/comparison.md)
+- [Approach Decision Matrix](../approaches/decision-matrix.md)
 
 For detailed GitLab integration instructions, see the [GitLab Integration Guide](../integration/gitlab.md).

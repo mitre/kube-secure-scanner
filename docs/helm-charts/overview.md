@@ -92,7 +92,7 @@ The charts are designed for maximum flexibility:
 
 Built-in support for enterprise environments:
 - [CI/CD pipeline integration](../integration/overview.md)
-- Compliance reporting with [SAF CLI](../saf-cli-integration.md)
+- Compliance reporting with [SAF CLI](../configuration/advanced/saf-cli-integration.md)
 - Threshold-based validation
 - Multi-team and multi-cluster support
 
@@ -100,13 +100,13 @@ Built-in support for enterprise environments:
 
 To get started with our Helm charts:
 
-1. See the [Architecture](architecture.md) page for an overview of chart components and relationships
+1. See the [Architecture](../architecture/system-architecture.md) page for an overview of chart components and relationships
 2. Visit the page for your preferred scanning approach:
    - [Kubernetes API Scanner](standard-scanner.md) (recommended)
    - [Debug Container Scanner](distroless-scanner.md) (for distroless containers)
    - [Sidecar Container Scanner](sidecar-scanner.md) (universal approach)
 3. Follow the [Customization](customization.md) guide for tailoring charts to your environment
-4. Review the [Security Considerations](security.md) for important security guidance
+4. Review the [Security Considerations](../security/overview.md) for important security guidance
 5. Explore [CI/CD Integration](../integration/overview.md) for automating scans in your pipelines
 
 ## Version Compatibility

@@ -2,7 +2,7 @@
 
 This guide explains how to use GitHub Actions for secure Kubernetes container scanning with CINC Auditor (using the train-k8s-container plugin) and MITRE SAF-CLI.
 
-> **Strategic Priority**: We strongly recommend the Kubernetes API Approach using the train-k8s-container plugin for enterprise-grade container scanning. Our highest priority is enhancing this plugin to support distroless containers. See [Approach Comparison](../overview/approach-comparison.md) and [Security Compliance](../overview/security-compliance.md) for more details.
+> **Strategic Priority**: We strongly recommend the Kubernetes API Approach using the train-k8s-container plugin for enterprise-grade container scanning. Our highest priority is enhancing this plugin to support distroless containers. See [Approach Comparison](../approaches/comparison.md) and [Security Compliance](../security/compliance.md) for more details.
 
 ## Available Workflows
 

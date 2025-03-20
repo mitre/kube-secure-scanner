@@ -264,7 +264,7 @@ end
 
 ## Workflow Diagrams
 
-To better understand the approaches for scanning distroless containers, refer to the [Workflow Diagrams](overview/workflows.md) document, which includes:
+To better understand the approaches for scanning distroless containers, refer to the [Workflow Diagrams](../architecture/workflows.md) document, which includes:
 
 - Kubernetes API Approach workflow
 - Debug Container Approach workflow
@@ -277,8 +277,8 @@ These visual representations help clarify the differences between approaches and
 
 For implementing distroless container scanning in GitLab CI pipelines, see:
 
-- [Standard GitLab CI Integration](integration/gitlab.md)
-- [GitLab Pipeline Examples](gitlab-pipeline-examples/index.md) for reference implementations
+- [Standard GitLab CI Integration](../integration/gitlab.md)
+- [GitLab Pipeline Examples](../gitlab-pipeline-examples/index.md) for reference implementations
 
 Our GitLab CI example with services includes a dedicated job for distroless container scanning using specialized service containers, making it easier to integrate into existing pipelines.
 

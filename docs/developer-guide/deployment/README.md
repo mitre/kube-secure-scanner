@@ -211,7 +211,7 @@ helm install distroless-scanner ./helm-charts/distroless-scanner \
 2. Configure threshold validation for pass/fail decisions
 3. Generate and archive scan reports
 
-For detailed examples, see the [CI/CD Integration](../integration/overview.md) documentation.
+For detailed examples, see the [CI/CD Integration](../../integration/overview.md) documentation.
 
 ### Scenario 4: Multi-Tenant Kubernetes Environment
 
@@ -323,8 +323,8 @@ After deployment, verify the setup:
 
 ## Additional Resources
 
-- [Helm Charts Documentation](../helm-charts/overview.md)
-- [RBAC Configuration](../rbac/README.md)
-- [Service Account Setup](../service-accounts/README.md)
-- [Threshold Configuration](../thresholds.md)
-- [Integration Options](../integration/overview.md)
+- [Helm Charts Documentation](../../helm-charts/overview.md)
+- [RBAC Configuration](../../rbac/README.md)
+- [Service Account Setup](../../service-accounts/README.md)
+- [Threshold Configuration](../../configuration/advanced/thresholds.md)
+- [Integration Options](../../integration/overview.md)

@@ -83,7 +83,7 @@ ENTRYPOINT ["sleep", "infinity"]
 
 ### Using Scanner Services in GitLab CI
 
-See the `gitlab-examples/gitlab-ci-with-services.yml` file in the repository for a complete implementation. Here's how to define services in your `.gitlab-ci.yml` file:
+See the `gitlab-pipeline-examples/gitlab-ci-with-services.yml` file in the repository for a complete implementation. Here's how to define services in your `.gitlab-ci.yml` file:
 
 ```yaml
 # Define a global service for all jobs
@@ -128,8 +128,8 @@ To interact with service containers:
 
 ## Complete Example
 
-See the `gitlab-examples/gitlab-ci-with-services.yml` file in the repository for a complete example of integrating scanner services into your GitLab CI/CD pipeline.
+See the `gitlab-pipeline-examples/gitlab-ci-with-services.yml` file in the repository for a complete example of integrating scanner services into your GitLab CI/CD pipeline.
 
 ## Workflow Diagram
 
-For a visual representation of how GitLab CI services integrate with the scanning workflow, see the [Workflow Diagrams](../overview/workflows.md) document.
+For a visual representation of how GitLab CI services integrate with the scanning workflow, see the [Workflow Diagrams](../architecture/../architecture/workflows.md) document.

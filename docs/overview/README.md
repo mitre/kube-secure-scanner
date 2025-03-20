@@ -54,7 +54,7 @@ For detailed implementation, check each component's documentation in the respect
 
 ## Workflow Diagrams
 
-To better understand the scanning process and approaches, see [docs/overview/workflows.md](workflows.md) for visual representations of:
+To better understand the scanning process and approaches, see [docs/architecture/../architecture/workflows.md](../architecture/workflows.md) for visual representations of:
 
 - Standard container scanning workflow
 - Distroless container scanning approaches
@@ -74,19 +74,19 @@ This setup follows Kubernetes security best practices including:
 - Implementing temporary credentials
 - Resource isolation
 
-For detailed security considerations, see [docs/overview/security.md](security.md).
+For detailed security considerations, see [docs/overview/../security/overview.md](../security/overview.md).
 
 ## High-Level Documentation
 
 For stakeholders, decision makers, and enterprise architects, we provide comprehensive high-level documentation:
 
 - [Executive Summary](executive-summary.md) - A concise overview of the project's value and capabilities
-- [Security Compliance](security-compliance.md) - Detailed security assessment of all scanning approaches
-- [Approach Comparison](approach-comparison.md) - Overview of available scanning approaches
-- [Approach Decision Matrix](approach-decision-matrix.md) - Comprehensive comparison to guide approach selection
+- [Security Compliance](../security/compliance.md) - Detailed security assessment of all scanning approaches
+- [Approach Comparison](../approaches/comparison.md) - Overview of available scanning approaches
+- [Approach Decision Matrix](../approaches/decision-matrix.md) - Comprehensive comparison to guide approach selection
 
 ### Strategic Priority
 
-Our highest strategic priority is enhancing the train-k8s-container plugin to support distroless containers through the Kubernetes API Approach. This will provide a complete, enterprise-ready solution that maintains full security compliance while supporting all container types. See [Distroless Containers](../distroless-containers.md) for technical details on the implementation plan.
+Our highest strategic priority is enhancing the train-k8s-container plugin to support distroless containers through the Kubernetes API Approach. This will provide a complete, enterprise-ready solution that maintains full security compliance while supporting all container types. See [Distroless Containers](../approaches/kubernetes-api.md) for technical details on the implementation plan.
 
 These documents are designed to facilitate understanding of the project at different organizational levels and aid in decision-making for implementation.

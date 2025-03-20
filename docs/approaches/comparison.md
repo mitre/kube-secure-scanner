@@ -108,9 +108,9 @@ For enterprise environments implementing container scanning at scale:
 
 ## Additional Resources
 
-- [Kubernetes API Approach Documentation](../distroless-containers.md)
-- [Debug Container Approach Documentation](../debugging-distroless.md)
-- [Sidecar Container Approach Documentation](../sidecar-container-approach.md)
-- [Approach Decision Matrix](approach-decision-matrix.md)
-- [Security Risk Analysis](security-risk-analysis.md)
-- [Enterprise Integration Analysis](enterprise-integration-analysis.md)
+- [Kubernetes API Approach Documentation](../approaches/kubernetes-api.md)
+- [Debug Container Approach Documentation](../approaches/debug-container.md)
+- [Sidecar Container Approach Documentation](../approaches/sidecar-container.md)
+- [Approach Decision Matrix](../approaches/decision-matrix.md)
+- [Security Risk Analysis](../security/risk-analysis.md)
+- [Enterprise Integration Analysis](../overview/enterprise-integration-analysis.md)

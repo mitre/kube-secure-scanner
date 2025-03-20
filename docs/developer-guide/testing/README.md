@@ -167,11 +167,11 @@ kubectl get pods -A
 ### CI/CD Environment Setup
 
 For GitHub Actions:
-- Use the provided GitHub Actions workflows in `github-workflows/`
+- Use the provided GitHub Actions workflows in `github-workflow-examples/`
 - Configure with appropriate secrets and environment variables
 
 For GitLab CI:
-- Use the provided GitLab CI pipelines in `gitlab-examples/`
+- Use the provided GitLab CI pipelines in `gitlab-pipeline-examples/`
 - Configure with appropriate variables and runners
 
 ## Troubleshooting Tests
@@ -260,5 +260,5 @@ spec:
 After completing testing, refer to:
 
 - [Deployment Scenarios](../deployment/README.md) for production deployment
-- [Threshold Configuration](../thresholds.md) for compliance settings
-- [CI/CD Integration](../integration/overview.md) for pipeline setup
+- [Threshold Configuration](../../configuration/advanced/thresholds.md) for compliance settings
+- [CI/CD Integration](../../integration/overview.md) for pipeline setup

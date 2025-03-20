@@ -246,6 +246,6 @@ kubectl exec -n inspec-test inspec-target-helm -- /bin/sh -c "echo 'Connection s
 After successfully installing and using the standard scanner:
 
 1. Review the [Customization](customization.md) guide for tailoring your scanning environment
-2. Explore [Security Considerations](security.md) for hardening recommendations
+2. Explore [Security Considerations](../security/overview.md) for hardening recommendations
 3. Learn about [CI/CD Integration](../integration/github-actions.md) for automated scanning
 4. Consider moving to the [Distroless Scanner](distroless-scanner.md) if you need to scan distroless containers

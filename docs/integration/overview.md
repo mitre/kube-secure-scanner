@@ -71,15 +71,15 @@ For detailed mapping of CI/CD examples to specific scanning approaches, see our 
 ## Cross-References
 
 - [Helm Chart Deployment](../helm-charts/overview.md): Understand the Helm chart architecture that supports CI/CD deployments
-- [Security Analysis](../overview/security-analysis.md): Review security considerations for CI/CD integration
+- [Security Analysis](../overview/../security/analysis.md): Review security considerations for CI/CD integration
 - [RBAC Model](../rbac/README.md): Learn about the RBAC model underpinning our secure CI/CD approach
-- [SAF CLI Integration](../saf-cli-integration.md): Understand how SAF-CLI enhances CI/CD workflows
+- [SAF CLI Integration](../configuration/advanced/saf-cli-integration.md): Understand how SAF-CLI enhances CI/CD workflows
 
 ## Examples
 
 The repository includes ready-to-use examples for all supported platforms:
 
-- GitHub Actions: See the `github-workflows/` directory
-- GitLab CI: See the `gitlab-examples/` directory
+- GitHub Actions: See the `github-workflow-examples/` directory
+- GitLab CI: See the `gitlab-pipeline-examples/` directory
 
 These examples can be directly integrated into your repositories with minimal configuration changes.

@@ -101,7 +101,7 @@ This decision matrix provides a comprehensive comparison of the three container 
 
 **Rationale**:
 - While all approaches are technically possible in CI/CD pipelines, the Kubernetes API Approach offers critical advantages:
-  - **Compliance**: Fully aligned with security standards and compliance frameworks as detailed in [Security Compliance Analysis](security-compliance.md)
+  - **Compliance**: Fully aligned with security standards and compliance frameworks as detailed in [Security Compliance Analysis](../security/compliance.md)
   - **Scale**: Significantly lower resource overhead and faster execution for high-volume scanning (hundreds to thousands of containers)
   - **Consistency**: Same workflow, commands, and permissions model regardless of environment
   - **Enterprise adoption**: Simplifies cross-team standardization and governance
@@ -200,11 +200,11 @@ For enterprise deployments, the Kubernetes API Approach is not just preferred bu
 This strategy provides the most secure, compliant, and scalable path forward for enterprise container security.
 
 For detailed implementation guidance, refer to the specific documentation:
-- [Kubernetes API Approach](../distroless-containers.md)
-- [Debug Container Approach](../debugging-distroless.md) (interim distroless solution)
-- [Sidecar Container Approach](../sidecar-container-approach.md) (interim distroless solution)
+- [Kubernetes API Approach](../approaches/kubernetes-api.md)
+- [Debug Container Approach](../approaches/debug-container.md) (interim distroless solution)
+- [Sidecar Container Approach](../approaches/sidecar-container.md) (interim distroless solution)
 
 For comprehensive security analysis, see:
-- [Security Compliance Analysis](security-compliance.md)
-- [Security Risk Analysis](security-risk-analysis.md)
-- [Enterprise Integration Analysis](enterprise-integration-analysis.md)
+- [Security Compliance Analysis](../security/compliance.md)
+- [Security Risk Analysis](../security/risk-analysis.md)
+- [Enterprise Integration Analysis](../overview/enterprise-integration-analysis.md)
