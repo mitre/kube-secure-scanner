@@ -116,10 +116,9 @@ nav:
     - Executive Summary: overview/executive-summary.md
     - Enterprise Integration: overview/enterprise-integration-analysis.md
   
-  - Architecture:
-    - System Architecture: architecture/system-architecture.md
-    - Workflows: architecture/workflows.md
+  - Architecture & Workflows:
     - Workflow Diagrams: architecture/diagrams.md
+    - Workflow Processes: architecture/workflows.md
   
   - Scanning Approaches:
     - Comparison: approaches/comparison.md
@@ -142,6 +141,7 @@ nav:
   
   - Helm Charts:
     - Overview: helm-charts/overview.md
+    - Helm Chart Architecture: helm-charts/architecture.md
     - Scanner Infrastructure: 
       - Overview: helm-charts/scanner-infrastructure.md
       - Details: helm-charts/scanner-infrastructure/index.md

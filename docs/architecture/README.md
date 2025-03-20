@@ -1,12 +1,13 @@
-# Architecture Documentation
+# Architecture & Workflows Documentation
 
-This directory contains documentation about the system architecture of the Secure CINC Auditor Kubernetes Container Scanning solution.
+This directory contains documentation about the workflow processes and diagrams for the Secure CINC Auditor Kubernetes Container Scanning solution.
 
 ## Contents
 
-- [System Architecture](system-architecture.md) - Detailed description of the system components and their interactions
-- [Workflows](workflows.md) - End-to-end workflows for different scanning scenarios
+- [Workflow Processes](workflows.md) - End-to-end workflows for different scanning scenarios
 - [Workflow Diagrams](diagrams.md) - Visual representations of system workflows using Mermaid diagrams
+
+> **Note**: The Helm Chart Architecture documentation has been moved to the [Helm Charts](/docs/helm-charts/architecture.md) section, as it specifically pertains to the architecture of Helm charts.
 
 ## Overview
 

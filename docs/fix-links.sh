@@ -50,7 +50,7 @@ update_links_in_file() {
   updated_content=$(echo "$updated_content" | sed -E 's|\.\./plugin-modifications\.md|../configuration/advanced/plugin-modifications.md|g')
   
   # Updating helm chart architecture reference
-  updated_content=$(echo "$updated_content" | sed -E 's|architecture\.md|../architecture/system-architecture.md|g')
+  updated_content=$(echo "$updated_content" | sed -E 's|architecture\.md|architecture.md|g')
   
   # Write the updated content back to the file if changes were made
   if [ "$original_content" != "$updated_content" ]; then

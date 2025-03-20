@@ -100,7 +100,7 @@ Built-in support for enterprise environments:
 
 To get started with our Helm charts:
 
-1. See the [Architecture](../architecture/system-architecture.md) page for an overview of chart components and relationships
+1. See the [Helm Chart Architecture](architecture.md) page for an overview of chart components and relationships
 2. Visit the page for your preferred scanning approach:
    - [Kubernetes API Scanner](standard-scanner.md) (recommended)
    - [Debug Container Scanner](distroless-scanner.md) (for distroless containers)
