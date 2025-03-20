@@ -133,11 +133,15 @@ nav:
     - Risk Analysis: security/risk-analysis.md
     - Security Analysis: security/analysis.md
     - Compliance: security/compliance.md
+  
+  - Kubernetes Setup:
+    - Overview: kubernetes-setup/README.md
+    - Kubeconfig Configuration: configuration/README.md
     - RBAC Configuration:
       - Basic RBAC: rbac/README.md
       - Label-based RBAC: rbac/label-based.md
-    - Service Accounts: service-accounts/README.md
     - Token Management: tokens/README.md
+    - Service Accounts: service-accounts/README.md
   
   - Helm Charts:
     - Overview: helm-charts/overview.md
@@ -167,12 +171,10 @@ nav:
       - Examples: gitlab-pipeline-examples/index.md
     - Code Examples: examples/code-display-demo.md
   
-  - Configuration:
-    - Basic Configuration: configuration/README.md
-    - Advanced:
-      - Thresholds: configuration/advanced/thresholds.md
-      - Plugin Modifications: configuration/advanced/plugin-modifications.md
-      - SAF CLI Integration: configuration/advanced/saf-cli-integration.md
+  - Scanner Configuration:
+    - Scanning Thresholds: configuration/advanced/thresholds.md
+    - Plugin Modifications: configuration/advanced/plugin-modifications.md
+    - SAF CLI Integration: configuration/advanced/saf-cli-integration.md
   
   - Developer Guide:
     - Testing: developer-guide/testing/README.md

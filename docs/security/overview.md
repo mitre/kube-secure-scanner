@@ -76,3 +76,10 @@ This setup helps meet compliance requirements by:
 - Supporting temporary credential models
 
 For specific compliance frameworks (e.g., SOC2, FedRAMP), additional controls may be required as documented in the relevant compliance guides.
+
+## Related Documentation
+
+For implementation details of the security controls mentioned above, see:
+
+- [Kubernetes Setup](../kubernetes-setup/README.md) for RBAC, Service Accounts, and Token management
+- [Security Analysis](analysis.md) for detailed risk assessment and mitigation strategies
