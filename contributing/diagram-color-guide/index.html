@@ -2218,6 +2218,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Implementation in Mermaid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proper-subgraph-containment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proper Subgraph Containment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2432,6 +2447,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Implementation in Mermaid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proper-subgraph-containment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proper Subgraph Containment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2592,9 +2622,36 @@
     style I fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF,font-weight:bold</code></pre>
 <h2 id="implementation-in-mermaid">Implementation in Mermaid<a class="headerlink" href="#implementation-in-mermaid" title="Permanent link">&para;</a></h2>
 <p>When creating Mermaid diagrams, use the following style properties:</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>style NodeID fill:#HexColor,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF,font-weight:bold
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>style NodeID fill:#HexColor,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 </span></code></pre></div></td></tr></table></div>
 <p>For light mode compatibility, white text (#FFFFFF) works well with all the recommended background colors.</p>
+<h3 id="proper-subgraph-containment">Proper Subgraph Containment<a class="headerlink" href="#proper-subgraph-containment" title="Permanent link">&para;</a></h3>
+<p>When using subgraphs in Mermaid diagrams, follow these guidelines to ensure proper containment and wrapping:</p>
+<ol>
+<li><strong>Always add <code>direction TB</code> inside subgraphs</strong>: This ensures proper containment of elements within the subgraph</li>
+</ol>
+<pre class="mermaid"><code>flowchart TD
+  subgraph MySubgraph["My Subgraph Title"]
+    direction TB
+    A --&gt; B
+    B --&gt; C
+  end</code></pre>
+<ol>
+<li>
+<p><strong>Avoid using <code>classDef space</code> and <code>class</code> definitions</strong> in your diagrams, as these can interfere with proper rendering and containment. Instead, rely on the default sizing and standard styling.</p>
+</li>
+<li>
+<p><strong>Consistent styling for subgraphs</strong>:
+   <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>style subgraphID fill:none,stroke:#DD6100,stroke-width:4px
+</span></code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Remove explicit text color and font-weight from subgraph labels</strong> to allow for automatic theme handling:</p>
+</li>
+<li>Do NOT use: <code>style subgraphID fill:none,stroke:#DD6100,stroke-width:4px,color:#FFFFFF,font-weight:bold</code></li>
+<li>Instead use: <code>style subgraphID fill:none,stroke:#DD6100,stroke-width:4px</code></li>
+</ol>
+<p>These guidelines help ensure that subgraphs display correctly in both light and dark modes, with proper containment and wrapping of their elements.</p>
 <h2 id="dark-mode-considerations">Dark Mode Considerations<a class="headerlink" href="#dark-mode-considerations" title="Permanent link">&para;</a></h2>
 <p>Our CSS and JavaScript configuration ensures that diagrams display properly in dark mode by:</p>
 <ol>
