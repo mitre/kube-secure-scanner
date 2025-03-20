@@ -70,10 +70,38 @@ flowchart TD
 When creating Mermaid diagrams, use the following style properties:
 
 ```
-style NodeID fill:#HexColor,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF,font-weight:bold
+style NodeID fill:#HexColor,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
 For light mode compatibility, white text (#FFFFFF) works well with all the recommended background colors.
+
+### Proper Subgraph Containment
+
+When using subgraphs in Mermaid diagrams, follow these guidelines to ensure proper containment and wrapping:
+
+1. **Always add `direction TB` inside subgraphs**: This ensures proper containment of elements within the subgraph
+   
+   ```mermaid
+   flowchart TD
+     subgraph MySubgraph["My Subgraph Title"]
+       direction TB
+       A --> B
+       B --> C
+     end
+   ```
+
+2. **Avoid using `classDef space` and `class` definitions** in your diagrams, as these can interfere with proper rendering and containment. Instead, rely on the default sizing and standard styling.
+
+3. **Consistent styling for subgraphs**:
+   ```
+   style subgraphID fill:none,stroke:#DD6100,stroke-width:4px
+   ```
+   
+4. **Remove explicit text color and font-weight from subgraph labels** to allow for automatic theme handling:
+   - Do NOT use: `style subgraphID fill:none,stroke:#DD6100,stroke-width:4px,color:#FFFFFF,font-weight:bold`
+   - Instead use: `style subgraphID fill:none,stroke:#DD6100,stroke-width:4px`
+
+These guidelines help ensure that subgraphs display correctly in both light and dark modes, with proper containment and wrapping of their elements.
 
 ## Dark Mode Considerations
 

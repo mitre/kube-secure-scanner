@@ -48,9 +48,6 @@ flowchart TD
     style rbac fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style saf fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 
-    %% Add more vertical space
-    classDef space height:20px;
-    class MiniKubeCluster,ControlNode,WorkerNode1,WorkerNode2 space;
 ```
 
 ## Kubernetes API Approach Workflow
@@ -138,9 +135,6 @@ flowchart TD
     style process fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style terminate fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     
-    %% Add more vertical space
-    classDef space height:20px;
-    class step1,step2 space;
 ```
 
 ## Sidecar Approach Workflow
@@ -186,10 +180,6 @@ flowchart TD
     style store_results fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style process_results fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style retrieve_results fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
-    
-    %% Add more vertical space
-    classDef space height:20px;
-    class step1,step2 space;
 ```
 
 ## Enhanced Kubernetes API Approach Workflow
@@ -296,10 +286,6 @@ flowchart TD
     style process fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style copy_results fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style cleanup fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
-    
-    %% Add more vertical space
-    classDef space height:20px;
-    class stage1,stage2,stage3 space;
 ```
 
 ## GitLab CI Sidecar Approach
@@ -351,10 +337,6 @@ flowchart TD
     style retrieve fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style process fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style upload fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
-    
-    %% Add more vertical space
-    classDef space height:20px;
-    class stage1,stage2,stage3 space;
 ```
 
 ## GitHub Actions Kubernetes API Approach
@@ -406,10 +388,6 @@ flowchart TD
     style run_cinc fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style process fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style generate_reports fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
-    
-    %% Add more vertical space
-    classDef space height:20px;
-    class step1,step2,step3 space;
 ```
 
 ## GitHub Actions Sidecar Approach
