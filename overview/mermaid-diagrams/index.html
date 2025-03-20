@@ -2542,7 +2542,8 @@
     subgraph step2["STEP 2: SCANNING EXECUTION"]
         direction TB
         run_cinc["Run CINC Auditor with k8s-container Transport"] --&gt; process["Process with SAF CLI &amp; Check Threshold"]
-        process --&gt; generate_reports["Generate Reports and Validations"] --&gt; cleanup["Clean up RBAC &amp; Service Account"]
+        process --&gt; generate_reports["Generate Reports and Validations"]
+        generate_reports --&gt; cleanup["Clean up RBAC &amp; Service Account"]
     end
 
     step2 --&gt; complete([SCAN COMPLETE])
@@ -2563,11 +2564,7 @@
     style run_cinc fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style process fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style generate_reports fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
-    style cleanup fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
-
-    %% Add more vertical space
-    classDef space height:20px;
-    class step1,step2 space;</code></pre>
+    style cleanup fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF</code></pre>
 <h2 id="debug-container-approach-workflow">Debug Container Approach Workflow<a class="headerlink" href="#debug-container-approach-workflow" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
     start([START DEBUG CONTAINER APPROACH]) --&gt; step1
@@ -2914,6 +2911,7 @@
     start([START]) --&gt; principles
 
     subgraph principles["SECURITY PRINCIPLES"]
+        direction TB
         least_privilege["Principle of Least Privilege"] --&gt; token["Short-lived Token Generation"]
         namespace["Namespace Isolation"] --&gt; no_privileges["No Permanent Elevated Privileges"]
     end
@@ -2921,6 +2919,7 @@
     principles --&gt; controls
 
     subgraph controls["IMPLEMENTATION CONTROLS"]
+        direction TB
         rbac["Resource-specific RBAC Controls"] --&gt; security_first["Security First Design"]
         audit["Audit Trail of Scan Access"] --&gt; cleanup["Automatic Cleanup"]
     end
@@ -2928,19 +2927,20 @@
     controls --&gt; compliance
 
     subgraph compliance["COMPLIANCE VALIDATION"]
+        direction TB
         threshold["Threshold-based Validation with SAF CLI"]
     end
 
     compliance --&gt; complete([END])
 
     %% WCAG-compliant styling
-    style start fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    style complete fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    style start fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style complete fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 
-    %% Section styling with WCAG-compliant colors
-    style principles fill:none,stroke:#DD6100,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    style controls fill:none,stroke:#DD6100,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    style compliance fill:none,stroke:#DD6100,stroke-width:4px,color:#FFFFFF,font-weight:bold
+    %% Section styling with WCAG-compliant colors - works in both light/dark
+    style principles fill:none,stroke:#DD6100,stroke-width:4px
+    style controls fill:none,stroke:#DD6100,stroke-width:4px
+    style compliance fill:none,stroke:#DD6100,stroke-width:4px
 
     %% Process styling
     style least_privilege fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
