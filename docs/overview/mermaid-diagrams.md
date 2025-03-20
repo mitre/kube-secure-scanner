@@ -71,7 +71,8 @@ flowchart TD
     subgraph step2["STEP 2: SCANNING EXECUTION"]
         direction TB
         run_cinc["Run CINC Auditor with k8s-container Transport"] --> process["Process with SAF CLI & Check Threshold"]
-        process --> generate_reports["Generate Reports and Validations"] --> cleanup["Clean up RBAC & Service Account"]
+        process --> generate_reports["Generate Reports and Validations"]
+        generate_reports --> cleanup["Clean up RBAC & Service Account"]
     end
     
     step2 --> complete([SCAN COMPLETE])
@@ -93,10 +94,6 @@ flowchart TD
     style process fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style generate_reports fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     style cleanup fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
-    
-    %% Add more vertical space
-    classDef space height:20px;
-    class step1,step2 space;
 ```
 
 ## Debug Container Approach Workflow
@@ -475,6 +472,7 @@ flowchart TD
     start([START]) --> principles
     
     subgraph principles["SECURITY PRINCIPLES"]
+        direction TB
         least_privilege["Principle of Least Privilege"] --> token["Short-lived Token Generation"]
         namespace["Namespace Isolation"] --> no_privileges["No Permanent Elevated Privileges"]
     end
@@ -482,6 +480,7 @@ flowchart TD
     principles --> controls
     
     subgraph controls["IMPLEMENTATION CONTROLS"]
+        direction TB
         rbac["Resource-specific RBAC Controls"] --> security_first["Security First Design"]
         audit["Audit Trail of Scan Access"] --> cleanup["Automatic Cleanup"]
     end
@@ -489,19 +488,20 @@ flowchart TD
     controls --> compliance
     
     subgraph compliance["COMPLIANCE VALIDATION"]
+        direction TB
         threshold["Threshold-based Validation with SAF CLI"]
     end
     
     compliance --> complete([END])
     
     %% WCAG-compliant styling
-    style start fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    style complete fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    style start fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style complete fill:#0066CC,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
     
-    %% Section styling with WCAG-compliant colors
-    style principles fill:none,stroke:#DD6100,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    style controls fill:none,stroke:#DD6100,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    style compliance fill:none,stroke:#DD6100,stroke-width:4px,color:#FFFFFF,font-weight:bold
+    %% Section styling with WCAG-compliant colors - works in both light/dark
+    style principles fill:none,stroke:#DD6100,stroke-width:4px
+    style controls fill:none,stroke:#DD6100,stroke-width:4px
+    style compliance fill:none,stroke:#DD6100,stroke-width:4px
     
     %% Process styling
     style least_privilege fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
