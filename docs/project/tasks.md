@@ -127,6 +127,16 @@
   - [x] Add clear strategic priority statements across all key documentation
   - [ ] Add development and testing documentation section
   - [x] Conduct comprehensive documentation review for coherence and flow
+  - [x] Reorganize documentation into logical directory structure
+  - [ ] Fix broken internal links after reorganization
+    - [ ] Fix paths in approaches/ directory files
+    - [ ] Fix paths in security/ directory files 
+    - [ ] Fix paths in architecture/ directory files
+    - [ ] Fix paths in integration/ directory files
+    - [ ] Fix paths in helm-charts/ directory files
+    - [ ] Fix paths in developer-guide/ directory files
+    - [ ] Fix paths in overview/ directory files
+  - [ ] Create script to automate link path fixes for common patterns
 
 ## Administrative
 
