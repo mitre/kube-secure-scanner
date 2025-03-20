@@ -7,7 +7,7 @@ This directory contains documentation about the workflow processes and diagrams 
 - [Workflow Processes](workflows.md) - End-to-end workflows for different scanning scenarios
 - [Workflow Diagrams](diagrams.md) - Visual representations of system workflows using Mermaid diagrams
 
-> **Note**: The Helm Chart Architecture documentation has been moved to the [Helm Charts](/docs/helm-charts/architecture.md) section, as it specifically pertains to the architecture of Helm charts.
+> **Note**: The Helm Chart Architecture documentation has been moved to the [Helm Charts](../helm-charts/architecture.md) section, as it specifically pertains to the architecture of Helm charts.
 
 ## Overview
 
