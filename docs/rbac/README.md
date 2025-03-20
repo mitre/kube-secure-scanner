@@ -115,11 +115,11 @@ rules:
 
 ## Additional RBAC Strategies
 
-See the following files for more specialized RBAC configurations:
+See the following documentation for more specialized RBAC configurations:
 
-- [Namespace-Isolated RBAC](namespace-isolated.md)
-- [Label-Based Access Control](label-based.md)
-- [CI/CD Dynamic Configuration](ci-cd-rbac.md)
+- **Namespace-Isolated RBAC**: Configure RBAC permissions isolated to specific namespaces
+- [Label-Based Access Control](label-based.md): Secures pods using label selectors
+- [CI/CD Dynamic Configuration](../integration/github-actions.md): Demonstrated in the CI/CD examples
 
 ## References
 

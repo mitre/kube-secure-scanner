@@ -128,9 +128,9 @@ Regardless of which approach we choose, our scanning scripts need to be updated 
 # Detect if container is distroless
 if ! kubectl exec -n ${NAMESPACE} ${POD_NAME} -c ${CONTAINER_NAME} -- /bin/sh -c "echo test" &>/dev/null; then
   echo "Detected distroless container, using ephemeral container approach"
-  # Use ephemeral container approach
+  # Use Debug Container Approach
 else
-  # Use standard approach
+  # Use Kubernetes API Approach
 fi
 ```
 
@@ -266,9 +266,9 @@ end
 
 To better understand the approaches for scanning distroless containers, refer to the [Workflow Diagrams](overview/workflows.md) document, which includes:
 
-- Standard container scanning workflow
-- Modified transport plugin approach workflow
-- Debug container approach workflow
+- Kubernetes API Approach workflow
+- Debug Container Approach workflow
+- Sidecar Container Approach workflow
 - CI/CD integration with scanner services
 
 These visual representations help clarify the differences between approaches and their integration points.
@@ -278,9 +278,51 @@ These visual representations help clarify the differences between approaches and
 For implementing distroless container scanning in GitLab CI pipelines, see:
 
 - [Standard GitLab CI Integration](integration/gitlab.md)
-- [GitLab CI with Services](integration/gitlab-services.md) for an enhanced approach
+- [GitLab Pipeline Examples](gitlab-pipeline-examples/index.md) for reference implementations
 
 Our GitLab CI example with services includes a dedicated job for distroless container scanning using specialized service containers, making it easier to integrate into existing pipelines.
+
+## Security and Compliance Considerations
+
+### Container Security Best Practices
+
+When implementing container scanning for distroless containers, it's important to adhere to security best practices:
+
+1. **Minimize Attack Surface**: Distroless containers already provide security benefits by reducing the attack surface. Our scanning approaches are designed to preserve these benefits:
+   - The Debug Container Approach uses temporary debug containers that are removed after scanning
+   - The Sidecar Container Approach maintains isolation between containers while enabling scanning
+   - The Kubernetes API Approach (with future distroless support) will maintain complete container isolation
+
+2. **Principle of Least Privilege**: All scanning approaches implement least-privilege RBAC permissions:
+   - Limited to specific namespaces
+   - Time-bound credentials
+   - Restricted API access
+   - Specific pod targeting
+
+3. **Container Isolation**: Following Docker's best practice of "one application per container":
+   - The Kubernetes API Approach best preserves this principle
+   - Debug Container Approach temporarily breaks this principle but is removed after scanning
+   - Sidecar Container Approach introduces a second process but maintains namespace boundaries
+
+### Alignment with Security Frameworks
+
+Our container scanning approaches align with key security frameworks and guidance:
+
+| Security Framework | Alignment | Notes |
+|-------------------|-----------|-------|
+| **NIST SP 800-190** | High | Follows container security principles for access control, isolation, and minimizing attack surface |
+| **CIS Docker Benchmark** | High | Adheres to container security configurations and least-privilege access |
+| **CIS Kubernetes Benchmark** | High | Follows recommended RBAC and namespace isolation practices |
+| **NSA/CISA Kubernetes Hardening Guidelines** | High | Implements recommended scanning practices and security controls |
+| **MITRE ATT&CK for Containers** | Medium-High | Helps mitigate techniques in the MITRE ATT&CK for Containers matrix |
+
+### MITRE ATT&CK Considerations
+
+Our scanning approaches help mitigate several container-specific attack techniques identified in the MITRE ATT&CK framework:
+
+- **T1610 - Deploy Container**: Prevents unauthorized container deployment through least-privilege RBAC
+- **T1613 - Container and Resource Discovery**: Limits visibility of container resources
+- **T1543.005 - Create or Modify System Process: Container Service**: Prevents modification of container configurations
 
 ## References
 
@@ -288,3 +330,8 @@ Our GitLab CI example with services includes a dedicated job for distroless cont
 - [Google Distroless Container Images](https://github.com/GoogleContainerTools/distroless)
 - [InSpec train-k8s-container transport](https://github.com/inspec/train-k8s-container)
 - [CINC Project Docker Images](https://gitlab.com/cinc-project/docker-images/-/tree/master/docker-auditor)
+- [NIST SP 800-190: Application Container Security Guide](https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-190.pdf)
+- [NSA/CISA Kubernetes Hardening Guidance](https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/)
+- [CIS Docker Benchmark](https://www.cisecurity.org/benchmark/docker)
+- [MITRE ATT&CK for Containers](https://attack.mitre.org/matrices/enterprise/containers/)
+- [Docker Best Practices](https://docs.docker.com/build/building/best-practices/)

@@ -6,9 +6,9 @@ This project provides a comprehensive platform for securely scanning Kubernetes 
 
 Our solution offers three distinct technical approaches for container scanning:
 
-1. **Enhanced Transport Approach**: Modified train-k8s-container plugin for direct, API-based scanning through the Kubernetes management node
-2. **Debug Container Approach**: Ephemeral debug container with chroot-based scanning for distroless containers
-3. **Sidecar Container Approach**: CINC Auditor sidecar container with shared process namespace for any container type
+1. **Kubernetes API Approach** (Recommended): Direct API-based scanning through the Kubernetes API using the train-k8s-container plugin. This is our recommended enterprise solution with future distroless support in development, offering the most scalable and seamless integration. Once distroless support is implemented, this will be a universal solution for all container types.
+2. **Debug Container Approach**: Ephemeral debug container with chroot-based scanning for distroless containers, ideal for environments with ephemeral container support.
+3. **Sidecar Container Approach**: CINC Auditor sidecar container with shared process namespace for any container type, offering universal compatibility across Kubernetes versions.
 
 These approaches can be deployed via:
 - Self-contained shell scripts for direct management and testing
@@ -42,19 +42,25 @@ Both approaches support:
 
 We now provide three distinct approaches for scanning distroless containers:
 
-1. **Ephemeral Debug Container** - Uses `kubectl debug` to attach a debug container and scan via chroot. This approach has some limitations:
+1. **Kubernetes API Approach** (Enterprise Recommended) - Enhanced train-k8s-container plugin for direct, API-based scanning:
+   - **Implementation**: Currently being developed as our strategic enterprise solution
+   - **Advantage**: No additional containers required, most efficient and scalable approach
+   - **Advantage**: Seamless integration with existing CINC Auditor/InSpec workflows
+   - **Advantage**: Transparent to users - same commands for both standard and distroless containers
+   - **Key Advantage**: Will become a universal solution for all container types once distroless support is implemented
+   - **Status**: In active development with high priority for enterprise environments
+
+2. **Debug Container Approach** - Uses `kubectl debug` to attach a debug container and scan via chroot:
    - **Implementation**: The `scan-distroless-container.sh` script demonstrates this approach
    - **Limitation**: Requires Kubernetes clusters with ephemeral container support enabled
-
-2. **Modified Transport Plugin** - Enhanced train-k8s-container plugin for direct, API-based scanning:
-   - **Implementation**: Currently a work in progress
-   - **Advantage**: No additional containers required, most efficient approach
+   - **Use Case**: Best for testing and development environments with ephemeral container support
 
 3. **Sidecar Container Approach** - Deploys a scanner sidecar in the same pod with shared process namespace:
    - **Implementation**: Fully implemented in `scan-with-sidecar.sh` and integrated with CI/CD examples
    - **Advantage**: Works with any Kubernetes cluster, requires no special features
    - **Advantage**: Can scan any container type, including distroless containers
    - **Limitation**: Must be deployed alongside the target container (can't scan existing containers)
+   - **Use Case**: Ideal for environments without ephemeral container support or for universal compatibility
 
 ## Directory Structure
 
@@ -308,22 +314,78 @@ failed:
 
 ## Documentation
 
-For detailed documentation, see the following guides:
+### Online Documentation
 
-### Core Documentation
+Visit our comprehensive documentation at:
+
+- https://mitre.github.io/kube-cinc-secure-scanner/
+
+### Documentation Management
+
+We provide a comprehensive documentation system in the `docs` directory with tools for previewing, validating, and improving documentation quality:
+
+```bash
+# Navigate to the docs directory
+cd docs
+
+# Make the script executable if needed
+chmod +x docs-tools.sh
+
+# Preview documentation (background server)
+./docs-tools.sh preview
+
+# Check server status
+./docs-tools.sh status
+
+# Restart server
+./docs-tools.sh restart
+
+# Stop server
+./docs-tools.sh stop
+
+# Install all documentation dependencies
+./docs-tools.sh setup
+
+# Lint and fix documentation issues
+./docs-tools.sh lint
+./docs-tools.sh fix
+
+# Run comprehensive quality checks
+./docs-tools.sh check-all
+
+# See all available commands
+./docs-tools.sh help
+```
+
+The documentation system includes:
+- MkDocs with Material theme for beautiful documentation
+- Markdown style checking with markdownlint
+- Spell checking with pyspelling
+- Link validation with linkchecker
+- Comprehensive quality validation tools
+
+For more details, see [Documentation Management](docs/README.md)
+
+### Documentation Structure
+
+Our documentation covers the following areas:
+
+#### Core Documentation
 - [Project Overview](docs/overview/README.md)
 - [Quick Start Guide](docs/overview/quickstart.md)
 - [Security Considerations](docs/overview/security.md)
+- [Executive Summary](docs/overview/executive-summary.md)
+- [Security Risk Analysis](docs/overview/security-risk-analysis.md)
 
-### Approach-Specific Documentation
+#### Approach-Specific Documentation
 - [Distroless Container Scanning](docs/distroless-containers.md) - All three approaches compared
 - [Sidecar Container Approach](docs/sidecar-container-approach.md) - Detailed guide for Approach 3
 
-### Visual Documentation
+#### Visual Documentation
 - [Workflow Diagrams](docs/overview/workflows.md) - Mermaid diagrams for visual environments
 - [ASCII Text Diagrams](docs/overview/ascii-diagrams.md) - Terminal-friendly diagrams
 
-### Technical Implementation
+#### Technical Implementation
 - [RBAC Configuration](docs/rbac/README.md)
 - [Service Account Management](docs/service-accounts/README.md)
 - [Token Management](docs/tokens/README.md)
@@ -331,7 +393,7 @@ For detailed documentation, see the following guides:
 - [SAF CLI Integration](docs/saf-cli-integration.md)
 - [Threshold Configuration](docs/thresholds.md)
 
-### CI/CD Integration
+#### CI/CD Integration
 - [GitLab CI/CD Integration](docs/integration/gitlab.md)
 - [GitLab CI with Services](docs/integration/gitlab-services.md)
 - [GitHub Actions Integration](docs/integration/github-actions.md)

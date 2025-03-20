@@ -1,6 +1,8 @@
 # GitLab CI/CD Integration
 
-This guide explains how to integrate secure container scanning using CINC Auditor into GitLab CI/CD pipelines.
+This guide explains how to integrate secure container scanning using CINC Auditor with the train-k8s-container plugin into GitLab CI/CD pipelines.
+
+> **Strategic Priority**: We strongly recommend the Kubernetes API Approach using the train-k8s-container plugin for enterprise-grade container scanning. Our highest priority is enhancing this plugin to support distroless containers. See [Approach Comparison](../overview/approach-comparison.md) and [Security Compliance](../overview/security-compliance.md) for more details.
 
 ## Overview
 

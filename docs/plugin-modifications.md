@@ -1,6 +1,8 @@
 # Modifying train-k8s-container for Distroless Support
 
-This document outlines the changes needed in the InSpec train-k8s-container plugin to support scanning distroless containers using Kubernetes ephemeral containers.
+> **STRATEGIC PRIORITY**: Enhancing the train-k8s-container plugin to support distroless containers through the Kubernetes API Approach represents our **highest strategic priority** for enterprise container scanning. This is the recommended approach for production environments and is essential for comprehensive security compliance.
+
+This document outlines the changes needed in the CINC Auditor train-k8s-container plugin to support scanning distroless containers using Kubernetes ephemeral containers.
 
 ## Current Plugin Architecture
 
@@ -8,7 +10,7 @@ The train-k8s-container plugin works by:
 
 1. Creating a connection to a Kubernetes cluster via kubeconfig
 2. Using `kubectl exec` to execute commands in the target container
-3. Running InSpec controls that rely on command execution
+3. Running CINC Auditor controls that rely on command execution
 
 Key files in the plugin that would need modification:
 
@@ -173,6 +175,18 @@ After modifying the plugin, we would need to:
 3. Create documentation on how to scan distroless containers
 4. Update our Helm chart to include the new plugin version
 5. Test with various distroless container types
+
+## Strategic Implementation Path
+
+This enhancement represents our primary strategic focus for several reasons:
+
+1. **Consistent User Experience**: Users will use identical commands for all container types
+2. **Maximum Security Compliance**: The Kubernetes API Approach maintains all security boundaries
+3. **Enterprise Scalability**: One solution for all container types simplifies deployment
+4. **Simplified CI/CD Integration**: CI/CD pipelines can use a single approach for all workloads
+5. **Unified Documentation**: Streamlined documentation and training
+
+Once completed, this enhancement will eliminate the need for interim approaches like the Debug Container Approach and Sidecar Container Approach, providing a single, comprehensive solution for all container scanning needs.
 
 ## Example Usage
 

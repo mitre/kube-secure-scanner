@@ -1,6 +1,8 @@
 # GitHub Actions Integration
 
-This guide explains how to use GitHub Actions for secure Kubernetes container scanning with CINC Auditor and MITRE SAF-CLI.
+This guide explains how to use GitHub Actions for secure Kubernetes container scanning with CINC Auditor (using the train-k8s-container plugin) and MITRE SAF-CLI.
+
+> **Strategic Priority**: We strongly recommend the Kubernetes API Approach using the train-k8s-container plugin for enterprise-grade container scanning. Our highest priority is enhancing this plugin to support distroless containers. See [Approach Comparison](../overview/approach-comparison.md) and [Security Compliance](../overview/security-compliance.md) for more details.
 
 ## Available Workflows
 
@@ -15,7 +17,7 @@ We provide three GitHub Actions workflow examples:
 ### 1. Repository Setup
 
 1. Create a new GitHub repository or use an existing one
-2. Copy the workflow files from the `github-workflows` directory to `.github/workflows` in your repository
+2. Copy the workflow files from the `docs/github-workflow-examples` directory to `.github/workflows` in your repository
 3. Commit and push the changes
 
 ### 2. Workflow Permissions
@@ -48,7 +50,7 @@ The workflow will:
 - Run CINC Auditor against the container
 - Upload the scan results as artifacts
 
-### Dynamic RBAC Scanning
+### Dynamic RBAC Scanning {#dynamic-rbac-configuration}
 
 This workflow demonstrates more advanced scanning with dynamic pod targeting:
 

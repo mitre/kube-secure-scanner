@@ -1,13 +1,13 @@
 # Quick Start Guide
 
-This guide will help you quickly set up the secure InSpec container scanning infrastructure.
+This guide will help you quickly set up the secure CINC Auditor container scanning infrastructure.
 
 ## Prerequisites
 
 - A running Kubernetes cluster (1.24+)
 - kubectl installed and configured
 - Helm (optional, for chart deployment)
-- InSpec with the train-k8s-container plugin installed
+- CINC Auditor with the train-k8s-container plugin installed
 
 ## Installation
 
@@ -16,8 +16,8 @@ This guide will help you quickly set up the secure InSpec container scanning inf
 1. Clone this repository:
 
 ```bash
-git clone <repository-url>
-cd secure-inspec-k8s
+git clone https://github.com/mitre/kube-cinc-secure-scanner.git
+cd kube-cinc-secure-scanner
 ```
 
 2. Deploy the basic components:
@@ -34,13 +34,15 @@ kubectl apply -f kubernetes/templates/rbac.yaml
 kubectl apply -f kubernetes/templates/test-pod.yaml
 ```
 
+Note: Paths may vary depending on your actual repository structure. The paths above are based on the default project layout.
+
 ### Option 2: Using Helm
 
 1. Clone this repository:
 
 ```bash
-git clone <repository-url>
-cd secure-inspec-k8s
+git clone https://github.com/mitre/kube-cinc-secure-scanner.git
+cd kube-cinc-secure-scanner
 ```
 
 2. Install the Helm charts:

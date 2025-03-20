@@ -1,6 +1,6 @@
-# Secure InSpec Container Scanning
+# Secure CINC Auditor Container Scanning
 
-This project provides a secure infrastructure setup for scanning Kubernetes containers using Chef InSpec with the train-k8s-container transport.
+This project provides a secure infrastructure setup for scanning Kubernetes containers using CINC Auditor (open-source InSpec) with the train-k8s-container transport.
 
 ## Overview
 
@@ -32,16 +32,18 @@ This setup consists of:
 │   ├── service-accounts/    # Service account setup
 │   ├── configuration/       # Kubeconfig generation
 │   ├── tokens/              # Token management
-│   └── integration/         # CI/CD integration guides
+│   ├── integration/         # CI/CD integration guides
+│   ├── github-workflow-examples/ # GitHub Actions workflow examples
+│   └── gitlab-pipeline-examples/ # GitLab CI pipeline examples
 ├── scripts/                 # Automation scripts
 ├── kubernetes/              # Kubernetes YAML manifests
 │   └── templates/           # Template manifests for deployment
+├── helm-chart/              # Main Helm chart
 └── helm-charts/             # Modular Helm charts for deployment
     ├── scanner-infrastructure/ # Core RBAC, service accounts
     ├── common-scanner/      # Common scanning components
     ├── standard-scanner/    # Standard container scanning
-    ├── distroless-scanner/  # Distroless container scanning
-    └── sidecar-scanner/     # Sidecar approach for container scanning
+    └── distroless-scanner/  # Distroless container scanning
 ```
 
 ## Getting Started
@@ -79,8 +81,12 @@ For detailed security considerations, see [docs/overview/security.md](security.m
 For stakeholders, decision makers, and enterprise architects, we provide comprehensive high-level documentation:
 
 - [Executive Summary](executive-summary.md) - A concise overview of the project's value and capabilities
-- [Security Risk Analysis](security-risk-analysis.md) - Detailed security assessment of all scanning approaches
+- [Security Compliance](security-compliance.md) - Detailed security assessment of all scanning approaches
+- [Approach Comparison](approach-comparison.md) - Overview of available scanning approaches
 - [Approach Decision Matrix](approach-decision-matrix.md) - Comprehensive comparison to guide approach selection
-- [Enterprise Integration Analysis](enterprise-integration-analysis.md) - Scalability, maintainability, and integration considerations
+
+### Strategic Priority
+
+Our highest strategic priority is enhancing the train-k8s-container plugin to support distroless containers through the Kubernetes API Approach. This will provide a complete, enterprise-ready solution that maintains full security compliance while supporting all container types. See [Distroless Containers](../distroless-containers.md) for technical details on the implementation plan.
 
 These documents are designed to facilitate understanding of the project at different organizational levels and aid in decision-making for implementation.

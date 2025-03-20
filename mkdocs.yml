@@ -1,0 +1,190 @@
+site_name: Secure CINC Auditor Kubernetes Container Scanning
+site_url: https://github.com/mitre/kube-cinc-secure-scanner
+site_description: A comprehensive platform for securely scanning Kubernetes containers
+site_author: MITRE SAF Team
+copyright: © The MITRE Corporation. Brought to you by the <a href="https://saf.mitre.org">MITRE Security Automation Framework (SAF)</a>
+
+repo_name: mitre/kube-cinc-secure-scanner
+repo_url: https://github.com/mitre/kube-cinc-secure-scanner
+edit_uri: edit/main/docs/
+
+# Configure documentation directories
+docs_dir: docs
+
+# Exclude non-documentation files from processing
+exclude_docs: |
+  # Node.js related files
+  node_modules/*
+  */node_modules/*
+  docs/node_modules/*
+  package.json
+  */package.json
+  docs/package.json
+  package-lock.json
+  */package-lock.json
+  docs/package-lock.json
+  
+  # Python related files
+  requirements.txt
+  */requirements.txt
+  docs/requirements.txt
+  
+  # Exclude files that conflict with index.md files
+  /README.md
+  helm-charts/scanner-infrastructure/README.md
+  overview/README.md
+
+theme:
+  name: material
+  custom_dir: docs/theme_overrides
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - content.code.annotate
+    - content.code.select
+    - content.code.link
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      linenums: true
+      use_pygments: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+      base_path: ['.', 'docs', 'includes']
+      check_paths: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - footnotes
+  - toc:
+      permalink: true
+
+extra_css:
+  - css/custom.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+  - js/mermaid-config.js
+
+plugins:
+  - search
+  - mkdocstrings
+
+
+nav:
+  - Overview:
+    - Introduction: index.md
+    - Quickstart: overview/quickstart.md
+    - Security: overview/security.md
+    - Executive Summary: overview/executive-summary.md
+    - Security Risk Analysis: overview/security-risk-analysis.md
+    - Security Analysis: overview/security-analysis.md
+    - Security Compliance: overview/security-compliance.md
+    - Approach Comparison: overview/approach-comparison.md
+    - Approach Decision Matrix: overview/approach-decision-matrix.md
+    - Enterprise Integration: overview/enterprise-integration-analysis.md
+  - Helm Charts:
+    - Overview: helm-charts/overview.md
+    - Architecture: helm-charts/architecture.md
+    - Scanner Infrastructure: 
+        - Overview: helm-charts/scanner-infrastructure.md
+        - Details: helm-charts/scanner-infrastructure/index.md
+    - Common Scanner: helm-charts/common-scanner.md
+    - Kubernetes API Scanner: helm-charts/standard-scanner.md
+    - Debug Container Scanner: helm-charts/distroless-scanner.md
+    - Sidecar Container Scanner: helm-charts/sidecar-scanner.md
+    - Customization: helm-charts/customization.md
+    - Security Considerations: helm-charts/security.md
+    - Troubleshooting: helm-charts/troubleshooting.md
+    - Workflows: overview/workflows.md
+    - Container Scanning Workflows: overview/mermaid-diagrams.md
+    - ASCII to Mermaid: overview/ascii-to-mermaid.md
+  - Scanning Approaches:
+    - Kubernetes API Approach: distroless-containers.md
+    - Debug Container Approach: debugging-distroless.md
+    - Sidecar Container Approach: sidecar-container-approach.md
+    - Direct Commands: direct-commands.md
+  - Technical Documentation:
+    - RBAC Configuration: rbac/README.md
+    - Label-based RBAC: rbac/label-based.md
+    - Service Accounts: service-accounts/README.md
+    - Token Management: tokens/README.md
+    - Configuration: configuration/README.md
+    - Thresholds: thresholds.md
+    - SAF CLI Integration: saf-cli-integration.md
+    - Testing: testing/README.md
+    - Deployment Scenarios: deployment/README.md
+  - CI/CD Integration:
+    - Overview: integration/overview.md
+    - Approach Mapping: integration/approach-mapping.md
+    - GitHub Actions: integration/github-actions.md
+    - GitLab CI: integration/gitlab.md
+    - GitLab CI with Services: integration/gitlab-services.md
+    - GitLab Services Analysis: integration/gitlab-services-analysis.md
+    - Example Workflows:
+      - GitHub Actions Examples: github-workflow-examples/index.md
+      - GitLab Pipeline Examples: gitlab-pipeline-examples/index.md
+      - Code Examples Demo: examples/code-display-demo.md
+  - Customization:
+    - Plugin Modifications: plugin-modifications.md
+  - Project:
+    - Changelog: project/changelog.md
+    - Tasks: project/tasks.md
+    - Archive:
+      - ASCII Diagrams: project/archive/ascii-diagrams.md
+  - Contributing:
+    - Documentation Tools: contributing/documentation-tools.md
+    - Code Snippets: contributing/code-snippets.md
+    - Diagram Color Guide: contributing/diagram-color-guide.md
+    - Testing:
+      - Theme Testing: contributing/testing/dark-light-mode-test.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mitre
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/mitre
+    - icon: fontawesome/solid/shield
+      link: https://saf.mitre.org
+      name: MITRE Security Automation Framework
+  version:
+    provider: mike

@@ -1,0 +1,251 @@
+/* Custom styles for code blocks */
+.md-typeset pre > code {
+  /* Larger font for code blocks */
+  font-size: 0.8rem !important;
+}
+
+/* Better line number styling */
+.md-typeset .linenums ol {
+  margin-left: 0;
+  padding-left: 0.5em; 
+}
+
+.md-typeset .linenums li {
+  padding-left: 0.5em;
+  box-shadow: none;
+}
+
+/* Hover highlighting for code blocks */
+.md-typeset .highlight:hover {
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05), 0 0 0.05rem rgba(0, 0, 0, 0.1);
+  transition: all 0.25s;
+}
+
+/* YAML file styling */
+.language-yaml .line {
+  display: inline-block;
+  width: 100%;
+}
+
+/* Enhanced YAML syntax highlighting */
+[data-md-color-scheme="default"] .highlight code .kn {
+  color: #0550ae; /* YAML keys in light mode */
+}
+
+[data-md-color-scheme="default"] .highlight code .l {
+  color: #1c7d4d; /* YAML values in light mode */
+}
+
+[data-md-color-scheme="slate"] .highlight code .kn {
+  color: #7cb7ff; /* YAML keys in dark mode */
+}
+
+[data-md-color-scheme="slate"] .highlight code .l {
+  color: #8de2bf; /* YAML values in dark mode */
+}
+
+/* Make YAML code blocks more readable */
+.language-yaml {
+  line-height: 1.4 !important;
+}
+
+/* Fix for Mermaid diagrams in dark mode */
+[data-md-color-scheme="slate"] .mermaid {
+  background-color: #2e303e;
+  border-radius: 0.2rem;
+  padding: 1em;
+}
+
+[data-md-color-scheme="default"] .mermaid {
+  background-color: #f8f8f8;
+  border-radius: 0.2rem;
+  padding: 1em;
+}
+
+/* Better file linking */
+.md-content a[href$=".yml"],
+.md-content a[href$=".yaml"],
+.md-content a[href$=".sh"] {
+  padding-left: 1.2em;
+  position: relative;
+  font-family: var(--md-code-font-family);
+  background-color: var(--md-code-bg-color);
+  border-radius: 0.1rem;
+  padding: 0 0.2rem;
+  font-size: 0.85em;
+}
+
+.md-content a[href$=".yml"]::before,
+.md-content a[href$=".yaml"]::before {
+  content: "📄";
+  margin-right: 0.3em;
+}
+
+.md-content a[href$=".sh"]::before {
+  content: "🔧";
+  margin-right: 0.3em;
+}
+
+/* Improved Mermaid diagrams */
+.mermaid {
+  text-align: center !important;
+  margin: 1.5em 0;
+  overflow: auto;
+  border-radius: 0.2rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05), 0 0 0.05rem rgba(0, 0, 0, 0.1);
+}
+
+/* Fix mermaid rendering in dark mode - enhanced WCAG-compliant contrast */
+/* Dark mode node styling with higher contrast */
+[data-md-color-scheme="slate"] .mermaid .node rect,
+[data-md-color-scheme="slate"] .mermaid .node circle,
+[data-md-color-scheme="slate"] .mermaid .node ellipse,
+[data-md-color-scheme="slate"] .mermaid .node polygon,
+[data-md-color-scheme="slate"] .mermaid .node path {
+  stroke-width: 2px !important;
+  stroke: #BBBBBB !important; /* Lighter borders for better visibility */
+  fill: #363846 !important; /* Slightly lighter than background */
+}
+
+/* Better text contrast in dark mode */
+[data-md-color-scheme="slate"] .mermaid .label {
+  color: #FFFFFF !important;
+  font-weight: bold !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid .edgeLabel {
+  background-color: #363846 !important;
+  color: #FFFFFF !important;
+  padding: 2px 4px !important;
+  border-radius: 4px !important;
+}
+
+/* Edge/connection styling in dark mode */
+[data-md-color-scheme="slate"] .mermaid .edgePath .path {
+  stroke: #BBBBBB !important;
+  stroke-width: 2px !important;
+}
+
+/* Style labels in dark mode */
+[data-md-color-scheme="slate"] .mermaid .flowchartTitleText {
+  fill: #FFFFFF !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+}
+
+/* Light mode enhancements */
+[data-md-color-scheme="default"] .mermaid .node rect,
+[data-md-color-scheme="default"] .mermaid .node circle,
+[data-md-color-scheme="default"] .mermaid .node ellipse,
+[data-md-color-scheme="default"] .mermaid .node polygon,
+[data-md-color-scheme="default"] .mermaid .node path {
+  stroke-width: 2px !important;
+  stroke: #444444 !important;
+  fill: #F5F5F5 !important;
+}
+
+[data-md-color-scheme="default"] .mermaid .edgePath .path {
+  stroke: #444444 !important;
+  stroke-width: 1.5px !important;
+}
+
+/* Better text in light mode */
+[data-md-color-scheme="default"] .mermaid .label {
+  color: #101010 !important;
+}
+
+/* Custom node styling for better clarity */
+.mermaid .node.clickable {
+  cursor: pointer;
+}
+
+.mermaid .node.clickable:hover rect,
+.mermaid .node.clickable:hover circle,
+.mermaid .node.clickable:hover ellipse,
+.mermaid .node.clickable:hover polygon {
+  filter: brightness(0.95);
+}
+
+/* Loading spinner for mermaid diagrams */
+.mermaid:not([data-processed="true"]):before {
+  content: "Loading diagram...";
+  display: block;
+  color: #888;
+  padding: 2em;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Inline code display for example files */
+.example-file-container {
+  margin: 1.5em 0;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.example-file-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: var(--md-code-bg-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-md-color-scheme="slate"] .example-file-header {
+  background-color: #2b2e3b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.example-file-name {
+  font-family: var(--md-code-font-family);
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.example-file-actions {
+  display: flex;
+  gap: 0.5em;
+}
+
+.example-file-copy, 
+.example-file-download {
+  font-size: 0.8em;
+  padding: 0.3em 0.5em;
+  border-radius: 0.2em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  color: var(--md-typeset-color);
+}
+
+.example-file-copy:hover, 
+.example-file-download:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-md-color-scheme="slate"] .example-file-copy:hover, 
+[data-md-color-scheme="slate"] .example-file-download:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.example-file-code {
+  margin: 0;
+  padding: 0;
+}
+
+.example-file-code pre {
+  margin: 0;
+  padding: 1em;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.copy-icon, .download-icon {
+  font-size: 1em;
+}

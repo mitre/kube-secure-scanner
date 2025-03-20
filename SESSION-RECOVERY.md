@@ -55,6 +55,37 @@ We most recently:
 
 ## Latest Progress
 
+### MkDocs Documentation Enhancement (Current Session)
+1. **Documentation Structure Improvements**
+   - ✅ Created `/docs/project/` directory to house project-wide documentation
+   - ✅ Moved CHANGELOG.md content to `/docs/project/changelog.md`
+   - ✅ Planned organization of TASKS.md to `/docs/project/tasks.md`
+   - ✅ Set up navigation structure in mkdocs.yml to include project-wide documentation
+
+2. **MkDocs Theme and Functionality Enhancements**
+   - ✅ Implemented dark mode support with proper toggle using Material theme
+   - ✅ Added custom CSS for better code block formatting and readability
+   - ✅ Created dynamic copyright year generation with custom theme override
+   - ✅ Added proper MITRE attribution and branding
+   - ✅ Configured Mermaid diagrams to support dark/light mode themes
+   - ✅ Added custom JavaScript for theme detection and adaptation
+
+3. **Documentation Content Consistency**
+   - ✅ Harmonized terminology throughout documentation (CINC Auditor vs InSpec)
+   - ✅ Standardized approach names across all documentation files
+   - ✅ Added consistent strategic priority statements in key files
+   - ✅ Fixed broken links and file path references
+   - ✅ Enhanced recommendation language in integration documentation
+   - ✅ Fixed blank scanner-infrastructure documentation
+   - ✅ Updated project metadata and navigation structure
+
+4. **Current Implementation Challenges**
+   - 🔄 Addressing YAML files being downloaded instead of displayed
+   - 🔄 Ensuring Mermaid charts are readable in both dark and light modes
+   - 🔄 Converting selected ASCII diagrams to Mermaid format
+   - 🔄 Testing full documentation site with dark/light mode toggle
+   - 🔄 Implementing proper file organization with symlinks for changelog and tasks
+
 ### Completed Work
 
 1. **Minikube Testing Environment Setup**
@@ -101,7 +132,7 @@ We most recently:
      - Scanning with existing Kubernetes clusters in GitHub Actions
      - Scanning with existing Kubernetes clusters in GitLab CI
 
-6. **Current Project Status (March 19, 2025)**
+6. **Current Project Status (March 22, 2025)**
    - Implemented a complete working solution for standard container scanning
    - Created proof-of-concept for distroless containers using ephemeral debug containers
    - Completed all helper scripts for setup, scanning, and configuration
@@ -110,6 +141,9 @@ We most recently:
    - Implemented SAF CLI integration for threshold validation
    - Built CI/CD examples for GitHub Actions and GitLab CI with dynamic RBAC
    - Created GitHub repository at github.com/mitre/kube-cinc-secure-scanner
+   - Enhanced MkDocs configuration with dark mode support and MITRE branding
+   - Improved documentation organization with project directory structure
+   - Added proper Mermaid diagram support with theme-aware configuration
    
 7. **Previous Session Work**
    - Updated main README.md to reflect dual approach strategy
@@ -157,6 +191,55 @@ We most recently:
    - ✅ Created ASCII text-based diagrams for all workflows and architectures
    - ✅ Added ASCII diagrams documentation to complement Mermaid diagrams
 
+11. **Previous Session Work (March 19, 2025)**
+   - ✅ Enhanced CI/CD integration documentation:
+     - ✅ Created comprehensive CI/CD integration overview
+     - ✅ Developed approach mapping document matching CI/CD examples to approaches
+     - ✅ Improved cross-references between documentation sections
+   - ✅ Created comprehensive documentation for Helm Charts:
+     - ✅ Architecture and relationships between charts
+     - ✅ Configuration options for each chart
+     - ✅ Security considerations for Helm deployments
+     - ✅ Troubleshooting guidance
+   - ✅ Developed enhanced documentation management system:
+     - ✅ Created comprehensive docs-tools.sh script with multiple capabilities
+     - ✅ Added background server mode for documentation preview
+     - ✅ Implemented documentation quality validation tools
+     - ✅ Reorganized documentation utilities to docs directory
+     - ✅ Created documentation about the documentation system
+   - ✅ Cleaned up project root directory
+   - ✅ Implemented process management for documentation preview server
+
+12. **Previous Session Work (March 20, 2025)**
+   - ✅ Documentation improvement and fixes:
+     - ✅ Fixed approach-mapping.md links to workflow YAML files
+     - ✅ Updated links to use repository URLs for workflow files
+     - ✅ Tested the documentation preview functionality
+     - ✅ Updated TASKS.md with progress on documentation refinement
+     - ✅ Set up additional documentation dependencies for quality validation
+   - ✅ Documentation quality validation:
+     - ✅ Implemented npm/node dependencies for markdownlint
+     - ✅ Set up pyspelling for spell checking
+     - ✅ Configured MkDocs preview server for testing
+
+13. **Current Session Work (March 21, 2025)**
+   - ✅ Created comprehensive documentation:
+     - ✅ Created dedicated approach-comparison.md in overview section
+     - ✅ Developed detailed testing documentation (testing/README.md)
+     - ✅ Created deployment scenarios documentation (deployment/README.md)
+     - ✅ Developed security compliance documentation with regulatory analysis
+   - ✅ Security compliance documentation:
+     - ✅ Analyzed DoD 8500.01 security requirements related to scanning approaches
+     - ✅ Reviewed DISA Container Platform SRG for compliance alignment
+     - ✅ Incorporated Kubernetes STIG (v2r2) security controls
+     - ✅ Added CIS Kubernetes Benchmark requirements
+     - ✅ Created comprehensive compliance comparison table for all approaches
+     - ✅ Documented risk acceptance requirements for alternative approaches
+   - ✅ Documentation organization:
+     - ✅ Updated mkdocs.yml navigation to include new documentation
+     - ✅ Reorganized security documentation for better flow
+     - ✅ Updated SESSION-RECOVERY.md to track progress
+
 ### Recent Progress
 
 1. **High-Level Documentation Completed**
@@ -176,25 +259,84 @@ We most recently:
    - ✅ Completed migration from legacy helm-chart to modular helm-charts structure
    - ✅ Committed and pushed all changes to the origin repository
 
-### Planned Documentation Improvements
+### Documentation Improvements
 
-The team has identified MkDocs with Material theme as an excellent solution for improving documentation readability. Implementation plan:
-
+#### Completed Work
 1. **MkDocs Setup**
-   - 🔄 Create mkdocs.yml configuration file
-   - 🔄 Set up GitHub Action for automatic deployment (mkdocs-deploy-gh-pages)
-   - 🔄 Adjust documentation structure for optimal navigation
+   - ✅ Created mkdocs.yml configuration file
+   - ✅ Set up GitHub Action for automatic deployment (deploy-docs.yml)
+   - ✅ Adjusted documentation structure for optimal navigation
 
 2. **Documentation Enhancements for MkDocs**
-   - 🔄 Ensure all Markdown files have proper titles and front matter
-   - 🔄 Create navigation hierarchy in mkdocs.yml
-   - 🔄 Optimize diagrams and code blocks for MkDocs Material theme
-   - 🔄 Add search functionality and proper indexing
-   - 🔄 Create landing page with clear navigation paths
+   - ✅ Created a comprehensive navigation hierarchy in mkdocs.yml
+   - ✅ Added search functionality and proper indexing
+   - ✅ Created a landing page with clear navigation paths
+   - ✅ Integrated Mermaid diagram support for workflow visualization
+   - ✅ Added requirements.txt file for Python dependencies
+   - ✅ Updated README.md with MkDocs usage instructions
+   - ✅ Updated terminology to consistently use "Kubernetes API Approach" instead of "Standard Scanning"
+   - ✅ Enhanced enterprise integration analysis documentation
+
+#### Documentation Tasks Progress
+
+1. **Standardization and Enhancement**
+   - ✅ Normalize approach naming across documentation:
+     - ✅ Consistently use "Kubernetes API Approach" (not "Modified Plugin" or "Standard Scanning")
+     - ✅ Ensure consistent naming for "Debug Container Approach" and "Sidecar Container Approach"
+   - ✅ Review documents to ensure terminology consistency
+   - ✅ Create comprehensive CI/CD integration overview
+   - ✅ Develop approach mapping for CI/CD examples across all platforms and approaches
+   - ✅ Add cross-references throughout documentation for better navigation
+
+2. **Helm Chart Documentation**
+   - ✅ Create comprehensive documentation for Helm Charts:
+     - ✅ Architecture and design with detailed diagrams
+     - ✅ Usage instructions for different scenarios
+     - ✅ Configuration options with examples
+     - ✅ Security considerations specific to Helm deployments
+     - ✅ Troubleshooting guidance
+   - ✅ Integrate into MkDocs navigation structure
+
+3. **CI/CD Integration Documentation**
+   - ✅ Create CI/CD integration overview document
+   - ✅ Develop approach mapping document to match CI/CD examples to specific approaches
+   - ✅ Add clear guidance on choosing the right CI/CD integration
+   - ✅ Enhance GitLab services documentation and analysis
+   - ✅ Document all available CI/CD configuration options
+   - ✅ Organize documentation by platform and approach
+
+4. **Documentation System Enhancement**
+   - ✅ Create comprehensive documentation management system
+   - ✅ Reorganize documentation utilities to the docs directory
+   - ✅ Add tools for validating documentation quality:
+     - ✅ Markdown linting with markdownlint
+     - ✅ Spell checking with pyspelling
+     - ✅ Link validation with linkchecker
+   - ✅ Enhance documentation preview with background server and status monitoring
+   - ✅ Create documentation about the documentation system itself
+   - ✅ Clean up project root directory
+
+5. **Next Documentation Tasks**
+   - ✅ Fix approach-mapping.md links to workflow YAML files
+   - 🔄 Add more CI/CD examples for different environments
+   - 🔄 Create comprehensive testing documentation section
+   - 🔄 Add deployment scenarios documentation
+   - 🔄 Review all documents for accessibility and readability
 
 ### Next Steps
 
-1. **Complete Container Scanning Approaches Implementation**
+1. **Complete Documentation Enhancement (Current Priority)**
+   - ✅ Created project directory structure
+   - ✅ Set up consolidated changelog in /docs/project/
+   - 🔄 Complete file organization with tasks.md
+   - 🔄 Test Mermaid dark mode configuration with actual diagrams
+   - 🔄 Add specialized configuration to display YAML files with syntax highlighting
+   - 🔄 Create sample ASCII-to-Mermaid conversion as proof of concept
+   - 🔄 Verify all links are working correctly after updates
+   - 🔄 Test documentation site with dark/light mode toggle
+   - 🔄 Add additional configuration for proper code display
+
+2. **Complete Container Scanning Approaches Implementation**
    - **Approach 1 - Modified Plugin (Enterprise Solution):**
      - 🔄 Fork and modify the train-k8s-container plugin to support distroless containers
      - 🔄 Implement ephemeral container detection and integration directly in the plugin
@@ -266,13 +408,17 @@ The team has identified MkDocs with Material theme as an excellent solution for 
    - ✅ Update CI/CD examples for both approaches (Done for GitLab CI with services)
 
 4. **GitLab CI Services Implementation**
-   - Build and publish scanner service Docker images:
+   - ✅ Analyze GitLab CI services for enhanced container scanning
+   - ✅ Create GitLab CI services example for both standard and distroless scanning
+   - ✅ Document GitLab CI services integration with detailed analysis
+   - ✅ Create GitLab CI services example for sidecar container approach
+   - 🔄 Build and publish scanner service Docker images:
      - Standard scanner image with CINC Auditor pre-installed
      - Distroless scanner image with specialized tooling
-   - Test the GitLab CI services approach with real-world workloads
-   - Create GitHub Actions equivalent using service containers
-   - Document best practices for maintaining scanner service images
-   - Create examples for different CI/CD environments and use cases
+   - 🔄 Test the GitLab CI services approach with real-world workloads
+   - 🔄 Create GitHub Actions equivalent using service containers
+   - 🔄 Document best practices for maintaining scanner service images
+   - 🔄 Create examples for different CI/CD environments and use cases
 
 5. **Sidecar Container Approach Integration (Mostly Completed)**
    - ✅ Create CI/CD integration examples for the sidecar container approach:

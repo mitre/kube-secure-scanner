@@ -1,0 +1,28 @@
+matrix:
+- name: markdown
+  sources:
+  - '**/*.md'
+  expect_match: true
+  apsell:
+    lang: en
+    d: en_US
+    ignore_case: true
+  dictionary:
+    wordlists:
+    - .spelling
+  pipeline:
+  - pyspelling.filters.markdown:
+      markdown_extensions:
+      - markdown.extensions.tables
+      - markdown.extensions.fenced_code
+      - pymdownx.superfences
+  - pyspelling.filters.html:
+      comments: false
+      attributes:
+      - title
+      - alt
+      ignores:
+      - code
+      - pre
+      - kbd
+  - pyspelling.filters.url:

@@ -1,0 +1,4 @@
+docs/node_modules/* linguist-vendored
+docs/node_modules/* -diff -merge
+node_modules/* linguist-vendored
+node_modules/* -diff -merge

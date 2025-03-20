@@ -1,0 +1,30 @@
+# Custom dictionary for pyspelling
+# Add technical terms, product names, and other words that are correctly spelled but not in standard dictionaries
+CINC
+MITRE
+SAF-CLI
+mkdocs
+distroless
+sidecar
+kubectl
+kubeconfig
+namespace
+Kubernetes
+RBAC
+rolebinding
+roleRef
+serviceaccount
+minikube
+EKS
+GKE
+AKS
+api
+pyspelling
+markdownlint
+npm
+linter
+GitHub
+GitLab
+CI
+CI/CD
+EOF

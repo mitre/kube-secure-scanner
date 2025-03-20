@@ -2,6 +2,20 @@
 
 This directory contains example resources for demonstrating secure Kubernetes container scanning with CINC Auditor.
 
+## Recommended Scanning Approach
+
+We strongly recommend using the **Kubernetes API Approach** with the train-k8s-container plugin for container scanning, especially in enterprise and production environments. This approach provides:
+
+- Complete isolation from container workloads
+- Proper security boundaries
+- Compliance with security frameworks
+- Scalable implementation for CI/CD pipelines
+
+Our highest strategic priority is enhancing the train-k8s-container plugin to support distroless containers. For detailed information on approach selection, see:
+- [Approach Comparison](/docs/overview/approach-comparison.md)
+- [Approach Decision Matrix](/docs/overview/approach-decision-matrix.md)
+- [Security Compliance](/docs/overview/security-compliance.md)
+
 ## CINC Auditor Profiles
 
 The `cinc-profiles` directory contains custom profiles for container scanning:
@@ -24,12 +38,26 @@ You can use these profiles with the workflows or manually:
       -t k8s-container://namespace/pod-name/container-name
 ```
 
+For complete GitHub Actions workflow examples, see the [GitHub Workflow Examples](/docs/github-workflow-examples/index.md) directory.
+
+### With GitLab CI/CD
+
+See the [GitLab Integration Guide](/docs/integration/gitlab.md) and [GitLab Pipeline Examples](/docs/gitlab-pipeline-examples/index.md) for detailed examples of using these profiles in GitLab pipelines.
+
 ### Manually
 
 ```bash
 # From the root directory of this repository:
 ./scripts/scan-container.sh inspec-test inspec-target busybox ./examples/cinc-profiles/container-baseline
 ```
+
+### Distroless Containers
+
+For distroless containers, we currently support two approaches:
+1. The Debug Container Approach (using ephemeral debug containers)
+2. The Sidecar Container Approach (using shared process namespaces)
+
+Both are intended as interim solutions while we enhance the train-k8s-container plugin to support distroless containers through the primary Kubernetes API Approach. See [Distroless Containers](/docs/distroless-containers.md) for implementation details.
 
 ## Customizing Profiles
 

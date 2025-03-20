@@ -1,0 +1,16 @@
+{
+  "name": "secure-cinc-auditor-kubernetes-container-scanning-docs",
+  "version": "1.0.0",
+  "description": "Documentation tools for the Secure CINC Auditor Kubernetes Container Scanning project",
+  "scripts": {
+    "lint": "markdownlint \"**/*.md\" --ignore node_modules",
+    "fix": "markdownlint \"**/*.md\" --ignore node_modules --fix",
+    "spell": "pyspelling",
+    "links": "linkchecker --check-extern ../site/",
+    "preview": "cd .. && mkdocs serve",
+    "build": "cd .. && mkdocs build"
+  },
+  "devDependencies": {
+    "markdownlint-cli": "^0.39.0"
+  }
+}

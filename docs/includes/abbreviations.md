@@ -1,0 +1,16 @@
+!!! info "Common Abbreviations"
+    - **HTML**: Hyper Text Markup Language
+    - **WCAG**: Web Content Accessibility Guidelines
+    - **RBAC**: Role-Based Access Control
+    - **CINC**: CINC Is Not Chef
+    - **SAF**: Security Automation Framework
+    - **CI/CD**: Continuous Integration/Continuous Deployment
+    - **API**: Application Programming Interface
+    - **YAML**: YAML Ain't Markup Language
+    - **SAST**: Static Application Security Testing
+    - **DAST**: Dynamic Application Security Testing
+    - **SCA**: Software Composition Analysis
+    - **SBOM**: Software Bill of Materials
+    - **CIS**: Center for Internet Security
+    - **NIST**: National Institute of Standards and Technology
+    - **K8s**: Kubernetes

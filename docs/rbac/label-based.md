@@ -89,7 +89,7 @@ For more robust access control, you can use a Kubernetes ValidatingWebhook to pe
 2. A webhook server that performs label checks
 3. Integration with your authentication system
 
-For a full implementation, see the [advanced-label-rbac](advanced-label-rbac.md) document.
+For a full implementation, see the advanced label RBAC section below.
 
 ## Security Considerations
 
@@ -108,4 +108,4 @@ Mitigations:
 
 ## Example YAML
 
-See [label-rbac.yaml](../../kubernetes/templates/label-rbac.yaml) for a complete example configuration.
+A complete example configuration is available in the repository under `kubernetes/templates/label-rbac.yaml`.
