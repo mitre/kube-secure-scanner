@@ -1,0 +1,271 @@
+name: Existing Cluster Container Scanning
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_namespace:
+        description: 'Namespace where target pods are deployed'
+        required: true
+        default: 'default'
+      target_label:
+        description: 'Label selector for target pods (app=myapp)'
+        required: true
+        default: 'scan-target=true'
+      cinc_profile:
+        description: 'CINC Auditor profile to run'
+        required: true
+        default: 'dev-sec/linux-baseline'
+      threshold:
+        description: 'Minimum passing score (0-100)'
+        required: true
+        default: '70'
+
+jobs:
+  scan-existing-cluster:
+    name: Scan Containers in Existing Cluster
+    runs-on: ubuntu-latest
+    
+    env:
+      SCAN_NAMESPACE: ${{ github.event.inputs.target_namespace }}
+      LABEL_SELECTOR: ${{ github.event.inputs.target_label }}
+      CINC_PROFILE: ${{ github.event.inputs.cinc_profile }}
+      THRESHOLD_VALUE: ${{ github.event.inputs.threshold }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+        
+      - name: Configure Kubernetes cluster
+        run: |
+          # Set up kubeconfig using supplied cluster credentials
+          echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig.yaml
+          chmod 600 kubeconfig.yaml
+          export KUBECONFIG=kubeconfig.yaml
+          
+          # Verify connection and target namespace
+          kubectl get namespace ${SCAN_NAMESPACE} || { echo "Namespace ${SCAN_NAMESPACE} does not exist"; exit 1; }
+          
+          # Find pods matching the label selector
+          TARGET_PODS=$(kubectl get pods -n ${SCAN_NAMESPACE} -l ${LABEL_SELECTOR} -o jsonpath='{.items[*].metadata.name}')
+          if [ -z "$TARGET_PODS" ]; then
+            echo "No pods found matching label: ${LABEL_SELECTOR} in namespace ${SCAN_NAMESPACE}"
+            exit 1
+          fi
+          
+          # Count and list found pods
+          POD_COUNT=$(echo $TARGET_PODS | wc -w)
+          echo "Found ${POD_COUNT} pods to scan:"
+          kubectl get pods -n ${SCAN_NAMESPACE} -l ${LABEL_SELECTOR} --show-labels
+          
+          # Save the first pod as our primary target
+          PRIMARY_POD=$(echo $TARGET_PODS | cut -d' ' -f1)
+          echo "Primary target pod: ${PRIMARY_POD}"
+          echo "PRIMARY_POD=${PRIMARY_POD}" >> $GITHUB_ENV
+          
+          # Get container name for the primary pod
+          PRIMARY_CONTAINER=$(kubectl get pod ${PRIMARY_POD} -n ${SCAN_NAMESPACE} -o jsonpath='{.spec.containers[0].name}')
+          echo "Primary container: ${PRIMARY_CONTAINER}"
+          echo "PRIMARY_CONTAINER=${PRIMARY_CONTAINER}" >> $GITHUB_ENV
+          
+          # Check if pod has profile annotation
+          PROFILE_ANNOTATION=$(kubectl get pod ${PRIMARY_POD} -n ${SCAN_NAMESPACE} -o jsonpath='{.metadata.annotations.scan-profile}' 2>/dev/null || echo "")
+          if [ -n "$PROFILE_ANNOTATION" ]; then
+            echo "Found profile annotation: ${PROFILE_ANNOTATION}"
+            echo "CINC_PROFILE=${PROFILE_ANNOTATION}" >> $GITHUB_ENV
+          fi
+      
+      - name: Create dynamic RBAC for scanning
+        run: |
+          export KUBECONFIG=kubeconfig.yaml
+          
+          # Create a unique ID for this run
+          RUN_ID="gh-${{ github.run_id }}-${{ github.run_attempt }}"
+          echo "RUN_ID=${RUN_ID}" >> $GITHUB_ENV
+          
+          # Create service account for scanning
+          cat <<EOF | kubectl apply -f -
+          apiVersion: v1
+          kind: ServiceAccount
+          metadata:
+            name: scanner-${RUN_ID}
+            namespace: ${SCAN_NAMESPACE}
+            labels:
+              app: security-scanner
+              run-id: "${RUN_ID}"
+          EOF
+          
+          # Create role with least privilege
+          cat <<EOF | kubectl apply -f -
+          apiVersion: rbac.authorization.k8s.io/v1
+          kind: Role
+          metadata:
+            name: scanner-role-${RUN_ID}
+            namespace: ${SCAN_NAMESPACE}
+            labels:
+              app: security-scanner
+              run-id: "${RUN_ID}"
+          rules:
+          - apiGroups: [""]
+            resources: ["pods"]
+            verbs: ["get", "list"]
+          - apiGroups: [""]
+            resources: ["pods/exec"]
+            verbs: ["create"]
+            resourceNames: ["${PRIMARY_POD}"]
+          - apiGroups: [""]
+            resources: ["pods/log"]
+            verbs: ["get"]
+            resourceNames: ["${PRIMARY_POD}"]
+          EOF
+          
+          # Create role binding
+          cat <<EOF | kubectl apply -f -
+          apiVersion: rbac.authorization.k8s.io/v1
+          kind: RoleBinding
+          metadata:
+            name: scanner-binding-${RUN_ID}
+            namespace: ${SCAN_NAMESPACE}
+            labels:
+              app: security-scanner
+              run-id: "${RUN_ID}"
+          subjects:
+          - kind: ServiceAccount
+            name: scanner-${RUN_ID}
+            namespace: ${SCAN_NAMESPACE}
+          roleRef:
+            kind: Role
+            name: scanner-role-${RUN_ID}
+            apiGroup: rbac.authorization.k8s.io
+          EOF
+          
+          # Create token for service account (15 minute duration)
+          TOKEN=$(kubectl create token scanner-${RUN_ID} -n ${SCAN_NAMESPACE} --duration=15m)
+          SERVER=$(kubectl config view --minify --output=jsonpath='{.clusters[0].cluster.server}')
+          CA_DATA=$(kubectl config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')
+          
+          # Create restricted kubeconfig
+          cat > scanner-kubeconfig.yaml << EOF
+          apiVersion: v1
+          kind: Config
+          preferences: {}
+          clusters:
+          - cluster:
+              server: ${SERVER}
+              certificate-authority-data: ${CA_DATA}
+            name: scanner-cluster
+          contexts:
+          - context:
+              cluster: scanner-cluster
+              namespace: ${SCAN_NAMESPACE}
+              user: scanner-user
+            name: scanner-context
+          current-context: scanner-context
+          users:
+          - name: scanner-user
+            user:
+              token: ${TOKEN}
+          EOF
+          
+          chmod 600 scanner-kubeconfig.yaml
+      
+      - name: Set up CINC Auditor and SAF-CLI
+        run: |
+          # Install CINC Auditor
+          curl -L https://omnitruck.cinc.sh/install.sh | sudo bash -s -- -P cinc-auditor
+          
+          # Install train-k8s-container plugin
+          cinc-auditor plugin install train-k8s-container
+          
+          # Install SAF-CLI
+          npm install -g @mitre/saf
+          
+          # Verify installations
+          cinc-auditor --version
+          saf --version
+      
+      - name: Run security scan with restricted access
+        run: |
+          # Verify access with restricted token
+          echo "Verifying restricted access:"
+          KUBECONFIG=scanner-kubeconfig.yaml kubectl get pods -n ${SCAN_NAMESPACE} -l ${LABEL_SELECTOR}
+          
+          # Verify we can access the target pod
+          ACCESSIBLE_POD=$(KUBECONFIG=scanner-kubeconfig.yaml kubectl get pod ${PRIMARY_POD} -n ${SCAN_NAMESPACE} -o jsonpath='{.metadata.name}' 2>/dev/null || echo "")
+          if [ -z "$ACCESSIBLE_POD" ]; then
+            echo "Error: Cannot access pod ${PRIMARY_POD} with restricted token"
+            exit 1
+          fi
+          
+          # Run CINC Auditor scan
+          echo "Running CINC Auditor scan on ${SCAN_NAMESPACE}/${PRIMARY_POD}/${PRIMARY_CONTAINER}"
+          KUBECONFIG=scanner-kubeconfig.yaml cinc-auditor exec ${CINC_PROFILE} \
+            -t k8s-container://${SCAN_NAMESPACE}/${PRIMARY_POD}/${PRIMARY_CONTAINER} \
+            --reporter cli json:scan-results.json
+          
+          # Save scan exit code
+          SCAN_EXIT_CODE=$?
+          echo "Scan completed with exit code: ${SCAN_EXIT_CODE}"
+          
+          # Process results with SAF-CLI
+          echo "Generating scan summary with SAF-CLI:"
+          saf summary --input scan-results.json --output-md scan-summary.md
+          
+          # Display the summary in the logs
+          cat scan-summary.md
+          
+          # Add to GitHub step summary
+          echo "## CINC Auditor Scan Results" > $GITHUB_STEP_SUMMARY
+          cat scan-summary.md >> $GITHUB_STEP_SUMMARY
+          
+          # Create a threshold file
+          cat > threshold.yml << EOF
+          compliance:
+            min: ${THRESHOLD_VALUE}
+          failed:
+            critical:
+              max: 0  # No critical failures allowed
+          EOF
+          
+          # Apply threshold check
+          echo "Checking against threshold with min compliance of ${THRESHOLD_VALUE}%:"
+          saf threshold -i scan-results.json -t threshold.yml
+          THRESHOLD_EXIT_CODE=$?
+          
+          if [ $THRESHOLD_EXIT_CODE -eq 0 ]; then
+            echo "✅ Security scan passed threshold requirements" | tee -a $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Security scan failed to meet threshold requirements" | tee -a $GITHUB_STEP_SUMMARY
+            # Uncomment to enforce the threshold as a quality gate
+            # exit $THRESHOLD_EXIT_CODE
+          fi
+          
+          # Generate HTML report
+          saf view -i scan-results.json --output scan-report.html
+      
+      - name: Upload scan results
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-scan-results
+          path: |
+            scan-results.json
+            scan-summary.md
+            scan-report.html
+      
+      - name: Cleanup RBAC resources
+        if: always()
+        run: |
+          export KUBECONFIG=kubeconfig.yaml
+          
+          # Delete role binding
+          kubectl delete rolebinding scanner-binding-${RUN_ID} -n ${SCAN_NAMESPACE} --ignore-not-found
+          
+          # Delete role
+          kubectl delete role scanner-role-${RUN_ID} -n ${SCAN_NAMESPACE} --ignore-not-found
+          
+          # Delete service account
+          kubectl delete serviceaccount scanner-${RUN_ID} -n ${SCAN_NAMESPACE} --ignore-not-found
+          
+          echo "RBAC resources cleaned up"

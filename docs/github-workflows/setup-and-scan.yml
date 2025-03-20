@@ -1,0 +1,251 @@
+name: Setup Minikube and Run CINC Auditor Scan
+
+on:
+  workflow_dispatch:
+    inputs:
+      minikube_version:
+        description: 'Minikube version to use'
+        required: true
+        default: 'v1.32.0'
+      kubernetes_version:
+        description: 'Kubernetes version to use'
+        required: true
+        default: 'v1.28.3'
+      cinc_profile:
+        description: 'CINC Auditor profile to run'
+        required: true
+        default: 'dev-sec/linux-baseline'
+      threshold:
+        description: 'Minimum passing score (0-100)'
+        required: true
+        default: '70'
+
+jobs:
+  setup-and-scan:
+    name: Setup minikube and run CINC Auditor scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup minikube
+        id: minikube
+        uses: medyagh/setup-minikube@master
+        with:
+          minikube-version: ${{ github.event.inputs.minikube_version }}
+          kubernetes-version: ${{ github.event.inputs.kubernetes_version }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          driver: docker
+          start-args: --nodes=2
+      
+      - name: Get cluster status
+        run: |
+          kubectl get nodes
+          minikube status
+      
+      - name: Set up CINC Auditor environment
+        run: |
+          # Install CINC Auditor
+          curl -L https://omnitruck.cinc.sh/install.sh | sudo bash -s -- -P cinc-auditor
+          
+          # Install train-k8s-container plugin
+          cinc-auditor plugin install train-k8s-container
+          
+          # Install SAF-CLI for result processing
+          npm install -g @mitre/saf
+          
+          # Verify installation
+          cinc-auditor --version
+          cinc-auditor plugin list
+          saf --version
+      
+      - name: Create namespace and test pod
+        run: |
+          # Create namespace
+          kubectl create namespace inspec-test
+          
+          # Create test pod
+          cat <<EOF | kubectl apply -f -
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: inspec-target
+            namespace: inspec-test
+            labels:
+              app: inspec-target
+              scan-target: "true"
+          spec:
+            containers:
+            - name: busybox
+              image: busybox:latest
+              command: ["sleep", "infinity"]
+          EOF
+          
+          # Wait for pod to be running
+          kubectl wait --for=condition=ready pod/inspec-target -n inspec-test --timeout=120s
+          
+          # Verify pod is running
+          kubectl get pods -n inspec-test
+      
+      - name: Set up RBAC configuration
+        run: |
+          # Create service account
+          cat <<EOF | kubectl apply -f -
+          apiVersion: v1
+          kind: ServiceAccount
+          metadata:
+            name: inspec-scanner
+            namespace: inspec-test
+          EOF
+          
+          # Create role
+          cat <<EOF | kubectl apply -f -
+          apiVersion: rbac.authorization.k8s.io/v1
+          kind: Role
+          metadata:
+            name: inspec-container-role
+            namespace: inspec-test
+          rules:
+          - apiGroups: [""]
+            resources: ["pods"]
+            verbs: ["get", "list"]
+          - apiGroups: [""]
+            resources: ["pods/exec"]
+            verbs: ["create"]
+            resourceNames: ["inspec-target"]
+          - apiGroups: [""]
+            resources: ["pods/log"]
+            verbs: ["get"]
+            resourceNames: ["inspec-target"]
+          EOF
+          
+          # Create role binding
+          cat <<EOF | kubectl apply -f -
+          apiVersion: rbac.authorization.k8s.io/v1
+          kind: RoleBinding
+          metadata:
+            name: inspec-container-rolebinding
+            namespace: inspec-test
+          subjects:
+          - kind: ServiceAccount
+            name: inspec-scanner
+            namespace: inspec-test
+          roleRef:
+            kind: Role
+            name: inspec-container-role
+            apiGroup: rbac.authorization.k8s.io
+          EOF
+          
+          # Verify RBAC setup
+          kubectl get serviceaccount,role,rolebinding -n inspec-test
+      
+      - name: Generate restricted kubeconfig
+        run: |
+          # Get token
+          TOKEN=$(kubectl create token inspec-scanner -n inspec-test --duration=15m)
+          
+          # Get cluster information
+          SERVER=$(kubectl config view --minify --output=jsonpath='{.clusters[0].cluster.server}')
+          CA_DATA=$(kubectl config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')
+          
+          # Create kubeconfig
+          cat > restricted-kubeconfig.yaml << EOF
+          apiVersion: v1
+          kind: Config
+          preferences: {}
+          clusters:
+          - cluster:
+              server: ${SERVER}
+              certificate-authority-data: ${CA_DATA}
+            name: scanner-cluster
+          contexts:
+          - context:
+              cluster: scanner-cluster
+              namespace: inspec-test
+              user: scanner-user
+            name: scanner-context
+          current-context: scanner-context
+          users:
+          - name: scanner-user
+            user:
+              token: ${TOKEN}
+          EOF
+          
+          # Set proper permissions
+          chmod 600 restricted-kubeconfig.yaml
+          
+          # Test the kubeconfig
+          KUBECONFIG=restricted-kubeconfig.yaml kubectl get pods -n inspec-test
+      
+      - name: Run CINC Auditor scan with restricted access
+        run: |
+          # Download CINC profile
+          if [[ "${{ github.event.inputs.cinc_profile }}" == http* ]]; then
+            # If it's a URL, use it directly
+            PROFILE="${{ github.event.inputs.cinc_profile }}"
+          elif [[ "${{ github.event.inputs.cinc_profile }}" == */* ]]; then
+            # If it's a profile from Chef Supermarket (e.g., dev-sec/linux-baseline)
+            PROFILE="${{ github.event.inputs.cinc_profile }}"
+          else
+            # If it's a local path
+            PROFILE="./${{ github.event.inputs.cinc_profile }}"
+          fi
+          
+          # Run CINC Auditor with the train-k8s-container transport
+          KUBECONFIG=restricted-kubeconfig.yaml cinc-auditor exec ${PROFILE} \
+            -t k8s-container://inspec-test/inspec-target/busybox \
+            --reporter cli json:cinc-results.json
+          
+          # Store the exit code
+          CINC_EXIT_CODE=$?
+          echo "CINC Auditor scan completed with exit code: ${CINC_EXIT_CODE}"
+      
+      - name: Process results with SAF-CLI
+        run: |
+          # Generate summary report with SAF-CLI
+          echo "Generating scan summary with SAF-CLI:"
+          saf summary --input cinc-results.json --output-md scan-summary.md
+          
+          # Display the summary in the logs
+          cat scan-summary.md
+          
+          # Add to GitHub step summary
+          echo "## CINC Auditor Scan Results" > $GITHUB_STEP_SUMMARY
+          cat scan-summary.md >> $GITHUB_STEP_SUMMARY
+          
+          # Create a proper threshold file
+          cat > threshold.yml << EOF
+compliance:
+  min: ${{ github.event.inputs.threshold }}
+failed:
+  critical:
+    max: 0  # No critical failures allowed
+EOF
+
+          # Apply threshold check
+          echo "Checking against threshold with min compliance of ${{ github.event.inputs.threshold }}%:"
+          saf threshold -i cinc-results.json -t threshold.yml
+          THRESHOLD_EXIT_CODE=$?
+          
+          if [ $THRESHOLD_EXIT_CODE -eq 0 ]; then
+            echo "✅ Security scan passed threshold requirements" | tee -a $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Security scan failed to meet threshold requirements" | tee -a $GITHUB_STEP_SUMMARY
+            # Uncomment to enforce the threshold as a quality gate
+            # exit $THRESHOLD_EXIT_CODE
+          fi
+      
+      - name: Upload CINC Auditor results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cinc-results
+          path: |
+            cinc-results.json
+            scan-summary.md
+      
+      - name: Cleanup resources
+        if: always()
+        run: |
+          kubectl delete namespace inspec-test
