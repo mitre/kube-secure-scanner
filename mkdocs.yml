@@ -188,6 +188,8 @@ nav:
   - Project:
     - Changelog: project/changelog.md
     - Tasks: project/tasks.md
+    - Roadmap: project/roadmap.md
+    - Documentation Gaps: project/documentation-gaps.md
     - Tools & Utilities:
       - ASCII to Mermaid Conversion: utilities/ascii-to-mermaid.md
     - Archive:
