@@ -67,20 +67,49 @@ We now provide three distinct approaches for scanning distroless containers:
 ```
 .
 ├── docs/                    # Comprehensive documentation
-│   ├── overview/            # Project overview and architecture
-│   │   └── workflows.md     # Workflow diagrams for all approaches
-│   ├── rbac/                # RBAC configuration guides
-│   ├── service-accounts/    # Service account setup
-│   ├── configuration/       # Kubeconfig generation
-│   ├── tokens/              # Token management
+│   ├── approaches/          # Scanning approach documentation
+│   │   ├── comparison.md    # Comparison of scanning approaches
+│   │   ├── decision-matrix.md # Decision matrix for approach selection
+│   │   ├── kubernetes-api.md # Kubernetes API approach documentation
+│   │   ├── debug-container.md # Debug container approach documentation
+│   │   ├── sidecar-container.md # Sidecar container approach documentation
+│   │   └── direct-commands.md # Direct command usage documentation
+│   ├── architecture/        # Architecture documentation
+│   │   ├── diagrams.md      # Workflow diagrams for all approaches
+│   │   └── workflows.md     # Workflow process documentation
+│   ├── configuration/       # Configuration documentation
+│   │   ├── README.md        # Kubeconfig generation
+│   │   └── advanced/        # Advanced configuration
+│   │       ├── thresholds.md # Threshold configuration guide
+│   │       └── saf-cli-integration.md # SAF CLI integration guide
+│   ├── developer-guide/     # Development and testing documentation
+│   │   ├── testing/         # Testing documentation
+│   │   └── deployment/      # Deployment scenarios
+│   ├── helm-charts/         # Helm chart documentation
+│   │   ├── overview.md      # Helm charts overview
+│   │   ├── architecture.md  # Helm chart architecture
+│   │   └── scanner-infrastructure/ # Scanner infrastructure documentation
 │   ├── integration/         # CI/CD integration guides
+│   │   ├── overview.md      # Integration overview
+│   │   ├── approach-mapping.md # Mapping approaches to CI/CD
 │   │   ├── gitlab.md        # Standard GitLab CI integration
 │   │   ├── gitlab-services.md # GitLab CI with services integration
 │   │   └── github-actions.md # GitHub Actions integration
-│   ├── saf-cli-integration.md # SAF CLI integration guide
-│   ├── thresholds.md        # Threshold configuration guide
-│   ├── distroless-containers.md # Guide for scanning distroless containers
-│   └── sidecar-container-approach.md # Sidecar container scanning approach
+│   ├── kubernetes-setup/    # Kubernetes setup documentation
+│   │   └── README.md        # Kubernetes setup overview
+│   ├── project/             # Project documentation
+│   │   ├── changelog.md     # Detailed changelog
+│   │   ├── roadmap.md       # Project roadmap and timeline
+│   │   ├── tasks.md         # Task tracking
+│   │   └── documentation-gaps.md # Documentation gaps analysis
+│   ├── rbac/                # RBAC configuration guides
+│   ├── security/            # Security documentation
+│   │   ├── analysis.md      # Security analysis
+│   │   ├── compliance.md    # Compliance documentation
+│   │   ├── overview.md      # Security overview
+│   │   └── risk-analysis.md # Risk analysis
+│   ├── service-accounts/    # Service account setup
+│   └── tokens/              # Token management
 ├── scripts/                 # Automation scripts
 │   ├── generate-kubeconfig.sh  # Generate restricted kubeconfig
 │   ├── scan-container.sh    # End-to-end container scanning
@@ -95,12 +124,12 @@ We now provide three distinct approaches for scanning distroless containers:
 │   ├── standard-scanner/    # Standard container scanning
 │   ├── distroless-scanner/  # Distroless container scanning
 │   └── sidecar-scanner/     # Sidecar approach for container scanning
-├── github-workflows/        # GitHub Actions workflow examples
+├── github-workflow-examples/ # GitHub Actions workflow examples
 │   ├── setup-and-scan.yml   # Basic setup and scan workflow
 │   ├── dynamic-rbac-scanning.yml # Dynamic pod scanning with RBAC
 │   ├── ci-cd-pipeline.yml   # Complete CI/CD pipeline with scanning
 │   └── sidecar-scanner.yml  # Sidecar container scanning workflow
-├── gitlab-examples/         # GitLab CI examples
+├── gitlab-pipeline-examples/ # GitLab CI examples
 │   ├── gitlab-ci.yml        # Standard GitLab CI configuration
 │   ├── gitlab-ci-with-services.yml # GitLab CI with services
 │   ├── gitlab-ci-sidecar.yml # GitLab CI with sidecar approach
@@ -375,28 +404,53 @@ Our documentation covers the following areas:
 - [Quick Start Guide](docs/overview/quickstart.md)
 - [Security Considerations](docs/overview/security.md)
 - [Executive Summary](docs/overview/executive-summary.md)
-- [Security Risk Analysis](docs/overview/security-risk-analysis.md)
+- [Security Risk Analysis](docs/security/risk-analysis.md)
+- [Security Analysis](docs/security/analysis.md)
+- [Compliance Documentation](docs/security/compliance.md)
 
 #### Approach-Specific Documentation
-- [Distroless Container Scanning](docs/distroless-containers.md) - All three approaches compared
-- [Sidecar Container Approach](docs/sidecar-container-approach.md) - Detailed guide for Approach 3
+- [Approach Comparison](docs/approaches/comparison.md)
+- [Decision Matrix](docs/approaches/decision-matrix.md)
+- [Kubernetes API Approach](docs/approaches/kubernetes-api.md)
+- [Debug Container Approach](docs/approaches/debug-container.md)
+- [Sidecar Container Approach](docs/approaches/sidecar-container.md)
+- [Direct Commands](docs/approaches/direct-commands.md)
 
 #### Visual Documentation
-- [Workflow Diagrams](docs/overview/workflows.md) - Mermaid diagrams for visual environments
-- [ASCII Text Diagrams](docs/overview/ascii-diagrams.md) - Terminal-friendly diagrams
+- [Workflow Diagrams](docs/architecture/diagrams.md) - Mermaid diagrams for visual environments
+- [ASCII Text Diagrams](docs/project/archive/ascii-diagrams.md) - Terminal-friendly diagrams
 
 #### Technical Implementation
 - [RBAC Configuration](docs/rbac/README.md)
+- [Label-based RBAC](docs/rbac/label-based.md)
 - [Service Account Management](docs/service-accounts/README.md)
 - [Token Management](docs/tokens/README.md)
 - [Kubeconfig Generation](docs/configuration/README.md)
-- [SAF CLI Integration](docs/saf-cli-integration.md)
-- [Threshold Configuration](docs/thresholds.md)
+- [Scanner Configuration](docs/configuration/advanced/README.md)
+- [SAF CLI Integration](docs/configuration/advanced/saf-cli-integration.md)
+- [Threshold Configuration](docs/configuration/advanced/thresholds.md)
 
 #### CI/CD Integration
+- [Integration Overview](docs/integration/overview.md)
+- [Approach Mapping](docs/integration/approach-mapping.md)
 - [GitLab CI/CD Integration](docs/integration/gitlab.md)
 - [GitLab CI with Services](docs/integration/gitlab-services.md)
+- [GitLab Services Analysis](docs/integration/gitlab-services-analysis.md)
 - [GitHub Actions Integration](docs/integration/github-actions.md)
+
+#### Helm Charts Documentation
+- [Helm Charts Overview](docs/helm-charts/overview.md)
+- [Helm Chart Architecture](docs/helm-charts/architecture.md)
+- [Scanner Infrastructure](docs/helm-charts/scanner-infrastructure.md)
+- [Common Scanner](docs/helm-charts/common-scanner.md)
+- [Kubernetes API Scanner](docs/helm-charts/standard-scanner.md)
+- [Debug Container Scanner](docs/helm-charts/distroless-scanner.md)
+- [Sidecar Container Scanner](docs/helm-charts/sidecar-scanner.md)
+
+#### Development and Testing
+- [Testing Guide](docs/developer-guide/testing/README.md)
+- [Deployment Scenarios](docs/developer-guide/deployment/README.md)
+- [Documentation Tools](docs/contributing/documentation-tools.md)
 
 ## Requirements
 
@@ -408,18 +462,35 @@ Our documentation covers the following areas:
 
 ## Current Status and Future Work
 
+### Project Status (March 2025)
+- **Overall Project Completion**: ~90%
+- **Documentation Completion**: 95%
+- **Core Functionality**: 100%
+- **Testing Coverage**: 70%
+- **Next Major Milestone**: Complete Approach 1 implementation and v1.0.0 release
+- **Target Release Date**: May 2025
+
+### Implementation Status
+
 1. **Distroless Container Scanning**: 
    - ✅ Implemented three distinct approaches:
-     - Ephemeral debug container (requires special cluster feature)
-     - Sidecar container with shared process namespace (works universally)
-     - Modified transport plugin (in progress)
+     - ✅ Ephemeral debug container (requires special cluster feature)
+     - ✅ Sidecar container with shared process namespace (works universally)
+     - 🔄 Modified transport plugin (20% complete, in progress)
    - ✅ Integrated all approaches with CI/CD examples
+   - ✅ Created comprehensive documentation for all approaches
+   - ✅ Completed approach comparison and decision matrix
    - 🔄 Future work will focus on completing the transport plugin approach
 
-2. **Performance Optimization**: 
-   - ✅ Implemented services-based approach for GitLab CI
-   - ✅ Created optimized sidecar container implementations
-   - 🔄 Future work will focus on performance with large-scale scanning
+2. **Documentation and Resources**: 
+   - ✅ Implemented comprehensive MkDocs documentation system
+   - ✅ Created workflow diagrams for all scanning approaches
+   - ✅ Developed security analysis and risk documentation
+   - ✅ Added enterprise integration analysis documentation
+   - ✅ Reorganized documentation into logical structure
+   - ✅ Identified documentation gaps for contribution
+   - ✅ Implemented dark/light mode support for diagrams
+   - 🔄 Addressing high-priority documentation gaps before v1.0.0 release
 
 3. **CI/CD Integration**:
    - ✅ GitLab CI standard pipeline
@@ -428,9 +499,21 @@ Our documentation covers the following areas:
    - ✅ GitLab CI with services for sidecar approach
    - ✅ GitHub Actions for standard approach
    - ✅ GitHub Actions for sidecar approach
+   - ✅ Comprehensive integration documentation
    - 🔄 Future work will include examples for other CI/CD platforms
 
-4. **Container Images**:
+4. **Performance and Container Images**:
+   - ✅ Implemented services-based approach for GitLab CI
+   - ✅ Created optimized sidecar container implementations
    - 🔄 Future work will include building and publishing dedicated CINC Auditor scanner containers
    - 🔄 Creating specialized debug container with CINC Auditor pre-installed
    - 🔄 Creating sidecar container images with optimized configurations
+   - 🔄 Performance optimization with large-scale scanning
+
+### Development Roadmap
+
+For a detailed view of our roadmap and project status, see:
+- [Project Roadmap](docs/project/roadmap.md) - Detailed roadmap with phase completion percentages
+- [Task Tracker](docs/project/tasks.md) - Comprehensive task list with completion status
+- [Changelog](docs/project/changelog.md) - Detailed record of recent changes and improvements
+- [Documentation Gaps](docs/project/documentation-gaps.md) - Analysis of remaining documentation needs
