@@ -1,5 +1,8 @@
 # Kubernetes Setup for Secure Container Scanning
 
+!!! info "Directory Inventory"
+    See the [Kubernetes Setup Directory Inventory](inventory.md) for a complete listing of files and resources in this directory.
+
 This section provides comprehensive documentation on setting up Kubernetes resources required for secure container scanning using CINC Auditor.
 
 ## Components
@@ -14,13 +17,13 @@ Proper kubeconfig configuration is essential for secure API interactions with yo
 - Configuring secure authentication methods
 - Managing context and namespace isolation
 
-See the [Kubeconfig Configuration](../configuration/README.md) guide for detailed instructions.
+See the [Kubeconfig Configuration](../configuration/index.md) guide for detailed instructions.
 
 ### RBAC Configuration
 
 Role-Based Access Control (RBAC) is critical for maintaining security during container scanning operations:
 
-- [Basic RBAC](../rbac/README.md) - Standard RBAC implementation for container scanning
+- [Basic RBAC](../rbac/index.md) - Standard RBAC implementation for container scanning
 - [Label-based RBAC](../rbac/label-based.md) - More targeted RBAC based on container labels
 
 ### Token Management
@@ -31,7 +34,7 @@ Secure token management ensures temporary, minimal access for scanning operation
 - Token scope limitations
 - Token usage and renewal patterns
 
-See the [Token Management](../tokens/README.md) guide for implementation details.
+See the [Token Management](../tokens/index.md) guide for implementation details.
 
 ### Service Account Setup
 
@@ -41,7 +44,7 @@ Service accounts provide the identity for scanning operations:
 - Configuring appropriate permissions
 - Linking service accounts to roles
 
-See the [Service Accounts](../service-accounts/README.md) guide for complete instructions.
+See the [Service Accounts](../service-accounts/index.md) guide for complete instructions.
 
 ## Security Considerations
 

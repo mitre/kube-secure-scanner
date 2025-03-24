@@ -1,5 +1,8 @@
 # Service Account Configuration
 
+!!! info "Directory Inventory"
+    See the [Service Accounts Directory Inventory](inventory.md) for a complete listing of files and resources in this directory.
+
 This guide covers the setup and management of service accounts for secure container scanning.
 
 ## Basic Service Account Setup

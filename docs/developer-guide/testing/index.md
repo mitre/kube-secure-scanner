@@ -1,5 +1,8 @@
 # Testing Guide
 
+!!! info "Directory Inventory"
+    See the [Testing Directory Inventory](inventory.md) for a complete listing of files and resources in this directory.
+
 This document provides a comprehensive guide to testing the Secure CINC Auditor Kubernetes Container Scanning solution, covering test methodology, test environments, and recommended testing practices.
 
 ## Testing Overview
@@ -259,6 +262,6 @@ spec:
 
 After completing testing, refer to:
 
-- [Deployment Scenarios](../deployment/README.md) for production deployment
+- [Deployment Scenarios](../deployment/index.md) for production deployment
 - [Threshold Configuration](../../configuration/advanced/thresholds.md) for compliance settings
 - [CI/CD Integration](../../integration/overview.md) for pipeline setup

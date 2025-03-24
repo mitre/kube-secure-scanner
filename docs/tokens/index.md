@@ -1,5 +1,8 @@
 # Token Management
 
+!!! info "Directory Inventory"
+    See the [Tokens Directory Inventory](inventory.md) for a complete listing of files and resources in this directory.
+
 This guide covers the creation, usage, and lifecycle management of Kubernetes tokens for secure InSpec scanning.
 
 ## Token Types

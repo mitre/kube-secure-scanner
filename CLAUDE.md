@@ -66,3 +66,7 @@ This project implements three container scanning approaches:
 ## Git Commits
 - Always sign commits using: `git commit -s`
 - Sign-off should be with: "Aaron Lippold <lippold@gmail.com>"
+
+## Context Management
+- Always exclude node_modules from searches, file listings, and context to avoid token waste
+- Use flags like `--exclude=node_modules` or patterns like `find . -type d -not -path "*/node_modules/*"`

@@ -1,5 +1,8 @@
 # Deployment Scenarios
 
+!!! info "Directory Inventory"
+    See the [Deployment Directory Inventory](inventory.md) for a complete listing of files and resources in this directory.
+
 This document provides guidance on deploying the Secure CINC Auditor Kubernetes Container Scanning solution in various environments, from development to production.
 
 ## Overview
@@ -321,10 +324,11 @@ After deployment, verify the setup:
    - Test threshold validation
    - Confirm report generation and distribution
 
-## Additional Resources
+## Related Topics
 
 - [Helm Charts Documentation](../../helm-charts/overview.md)
-- [RBAC Configuration](../../rbac/README.md)
-- [Service Account Setup](../../service-accounts/README.md)
+- [RBAC Configuration](../../rbac/index.md)
+- [Service Account Setup](../../service-accounts/index.md)
 - [Threshold Configuration](../../configuration/advanced/thresholds.md)
 - [Integration Options](../../integration/overview.md)
+- [Testing Guide](../testing/index.md)

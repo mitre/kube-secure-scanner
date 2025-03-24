@@ -1,5 +1,8 @@
 # Kubeconfig Generation and Management
 
+!!! info "Directory Inventory"
+    See the [Configuration Directory Inventory](inventory.md) for a complete listing of files and resources in this directory.
+
 This guide covers creating and managing secure kubeconfig files for InSpec container scanning.
 
 ## Basic Kubeconfig Structure
@@ -163,6 +166,13 @@ KUBECONFIG=./kubeconfig.yaml kubectl get pods
 # Check specific permissions
 KUBECONFIG=./kubeconfig.yaml kubectl auth can-i create pods/exec --resource-name=inspec-target
 ```
+
+## Related Topics
+
+- [RBAC Configuration](../rbac/index.md)
+- [Service Accounts](../service-accounts/index.md)
+- [Token Management](../tokens/index.md)
+- [Security Considerations](../security/overview.md)
 
 ## References
 

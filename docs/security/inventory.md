@@ -11,9 +11,9 @@ This directory contains documentation related to the security aspects of the Sec
 
 ## Related Topics
 
-- [RBAC Configuration](../rbac/README.md) - Role-Based Access Control configuration
-- [Service Accounts](../service-accounts/README.md) - Service account management
-- [Token Management](../tokens/README.md) - Secure token handling
+- [RBAC Configuration](../rbac/index.md) - Role-Based Access Control configuration
+- [Service Accounts](../service-accounts/index.md) - Service account management
+- [Token Management](../tokens/index.md) - Secure token handling
 
 ## Overview
 
