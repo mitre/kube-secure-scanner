@@ -111,122 +111,221 @@ plugins:
 
 
 nav:
-  - Overview:
+  # Getting Started
+  - Getting Started:
     - Introduction: index.md
-    - Technical Architecture: overview/index.md
     - Executive Summary: overview/executive-summary.md
+    - Quickstart Guide: quickstart-guide.md
+    - Technical Overview: overview/index.md
     - Enterprise Integration: overview/enterprise-integration-analysis.md
-    - ASCII Diagrams: overview/ascii-diagrams.md
-    - Directory Contents: overview/inventory.md
-    
-  - Quickstart: quickstart-guide.md
   
-  - Architecture & Workflows:
-    - Overview: architecture/index.md
-    - Workflow Diagrams: architecture/diagrams.md
-    - Workflow Processes: architecture/workflows.md
-    - Content Inventory: architecture/inventory.md
+  # Core Concepts
+  - Core Concepts:
+    - Architecture:
+      - Overview: architecture/index.md
+      - Workflow Diagrams: architecture/diagrams.md
+      - Workflow Processes: architecture/workflows.md
+      - Directory Contents: architecture/inventory.md
+    - Scanning Approaches:
+      - Overview: approaches/index.md
+      - Comparison: approaches/comparison.md
+      - Decision Matrix: approaches/decision-matrix.md
+      - Directory Contents: approaches/inventory.md
+      - Kubernetes API Approach:
+        - Overview: approaches/kubernetes-api/index.md
+        - Directory Contents: approaches/kubernetes-api/inventory.md
+        - Technical Implementation: approaches/kubernetes-api/implementation.md
+        - RBAC Configuration: approaches/kubernetes-api/rbac.md
+        - Limitations: approaches/kubernetes-api/limitations.md
+      - Debug Container Approach:
+        - Overview: approaches/debug-container/index.md
+        - Directory Contents: approaches/debug-container/inventory.md
+        - Distroless Container Basics: approaches/debug-container/distroless-basics.md
+        - Technical Implementation: approaches/debug-container/implementation.md
+      - Sidecar Container Approach:
+        - Overview: approaches/sidecar-container/index.md
+        - Directory Contents: approaches/sidecar-container/inventory.md
+        - Technical Implementation: approaches/sidecar-container/implementation.md
+      - Helper Scripts:
+        - Overview: approaches/helper-scripts/index.md
+        - Directory Contents: approaches/helper-scripts/inventory.md
+        - Scripts vs. Commands: approaches/helper-scripts/scripts-vs-commands.md
+    - Security:
+      - Overview: security/index.md
+      - Directory Contents: security/inventory.md
+      - Security Principles:
+        - Overview: security/principles/index.md
+        - Directory Contents: security/principles/inventory.md
+        - Least Privilege: security/principles/least-privilege.md
+        - Ephemeral Credentials: security/principles/ephemeral-creds.md
+        - Resource Isolation: security/principles/resource-isolation.md
+        - Secure Transport: security/principles/secure-transport.md
+      - Risk Analysis:
+        - Overview: security/risk/index.md
+        - Directory Contents: security/risk/inventory.md
+        - Risk Model: security/risk/model.md
+        - Kubernetes API Approach: security/risk/kubernetes-api.md
+        - Debug Container Approach: security/risk/debug-container.md
+        - Sidecar Container Approach: security/risk/sidecar-container.md
+        - Risk Mitigations: security/risk/mitigations.md
+      - Threat Model:
+        - Overview: security/threat-model/index.md
+        - Directory Contents: security/threat-model/inventory.md
+        - Attack Vectors: security/threat-model/attack-vectors.md
+        - Lateral Movement: security/threat-model/lateral-movement.md
+        - Token Exposure: security/threat-model/token-exposure.md
+        - Threat Mitigations: security/threat-model/threat-mitigations.md
+      - Compliance:
+        - Overview: security/compliance/index.md
+        - Directory Contents: security/compliance/inventory.md
+        - Approach Comparison: security/compliance/approach-comparison.md
+        - Risk Documentation: security/compliance/risk-documentation.md
+      - Recommendations:
+        - Overview: security/recommendations/index.md
+        - Directory Contents: security/recommendations/inventory.md
   
-  - Scanning Approaches:
-    - Overview: approaches/index.md
-    - Comparison: approaches/comparison.md
-    - Decision Matrix: approaches/decision-matrix.md
-    - Kubernetes API Approach: approaches/kubernetes-api.md
-    - Debug Container Approach: approaches/debug-container.md
-    - Sidecar Container Approach: approaches/sidecar-container.md
-    - Direct Commands: approaches/direct-commands.md
-    - Content Inventory: approaches/inventory.md
-  
-  - Security:
-    - Overview: security/index.md
-    - Security Framework: security/overview.md
-    - Risk Analysis: security/risk-analysis.md
-    - Security Analysis: security/analysis.md
-    - Compliance: security/compliance.md
-    - Content Inventory: security/inventory.md
-  
-  - Kubernetes Setup:
-    - Overview: kubernetes-setup/index.md
-    - Directory Contents: kubernetes-setup/inventory.md
-    - Kubeconfig Configuration: 
-      - Overview: configuration/index.md
-      - Directory Contents: configuration/inventory.md
+  # Deployment & Configuration
+  - Deployment & Configuration:
+    - Kubernetes Setup:
+      - Overview: kubernetes-setup/index.md
+      - Directory Contents: kubernetes-setup/inventory.md
     - RBAC Configuration:
       - Basic RBAC: rbac/index.md
       - Label-based RBAC: rbac/label-based.md
-      - Content Inventory: rbac/inventory.md
-    - Token Management: 
-      - Overview: tokens/index.md
-      - Directory Contents: tokens/inventory.md
-    - Service Accounts: 
-      - Overview: service-accounts/index.md
-      - Directory Contents: service-accounts/inventory.md
+      - Directory Contents: rbac/inventory.md
+    - Authentication:
+      - Kubeconfig: configuration/index.md
+      - Token Management: tokens/index.md
+      - Service Accounts: service-accounts/index.md
+    - Scanner Configuration:
+      - Advanced Configuration: configuration/advanced/index.md
+      - Scanning Thresholds: configuration/advanced/thresholds.md
+      - Plugin Modifications: configuration/advanced/plugin-modifications.md
+      - SAF CLI Integration: configuration/advanced/saf-cli-integration.md
+      - Directory Contents: configuration/advanced/inventory.md
+    - Helm Charts:
+      - Introduction: helm-charts/index.md
+      - Directory Contents: helm-charts/inventory.md
+      - Overview:
+        - Introduction: helm-charts/overview/index.md
+        - Directory Contents: helm-charts/overview/inventory.md
+        - Architecture: helm-charts/overview/architecture.md
+      - Scanner Types:
+        - Introduction: helm-charts/scanner-types/index.md
+        - Directory Contents: helm-charts/scanner-types/inventory.md
+        - Common Scanner: helm-charts/scanner-types/common-scanner.md
+        - Kubernetes API Scanner: helm-charts/scanner-types/standard-scanner.md
+        - Debug Container Scanner: helm-charts/scanner-types/distroless-scanner.md
+        - Sidecar Container Scanner: helm-charts/scanner-types/sidecar-scanner.md
+      - Infrastructure:
+        - Overview: helm-charts/infrastructure/index.md
+        - Directory Contents: helm-charts/infrastructure/inventory.md
+        - RBAC Configuration: helm-charts/infrastructure/rbac.md
+        - Service Accounts: helm-charts/infrastructure/service-accounts.md
+        - Namespaces: helm-charts/infrastructure/namespaces.md
+      - Usage & Customization:
+        - Overview: helm-charts/usage/index.md
+        - Directory Contents: helm-charts/usage/inventory.md
+        - Customization Guide: helm-charts/usage/customization.md
+        - Configuration Reference: helm-charts/usage/configuration.md
+        - Values Files: helm-charts/usage/values.md
+      - Security:
+        - Overview: helm-charts/security/index.md
+        - Directory Contents: helm-charts/security/inventory.md
+        - Best Practices: helm-charts/security/best-practices.md
+        - RBAC Hardening: helm-charts/security/rbac-hardening.md
+        - Risk Assessment: helm-charts/security/risk-assessment.md
+      - Operations:
+        - Overview: helm-charts/operations/index.md
+        - Directory Contents: helm-charts/operations/inventory.md
+        - Troubleshooting: helm-charts/operations/troubleshooting.md
+        - Performance: helm-charts/operations/performance.md
+        - Maintenance: helm-charts/operations/maintenance.md
   
-  - Helm Charts:
-    - Introduction: helm-charts/index.md
-    - Overview: helm-charts/overview.md
-    - Helm Chart Architecture: helm-charts/architecture.md
-    - Directory Contents: helm-charts/inventory.md
-    - Scanner Infrastructure: 
-      - Overview: helm-charts/scanner-infrastructure.md
-      - Documentation: helm-charts/scanner-infrastructure/index.md
-      - Directory Contents: helm-charts/scanner-infrastructure/inventory.md
-    - Scanners:
-      - Common Scanner: helm-charts/common-scanner.md
-      - Kubernetes API Scanner: helm-charts/standard-scanner.md
-      - Debug Container Scanner: helm-charts/distroless-scanner.md
-      - Sidecar Container Scanner: helm-charts/sidecar-scanner.md
-    - Customization: helm-charts/customization.md
-    - Security Considerations: helm-charts/security.md
-    - Troubleshooting: helm-charts/troubleshooting.md
-  
+  # Integration
   - CI/CD Integration:
-    - Overview: integration/overview.md
+    - Overview: integration/index.md
     - Approach Mapping: integration/approach-mapping.md
     - GitHub Actions: 
       - Configuration: integration/github-actions.md
       - Examples: github-workflow-examples/index.md
+      - Directory Contents: github-workflow-examples/inventory.md
     - GitLab CI:
       - Basic Integration: integration/gitlab.md
       - Services Integration: integration/gitlab-services.md
       - Analysis: integration/gitlab-services-analysis.md
-      - Examples: gitlab-pipeline-examples/index.md
-    - Code Examples: examples/code-display-demo.md
+      - Pipeline Examples: gitlab-pipeline-examples/index.md
+      - Pipeline Directory Contents: gitlab-pipeline-examples/inventory.md
+      - Services Examples: gitlab-services-examples/index.md
+      - Services Directory Contents: gitlab-services-examples/inventory.md
+    - Code Examples:
+      - Overview: examples/index.md
+      - Code Display Demo: examples/code-display-demo.md
+      - Directory Contents: examples/inventory.md
   
-  - Scanner Configuration:
-    - Advanced Configuration: configuration/advanced/index.md
-    - Directory Contents: configuration/advanced/inventory.md
-    - Scanning Thresholds: configuration/advanced/thresholds.md
-    - Plugin Modifications: configuration/advanced/plugin-modifications.md
-    - SAF CLI Integration: configuration/advanced/saf-cli-integration.md
-  
-  - Developer Guide:
+  # Development & Contributing
+  - Development:
+    - Developer Guide:
+      - Overview: developer-guide/index.md
+      - Directory Contents: developer-guide/inventory.md
     - Testing: 
       - Overview: developer-guide/testing/index.md
       - Directory Contents: developer-guide/testing/inventory.md
     - Deployment: 
       - Overview: developer-guide/deployment/index.md
       - Directory Contents: developer-guide/deployment/inventory.md
+      - Deployment Methods:
+        - Script Deployment: developer-guide/deployment/script-deployment.md
+        - Helm Deployment: developer-guide/deployment/helm-deployment.md
+        - CI/CD Integration: developer-guide/deployment/cicd-deployment.md
+      - Deployment Scenarios:
+        - Overview: developer-guide/deployment/scenarios/index.md
+        - Enterprise Environment: developer-guide/deployment/scenarios/enterprise.md
+        - Development Environment: developer-guide/deployment/scenarios/development.md
+        - CI/CD Environment: developer-guide/deployment/scenarios/cicd.md
+        - Multi-Tenant Environment: developer-guide/deployment/scenarios/multi-tenant.md
+        - Air-Gapped Environment: developer-guide/deployment/scenarios/air-gapped.md
+      - Advanced Topics:
+        - Overview: developer-guide/deployment/advanced-topics/index.md
+        - Directory Contents: developer-guide/deployment/advanced-topics/inventory.md
+        - Scaling and Performance: developer-guide/deployment/advanced-topics/scaling.md
+        - Security Enhancements: developer-guide/deployment/advanced-topics/security.md
+        - Monitoring and Maintenance: developer-guide/deployment/advanced-topics/monitoring.md
+        - Specialized Environments: developer-guide/deployment/advanced-topics/specialized-environments.md
+        - Deployment Verification: developer-guide/deployment/advanced-topics/verification.md
+        - Custom Development: developer-guide/deployment/advanced-topics/custom-development.md
     - Contributing:
+      - Overview: contributing/index.md
+      - Directory Contents: contributing/inventory.md
       - Documentation Tools: contributing/documentation-tools.md
       - Code Snippets: contributing/code-snippets.md
       - Diagram Color Guide: contributing/diagram-color-guide.md
-      - Theme Testing: contributing/testing/dark-light-mode-test.md
+      - Documentation Testing:
+        - Overview: contributing/testing/index.md
+        - Directory Contents: contributing/testing/inventory.md
+        - Theme Testing: contributing/testing/dark-light-mode-test.md
   
+  # Project Information
   - Project:
+    - Overview: project/index.md
     - Changelog: project/changelog.md
-    - Tasks: project/tasks.md
     - Roadmap: project/roadmap.md
-    - Documentation Gaps: project/documentation-gaps.md
-    - Content Map: project/content-map.md
-    - Documentation Refactoring: project/documentation-entry-refactoring.md
-    - Documentation Review Plan: project/documentation-review-plan.md
-    - Terminology: project/terminology.md
-    - Abbreviations: includes/abbreviations.md
+    - Tasks: project/tasks.md
+    - Documentation:
+      - Directory Contents: project/inventory.md
+      - Documentation Gaps: project/documentation-gaps.md
+      - Content Map: project/content-map.md
+      - Documentation Refactoring: project/documentation-entry-refactoring.md
+      - Documentation Review Plan: project/documentation-review-plan.md
+      - Terminology: project/terminology.md
+      - Abbreviations: includes/abbreviations.md
     - Tools & Utilities:
-      - Overview: utilities/README.md
+      - Overview: utilities/index.md
+      - Directory Contents: utilities/inventory.md
       - ASCII to Mermaid Conversion: utilities/ascii-to-mermaid.md
     - Archive:
+      - Overview: project/archive/index.md
+      - Directory Contents: project/archive/inventory.md
       - ASCII Diagrams: project/archive/ascii-diagrams.md
 
 extra:

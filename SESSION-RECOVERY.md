@@ -2,7 +2,37 @@
 
 This document helps maintain context between sessions when working on the secure container scanning project.
 
-## Current Project State
+## Documentation Reorganization Progress Summary (Updated March 25, 2025)
+
+We've been implementing a comprehensive documentation reorganization to improve usability and maintainability following a consistent pattern:
+- Breaking large documents into focused subdirectories with dedicated content files
+- Creating standardized index.md and inventory.md files for each subdirectory
+- Updating navigation to reflect the new structure
+- Maintaining cross-references between related topics
+
+### Completed Reorganization:
+- ✅ Approaches section - Restructured into subdirectories by approach type with focused content files
+- ✅ Security section - Restructured into principles/, risk/, compliance/, threat-model/, and recommendations/
+- ✅ Deployment scenarios - Already reorganized with subdirectories
+- ✅ Advanced topics - Already reorganized with subdirectories
+
+### Partially Reorganized:
+- ⚠️ Helm Charts - Has scanner-infrastructure/ subdirectory, but needs comprehensive reorganization
+- ⚠️ Configuration - Has advanced/ subdirectory, but may benefit from further reorganization
+
+### Planned for Reorganization:
+- 📅 Helm Charts - Medium priority (next focus)
+- 📅 Configuration - Medium priority
+- 📅 Architecture - Medium priority
+- 📅 Integration - Medium priority
+
+### Next Steps:
+1. Begin the Helm Charts section reorganization
+2. Continue Phase 4 (review and refinement) of documentation refactoring
+3. Address remaining documentation gaps
+4. Implement documentation validation tools
+
+## Current Project State (Updated March 24, 2025)
 
 We've created a comprehensive project structure for secure Kubernetes container scanning using CINC Auditor (open-source InSpec) with the train-k8s-container transport. The project demonstrates how to implement least-privilege RBAC to minimize security risk.
 
@@ -55,292 +85,170 @@ We most recently:
 
 ## Latest Progress
 
-### MkDocs Documentation Enhancement (Current Session)
-1. **Documentation Structure Improvements**
-   - ✅ Created `/docs/project/` directory to house project-wide documentation
-   - ✅ Moved CHANGELOG.md content to `/docs/project/changelog.md`
-   - ✅ Planned organization of TASKS.md to `/docs/project/tasks.md`
-   - ✅ Set up navigation structure in mkdocs.yml to include project-wide documentation
+### Documentation Structure and Content Enhancement (Previous Session - March 24, 2025)
+1. **Documentation System Improvements**
+   - ✅ Enhanced docs-tools.sh script with comprehensive logging functionality
+   - ✅ Added ability to specify custom log file paths with `--log path/to/file.log`
+   - ✅ Implemented intelligent log viewing with flexible options (`--all`, `--lines=N`, `-n N`)
+   - ✅ Added server status monitoring and process management
+   - ✅ Updated CLAUDE.md with documentation management commands
+   - ✅ Fixed navigation issues in mkdocs.yml for README.md files
 
-2. **MkDocs Theme and Functionality Enhancements**
-   - ✅ Implemented dark mode support with proper toggle using Material theme
-   - ✅ Added custom CSS for better code block formatting and readability
-   - ✅ Created dynamic copyright year generation with custom theme override
-   - ✅ Added proper MITRE attribution and branding
-   - ✅ Configured Mermaid diagrams to support dark/light mode themes
-   - ✅ Added custom JavaScript for theme detection and adaptation
-
-3. **Documentation Content Consistency**
-   - ✅ Harmonized terminology throughout documentation (CINC Auditor vs InSpec)
-   - ✅ Standardized approach names across all documentation files
-   - ✅ Added consistent strategic priority statements in key files
-   - ✅ Fixed broken links and file path references
-   - ✅ Enhanced recommendation language in integration documentation
-   - ✅ Fixed blank scanner-infrastructure documentation
-   - ✅ Updated project metadata and navigation structure
-
-4. **Resolved Implementation Challenges**
-   - ✅ Addressed YAML files being downloaded instead of displayed
-   - ✅ Ensured Mermaid charts are readable in both dark and light modes
-   - ✅ Converted selected ASCII diagrams to Mermaid format
-   - ✅ Tested full documentation site with dark/light mode toggle
-   - ✅ Implemented proper file organization with changelog and tasks
-   - ✅ Fixed broken internal links after directory reorganization
-   - ✅ Created automation script for link maintenance
-
-### Completed Work
-
-1. **Minikube Testing Environment Setup**
-   - Created a comprehensive `setup-minikube.sh` script to automate the setup of a multi-node cluster
-   - Added support for distroless container testing with the `--with-distroless` flag
-   - Implemented dependency checking and optional installation
-   - Added detailed help and usage information
-   - Created comprehensive output with colorful indicators and next steps
-
-2. **Modular Helm Chart Structure**
-   - Created a new layered, modular Helm chart structure:
-     - `scanner-infrastructure`: Core RBAC, service accounts, tokens
-     - `common-scanner`: Common scanning components and utilities 
-     - `standard-scanner`: Standard container scanning (regular containers)
-     - `distroless-scanner`: Distroless container scanning (ephemeral containers)
-   - Set up proper chart dependencies with chart inheritance
-   - Configured each chart with appropriate values.yaml and templates
-   - Added README.md with usage instructions
-
-3. **Documentation Updates**
-   - Updated main README.md to clearly explain both approaches
-   - Added documentation for scanning distroless containers
-   - Clarified the differences between shell script and Helm approaches
-
-4. **Completed Helm Charts Implementation**
-   - Added comprehensive README.md files for each chart
-   - Created detailed NOTES.txt templates with usage instructions
-   - Enhanced test pod templates with security context and resource limits
-   - Added threshold configuration with SAF CLI integration
-   - Created example values files for different environments and use cases
-   - Added install-all.sh helper script for easy deployment
-   - Implemented chart labels and annotations for better resource organization
-   - Added configmaps for shared scripts and threshold configurations
-
-5. **Documentation and Integration Completion**
-   - Created direct-commands.md showing how to use with/without helper scripts
-   - Developed comprehensive ROADMAP.md showing completed and planned work
-   - Completed SAF CLI integration documentation
-   - Ensured threshold configuration is properly integrated in all components
-   - Added examples for different environments and use cases
-   - Verified CI/CD pipeline examples for GitHub Actions and GitLab CI
-   - Created additional CI/CD examples:
-     - Dynamic RBAC scanning in GitLab CI
-     - Scanning with existing Kubernetes clusters in GitHub Actions
-     - Scanning with existing Kubernetes clusters in GitLab CI
-
-6. **Current Project Status (March 22, 2025)**
-   - Implemented a complete working solution for standard container scanning
-   - Created proof-of-concept for distroless containers using ephemeral debug containers
-   - Completed all helper scripts for setup, scanning, and configuration
-   - Finished modular Helm chart structure with proper dependencies
-   - Created comprehensive documentation for all components
-   - Implemented SAF CLI integration for threshold validation
-   - Built CI/CD examples for GitHub Actions and GitLab CI with dynamic RBAC
-   - Created GitHub repository at github.com/mitre/kube-cinc-secure-scanner
-   - Enhanced MkDocs configuration with dark mode support and MITRE branding
-   - Improved documentation organization with project directory structure
-   - Added proper Mermaid diagram support with theme-aware configuration
+2. **Documentation Reorganization Implementation**
+   - ✅ Updated mkdocs.yml to include all project documentation files
+   - ✅ Included README.md files in navigation structure
+   - ✅ Added project documentation files (content-map.md, documentation-entry-refactoring.md, terminology.md)
+   - ✅ Resolved exclusion list issues in mkdocs.yml
+   - ✅ Addressed 404 errors for overview/README.md and other paths
+   - ✅ Fixed "includes/abbreviations.md" navigation issue
+   - ✅ Created documentation for terminology standardization
    
-7. **Previous Session Work**
-   - Updated main README.md to reflect dual approach strategy
-   - Updated distroless-container.sh script with improved error handling and documentation
-   - Updated TASKS.md and ROADMAP.md to reflect dual demonstration approach
-   - Created and pushed initial codebase to MITRE GitHub repository
-   - Added architectural documentation requirements to roadmap
-   - Planned for both distroless container scanning approaches
-   
-8. **Current Session Work**
-   - Researched GitLab CI Services integration for enhanced container scanning
-   - Created comprehensive workflow diagrams for all scanning approaches
-   - Developed GitLab CI example with services for both standard and distroless scanning
-   - Added detailed documentation for GitLab CI services integration
-   - Updated existing documentation to reference workflow diagrams
-   - Enhanced distroless containers documentation with workflow references
-   - Analyzed benefits and challenges of GitLab CI Services approach
-   - Developed a new CINC Auditor sidecar container approach for distroless scanning
-   - Created detailed documentation for the sidecar container approach
-   - Implemented example YAML, Dockerfile, and script for the sidecar approach
-   - Added Minikube setup and CI/CD workflow diagrams
-   - Compared the sidecar approach with other distroless scanning methods
-   - Created GitLab CI example for the sidecar container approach
-   - Started implementing comprehensive CI/CD integration for all scanning approaches
-   
-9. **Current Development Phase**
-   - Implement three distroless container scanning approaches:
-     1. ✅ CINC Auditor in debug container with chroot (Completed)
-     2. ✅ Sidecar container with shared process namespace (Completed)
-     3. 🔄 Modified train-k8s-container plugin (In Progress)
-   - ✅ Create architecture and security documentation with flow diagrams
-   - ✅ Implement specialized debug container with CINC Auditor pre-installed
-   - ✅ Create comprehensive CI/CD integration for all approaches
-   - 🔄 Performance comparison and optimization for all approaches
-   - 🔄 Security risk analysis and recommendations document
+3. **Content Organization and Restructuring**
+   - ✅ Reorganized documentation navigation with logical grouping in mkdocs.yml
+   - ✅ Broke down large documentation pages into smaller, focused subtopic pages:
+     - ✅ Broke down `deployment/scenarios.md` into individual scenario pages in a dedicated directory
+     - ✅ Broke down `deployment/advanced-topics.md` into specialized subtopic pages
+     - ✅ Broke down `approaches` section into subdirectories for each approach:
+       - ✅ Created kubernetes-api/ directory with focused pages
+       - ✅ Created debug-container/ directory with focused pages
+       - ✅ Created sidecar-container/ directory with focused pages
+       - ✅ Created helper-scripts/ directory with focused pages
+     - ✅ Reorganized `security` section:
+       - ✅ Created principles/ directory for security principles
+         - ✅ Created least-privilege.md
+         - ✅ Created ephemeral-creds.md
+         - ✅ Created resource-isolation.md
+         - ✅ Created secure-transport.md
+         - ✅ Created index.md and inventory.md
+       - ✅ Created risk/ directory for risk analysis
+         - ✅ Created kubernetes-api.md
+         - ✅ Created debug-container.md
+         - ✅ Created sidecar-container.md
+         - ✅ Created mitigations.md
+         - ✅ Created model.md
+         - ✅ Created index.md and inventory.md
+       - ✅ Created compliance/ directory for compliance frameworks
+         - ✅ Created approach-comparison.md
+         - ✅ Created risk-documentation.md
+         - ✅ Created index.md and inventory.md
+       - ✅ Created threat-model/ directory for threat modeling
+         - ✅ Created attack-vectors.md
+         - ✅ Created lateral-movement.md
+         - ✅ Created token-exposure.md
+         - ✅ Created threat-mitigations.md
+         - ✅ Created index.md and inventory.md
+       - ✅ Created recommendations/ directory for security best practices
+         - ✅ Created inventory.md
+       - ✅ Updated security index.md and inventory.md to reflect new structure
+     - ✅ Created proper navigation structure for these subsections
+   - ✅ Created content-organization-approach.md documenting our approach to content organization
+   - ✅ Enhanced inventory files to include all new content files
+   - ✅ Improved cross-references between related topics
+   - ✅ Created dedicated index.md files for each subsection to serve as topic overviews
 
-10. **Recently Completed Work**
-   - ✅ Created GitLab CI with services example for sidecar approach
-   - ✅ Created GitHub Actions workflow for sidecar approach
-   - ✅ Implemented scan-with-sidecar.sh script
-   - ✅ Updated README.md with sidecar approach documentation
-   - ✅ Updated directory structure with new CI/CD examples
-   - ✅ Integrated all approaches into the project documentation
-   - ✅ Updated TASKS.md to reflect current progress
-   - ✅ Created ASCII text-based diagrams for all workflows and architectures
-   - ✅ Added ASCII diagrams documentation to complement Mermaid diagrams
+3. **Documentation Entry Point Refactoring Progress**
+   - ✅ Completed Phase 1: Analysis and Standardization:
+     - ✅ Created standardized terminology document (project/terminology.md)
+     - ✅ Defined clear document purposes (project/content-map.md)
+     - ✅ Mapped cross-reference relationships between documents
+     - ✅ Prepared content templates for each entry point
+   - ✅ Completed Phase 2: Primary Document Refactoring:
+     - ✅ Updated index.md with streamlined introduction
+     - ✅ Refactored quickstart.md for technical implementers
+     - ✅ Enhanced executive-summary.md for decision makers
+     - ✅ Updated overview/README.md for technical architecture
+   - ✅ Completed Phase 3: Visual and Navigation Enhancements:
+     - ✅ Developed and implemented visual aids
+     - ✅ Enhanced cross-document navigation
+   - 🔄 Phase 4: Review and Refinement (Current Focus)
+     - ✅ Analyzed documentation for inconsistencies and issues
+     - ✅ Created documentation-review-plan.md with detailed implementation plan
+     - ✅ Identified README.md vs index.md inconsistency as root cause of many navigation issues
+     - ✅ Normalized documentation structure:
+       - ✅ Created index.md files for key sections that were using README.md in navigation
+       - ✅ Created index.md files for overview, approaches, architecture, security, rbac, service-accounts, tokens
+       - ✅ Updated the navigation in mkdocs.yml to use index.md files consistently
+       - ✅ Preserved README.md files as GitHub browsing friendly overviews
+       - 🔄 Fixing broken links that point to old README.md files
+     - 🔄 Validating user journey paths
+     - 🔄 Checking for terminology consistency
+     - 🔄 Addressing content redundancies
 
-11. **Previous Session Work (March 19, 2025)**
-   - ✅ Enhanced CI/CD integration documentation:
-     - ✅ Created comprehensive CI/CD integration overview
-     - ✅ Developed approach mapping document matching CI/CD examples to approaches
-     - ✅ Improved cross-references between documentation sections
-   - ✅ Created comprehensive documentation for Helm Charts:
-     - ✅ Architecture and relationships between charts
-     - ✅ Configuration options for each chart
-     - ✅ Security considerations for Helm deployments
-     - ✅ Troubleshooting guidance
-   - ✅ Developed enhanced documentation management system:
-     - ✅ Created comprehensive docs-tools.sh script with multiple capabilities
-     - ✅ Added background server mode for documentation preview
-     - ✅ Implemented documentation quality validation tools
-     - ✅ Reorganized documentation utilities to docs directory
-     - ✅ Created documentation about the documentation system
-   - ✅ Cleaned up project root directory
-   - ✅ Implemented process management for documentation preview server
+4. **Documentation Structure Normalization (Significant Progress Made)**
+   - ✅ Identified the cause of 404 errors: inconsistent use of README.md vs index.md
+   - ✅ Established pattern: index.md for documentation content, README.md for GitHub browsing
+   - ✅ Created index.md files for core documentation sections:
+     - ✅ overview/index.md
+     - ✅ approaches/index.md 
+     - ✅ architecture/index.md
+     - ✅ security/index.md
+     - ✅ rbac/index.md
+     - ✅ service-accounts/index.md
+     - ✅ tokens/index.md
+     - ✅ kubernetes-setup/index.md
+   - ✅ Updated mkdocs.yml navigation to point to index.md files
+   - ✅ Fixed the critical content mismatch in kubernetes-api.md:
+     - ✅ Created proper kubernetes-api.md file with correct content about the Kubernetes API approach
+     - ✅ Updated debug-container.md to incorporate scanning aspects
+     - ✅ Maintained the content in approaches/index.md as landing page
+   - ✅ Started fixing cross-references between documents:
+     - ✅ Updated links in overview/quickstart.md
+     - ✅ Updated links in security/overview.md 
+     - ✅ Created and updated links in kubernetes-setup/ directory
+   - 🔄 Continuing to fix remaining link warnings in other files
+   - 🔄 Updating remaining cross-references between documents
 
-12. **Previous Session Work (March 20, 2025)**
-   - ✅ Documentation improvement and fixes:
-     - ✅ Fixed approach-mapping.md links to workflow YAML files
-     - ✅ Updated links to use repository URLs for workflow files
-     - ✅ Tested the documentation preview functionality
-     - ✅ Updated TASKS.md with progress on documentation refinement
-     - ✅ Set up additional documentation dependencies for quality validation
-   - ✅ Documentation quality validation:
-     - ✅ Implemented npm/node dependencies for markdownlint
-     - ✅ Set up pyspelling for spell checking
-     - ✅ Configured MkDocs preview server for testing
-
-13. **Current Session Work (March 21, 2025)**
-   - ✅ Created comprehensive documentation:
-     - ✅ Created dedicated approach-comparison.md in overview section
-     - ✅ Developed detailed testing documentation (testing/README.md)
-     - ✅ Created deployment scenarios documentation (deployment/README.md)
-     - ✅ Developed security compliance documentation with regulatory analysis
-   - ✅ Security compliance documentation:
-     - ✅ Analyzed DoD 8500.01 security requirements related to scanning approaches
-     - ✅ Reviewed DISA Container Platform SRG for compliance alignment
-     - ✅ Incorporated Kubernetes STIG (v2r2) security controls
-     - ✅ Added CIS Kubernetes Benchmark requirements
-     - ✅ Created comprehensive compliance comparison table for all approaches
-     - ✅ Documented risk acceptance requirements for alternative approaches
-   - ✅ Documentation organization:
-     - ✅ Updated mkdocs.yml navigation to include new documentation
-     - ✅ Reorganized security documentation for better flow
-     - ✅ Updated SESSION-RECOVERY.md to track progress
-
-### Recent Progress
-
-1. **High-Level Documentation Completed**
-   - ✅ Created Executive Summary for stakeholders
-   - ✅ Developed detailed Security Risk Analysis document
-   - ✅ Created comprehensive Approach Decision Matrix
-   - ✅ Added Enterprise Integration Analysis
-   - ✅ Updated all files to use the new helm-charts structure
-
-2. **Sidecar Container Approach Implementation**
-   - ✅ Created new sidecar-scanner Helm chart
-   - ✅ Implemented scan-with-sidecar.sh script
-   - ✅ Added CI/CD examples for GitLab and GitHub Actions
-   - ✅ Created example Dockerfile and pod definitions
-
-3. **Repository Maintenance**
-   - ✅ Completed migration from legacy helm-chart to modular helm-charts structure
-   - ✅ Committed and pushed all changes to the origin repository
-
-### Documentation Improvements
-
-#### Completed Work
-1. **MkDocs Setup**
-   - ✅ Created mkdocs.yml configuration file
-   - ✅ Set up GitHub Action for automatic deployment (deploy-docs.yml)
-   - ✅ Adjusted documentation structure for optimal navigation
-
-2. **Documentation Enhancements for MkDocs**
-   - ✅ Created a comprehensive navigation hierarchy in mkdocs.yml
-   - ✅ Added search functionality and proper indexing
-   - ✅ Created a landing page with clear navigation paths
-   - ✅ Integrated Mermaid diagram support for workflow visualization
-   - ✅ Added requirements.txt file for Python dependencies
-   - ✅ Updated README.md with MkDocs usage instructions
-   - ✅ Updated terminology to consistently use "Kubernetes API Approach" instead of "Standard Scanning"
-   - ✅ Enhanced enterprise integration analysis documentation
-
-#### Documentation Tasks Progress
-
-1. **Standardization and Enhancement**
-   - ✅ Normalize approach naming across documentation:
-     - ✅ Consistently use "Kubernetes API Approach" (not "Modified Plugin" or "Standard Scanning")
-     - ✅ Ensure consistent naming for "Debug Container Approach" and "Sidecar Container Approach"
-   - ✅ Review documents to ensure terminology consistency
-   - ✅ Create comprehensive CI/CD integration overview
-   - ✅ Develop approach mapping for CI/CD examples across all platforms and approaches
-   - ✅ Add cross-references throughout documentation for better navigation
-
-2. **Helm Chart Documentation**
-   - ✅ Create comprehensive documentation for Helm Charts:
-     - ✅ Architecture and design with detailed diagrams
-     - ✅ Usage instructions for different scenarios
-     - ✅ Configuration options with examples
-     - ✅ Security considerations specific to Helm deployments
-     - ✅ Troubleshooting guidance
-   - ✅ Integrate into MkDocs navigation structure
-
-3. **CI/CD Integration Documentation**
-   - ✅ Create CI/CD integration overview document
-   - ✅ Develop approach mapping document to match CI/CD examples to specific approaches
-   - ✅ Add clear guidance on choosing the right CI/CD integration
-   - ✅ Enhance GitLab services documentation and analysis
-   - ✅ Document all available CI/CD configuration options
-   - ✅ Organize documentation by platform and approach
-
-4. **Documentation System Enhancement**
-   - ✅ Create comprehensive documentation management system
-   - ✅ Reorganize documentation utilities to the docs directory
-   - ✅ Add tools for validating documentation quality:
-     - ✅ Markdown linting with markdownlint
-     - ✅ Spell checking with pyspelling
-     - ✅ Link validation with linkchecker
-   - ✅ Enhance documentation preview with background server and status monitoring
-   - ✅ Create documentation about the documentation system itself
-   - ✅ Clean up project root directory
-
-5. **Next Documentation Tasks**
-   - ✅ Fix approach-mapping.md links to workflow YAML files
-   - 🔄 Add more CI/CD examples for different environments
-   - 🔄 Create comprehensive testing documentation section
-   - 🔄 Add deployment scenarios documentation
-   - 🔄 Review all documents for accessibility and readability
+4. **Documentation Tool Development**
+   - ✅ Enhanced documentation preview system with better logging
+   - ✅ Added `--log` flag to enable logging with flexible options:
+     - Default logging to .mkdocs-server.log
+     - Custom log file path with `--log path/to/file.log`
+   - ✅ Implemented smart log viewing functionality with multiple options:
+     - View last 25 lines by default
+     - View specific number of lines with `--lines=N` or `-n N`
+     - View entire log with `--all` option
+   - ✅ Added process management for documentation server
 
 ### Next Steps
 
-1. **Complete Documentation Enhancement (Current Priority)**
-   - ✅ Created project directory structure
-   - ✅ Set up consolidated changelog in /docs/project/
-   - ✅ Complete file organization with tasks.md
-   - ✅ Test Mermaid dark mode configuration with actual diagrams
-   - ✅ Add specialized configuration to display YAML files with syntax highlighting
-   - ✅ Create sample ASCII-to-Mermaid conversion as proof of concept
-   - ✅ Verify all links are working correctly after updates
-   - ✅ Test documentation site with dark/light mode toggle
-   - ✅ Add additional configuration for proper code display
-   - ✅ Update the changelog with comprehensive entries
-   - ✅ Update TASKS.md and ROADMAP.md to reflect current progress
-   - ✅ Analyze documentation gaps and create documentation-gaps.md
+1. **Continue Documentation Structure Enhancement (Current Priority - March 25, 2025)**
+   - 🔄 Continue applying the content organization pattern to large documentation sections:
+     - ✅ Completed security section reorganization:
+       - ✅ Created directory structure (principles/, risk/, compliance/, threat-model/, recommendations/)
+       - ✅ Created index and inventory files for all subdirectories
+       - ✅ Created comprehensive content files in all subdirectories
+       - ✅ Extracted content from original files to focused files
+       - ✅ Updated cross-references
+       - ✅ Updated main security/index.md and inventory.md
+     - ✅ Completed Helm Charts section reorganization:
+       - ✅ Analyzed current content structure
+       - ✅ Created logical subdirectory organization:
+         - ✅ Created overview/ directory for high-level overview and architecture
+         - ✅ Created scanner-types/ directory for scanner-specific documentation
+         - ✅ Created infrastructure/ directory for RBAC, service accounts, and namespaces
+         - ✅ Created usage/ directory for customization and configuration
+         - ✅ Created security/ directory for security-related documentation
+         - ✅ Created operations/ directory for troubleshooting and maintenance
+       - ✅ Created index.md and inventory.md files for all subdirectories
+       - ✅ Extracted content from original files to focused files in each subdirectory
+       - ✅ Updated main helm-charts/index.md as a redirect
+       - ✅ Updated helm-charts/inventory.md with new structure
+       - ✅ Updated navigation in mkdocs.yml for Helm Charts section
+     - 📅 Plan Configuration section reorganization
+     - 📅 Plan Architecture section reorganization
+     - 📅 Plan Integration section reorganization
    - 🔄 Address high-priority documentation gaps before v1.0.0 release
+   - 🔄 Complete Phase 4 of documentation entry point refactoring:
+     - 🔄 Conducting comprehensive documentation review
+     - 🔄 Validating user journey paths
+     - 🔄 Testing documentation flow from different perspectives
+   - 🔄 Continue refining documentation tools and processes:
+     - ✅ Enhanced docs-tools.sh script with comprehensive logging functionality
+     - ✅ Added flexible log viewing options with intelligent defaults
+     - ✅ Implemented process management for documentation server
+     - ✅ Added custom log file path support
+     - 📅 Implement documentation validation tools
+     - 📅 Add automation for structure verification
 
 2. **Complete Container Scanning Approaches Implementation**
    - **Approach 1 - Modified Plugin (Enterprise Solution):**
@@ -348,25 +256,7 @@ We most recently:
      - 🔄 Implement ephemeral container detection and integration directly in the plugin
      - 🔄 Add automatic fallback to ephemeral containers when shell access fails
      - 🔄 Create examples and documentation for this approach
-     - References to explore:
-       - https://github.com/inspec/train-k8s-container/blob/main/lib/train/k8s/container/kubectl_exec_client.rb (modify exec approach)
-       - https://github.com/inspec/train-k8s-container/blob/main/lib/train/k8s/container/connection.rb (add ephemeral detection)
-       - https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/
-   
-   - **Approach 2 - CINC Auditor Debug Container (Working Prototype):**
-     - ✅ Create specialized debug container with CINC Auditor pre-installed
-     - ✅ Implement chroot-based filesystem access to target container
-     - ✅ Develop mechanism to bridge results back to host system
-     - ✅ Document the approach's tradeoffs and use cases
-     - ✅ Create working examples with common distroless images
-
-   - **Approach 3 - Sidecar Container with Shared Process Namespace:**
-     - ✅ Implement process identification and filesystem access via /proc/PID/root
-     - ✅ Create example pod YAML for sidecar container deployment
-     - ✅ Create script for deploying and managing the sidecar container
-     - ✅ Document the sidecar approach's tradeoffs and use cases
-     - ✅ Integrate with CI/CD examples
-
+     
    - **CI/CD Integration for All Approaches:**
      - ✅ GitHub Actions workflow for debug container approach
      - ✅ GitHub Actions workflow for sidecar container approach
@@ -376,66 +266,6 @@ We most recently:
      - 🔄 GitLab CI pipeline for modified plugin approach
      - ✅ GitLab CI with Services for sidecar container approach
      - 🔄 Comparative demonstration pipelines
-
-2. **Create Higher-Level Documentation**
-   - ✅ Executive Summary for stakeholders and decision makers
-   - ✅ Comprehensive overview and detailed analysis of each approach
-   - ✅ Security risk analysis and risk mitigation strategies:
-     - ✅ Privilege requirements analysis
-     - ✅ Attack surface evaluation
-     - ✅ Specific mitigation strategies for each approach
-   - ✅ Enterprise Integration Analysis:
-     - ✅ Scalability considerations
-     - ✅ Maintenance and upkeep requirements
-     - ✅ CI/CD pipeline integration complexity
-     - ✅ User experience analysis for different user personas
-   - ✅ Decision matrix for approach selection based on specific requirements
-
-3. **Integration and Testing**
-   - ✅ Complete the Helm chart templates for core components
-   - ✅ Create Helm charts for the sidecar container approach
-   - ✅ Test both approaches (shell scripts and Helm charts) in CI/CD
-   - ✅ Validate automated minikube setup with different configurations
-   - 🔄 Test with various distroless container types (Go, Java, Python, etc.)
-   - ✅ Ensure proper compatibility with SAF CLI threshold checks
-   - 🔄 Create Kubernetes mutating webhook example for sidecar injection
-
-3. **Architecture and Documentation**
-   - ✅ Create architecture and flow diagrams showing container interactions (Done)
-   - Develop security risk analysis for both approaches
-   - ✅ Create decision matrix comparing approaches (Done in distroless-containers.md)
-   - Document both helper scripts AND direct kubectl/inspec commands
-   - Develop recommendation document for stakeholders
-     - Show how to use helper scripts (scan-container.sh, scan-distroless-container.sh)
-     - Show the equivalent direct kubectl and inspec commands for users who prefer that approach
-     - Ensure users understand what's happening "under the hood"
-   - Create tutorials for scanning different types of containers
-   - Add more InSpec profile examples optimized for distroless containers
-   - ✅ Update CI/CD examples for both approaches (Done for GitLab CI with services)
-
-4. **GitLab CI Services Implementation**
-   - ✅ Analyze GitLab CI services for enhanced container scanning
-   - ✅ Create GitLab CI services example for both standard and distroless scanning
-   - ✅ Document GitLab CI services integration with detailed analysis
-   - ✅ Create GitLab CI services example for sidecar container approach
-   - 🔄 Build and publish scanner service Docker images:
-     - Standard scanner image with CINC Auditor pre-installed
-     - Distroless scanner image with specialized tooling
-   - 🔄 Test the GitLab CI services approach with real-world workloads
-   - 🔄 Create GitHub Actions equivalent using service containers
-   - 🔄 Document best practices for maintaining scanner service images
-   - 🔄 Create examples for different CI/CD environments and use cases
-
-5. **Sidecar Container Approach Integration (Mostly Completed)**
-   - ✅ Create CI/CD integration examples for the sidecar container approach:
-     - ✅ GitLab CI example for sidecar container scanning
-     - ✅ GitLab CI with services example for sidecar container scanning
-     - ✅ GitHub Actions example for sidecar container scanning
-   - ✅ Create dedicated scan-with-sidecar.sh script
-   - ✅ Document the sidecar approach in the main README
-   - 🔄 Build and publish a dedicated CINC Auditor sidecar container image
-   - 🔄 Update the Helm charts to support the sidecar container approach
-   - 🔄 Create a mutating webhook example for automatically injecting scanner sidecars
 
 ## Key Decisions and Latest Status
 
@@ -465,16 +295,23 @@ We most recently:
    - Comprehensive configuration options and examples
    - YAML-based threshold files for compliance validation
 
-5. **Latest Status (March 22, 2025)**:
+5. **Latest Status (March 25, 2025)**:
    - ✅ Three scanning approaches implemented (standard, debug container, sidecar container)
    - ✅ CI/CD integration for all approaches (GitLab CI, GitHub Actions)
    - ✅ Comprehensive documentation with workflow diagrams
    - ✅ Security-focused design with least privilege RBAC
    - 🔄 Modified transport plugin approach in progress
-   - ✅ Complete documentation reorganization and structure improvement
+   - ✅ Complete documentation reorganization and structure implementation
    - ✅ Enhanced MkDocs implementation with optimized navigation
-   - ✅ Comprehensive changelog documentation with detailed entries
-   - ✅ Updated TASKS.md and ROADMAP.md with accurate project status
+   - ✅ Standardized terminology and content structure across documentation
+   - ✅ Implemented documentation entry point refactoring plan through Phase 3
+   - ✅ Enhanced documentation tools with comprehensive features
+   - ✅ Added advanced logging functionality to documentation system
+   - ✅ Created audience-specific documentation paths
+   - ✅ Fixed navigation issues and addressed 404 errors
+   - 🔄 Working on Phase 4 (Review and Refinement) of documentation refactoring
+   - ✅ Reorganized approaches section into focused subdirectories with dedicated content files
+   - ✅ Reorganized security section into principles, risk, compliance, threat-model, and recommendations subdirectories with comprehensive content
 
 ## Project Structure
 
@@ -500,48 +337,6 @@ minikube/
     ├── cinc-profiles/       # CINC Auditor profiles
     └── generate-threshold.md # Threshold generation guide
 ```
-
-## Important Notes for Future Sessions
-
-### Distroless Container Scanning Approaches: User Experience Considerations
-
-When analyzing our two approaches for distroless container scanning, we need to consider the end-user experience, especially since our solution needs to scale to many teams conducting frequent scans:
-
-**Approach 1: Modified train-k8s-container Plugin**
-- **User Experience Benefits:**
-  - Most transparent to end users - they use the exact same commands as with regular containers
-  - No additional knowledge required by teams
-  - Scales easily across many teams
-  - Teams don't need to understand the underlying mechanics
-  - Consistent experience regardless of container type
-- **Adoption Considerations:**
-  - Easier organizational adoption due to consistent workflow
-  - Lower training burden
-  - Better for multi-team environments
-
-**Approach 2: Direct chroot Approach**
-- **User Experience Challenges:**
-  - Requires specialized debug containers
-  - May require different commands or workflows for distroless vs. regular containers
-  - More complexity visible to end users
-  - Potentially more friction for wide adoption
-  - Teams need to understand more about the underlying mechanism
-
-From a user experience and scalability perspective, Approach 1 (plugin modification) offers superior transparency and consistency, which is critical for wide adoption across multiple teams.
-
-### Technical Correction for Chroot Approach
-We've identified an important correction for the direct chroot approach to scanning distroless containers:
-
-1. CINC Auditor/InSpec is not a simple binary but requires a full Ruby environment with dependencies
-2. The debug container would need to have Ruby, required gems, and all CINC Auditor dependencies
-3. A proper implementation would likely be based on a custom Docker image similar to:
-   - https://gitlab.com/cinc-project/docker-images/-/blob/master/docker-auditor/Dockerfile
-   - https://gitlab.com/cinc-project/docker-images/-/blob/master/docker-auditor/Gemfile
-
-When we update the documentation, we'll need to revise the chroot approach to either:
-- Use a pre-built CINC Auditor container as the debug container
-- Include instructions for building a proper debug container with all Ruby dependencies
-- Explore alternative methods that account for InSpec's Ruby environment requirements
 
 ## References
 

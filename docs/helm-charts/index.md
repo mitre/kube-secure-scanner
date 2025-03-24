@@ -1,33 +1,46 @@
 # Helm Charts Documentation
 
+!!! info "Documentation Reorganization"
+    This section has been reorganized into a more structured format. Please see the links below for specific topics.
+
 !!! info "Directory Inventory"
     See the [Helm Charts Directory Inventory](inventory.md) for a complete listing of files and resources in this directory.
 
 This section contains documentation for the Helm charts used to deploy the Secure CINC Auditor Kubernetes Container Scanning solution.
 
-## Overview
+## Documentation Structure
 
-The Helm charts provide a standardized, declarative approach to deploying the container scanning solution in Kubernetes environments. The charts follow a layered architecture with dependencies that allow for modular deployment and configuration.
+The Helm charts documentation is now organized into the following sections:
 
-## Chart Structure
+### [Overview](overview/index.md)
+- [Architecture](overview/architecture.md)
 
-The Helm charts are organized in a layered architecture:
+### [Scanner Types](scanner-types/index.md)
+- [Common Scanner](scanner-types/common-scanner.md)
+- [Kubernetes API Scanner](scanner-types/standard-scanner.md)
+- [Debug Container Scanner](scanner-types/distroless-scanner.md)
+- [Sidecar Container Scanner](scanner-types/sidecar-scanner.md)
 
-1. **Core Infrastructure Layer** - Foundation for all scanning operations
-2. **Common Components Layer** - Reusable scanning utilities and scripts 
-3. **Scanning Approaches Layer** - Specialized components for each scanning approach
+### [Infrastructure](infrastructure/index.md)
+- [RBAC Configuration](infrastructure/rbac.md)
+- [Service Accounts](infrastructure/service-accounts.md)
+- [Namespaces](infrastructure/namespaces.md)
 
-This layered approach allows for flexible deployment and configuration while maintaining a consistent security model and operational pattern.
+### [Usage & Customization](usage/index.md)
+- [Customization Guide](usage/customization.md)
+- [Configuration Reference](usage/configuration.md)
+- [Values Files](usage/values.md)
 
-## Documentation Sections
+### [Security](security/index.md)
+- [Best Practices](security/best-practices.md)
+- [RBAC Hardening](security/rbac-hardening.md)
+- [Risk Assessment](security/risk-assessment.md)
 
-- [Overview](overview.md) - High-level overview of the Helm chart approach
-- [Helm Chart Architecture](architecture.md) - Detailed description of the Helm chart architecture, relationships, and components
-- [Scanner Infrastructure](scanner-infrastructure.md) - Documentation for the core infrastructure chart
-- [Common Scanner](common-scanner.md) - Documentation for the common scanner components
-- [Kubernetes API Scanner](standard-scanner.md) - Documentation for the standard scanner (Kubernetes API approach)
-- [Debug Container Scanner](distroless-scanner.md) - Documentation for the debug container scanner
-- [Sidecar Container Scanner](sidecar-scanner.md) - Documentation for the sidecar container scanner
-- [Customization](customization.md) - Guide for customizing the Helm charts
-- [Security Considerations](security.md) - Security aspects of the Helm chart deployment
-- [Troubleshooting](troubleshooting.md) - Troubleshooting guide for common issues
+### [Operations](operations/index.md)
+- [Troubleshooting](operations/troubleshooting.md)
+- [Performance Optimization](operations/performance.md)
+- [Maintenance Procedures](operations/maintenance.md)
+
+## Getting Started
+
+To get started with our Helm charts, visit the [Overview](overview/index.md) section for an introduction to the charts and their architecture. Then explore the [Scanner Types](scanner-types/index.md) section to learn about the different scanning approaches available.

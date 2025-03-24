@@ -4,24 +4,56 @@ This document provides a directory overview of all Helm chart resources in the p
 
 ## Directory Contents
 
-The helm-charts directory contains all of the Helm charts for the Kubernetes container scanning solution:
+The helm-charts directory contains all of the Helm charts documentation for the Kubernetes container scanning solution. The documentation is organized into the following subdirectories:
 
-- **README.md**: Original documentation (being migrated to this structure)
-- **index.md**: Main MkDocs documentation page
-- **scanner-infrastructure/**: Core infrastructure components
-  - Chart for setting up necessary RBAC, namespaces, and service accounts
-- **common-scanner/**: Shared components used by all scanner types
-  - Chart providing common scripts, configurations, and thresholds
-- **standard-scanner/**: Implementation of the Kubernetes API scanning approach
-  - For standard containers with shell access
-- **distroless-scanner/**: Implementation of the debug container scanning approach
-  - For distroless containers without a shell
-- **sidecar-scanner/**: Implementation of the sidecar container scanning approach
-  - For both standard and distroless containers
+### Overview
+- **overview/index.md**: Introduction to the Helm charts
+- **overview/inventory.md**: Directory listing
+- **overview/architecture.md**: Detailed architecture documentation
+
+### Scanner Types
+- **scanner-types/index.md**: Introduction to scanner types
+- **scanner-types/inventory.md**: Directory listing
+- **scanner-types/common-scanner.md**: Common scanner documentation
+- **scanner-types/standard-scanner.md**: Kubernetes API scanner documentation
+- **scanner-types/distroless-scanner.md**: Debug container scanner documentation
+- **scanner-types/sidecar-scanner.md**: Sidecar container scanner documentation
+
+### Infrastructure
+- **infrastructure/index.md**: Infrastructure overview
+- **infrastructure/inventory.md**: Directory listing
+- **infrastructure/rbac.md**: RBAC configuration documentation
+- **infrastructure/service-accounts.md**: Service account documentation
+- **infrastructure/namespaces.md**: Namespace management documentation
+
+### Usage & Customization
+- **usage/index.md**: Usage and customization overview
+- **usage/inventory.md**: Directory listing
+- **usage/customization.md**: Customization guide
+- **usage/configuration.md**: Configuration reference
+- **usage/values.md**: Values file documentation
+
+### Security
+- **security/index.md**: Security overview
+- **security/inventory.md**: Directory listing
+- **security/best-practices.md**: Security best practices
+- **security/rbac-hardening.md**: RBAC hardening guide
+- **security/risk-assessment.md**: Security risk assessment
+
+### Operations
+- **operations/index.md**: Operations overview
+- **operations/inventory.md**: Directory listing
+- **operations/troubleshooting.md**: Troubleshooting guide
+- **operations/performance.md**: Performance optimization guide
+- **operations/maintenance.md**: Maintenance procedures
+
+### Original Files (Legacy)
+- **index.md**: Main documentation page (with redirects to new structure)
+- **inventory.md**: This directory listing
 
 ## Chart Relationships
 
-The charts follow a hierarchical relationship:
+The Helm charts follow a hierarchical relationship:
 
 1. Scanner Infrastructure (base layer)
 2. Common Scanner (depends on Scanner Infrastructure)
@@ -29,17 +61,6 @@ The charts follow a hierarchical relationship:
    - Standard Scanner
    - Distroless Scanner
    - Sidecar Scanner
-
-## Documentation Structure
-
-This directory contains documentation for all aspects of the Helm charts:
-
-- Architecture and design
-- Implementation details
-- Configuration options
-- Customization guides
-- Security considerations
-- Troubleshooting information
 
 ## Related Resources
 
