@@ -351,40 +351,38 @@ Visit our comprehensive documentation at:
 
 ### Documentation Management
 
-We provide a comprehensive documentation system in the `docs` directory with tools for previewing, validating, and improving documentation quality:
+We provide a comprehensive documentation system with tools for previewing, validating, and improving documentation quality:
 
 ```bash
-# Navigate to the docs directory
-cd docs
-
-# Make the script executable if needed
-chmod +x docs-tools.sh
-
-# Preview documentation (background server)
-./docs-tools.sh preview
-
-# Check server status
-./docs-tools.sh status
-
-# Restart server
-./docs-tools.sh restart
-
-# Stop server
-./docs-tools.sh stop
-
-# Install all documentation dependencies
-./docs-tools.sh setup
-
-# Lint and fix documentation issues
-./docs-tools.sh lint
-./docs-tools.sh fix
-
-# Run comprehensive quality checks
-./docs-tools.sh check-all
-
-# See all available commands
-./docs-tools.sh help
+# Use the documentation tools script from the project root
+./docs-tools.sh preview     # Preview documentation (background server)
+./docs-tools.sh status      # Check server status
+./docs-tools.sh restart     # Restart server
+./docs-tools.sh stop        # Stop server
+./docs-tools.sh setup       # Install all documentation dependencies
+./docs-tools.sh lint        # Check Markdown style
+./docs-tools.sh fix         # Fix common Markdown issues
+./docs-tools.sh check-all   # Run comprehensive quality checks
+./docs-tools.sh help        # See all available commands
 ```
+
+#### Documentation Tools and CI/CD Scripts
+
+This project provides two main scripts for documentation management:
+
+1. **`docs-tools.sh`** - Interactive documentation management tool for developers:
+   - Located at: Available both in project root (symlinked) and in `docs/docs-tools.sh` (original)
+   - Purpose: Day-to-day documentation development and testing
+   - Features: Preview server, linting, spell checking, link validation, and more
+   - Usage: Run from either location with `./docs-tools.sh [command]`
+   - Note: The script automatically adapts to being run from either location
+
+2. **`docs-ci.sh`** - Automated documentation validation for CI/CD pipelines:
+   - Located at: Project root
+   - Purpose: Verify documentation quality in automated builds
+   - Features: Non-interactive validation for continuous integration
+   - Usage: Used by CI/CD pipelines or run with `./docs-ci.sh [--help]` to validate locally
+   - Supports: `--help` flag for usage information and `--verbose` flag for detailed output
 
 The documentation system includes:
 - MkDocs with Material theme for beautiful documentation
@@ -517,3 +515,8 @@ For a detailed view of our roadmap and project status, see:
 - [Task Tracker](docs/project/tasks.md) - Comprehensive task list with completion status
 - [Changelog](docs/project/changelog.md) - Detailed record of recent changes and improvements
 - [Documentation Gaps](docs/project/documentation-gaps.md) - Analysis of remaining documentation needs
+
+---
+
+🤖 Generated with [Claude Code](https://claude.ai/code)  
+Co-Authored-By: Claude <noreply@anthropic.com>

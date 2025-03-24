@@ -1,73 +1,147 @@
 # Secure CINC Auditor Kubernetes Container Scanning
 
-This project provides a comprehensive platform for securely scanning Kubernetes containers through multiple methodologies, leveraging CINC Auditor (open source InSpec) with security-focused RBAC configurations. It enables secure container compliance scanning across both standard and distroless containers in any Kubernetes environment.
+A comprehensive platform for securely scanning Kubernetes containers, including distroless containers, using CINC Auditor with least-privilege security controls.
 
---8<-- "includes/abbreviations.md"
+*[CINC]: CINC Is Not Chef
+*[SAF]: Security Automation Framework
+*[RBAC]: Role-Based Access Control
+*[K8s]: Kubernetes
+*[API]: Application Programming Interface
 
-## Project Overview
+## I am a...
 
-Our solution offers three distinct technical approaches for container scanning:
+<div class="grid cards" markdown>
 
-1. **Kubernetes API Approach** (Enterprise Recommended): Direct API-based scanning through the Kubernetes API using the train-k8s-container plugin. This is our recommended enterprise solution with future distroless support in development, offering the most scalable and seamless integration. Once distroless support is implemented, this will be a universal solution for all container types.
-2. **Debug Container Approach**: Ephemeral debug container with chroot-based scanning for distroless containers, ideal for environments with ephemeral container support.
-3. **Sidecar Container Approach**: CINC Auditor sidecar container with shared process namespace for any container type, offering universal compatibility across Kubernetes versions.
+-   :shield:{ .lg .middle } **Security Leader / Decision Maker**
 
-These approaches can be deployed via:
-- Self-contained shell scripts for direct management and testing
-- Modular Helm charts for declarative, enterprise deployment
-- CI/CD integration with GitHub Actions and GitLab CI for both minikube-based and existing Kubernetes clusters
+    ---
 
-The platform works in both local minikube environments and existing production Kubernetes clusters, with specialized security controls that address the fundamental challenges of privileged container scanning:
+    Resources for security leaders making technology decisions:
+    
+    - [Executive Summary](overview/executive-summary.md)
+    - [Security Analysis](security/analysis.md)
+    - [Compliance Documentation](security/compliance.md)
+    - [Enterprise Integration Analysis](overview/enterprise-integration-analysis.md)
 
-1. **Least Privilege Access** - Restrict scanning to specific containers only
-2. **Dynamic Access Control** - Create temporary, targeted access for scanning
-3. **CI/CD Integration** - Ready-to-use scripts and templates for pipeline integration
-4. **Threshold Validation** - Integration with MITRE SAF CLI for compliance validation
-5. **Distroless Support** - Specialized approach for scanning distroless containers
-6. **Modular Deployment** - Supporting both script-based and Helm-based approaches
+-   :octicons-terminal-24:{ .lg .middle } **DevOps Engineer / Implementer**
 
-## Key Features
+    ---
+    
+    Implementation guidance and CI/CD integration examples:
+    
+    - [Quick Start Guide](quickstart-guide.md)
+    - [Approach Comparison](approaches/comparison.md)
+    - [GitHub Actions Integration](integration/github-actions.md)
+    - [GitLab CI Integration](integration/gitlab.md)
 
-### Security-Focused Design
+-   :material-strategy:{ .lg .middle } **Solution Architect**
 
-- No permanent elevated privileges
-- No shared access between scans
-- Time-limited token generation (default: 15 minutes)
-- Fine-grained RBAC controls
-- Namespace isolation
+    ---
+    
+    Technical architecture and design documentation:
+    
+    - [Technical Overview](overview/index.md)
+    - [Architecture Diagrams](architecture/diagrams.md)
+    - [Workflow Processes](architecture/workflows.md)
+    - [Approach Decision Matrix](approaches/decision-matrix.md)
 
-### Flexibility
+</div>
 
-- Support for label-based scanning
-- Support for named resource restrictions
-- Multiple deployment methods (scripts or Helm)
-- Configurable threshold validation
-- Modular Helm chart structure
+## Scanning Approaches
 
-### Ease of Use
+This project offers three distinct approaches for container scanning:
 
-- Comprehensive documentation
-- Ready-to-use scripts
-- Helm chart deployment
-- Example profiles and configurations
-- GitHub Actions and GitLab CI integration
+=== "Kubernetes API Approach (Recommended)"
 
-## Quick Navigation
+    Direct API-based scanning using the train-k8s-container plugin. Most scalable solution with seamless integration.
+    
+    - Works with standard containers now
+    - Universal solution once distroless support is complete
+    - No configuration changes to existing pods
+    
+    [Learn More](approaches/kubernetes-api.md){: .md-button }
 
-- [Quickstart Guide](overview/quickstart.md)
-- [Security Considerations](security/overview.md)
-- [Executive Summary](overview/executive-summary.md)
-- [Approach Decision Matrix](approaches/decision-matrix.md)
-- [Security Risk Analysis](security/risk-analysis.md)
-- [Enterprise Integration Analysis](overview/enterprise-integration-analysis.md)
+=== "Debug Container Approach"
 
-### Scanning Approaches
-- [Kubernetes API Approach](approaches/kubernetes-api.md) (Enterprise Recommended)
-- [Debug Container Approach](approaches/debug-container.md)
-- [Sidecar Container Approach](approaches/sidecar-container.md)
-- [Direct Commands Reference](approaches/direct-commands.md)
+    Uses ephemeral debug containers with chroot-based scanning for distroless containers.
+    
+    - Requires Kubernetes 1.16+ with ephemeral containers
+    - Works with existing deployed containers
+    - Good for testing environments
+    
+    [Learn More](approaches/debug-container.md){: .md-button }
 
-### Integration
-- [GitHub Actions Integration](integration/github-actions.md)
-- [GitLab CI Integration](integration/gitlab.md)
-- [GitLab CI with Services](integration/gitlab-services.md)
+=== "Sidecar Container Approach"
+
+    CINC Auditor sidecar container with shared process namespace for any container type.
+    
+    - Works with any Kubernetes cluster
+    - Universal compatibility
+    - Must be deployed alongside target container
+    
+    [Learn More](approaches/sidecar-container.md){: .md-button }
+
+## Key Security Benefits
+
+<div class="grid" markdown>
+
+- :material-shield-lock:{ .lg .middle } **Least Privilege Access**  
+  Restrict scanning to specific containers only
+
+- :material-transit-connection-variant:{ .lg .middle } **Dynamic Access Control**  
+  Create temporary, targeted access for scanning
+
+- :material-timer-sand:{ .lg .middle } **Time-limited Tokens**  
+  Default 15-minute lifetime for security
+
+- :material-wall:{ .lg .middle } **Namespace Isolation**  
+  Contain permissions within specific namespaces
+
+- :material-check-circle-outline:{ .lg .middle } **SAF CLI Integration**  
+  Validate scan results against compliance thresholds
+
+</div>
+
+## Getting Started
+
+The fastest way to get started is with our Quick Start guide:
+
+[Quick Start Guide](quickstart-guide.md){: .md-button .md-button--primary }
+
+## Core Documentation
+
+<div class="grid cards" markdown>
+
+-   :material-compare:{ .lg .middle } **Approach Comparison**
+
+    ---
+    
+    Compare the three scanning approaches side-by-side
+    
+    [:octicons-arrow-right-24: View comparison](approaches/comparison.md)
+
+-   :material-chart-timeline-variant:{ .lg .middle } **Workflow Diagrams**
+
+    ---
+    
+    Visual workflows for all scanning approaches
+    
+    [:octicons-arrow-right-24: View diagrams](architecture/diagrams.md)
+
+-   :material-shield-check:{ .lg .middle } **Security Analysis**
+
+    ---
+    
+    Comprehensive security analysis with risk mitigation
+    
+    [:octicons-arrow-right-24: View analysis](security/analysis.md)
+
+-   :material-matrix:{ .lg .middle } **Decision Matrix**
+
+    ---
+    
+    Selection guide for the right approach
+    
+    [:octicons-arrow-right-24: View matrix](approaches/decision-matrix.md)
+
+</div>

@@ -1,0 +1,69 @@
+# Scanning Approaches
+
+This document provides an overview of the different scanning approaches supported by the Secure CINC Auditor Kubernetes Container Scanning platform.
+
+!!! info "Directory Contents"
+    For a complete listing of all files in this section, see the [Approaches Inventory](inventory.md).
+
+## Available Approaches
+
+The project implements three distinct approaches for container scanning, each with specific characteristics and use cases:
+
+### 1. Kubernetes API Approach
+
+**Enterprise Recommended**
+
+The Kubernetes API Approach uses the train-k8s-container plugin to connect directly to the Kubernetes API for container scanning. This approach:
+
+- Works with standard containers natively
+- Will provide universal container scanning once distroless support is complete
+- Requires no modifications to existing pods
+- Implements least-privilege security controls
+- Provides the most scalable and enterprise-ready solution
+
+[Learn More](kubernetes-api.md){: .md-button }
+
+### 2. Debug Container Approach
+
+**Interim Solution for Distroless Containers**
+
+The Debug Container Approach uses ephemeral debug containers with chroot-based scanning for distroless containers. This approach:
+
+- Works with Kubernetes 1.16+ with ephemeral containers feature enabled
+- Can be used with existing deployed distroless containers
+- Uses temporary debug containers that are removed after scanning
+- Is recommended for testing environments and interim distroless scanning
+
+[Learn More](debug-container.md){: .md-button }
+
+### 3. Sidecar Container Approach
+
+**Universal Compatibility Solution**
+
+The Sidecar Container Approach uses a CINC Auditor sidecar container with shared process namespace for scanning. This approach:
+
+- Works with any Kubernetes cluster regardless of version
+- Provides universal compatibility for all container types
+- Requires deploying containers with the sidecar configuration
+- Can access container filesystems through process namespace sharing
+
+[Learn More](sidecar-container.md){: .md-button }
+
+## Additional Resources
+
+### Direct Commands Approach
+
+For users who prefer direct commands or need to understand the underlying mechanics, we also document how to perform scanning with raw commands instead of helper scripts:
+
+[Direct Commands](direct-commands.md){: .md-button }
+
+## Comparison and Decision Guidance
+
+To help you select the most appropriate approach for your environment and requirements, we provide:
+
+- [Approach Comparison](comparison.md) - Side-by-side comparison of features, requirements, and limitations
+- [Decision Matrix](decision-matrix.md) - Structured decision framework with recommendations based on specific criteria
+
+## Next Steps
+
+After selecting an approach, refer to the [Quick Start Guide](../quickstart-guide.md) for implementation steps or the [CI/CD Integration](../integration/overview.md) documentation for automated scanning setups.

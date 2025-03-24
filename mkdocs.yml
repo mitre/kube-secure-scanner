@@ -1,5 +1,5 @@
 site_name: Secure CINC Auditor Kubernetes Container Scanning
-site_url: https://github.com/mitre/kube-cinc-secure-scanner
+site_url: http://localhost:8000/
 site_description: A comprehensive platform for securely scanning Kubernetes containers
 site_author: MITRE SAF Team
 copyright: © The MITRE Corporation. Brought to you by the <a href="https://saf.mitre.org">MITRE Security Automation Framework (SAF)</a>
@@ -31,8 +31,7 @@ exclude_docs: |
   
   # Exclude files that conflict with index.md files
   /README.md
-  helm-charts/scanner-infrastructure/README.md
-  overview/README.md
+  # All README.md files from docs directory are now included in navigation
 
 theme:
   name: material
@@ -96,6 +95,8 @@ markdown_extensions:
   - footnotes
   - toc:
       permalink: true
+  - attr_list
+  - md_in_html
 
 extra_css:
   - css/custom.css
@@ -112,43 +113,64 @@ plugins:
 nav:
   - Overview:
     - Introduction: index.md
-    - Quickstart: overview/quickstart.md
+    - Technical Architecture: overview/index.md
     - Executive Summary: overview/executive-summary.md
     - Enterprise Integration: overview/enterprise-integration-analysis.md
+    - ASCII Diagrams: overview/ascii-diagrams.md
+    - Directory Contents: overview/inventory.md
+    
+  - Quickstart: quickstart-guide.md
   
   - Architecture & Workflows:
+    - Overview: architecture/index.md
     - Workflow Diagrams: architecture/diagrams.md
     - Workflow Processes: architecture/workflows.md
+    - Content Inventory: architecture/inventory.md
   
   - Scanning Approaches:
+    - Overview: approaches/index.md
     - Comparison: approaches/comparison.md
     - Decision Matrix: approaches/decision-matrix.md
     - Kubernetes API Approach: approaches/kubernetes-api.md
     - Debug Container Approach: approaches/debug-container.md
     - Sidecar Container Approach: approaches/sidecar-container.md
     - Direct Commands: approaches/direct-commands.md
+    - Content Inventory: approaches/inventory.md
   
   - Security:
-    - Overview: security/overview.md
+    - Overview: security/index.md
+    - Security Framework: security/overview.md
     - Risk Analysis: security/risk-analysis.md
     - Security Analysis: security/analysis.md
     - Compliance: security/compliance.md
+    - Content Inventory: security/inventory.md
   
   - Kubernetes Setup:
-    - Overview: kubernetes-setup/README.md
-    - Kubeconfig Configuration: configuration/README.md
+    - Overview: kubernetes-setup/index.md
+    - Directory Contents: kubernetes-setup/inventory.md
+    - Kubeconfig Configuration: 
+      - Overview: configuration/index.md
+      - Directory Contents: configuration/inventory.md
     - RBAC Configuration:
-      - Basic RBAC: rbac/README.md
+      - Basic RBAC: rbac/index.md
       - Label-based RBAC: rbac/label-based.md
-    - Token Management: tokens/README.md
-    - Service Accounts: service-accounts/README.md
+      - Content Inventory: rbac/inventory.md
+    - Token Management: 
+      - Overview: tokens/index.md
+      - Directory Contents: tokens/inventory.md
+    - Service Accounts: 
+      - Overview: service-accounts/index.md
+      - Directory Contents: service-accounts/inventory.md
   
   - Helm Charts:
+    - Introduction: helm-charts/index.md
     - Overview: helm-charts/overview.md
     - Helm Chart Architecture: helm-charts/architecture.md
+    - Directory Contents: helm-charts/inventory.md
     - Scanner Infrastructure: 
       - Overview: helm-charts/scanner-infrastructure.md
-      - Details: helm-charts/scanner-infrastructure/index.md
+      - Documentation: helm-charts/scanner-infrastructure/index.md
+      - Directory Contents: helm-charts/scanner-infrastructure/inventory.md
     - Scanners:
       - Common Scanner: helm-charts/common-scanner.md
       - Kubernetes API Scanner: helm-charts/standard-scanner.md
@@ -172,13 +194,19 @@ nav:
     - Code Examples: examples/code-display-demo.md
   
   - Scanner Configuration:
+    - Advanced Configuration: configuration/advanced/index.md
+    - Directory Contents: configuration/advanced/inventory.md
     - Scanning Thresholds: configuration/advanced/thresholds.md
     - Plugin Modifications: configuration/advanced/plugin-modifications.md
     - SAF CLI Integration: configuration/advanced/saf-cli-integration.md
   
   - Developer Guide:
-    - Testing: developer-guide/testing/README.md
-    - Deployment: developer-guide/deployment/README.md
+    - Testing: 
+      - Overview: developer-guide/testing/index.md
+      - Directory Contents: developer-guide/testing/inventory.md
+    - Deployment: 
+      - Overview: developer-guide/deployment/index.md
+      - Directory Contents: developer-guide/deployment/inventory.md
     - Contributing:
       - Documentation Tools: contributing/documentation-tools.md
       - Code Snippets: contributing/code-snippets.md
@@ -190,7 +218,13 @@ nav:
     - Tasks: project/tasks.md
     - Roadmap: project/roadmap.md
     - Documentation Gaps: project/documentation-gaps.md
+    - Content Map: project/content-map.md
+    - Documentation Refactoring: project/documentation-entry-refactoring.md
+    - Documentation Review Plan: project/documentation-review-plan.md
+    - Terminology: project/terminology.md
+    - Abbreviations: includes/abbreviations.md
     - Tools & Utilities:
+      - Overview: utilities/README.md
       - ASCII to Mermaid Conversion: utilities/ascii-to-mermaid.md
     - Archive:
       - ASCII Diagrams: project/archive/ascii-diagrams.md
