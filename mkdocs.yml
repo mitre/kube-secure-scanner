@@ -299,9 +299,14 @@ nav:
       - Overview: integration/examples/index.md
       - Directory Contents: integration/examples/inventory.md
       - GitHub Examples: integration/examples/github-examples.md
+      - GitLab Examples: integration/examples/gitlab-examples.md
     - Integration Configuration:
       - Overview: integration/configuration/index.md
       - Directory Contents: integration/configuration/inventory.md
+      - Environment Variables: integration/configuration/environment-variables.md
+      - Secrets Management: integration/configuration/secrets-management.md
+      - Thresholds Integration: integration/configuration/thresholds-integration.md
+      - Reporting Configuration: integration/configuration/reporting.md
     - Example Resources:
       - GitHub Workflow Examples: github-workflow-examples/index.md
       - GitHub Workflow Contents: github-workflow-examples/inventory.md
