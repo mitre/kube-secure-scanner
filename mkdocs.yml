@@ -371,8 +371,9 @@ nav:
       - Reorganization Summaries:
         - Integration Reorganization: project/integration-reorganization-summary.md
         - Architecture Reorganization: project/architecture-reorganization-summary.md
+        - Configuration Reorganization: project/configuration-reorganization-summary.md
+        - Helm Charts Reorganization: project/helm-charts-reorganization-summary.md
         - Security Reorganization: project/security-reorganization-summary.md
-        - Approaches Reorganization: project/approaches-reorganization-summary.md
         - Documentation Structure: project/documentation-structure-progress.md
     - Tools & Utilities:
       - Overview: utilities/index.md
