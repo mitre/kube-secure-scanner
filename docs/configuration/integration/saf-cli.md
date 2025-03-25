@@ -1,10 +1,5 @@
 # SAF CLI Integration
 
-!!! warning "Moved Content"
-    This content has been relocated to the [Integration Configuration](../integration/index.md) section. Please update your bookmarks.
-
-<meta http-equiv="refresh" content="0;url=../integration/saf-cli.md" />
-
 This guide covers the integration of [MITRE's Security Automation Framework (SAF) CLI](https://github.com/mitre/saf) with our CINC Auditor container scanning solution.
 
 ## Overview
@@ -111,95 +106,118 @@ fi
 
 ### GitHub Actions Integration
 
-See the GitHub workflow examples in `/github-workflows/` for complete implementation examples.
+```yaml
+name: Security Scan
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install SAF CLI
+        run: npm install -g @mitre/saf
+      
+      - name: Run Container Scan
+        run: |
+          cinc-auditor exec profile -t k8s-container://namespace/pod/container --reporter json:results.json
+          
+          # Generate markdown summary
+          saf summary --input results.json --output-md summary.md
+          
+          # Check threshold
+          saf threshold -i results.json -t threshold.yml
+```
 
 ### GitLab CI Integration
 
-See the GitLab CI examples in `/gitlab-examples/` for complete implementation examples.
-
-## Advanced Threshold Configuration
-
-You can create complex threshold rules based on your compliance requirements:
-
-### Basic Compliance Score
-
-Only validate overall compliance score:
-
 ```yaml
-compliance:
-  min: 80  # At least 80% compliance required
+security-scan:
+  stage: scan
+  script:
+    - npm install -g @mitre/saf
+    - cinc-auditor exec ${PROFILE_PATH} -t k8s-container://${NAMESPACE}/${POD_NAME}/${CONTAINER_NAME} --reporter json:results.json
+    - saf summary --input results.json --output-md summary.md
+    - saf threshold -i results.json -t threshold.yml
+  artifacts:
+    paths:
+      - results.json
+      - summary.md
+    reports:
+      junit: report.xml
 ```
 
-### No Critical Failures
+## Advanced Usage
 
-Allow failures at lower impact levels, but no critical ones:
+### Creating Custom Reporters
 
-```yaml
-failed:
-  critical:
-    max: 0  # No critical failures allowed
+SAF CLI allows custom reporters:
+
+```bash
+# Create a filtered summary showing only failed controls
+saf summary --input results.json --output-md summary-failed.md --failed-only
+
+# Create a summary grouped by impact
+saf summary --input results.json --output-md summary-impact.md --impact-only
 ```
 
-### Production Environment
+### Multi-File Processing
 
-Strict validation for production environments:
+Process multiple result files:
 
-```yaml
-compliance:
-  min: 95  # At least 95% compliance required
-failed:
-  critical:
-    max: 0  # No critical failures allowed
-  high:
-    max: 0  # No high failures allowed
-skipped:
-  total:
-    max: 0  # No skipped controls allowed
-error:
-  total:
-    max: 0  # No error controls allowed
+```bash
+# Combine and analyze multiple result files
+saf summary --input "results-*.json" --output-md combined-summary.md
 ```
 
-### Development Environment
+### Advanced Filtering
 
-More lenient validation for development environments:
+Filter results for specific needs:
 
-```yaml
-compliance:
-  min: 70  # At least 70% compliance
-failed:
-  critical:
-    max: 0  # No critical failures
-  high:
-    max: 3  # Up to 3 high failures allowed
+```bash
+# Filter by control ID pattern
+saf filter --input results.json --control-id "container-*" --output filtered.json
+
+# Filter by impact
+saf filter --input results.json --impact high,critical --output high-impact.json
+```
+
+## Integration with Our Scanner Scripts
+
+Our scanning scripts include built-in SAF CLI integration:
+
+```bash
+# Run scan with SAF CLI processing
+./scan-container.sh my-namespace my-pod my-container my-profile ./threshold.yml
 ```
 
 ## Helm Chart Integration
 
-Our Helm chart includes SAF CLI integration with configurable threshold settings. See the `values.yaml` file for all available options.
+Our Helm charts include SAF CLI integration through values:
 
-Example usage with custom threshold file:
-
-```bash
-# Create a threshold.yml file
-cat > threshold.yml << EOF
-compliance:
-  min: 85
-failed:
-  critical:
-    max: 0
-EOF
-
-# Install the Helm chart with custom threshold
-helm install standard-scanner ./helm-charts/standard-scanner \
-  --set common-scanner.safCli.thresholdFilePath=/path/to/threshold.yml
+```yaml
+# values.yaml
+safCli:
+  enabled: true
+  reportFormats:
+    - json
+    - md
+    - html
+  thresholdConfig:
+    compliance:
+      min: 85
+    failed:
+      critical:
+        max: 0
 ```
 
-## Troubleshooting
+## Related Topics
 
-Common issues and solutions:
-
-1. **SAF CLI not installed**: Ensure Node.js is installed and run `npm install -g @mitre/saf`
-2. **Invalid JSON format**: Verify the InSpec/CINC output is valid JSON
-3. **Threshold validation fails**: Run with debug for more details: `saf threshold -i results.json -t threshold.yml --debug`
-4. **Node.js version compatibility**: SAF CLI requires Node.js 12+
+- [Threshold Configuration](../thresholds/index.md)
+- [GitHub Actions Integration](github.md)
+- [GitLab CI Integration](gitlab.md)
+- [CI/CD Integration](../../integration/index.md)

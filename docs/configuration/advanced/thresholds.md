@@ -1,5 +1,10 @@
 # Using SAF-CLI Thresholds
 
+!!! warning "Moved Content"
+    This content has been relocated to the [Threshold Configuration](../thresholds/index.md) section. Please update your bookmarks.
+
+<meta http-equiv="refresh" content="0;url=../thresholds/index.md" />
+
 This guide provides detailed information on using MITRE's SAF-CLI thresholds for quality gates in security scanning.
 
 ## What are Thresholds?

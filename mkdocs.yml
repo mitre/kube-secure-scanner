@@ -193,16 +193,50 @@ nav:
       - Basic RBAC: rbac/index.md
       - Label-based RBAC: rbac/label-based.md
       - Directory Contents: rbac/inventory.md
+    - Configuration:
+      - Overview: configuration/index.md
+      - Directory Contents: configuration/inventory.md
+      - Kubeconfig:
+        - Overview: configuration/kubeconfig/index.md
+        - Directory Contents: configuration/kubeconfig/inventory.md
+        - Generation: configuration/kubeconfig/generation.md
+        - Management: configuration/kubeconfig/management.md
+        - Security: configuration/kubeconfig/security.md
+        - Dynamic Configuration: configuration/kubeconfig/dynamic.md
+      - Thresholds:
+        - Overview: configuration/thresholds/index.md
+        - Directory Contents: configuration/thresholds/inventory.md
+        - Basic Configuration: configuration/thresholds/basic.md
+        - Advanced Configuration: configuration/thresholds/advanced.md
+        - Example Configurations: configuration/thresholds/examples.md
+        - CI/CD Integration: configuration/thresholds/cicd.md
+      - Plugin Customization:
+        - Overview: configuration/plugins/index.md
+        - Directory Contents: configuration/plugins/inventory.md
+        - Distroless Support: configuration/plugins/distroless.md
+        - Implementation Guide: configuration/plugins/implementation.md
+        - Testing Guide: configuration/plugins/testing.md
+      - Integration:
+        - Overview: configuration/integration/index.md
+        - Directory Contents: configuration/integration/inventory.md
+        - SAF CLI Integration: configuration/integration/saf-cli.md
+        - GitHub Actions: configuration/integration/github.md
+        - GitLab CI: configuration/integration/gitlab.md
+      - Security:
+        - Overview: configuration/security/index.md
+        - Directory Contents: configuration/security/inventory.md
+        - Hardening: configuration/security/hardening.md
+        - Credential Management: configuration/security/credentials.md
+        - RBAC Configuration: configuration/security/rbac.md
+      - Legacy:
+        - Advanced Configuration: configuration/advanced/index.md
+        - Scanning Thresholds: configuration/advanced/thresholds.md
+        - Plugin Modifications: configuration/advanced/plugin-modifications.md
+        - SAF CLI Integration: configuration/advanced/saf-cli-integration.md
+        - Directory Contents: configuration/advanced/inventory.md
     - Authentication:
-      - Kubeconfig: configuration/index.md
       - Token Management: tokens/index.md
       - Service Accounts: service-accounts/index.md
-    - Scanner Configuration:
-      - Advanced Configuration: configuration/advanced/index.md
-      - Scanning Thresholds: configuration/advanced/thresholds.md
-      - Plugin Modifications: configuration/advanced/plugin-modifications.md
-      - SAF CLI Integration: configuration/advanced/saf-cli-integration.md
-      - Directory Contents: configuration/advanced/inventory.md
     - Helm Charts:
       - Introduction: helm-charts/index.md
       - Directory Contents: helm-charts/inventory.md

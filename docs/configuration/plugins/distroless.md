@@ -1,27 +1,18 @@
-# Modifying train-k8s-container for Distroless Support
+# Distroless Container Support
 
-!!! warning "Moved Content"
-    This content has been relocated to the [Plugin Customization](../plugins/index.md) section. Please update your bookmarks.
+This document outlines the modifications needed in the CINC Auditor train-k8s-container plugin to support scanning distroless containers using Kubernetes ephemeral containers.
 
-<meta http-equiv="refresh" content="0;url=../plugins/distroless.md" />
+## What are Distroless Containers?
 
-> **STRATEGIC PRIORITY**: Enhancing the train-k8s-container plugin to support distroless containers through the Kubernetes API Approach represents our **highest strategic priority** for enterprise container scanning. This is the recommended approach for production environments and is essential for comprehensive security compliance.
+Distroless containers are minimal container images that don't contain a shell or package managers, only the application and its runtime dependencies. This reduces the attack surface but makes traditional scanning more difficult.
 
-This document outlines the changes needed in the CINC Auditor train-k8s-container plugin to support scanning distroless containers using Kubernetes ephemeral containers.
+## Current Plugin Limitations
 
-## Current Plugin Architecture
+The current train-k8s-container plugin has these limitations with distroless containers:
 
-The train-k8s-container plugin works by:
-
-1. Creating a connection to a Kubernetes cluster via kubeconfig
-2. Using `kubectl exec` to execute commands in the target container
-3. Running CINC Auditor controls that rely on command execution
-
-Key files in the plugin that would need modification:
-
-1. `lib/train/k8s/container/connection.rb` - Main connection class
-2. `lib/train/k8s/container/kubectl_exec_client.rb` - Handles command execution
-3. `lib/train/transport/k8s_container.rb` - Transport entry point
+1. Relies on shell execution (not available in distroless containers)
+2. Cannot execute commands directly in the container
+3. Has no fallback mechanism for containers without shells
 
 ## Required Modifications
 
@@ -181,18 +172,6 @@ After modifying the plugin, we would need to:
 4. Update our Helm chart to include the new plugin version
 5. Test with various distroless container types
 
-## Strategic Implementation Path
-
-This enhancement represents our primary strategic focus for several reasons:
-
-1. **Consistent User Experience**: Users will use identical commands for all container types
-2. **Maximum Security Compliance**: The Kubernetes API Approach maintains all security boundaries
-3. **Enterprise Scalability**: One solution for all container types simplifies deployment
-4. **Simplified CI/CD Integration**: CI/CD pipelines can use a single approach for all workloads
-5. **Unified Documentation**: Streamlined documentation and training
-
-Once completed, this enhancement will eliminate the need for interim approaches like the Debug Container Approach and Sidecar Container Approach, providing a single, comprehensive solution for all container scanning needs.
-
 ## Example Usage
 
 With the modified plugin, the command to scan a distroless container would remain the same:
@@ -214,8 +193,10 @@ The plugin would automatically:
 3. **Image Compatibility**: The debug image must have required tools
 4. **Process Isolation**: May have issues with certain container runtimes
 
-## References
+## Related Topics
 
-1. [train-k8s-container repository](https://github.com/inspec/train-k8s-container)
-2. [Kubernetes Ephemeral Containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/)
-3. [Debugging with Ephemeral Containers](https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/#ephemeral-container)
+- [Implementation Guide](implementation.md)
+- [Testing Guide](testing.md)
+- [Kubernetes API Approach](../../approaches/kubernetes-api/index.md)
+- [Debug Container Approach](../../approaches/debug-container/index.md)
+- [Distroless Container Basics](../../approaches/debug-container/distroless-basics.md)

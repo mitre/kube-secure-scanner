@@ -15,19 +15,15 @@ We've been implementing a comprehensive documentation reorganization to improve 
 - ✅ Security section - Restructured into principles/, risk/, compliance/, threat-model/, and recommendations/
 - ✅ Deployment scenarios - Already reorganized with subdirectories
 - ✅ Advanced topics - Already reorganized with subdirectories
-
-### Partially Reorganized:
-- ⚠️ Helm Charts - Has scanner-infrastructure/ subdirectory, but needs comprehensive reorganization
-- ⚠️ Configuration - Has advanced/ subdirectory, but may benefit from further reorganization
+- ✅ Helm Charts - Reorganized into overview/, scanner-types/, infrastructure/, usage/, security/, and operations/
+- ✅ Configuration - Reorganized into kubeconfig/, thresholds/, plugins/, integration/, and security/
 
 ### Planned for Reorganization:
-- 📅 Helm Charts - Medium priority (next focus)
-- 📅 Configuration - Medium priority
 - 📅 Architecture - Medium priority
 - 📅 Integration - Medium priority
 
 ### Next Steps:
-1. Begin the Helm Charts section reorganization
+1. Begin the Architecture section reorganization
 2. Continue Phase 4 (review and refinement) of documentation refactoring
 3. Address remaining documentation gaps
 4. Implement documentation validation tools
@@ -234,7 +230,20 @@ We most recently:
        - ✅ Updated main helm-charts/index.md as a redirect
        - ✅ Updated helm-charts/inventory.md with new structure
        - ✅ Updated navigation in mkdocs.yml for Helm Charts section
-     - 📅 Plan Configuration section reorganization
+     - ✅ Completed Configuration section reorganization:
+       - ✅ Analyzed current content structure
+       - ✅ Created logical subdirectory organization:
+         - ✅ Created kubeconfig/ directory for kubeconfig configuration
+         - ✅ Created thresholds/ directory for threshold configuration
+         - ✅ Created plugins/ directory for plugin customization
+         - ✅ Created integration/ directory for integration configuration
+         - ✅ Created security/ directory for security configuration
+       - ✅ Created index.md and inventory.md files for all subdirectories
+       - ✅ Extracted content from original files to focused files in each subdirectory
+       - ✅ Updated main configuration/index.md as an overview
+       - ✅ Updated configuration/inventory.md with new structure
+       - ✅ Updated navigation in mkdocs.yml for Configuration section
+       - ✅ Added redirects from legacy files to new structure
      - 📅 Plan Architecture section reorganization
      - 📅 Plan Integration section reorganization
    - 🔄 Address high-priority documentation gaps before v1.0.0 release

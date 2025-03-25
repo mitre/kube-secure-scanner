@@ -1,171 +1,37 @@
-# Kubeconfig Generation and Management
+# Configuration Overview
 
 !!! info "Directory Inventory"
     See the [Configuration Directory Inventory](inventory.md) for a complete listing of files and resources in this directory.
 
-This guide covers creating and managing secure kubeconfig files for InSpec container scanning.
+This section provides comprehensive documentation for configuring the Secure CINC Auditor Kubernetes Container Scanning solution.
 
-## Basic Kubeconfig Structure
+## Configuration Areas
 
-A kubeconfig file for InSpec scanning contains:
+The configuration documentation is organized into several key areas:
 
-1. **Cluster configuration**: Server address and certificate authority
-2. **User authentication**: Service account token
-3. **Context**: Binding a cluster and user with a namespace
+1. **[Kubeconfig Configuration](kubeconfig/index.md)**: Authentication and access configuration for Kubernetes
+2. **[Threshold Configuration](thresholds/index.md)**: Compliance validation and quality gates
+3. **[Plugin Customization](plugins/index.md)**: Modifications to scanning plugins
+4. **[Integration Configuration](integration/index.md)**: Configuration for CI/CD and other integrations
+5. **[Security Configuration](security/index.md)**: Security-focused configurations
 
-## Creating a Secure Kubeconfig
+## Common Configuration Scenarios
 
-### Manual Generation
+| Scenario | Configuration Area | Description |
+|----------|-------------------|-------------|
+| Basic Authentication | [Kubeconfig](kubeconfig/index.md) | Setting up authentication for the scanner |
+| Quality Gates | [Thresholds](thresholds/index.md) | Configuring pass/fail criteria for scans |
+| Distroless Support | [Plugins](plugins/index.md) | Configuring scanning for distroless containers |
+| CI/CD Pipeline | [Integration](integration/index.md) | Setting up scanner in CI/CD environments |
+| Hardened Environment | [Security](security/index.md) | Security-focused configuration options |
 
-```bash
-TOKEN=$(kubectl create token inspec-scanner -n inspec-test)
-SERVER=$(kubectl config view --minify --output=jsonpath='{.clusters[0].cluster.server}')
-CA_DATA=$(kubectl config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')
+## Getting Started
 
-cat << EOF > secure-kubeconfig.yaml
-apiVersion: v1
-kind: Config
-preferences: {}
-clusters:
-- cluster:
-    server: ${SERVER}
-    certificate-authority-data: ${CA_DATA}
-  name: scanner-cluster
-contexts:
-- context:
-    cluster: scanner-cluster
-    namespace: inspec-test
-    user: scanner-user
-  name: scanner-context
-current-context: scanner-context
-users:
-- name: scanner-user
-  user:
-    token: ${TOKEN}
-EOF
-```
+Most users should begin with the [Kubeconfig Configuration](kubeconfig/index.md) to set up basic authentication, followed by [Threshold Configuration](thresholds/index.md) to establish quality gates for compliance validation.
 
-### Using kubectl Tools
+## Advanced Configuration
 
-```bash
-# Create a new kubeconfig file
-KUBECONFIG=new-config.yaml kubectl config set-cluster scanner-cluster \
-  --server=$(kubectl config view --minify --output=jsonpath='{.clusters[0].cluster.server}') \
-  --certificate-authority-data=$(kubectl config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}') \
-  --embed-certs=true
-
-# Set the user with token
-KUBECONFIG=new-config.yaml kubectl config set-credentials scanner-user \
-  --token=$(kubectl create token inspec-scanner -n inspec-test)
-
-# Set the context
-KUBECONFIG=new-config.yaml kubectl config set-context scanner-context \
-  --cluster=scanner-cluster \
-  --namespace=inspec-test \
-  --user=scanner-user
-
-# Use the context
-KUBECONFIG=new-config.yaml kubectl config use-context scanner-context
-```
-
-## Dynamic Configuration in CI/CD
-
-For CI/CD pipelines, you can generate configurations dynamically:
-
-```bash
-#!/bin/bash
-# generate-kubeconfig.sh
-NAMESPACE=$1
-SA_NAME=$2
-OUTPUT_FILE=${3:-"./kubeconfig.yaml"}
-
-# Get cluster information
-SERVER=$(kubectl config view --minify --output=jsonpath='{.clusters[0].cluster.server}')
-CA_DATA=$(kubectl config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')
-
-# Create token
-TOKEN=$(kubectl create token ${SA_NAME} -n ${NAMESPACE})
-
-# Generate kubeconfig
-cat > ${OUTPUT_FILE} << EOF
-apiVersion: v1
-kind: Config
-preferences: {}
-clusters:
-- cluster:
-    server: ${SERVER}
-    certificate-authority-data: ${CA_DATA}
-  name: scanner-cluster
-contexts:
-- context:
-    cluster: scanner-cluster
-    namespace: ${NAMESPACE}
-    user: ${SA_NAME}
-  name: scanner-context
-current-context: scanner-context
-users:
-- name: ${SA_NAME}
-  user:
-    token: ${TOKEN}
-EOF
-
-echo "Generated kubeconfig at ${OUTPUT_FILE}"
-```
-
-Usage:
-```bash
-./generate-kubeconfig.sh inspec-test inspec-scanner ./my-kubeconfig.yaml
-```
-
-## Security Considerations
-
-### File Permissions
-
-Always set restrictive permissions on kubeconfig files:
-
-```bash
-chmod 600 kubeconfig.yaml
-```
-
-### Token Expiration
-
-Remember that tokens expire, which will invalidate the kubeconfig:
-
-```bash
-# Create a kubeconfig with a short-lived token (5 minutes)
-TOKEN=$(kubectl create token inspec-scanner -n inspec-test --duration=5m)
-# ... create kubeconfig ...
-
-# After token expiration, kubeconfig must be regenerated
-```
-
-### Namespace Limitation
-
-The kubeconfig sets a default namespace, but doesn't restrict access to that namespace. Access control still relies on the RBAC configuration.
-
-### Multiple Environments
-
-For different environments (dev, test, prod), create separate kubeconfig files:
-
-```bash
-# Development
-./generate-kubeconfig.sh dev-namespace inspec-scanner ./kubeconfig-dev.yaml
-
-# Production
-./generate-kubeconfig.sh prod-namespace inspec-scanner ./kubeconfig-prod.yaml
-```
-
-## Testing a Kubeconfig
-
-Verify your kubeconfig works correctly:
-
-```bash
-# Check basic access
-KUBECONFIG=./kubeconfig.yaml kubectl get pods
-
-# Check specific permissions
-KUBECONFIG=./kubeconfig.yaml kubectl auth can-i create pods/exec --resource-name=inspec-target
-```
+For specialized needs, explore the [Plugin Customization](plugins/index.md) documentation, which includes guidance on modifying scanner behavior for specific container types.
 
 ## Related Topics
 
@@ -173,8 +39,3 @@ KUBECONFIG=./kubeconfig.yaml kubectl auth can-i create pods/exec --resource-name
 - [Service Accounts](../service-accounts/index.md)
 - [Token Management](../tokens/index.md)
 - [Security Considerations](../security/overview.md)
-
-## References
-
-- [Kubernetes Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)
-- [Kubernetes Authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
