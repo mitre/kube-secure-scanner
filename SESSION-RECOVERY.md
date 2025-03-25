@@ -21,7 +21,7 @@ We've been implementing a comprehensive documentation reorganization to improve 
 - ✅ Integration - Reorganized into platforms/, workflows/, examples/, and configuration/
 
 ### Next Steps:
-1. Continue content extraction for Integration section files
+1. Complete remaining Integration section files (create gitlab-examples.md, configuration files)
 2. Continue Phase 4 (review and refinement) of documentation refactoring
 3. Address remaining documentation gaps
 4. Implement documentation validation tools
@@ -69,13 +69,16 @@ We've created a comprehensive project structure for secure Kubernetes container 
 ### Latest Updates
 
 We most recently:
-1. Completed Integration section reorganization into focused subdirectories
-2. Created comprehensive directory structure with platforms/, workflows/, examples/, and configuration/ subdirectories
-3. Created index.md and inventory.md files for all subdirectories
-4. Updated main integration/index.md and integration/inventory.md to reflect the new structure
-5. Migrated existing content to the new structure
-6. Added cross-references between related topics
-7. Created integration-reorganization-summary.md documenting the work
+1. Continued Integration section reorganization with focused content files
+2. Created comprehensive workflow documentation files:
+   - standard-container.md - Standard container workflow integration
+   - distroless-container.md - Distroless container workflow integration
+   - sidecar-container.md - Sidecar container workflow integration
+   - security-workflows.md - Security-focused integration workflows
+3. Created practical examples file (github-examples.md) with detailed GitHub Actions workflows
+4. Migrated existing GitLab services content to platforms/ directory
+5. Added detailed code examples for all workflows
+6. Enhanced cross-references between related topics
 
 ## Latest Progress
 
@@ -90,11 +93,14 @@ We most recently:
    - ✅ Migrated existing content to new structure:
      - ✅ Moved github-actions.md to platforms/github-actions.md
      - ✅ Moved gitlab.md to platforms/gitlab-ci.md
-     - ✅ Created placeholder files for additional content
+     - ✅ Moved gitlab-services.md to platforms/gitlab-services.md
+     - ✅ Created comprehensive workflow files (standard-container.md, distroless-container.md, sidecar-container.md, security-workflows.md)
+     - ✅ Created practical examples file (github-examples.md) with detailed GitHub Actions workflows
    - ✅ Updated main integration/index.md with overview and redirection
    - ✅ Updated integration/inventory.md with comprehensive listing of all files
    - ✅ Added cross-references between related topics
    - ✅ Created integration-reorganization-summary.md documenting the reorganization
+   - ✅ Added detailed code examples for all workflows with GitHub Actions and GitLab CI
 
 2. **Architecture Section Reorganization (Completed in Previous Session)**
    - ✅ Created comprehensive subdirectory structure:
