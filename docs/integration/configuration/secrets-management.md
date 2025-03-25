@@ -316,5 +316,5 @@ For long-running scanning pipelines or environments, implement automated secret 
 - [Kubernetes API Approach](../../approaches/kubernetes-api.md)
 - [Standard Container Workflow](../workflows/standard-container.md)
 - [Security Workflows](../workflows/security-workflows.md)
-- [RBAC Documentation](../../rbac/README.md)
-- [Service Accounts Documentation](../../service-accounts/README.md)
+- [RBAC Documentation](../../rbac/index.md)
+- [Service Accounts Documentation](../../service-accounts/index.md)

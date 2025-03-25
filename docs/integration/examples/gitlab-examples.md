@@ -831,4 +831,4 @@ cleanup:
 - [Sidecar Container Workflow](../workflows/sidecar-container.md)
 - [Security Workflows](../workflows/security-workflows.md)
 - [Approach Mapping](../approach-mapping.md)
-- [GitLab Pipeline Examples](../../gitlab-pipeline-examples/index.md)
+- [GitLab Pipeline Examples](../../../gitlab-pipeline-examples/index.md)
