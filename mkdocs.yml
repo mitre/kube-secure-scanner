@@ -279,23 +279,38 @@ nav:
   # Integration
   - CI/CD Integration:
     - Overview: integration/index.md
+    - Directory Contents: integration/inventory.md
     - Approach Mapping: integration/approach-mapping.md
-    - GitHub Actions: 
-      - Configuration: integration/github-actions.md
-      - Examples: github-workflow-examples/index.md
-      - Directory Contents: github-workflow-examples/inventory.md
-    - GitLab CI:
-      - Basic Integration: integration/gitlab.md
-      - Services Integration: integration/gitlab-services.md
-      - Analysis: integration/gitlab-services-analysis.md
-      - Pipeline Examples: gitlab-pipeline-examples/index.md
-      - Pipeline Directory Contents: gitlab-pipeline-examples/inventory.md
-      - Services Examples: gitlab-services-examples/index.md
-      - Services Directory Contents: gitlab-services-examples/inventory.md
-    - Code Examples:
-      - Overview: examples/index.md
+    - Analysis: integration/gitlab-services-analysis.md
+    - CI/CD Platforms:
+      - Overview: integration/platforms/index.md
+      - Directory Contents: integration/platforms/inventory.md
+      - GitHub Actions: integration/platforms/github-actions.md
+      - GitLab CI: integration/platforms/gitlab-ci.md
+      - GitLab Services: integration/platforms/gitlab-services.md
+    - Integration Workflows:
+      - Overview: integration/workflows/index.md
+      - Directory Contents: integration/workflows/inventory.md
+      - Standard Container: integration/workflows/standard-container.md
+      - Distroless Container: integration/workflows/distroless-container.md
+      - Sidecar Container: integration/workflows/sidecar-container.md
+      - Security Workflows: integration/workflows/security-workflows.md
+    - Integration Examples:
+      - Overview: integration/examples/index.md
+      - Directory Contents: integration/examples/inventory.md
+      - GitHub Examples: integration/examples/github-examples.md
+    - Integration Configuration:
+      - Overview: integration/configuration/index.md
+      - Directory Contents: integration/configuration/inventory.md
+    - Example Resources:
+      - GitHub Workflow Examples: github-workflow-examples/index.md
+      - GitHub Workflow Contents: github-workflow-examples/inventory.md
+      - GitLab Pipeline Examples: gitlab-pipeline-examples/index.md
+      - GitLab Pipeline Contents: gitlab-pipeline-examples/inventory.md
+      - GitLab Services Examples: gitlab-services-examples/index.md
+      - Code Examples: examples/index.md
       - Code Display Demo: examples/code-display-demo.md
-      - Directory Contents: examples/inventory.md
+      - Examples Directory Contents: examples/inventory.md
   
   # Development & Contributing
   - Development:
