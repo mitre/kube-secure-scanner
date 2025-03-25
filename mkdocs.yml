@@ -368,6 +368,12 @@ nav:
       - Documentation Review Plan: project/documentation-review-plan.md
       - Terminology: project/terminology.md
       - Abbreviations: includes/abbreviations.md
+      - Reorganization Summaries:
+        - Integration Reorganization: project/integration-reorganization-summary.md
+        - Architecture Reorganization: project/architecture-reorganization-summary.md
+        - Security Reorganization: project/security-reorganization-summary.md
+        - Approaches Reorganization: project/approaches-reorganization-summary.md
+        - Documentation Structure: project/documentation-structure-progress.md
     - Tools & Utilities:
       - Overview: utilities/index.md
       - Directory Contents: utilities/inventory.md
