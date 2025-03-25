@@ -17,18 +17,18 @@ We've been implementing a comprehensive documentation reorganization to improve 
 - ✅ Advanced topics - Already reorganized with subdirectories
 - ✅ Helm Charts - Reorganized into overview/, scanner-types/, infrastructure/, usage/, security/, and operations/
 - ✅ Configuration - Reorganized into kubeconfig/, thresholds/, plugins/, integration/, and security/
+- ✅ Architecture - Reorganized into components/, workflows/, diagrams/, deployment/, and integrations/
 
 ### Planned for Reorganization:
-- 📅 Architecture - Medium priority
 - 📅 Integration - Medium priority
 
 ### Next Steps:
-1. Begin the Architecture section reorganization
+1. Begin the Integration section reorganization
 2. Continue Phase 4 (review and refinement) of documentation refactoring
 3. Address remaining documentation gaps
 4. Implement documentation validation tools
 
-## Current Project State (Updated March 24, 2025)
+## Current Project State (Updated March 25, 2025)
 
 We've created a comprehensive project structure for secure Kubernetes container scanning using CINC Auditor (open-source InSpec) with the train-k8s-container transport. The project demonstrates how to implement least-privilege RBAC to minimize security risk.
 
@@ -71,24 +71,33 @@ We've created a comprehensive project structure for secure Kubernetes container 
 ### Latest Updates
 
 We most recently:
-1. Moved GitLab CI configuration to dedicated gitlab-examples directory
-2. Updated Helm chart with proper SAF CLI threshold configuration in values.yaml
-3. Updated scan-container.sh to use YAML-based threshold files
-4. Fixed all GitHub workflow files to use proper threshold configuration
-5. Created comprehensive documentation on SAF CLI and thresholds
-6. Added example threshold.yml files
-7. Updated ConfigMap scripts in Helm chart to properly use thresholds
+1. Completed Architecture section reorganization into focused subdirectories
+2. Created comprehensive architecture documentation with detailed component descriptions, workflow processes, diagrams, deployment options, and integration details
+3. Updated all architecture documentation with WCAG-compliant Mermaid diagrams
+4. Updated index.md and inventory.md files to reflect the new architecture structure
+5. Updated cross-references between documents
 
 ## Latest Progress
 
-### Documentation Structure and Content Enhancement (Previous Session - March 24, 2025)
-1. **Documentation System Improvements**
-   - ✅ Enhanced docs-tools.sh script with comprehensive logging functionality
-   - ✅ Added ability to specify custom log file paths with `--log path/to/file.log`
-   - ✅ Implemented intelligent log viewing with flexible options (`--all`, `--lines=N`, `-n N`)
-   - ✅ Added server status monitoring and process management
-   - ✅ Updated CLAUDE.md with documentation management commands
-   - ✅ Fixed navigation issues in mkdocs.yml for README.md files
+### Documentation Structure and Content Enhancement (Previous Session - March 25, 2025)
+1. **Architecture Section Reorganization (Completed)**
+   - ✅ Created comprehensive subdirectory structure:
+     - ✅ Created components/ directory for core architectural components
+     - ✅ Created workflows/ directory for workflow processes
+     - ✅ Created diagrams/ directory for architecture diagrams
+     - ✅ Created deployment/ directory for deployment architectures
+     - ✅ Created integrations/ directory for CI/CD integrations
+   - ✅ Created comprehensive content files:
+     - ✅ Created detailed component documentation (core-components.md, security-components.md, communication.md)
+     - ✅ Created workflow process documentation (standard-container.md, distroless-container.md, sidecar-container.md, security-workflows.md)
+     - ✅ Created diagram documentation (component-diagrams.md, workflow-diagrams.md, deployment-diagrams.md)
+     - ✅ Created deployment architecture documentation (script-deployment.md, helm-deployment.md, ci-cd-deployment.md)
+     - ✅ Created integration architecture documentation (github-actions.md, gitlab-ci.md, gitlab-services.md, custom-integrations.md)
+   - ✅ Created index.md and inventory.md files for all subdirectories
+   - ✅ Updated main architecture/index.md with overview and redirection
+   - ✅ Updated architecture/inventory.md with comprehensive listing of all files
+   - ✅ Added WCAG-compliant Mermaid diagrams to all architectural documentation
+   - ✅ Ensured comprehensive cross-references between related topics
 
 2. **Documentation Reorganization Implementation**
    - ✅ Updated mkdocs.yml to include all project documentation files
@@ -102,70 +111,33 @@ We most recently:
 3. **Content Organization and Restructuring**
    - ✅ Reorganized documentation navigation with logical grouping in mkdocs.yml
    - ✅ Broke down large documentation pages into smaller, focused subtopic pages:
+     - ✅ Reorganized Architecture section:
+       - ✅ Created components/ directory with focused pages
+       - ✅ Created workflows/ directory with focused pages
+       - ✅ Created diagrams/ directory with focused pages
+       - ✅ Created deployment/ directory with focused pages
+       - ✅ Created integrations/ directory with focused pages
      - ✅ Broke down `deployment/scenarios.md` into individual scenario pages in a dedicated directory
      - ✅ Broke down `deployment/advanced-topics.md` into specialized subtopic pages
-     - ✅ Broke down `approaches` section into subdirectories for each approach:
-       - ✅ Created kubernetes-api/ directory with focused pages
-       - ✅ Created debug-container/ directory with focused pages
-       - ✅ Created sidecar-container/ directory with focused pages
-       - ✅ Created helper-scripts/ directory with focused pages
-     - ✅ Reorganized `security` section:
-       - ✅ Created principles/ directory for security principles
-         - ✅ Created least-privilege.md
-         - ✅ Created ephemeral-creds.md
-         - ✅ Created resource-isolation.md
-         - ✅ Created secure-transport.md
-         - ✅ Created index.md and inventory.md
-       - ✅ Created risk/ directory for risk analysis
-         - ✅ Created kubernetes-api.md
-         - ✅ Created debug-container.md
-         - ✅ Created sidecar-container.md
-         - ✅ Created mitigations.md
-         - ✅ Created model.md
-         - ✅ Created index.md and inventory.md
-       - ✅ Created compliance/ directory for compliance frameworks
-         - ✅ Created approach-comparison.md
-         - ✅ Created risk-documentation.md
-         - ✅ Created index.md and inventory.md
-       - ✅ Created threat-model/ directory for threat modeling
-         - ✅ Created attack-vectors.md
-         - ✅ Created lateral-movement.md
-         - ✅ Created token-exposure.md
-         - ✅ Created threat-mitigations.md
-         - ✅ Created index.md and inventory.md
-       - ✅ Created recommendations/ directory for security best practices
-         - ✅ Created inventory.md
-       - ✅ Updated security index.md and inventory.md to reflect new structure
-     - ✅ Created proper navigation structure for these subsections
+     - ✅ Broke down `approaches` section into subdirectories for each approach
+     - ✅ Reorganized `security` section into subdirectories
+     - ✅ Reorganized `helm-charts` section into subdirectories
+     - ✅ Reorganized `configuration` section into subdirectories
    - ✅ Created content-organization-approach.md documenting our approach to content organization
    - ✅ Enhanced inventory files to include all new content files
    - ✅ Improved cross-references between related topics
    - ✅ Created dedicated index.md files for each subsection to serve as topic overviews
 
 3. **Documentation Entry Point Refactoring Progress**
-   - ✅ Completed Phase 1: Analysis and Standardization:
-     - ✅ Created standardized terminology document (project/terminology.md)
-     - ✅ Defined clear document purposes (project/content-map.md)
-     - ✅ Mapped cross-reference relationships between documents
-     - ✅ Prepared content templates for each entry point
-   - ✅ Completed Phase 2: Primary Document Refactoring:
-     - ✅ Updated index.md with streamlined introduction
-     - ✅ Refactored quickstart.md for technical implementers
-     - ✅ Enhanced executive-summary.md for decision makers
-     - ✅ Updated overview/README.md for technical architecture
-   - ✅ Completed Phase 3: Visual and Navigation Enhancements:
-     - ✅ Developed and implemented visual aids
-     - ✅ Enhanced cross-document navigation
+   - ✅ Completed Phase 1: Analysis and Standardization
+   - ✅ Completed Phase 2: Primary Document Refactoring
+   - ✅ Completed Phase 3: Visual and Navigation Enhancements
    - 🔄 Phase 4: Review and Refinement (Current Focus)
      - ✅ Analyzed documentation for inconsistencies and issues
      - ✅ Created documentation-review-plan.md with detailed implementation plan
      - ✅ Identified README.md vs index.md inconsistency as root cause of many navigation issues
-     - ✅ Normalized documentation structure:
-       - ✅ Created index.md files for key sections that were using README.md in navigation
-       - ✅ Created index.md files for overview, approaches, architecture, security, rbac, service-accounts, tokens
-       - ✅ Updated the navigation in mkdocs.yml to use index.md files consistently
-       - ✅ Preserved README.md files as GitHub browsing friendly overviews
-       - 🔄 Fixing broken links that point to old README.md files
+     - ✅ Normalized documentation structure
+     - 🔄 Fixing broken links that point to old README.md files
      - 🔄 Validating user journey paths
      - 🔄 Checking for terminology consistency
      - 🔄 Addressing content redundancies
@@ -173,78 +145,21 @@ We most recently:
 4. **Documentation Structure Normalization (Significant Progress Made)**
    - ✅ Identified the cause of 404 errors: inconsistent use of README.md vs index.md
    - ✅ Established pattern: index.md for documentation content, README.md for GitHub browsing
-   - ✅ Created index.md files for core documentation sections:
-     - ✅ overview/index.md
-     - ✅ approaches/index.md 
-     - ✅ architecture/index.md
-     - ✅ security/index.md
-     - ✅ rbac/index.md
-     - ✅ service-accounts/index.md
-     - ✅ tokens/index.md
-     - ✅ kubernetes-setup/index.md
+   - ✅ Created index.md files for core documentation sections
    - ✅ Updated mkdocs.yml navigation to point to index.md files
-   - ✅ Fixed the critical content mismatch in kubernetes-api.md:
-     - ✅ Created proper kubernetes-api.md file with correct content about the Kubernetes API approach
-     - ✅ Updated debug-container.md to incorporate scanning aspects
-     - ✅ Maintained the content in approaches/index.md as landing page
-   - ✅ Started fixing cross-references between documents:
-     - ✅ Updated links in overview/quickstart.md
-     - ✅ Updated links in security/overview.md 
-     - ✅ Created and updated links in kubernetes-setup/ directory
+   - ✅ Fixed the critical content mismatch in kubernetes-api.md
+   - ✅ Started fixing cross-references between documents
    - 🔄 Continuing to fix remaining link warnings in other files
    - 🔄 Updating remaining cross-references between documents
-
-4. **Documentation Tool Development**
-   - ✅ Enhanced documentation preview system with better logging
-   - ✅ Added `--log` flag to enable logging with flexible options:
-     - Default logging to .mkdocs-server.log
-     - Custom log file path with `--log path/to/file.log`
-   - ✅ Implemented smart log viewing functionality with multiple options:
-     - View last 25 lines by default
-     - View specific number of lines with `--lines=N` or `-n N`
-     - View entire log with `--all` option
-   - ✅ Added process management for documentation server
 
 ### Next Steps
 
 1. **Continue Documentation Structure Enhancement (Current Priority - March 25, 2025)**
    - 🔄 Continue applying the content organization pattern to large documentation sections:
-     - ✅ Completed security section reorganization:
-       - ✅ Created directory structure (principles/, risk/, compliance/, threat-model/, recommendations/)
-       - ✅ Created index and inventory files for all subdirectories
-       - ✅ Created comprehensive content files in all subdirectories
-       - ✅ Extracted content from original files to focused files
-       - ✅ Updated cross-references
-       - ✅ Updated main security/index.md and inventory.md
-     - ✅ Completed Helm Charts section reorganization:
-       - ✅ Analyzed current content structure
-       - ✅ Created logical subdirectory organization:
-         - ✅ Created overview/ directory for high-level overview and architecture
-         - ✅ Created scanner-types/ directory for scanner-specific documentation
-         - ✅ Created infrastructure/ directory for RBAC, service accounts, and namespaces
-         - ✅ Created usage/ directory for customization and configuration
-         - ✅ Created security/ directory for security-related documentation
-         - ✅ Created operations/ directory for troubleshooting and maintenance
-       - ✅ Created index.md and inventory.md files for all subdirectories
-       - ✅ Extracted content from original files to focused files in each subdirectory
-       - ✅ Updated main helm-charts/index.md as a redirect
-       - ✅ Updated helm-charts/inventory.md with new structure
-       - ✅ Updated navigation in mkdocs.yml for Helm Charts section
-     - ✅ Completed Configuration section reorganization:
-       - ✅ Analyzed current content structure
-       - ✅ Created logical subdirectory organization:
-         - ✅ Created kubeconfig/ directory for kubeconfig configuration
-         - ✅ Created thresholds/ directory for threshold configuration
-         - ✅ Created plugins/ directory for plugin customization
-         - ✅ Created integration/ directory for integration configuration
-         - ✅ Created security/ directory for security configuration
-       - ✅ Created index.md and inventory.md files for all subdirectories
-       - ✅ Extracted content from original files to focused files in each subdirectory
-       - ✅ Updated main configuration/index.md as an overview
-       - ✅ Updated configuration/inventory.md with new structure
-       - ✅ Updated navigation in mkdocs.yml for Configuration section
-       - ✅ Added redirects from legacy files to new structure
-     - 📅 Plan Architecture section reorganization
+     - ✅ Completed security section reorganization
+     - ✅ Completed Helm Charts section reorganization
+     - ✅ Completed Configuration section reorganization
+     - ✅ Completed Architecture section reorganization
      - 📅 Plan Integration section reorganization
    - 🔄 Address high-priority documentation gaps before v1.0.0 release
    - 🔄 Complete Phase 4 of documentation entry point refactoring:
@@ -320,7 +235,10 @@ We most recently:
    - ✅ Fixed navigation issues and addressed 404 errors
    - 🔄 Working on Phase 4 (Review and Refinement) of documentation refactoring
    - ✅ Reorganized approaches section into focused subdirectories with dedicated content files
-   - ✅ Reorganized security section into principles, risk, compliance, threat-model, and recommendations subdirectories with comprehensive content
+   - ✅ Reorganized security section into principles, risk, compliance, threat-model, and recommendations subdirectories
+   - ✅ Reorganized helm-charts section into focused subdirectories with dedicated content files
+   - ✅ Reorganized configuration section into focused subdirectories with dedicated content files
+   - ✅ Reorganized architecture section into components, workflows, diagrams, deployment, and integrations subdirectories
 
 ## Project Structure
 
@@ -328,13 +246,16 @@ We most recently:
 minikube/
 ├── docs/                    # Documentation
 │   ├── overview/            # Project overview
+│   ├── approaches/          # Scanning approaches
+│   ├── architecture/        # Architecture & workflows
+│   ├── security/            # Security documentation
+│   ├── configuration/       # Configuration documentation
 │   ├── rbac/                # RBAC configuration
 │   ├── service-accounts/    # Service account setup
-│   ├── configuration/       # Kubeconfig
 │   ├── tokens/              # Token management
 │   ├── integration/         # CI/CD integration
-│   ├── saf-cli-integration.md # SAF CLI integration
-│   └── thresholds.md        # Threshold configuration
+│   ├── kubernetes-setup/    # Kubernetes setup
+│   └── helm-charts/         # Helm chart documentation
 ├── scripts/                 # Automation scripts
 ├── kubernetes/              # Kubernetes manifests
 │   └── templates/           # Template YAML files

@@ -5,7 +5,7 @@ This document provides an overview of the architecture, system components, and w
 !!! info "Directory Contents"
     For a complete listing of all files in this section, see the [Architecture Documentation Inventory](inventory.md).
 
-## System Design
+## Architecture Overview
 
 The architecture of the platform is designed with the following principles:
 
@@ -14,55 +14,91 @@ The architecture of the platform is designed with the following principles:
 3. **Flexibility**: Accommodating different container types and Kubernetes environments
 4. **Integration**: Seamless integration with CI/CD systems and compliance frameworks
 
-## Core Components
+## Architecture Documentation Structure
 
-The system consists of several key components that work together:
+The architecture documentation is organized into the following sections:
 
-| Component | Purpose | Implementation |
-|-----------|---------|----------------|
-| **CINC Auditor** | Security scanning engine | InSpec-compatible open source scanner |
-| **Transport Plugin** | Kubernetes communication | train-k8s-container plugin |
-| **Service Accounts** | Identity for scanner | Kubernetes service account with limited lifespan |
-| **RBAC Rules** | Access control | Kubernetes Roles and RoleBindings |
-| **Container Adapters** | Container access | Specialized adapters for different container types |
-| **Threshold Validation** | Compliance checks | MITRE SAF CLI integration |
+- [Components](components/index.md): Core architectural components and their relationships
+- [Workflows](workflows/index.md): End-to-end workflow processes for different scanning approaches
+- [Diagrams](diagrams/index.md): Visual representations of the architecture using WCAG-compliant Mermaid diagrams
+- [Deployment](deployment/index.md): Deployment architectures for different environments
+- [Integrations](integrations/index.md): Integration architectures for CI/CD platforms
 
-## Workflow Documentation
-
-For detailed information about specific workflows and processes, see these documents:
-
-- [Workflow Processes](workflows.md) - End-to-end workflows for different scanning scenarios
-- [Workflow Diagrams](diagrams.md) - Visual representations of system workflows using Mermaid diagrams
-
-## Deployment Architecture
-
-The platform supports multiple deployment architectures:
-
-1. **Script-based Deployment**: Using shell scripts for direct execution and testing
-2. **Helm Chart Deployment**: Modular Helm chart architecture for production environments
-3. **CI/CD Integration**: Embedded in CI/CD pipelines through GitHub Actions and GitLab CI
-
-> **Note**: The Helm Chart Architecture documentation has been moved to the [Helm Charts](../helm-charts/architecture.md) section, as it specifically pertains to the architecture of Helm charts.
-
-## Workflow Overview
+## System Architecture Diagram
 
 ```mermaid
-graph TD
-    CI["CI/CD System"] -->|triggers| SCAN[Container Scan]
-    SCAN -->|uses| SA[Service Account]
-    SCAN -->|runs| CINC[CINC Auditor]
-    CINC -->|uses| TRANSPORT[Transport Plugin]
-    TRANSPORT -->|connects to| K8S[Kubernetes API]
-    K8S -->|validates| RBAC[RBAC Rules]
-    K8S -->|accesses| CONTAINER[Target Container]
-    CINC -->|produces| RESULTS[Scan Results]
-    RESULTS -->|validated by| SAF[MITRE SAF CLI]
-    SAF -->|checks against| THRESHOLD[Threshold Config]
-    THRESHOLD -->|success/failure| CI
+flowchart TD
+    subgraph Components["CORE COMPONENTS"]
+        direction TB
+        cinc["CINC Auditor\nScanning Engine"]
+        transport["train-k8s-container\nTransport Plugin"]
+        threshold["Threshold Validation\nSAF CLI"]
+    end
+    
+    subgraph Security["SECURITY COMPONENTS"]
+        direction TB
+        sa["Service Accounts\nIdentity"]
+        rbac["RBAC Rules\nAccess Control"]
+        token["Token Management\nAuthentication"]
+    end
+    
+    subgraph Adapters["CONTAINER ADAPTERS"]
+        direction TB
+        standard["Standard Container\nAdapter"]
+        debug["Debug Container\nAdapter"]
+        sidecar["Sidecar Container\nAdapter"]
+    end
+    
+    subgraph External["EXTERNAL SYSTEMS"]
+        direction TB
+        k8s["Kubernetes API"]
+        ci["CI/CD Systems"]
+        compliance["Compliance Systems"]
+    end
+    
+    %% Component relationships
+    Components -->|uses| Security
+    Components -->|implements| Adapters
+    Adapters -->|interacts with| External
+    Security -->|configures| External
+    
+    %% WCAG-compliant styling
+    style Components fill:none,stroke:#0066CC,stroke-width:4px
+    style Security fill:none,stroke:#DD6100,stroke-width:4px
+    style Adapters fill:none,stroke:#217645,stroke-width:4px
+    style External fill:none,stroke:#505050,stroke-width:4px
+    
+    %% Component styling
+    style cinc fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style transport fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style threshold fill:#4C366B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style sa fill:#DD6100,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style rbac fill:#DD6100,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style token fill:#DD6100,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style standard fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style debug fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style sidecar fill:#217645,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style k8s fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style ci fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+    style compliance fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
+
+## Core Functionality
+
+The scanning platform provides several key capabilities:
+
+1. **Container Scanning**: Security scanning of containers in Kubernetes environments
+2. **Compliance Validation**: Validation against security benchmarks and compliance requirements
+3. **Multiple Container Support**: Scanning of both standard and distroless containers
+4. **CI/CD Integration**: Integration with CI/CD pipelines for automated security validation
+5. **Threshold-based Validation**: Pass/fail determination based on configurable thresholds
 
 ## Next Steps
 
-- Review the [Technical Overview](../overview/index.md) for a detailed explanation of system components
-- Explore the [Scanning Approaches](../approaches/index.md) to understand different container scanning methods
-- See [Workflow Diagrams](diagrams.md) for detailed visual representations of the workflows
+To explore the architecture in more detail, see these documents:
+
+- [Core Components](components/core-components.md): Details on the main system components
+- [Workflow Processes](workflows/index.md): End-to-end workflows for different scanning scenarios
+- [Workflow Diagrams](diagrams/workflow-diagrams.md): Visual representations of system workflows
+- [Deployment Options](deployment/index.md): Different deployment architectures
+- [CI/CD Integrations](integrations/index.md): Integration with CI/CD platforms
