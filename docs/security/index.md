@@ -5,15 +5,15 @@ This document provides an overview of the security aspects of the Secure CINC Au
 !!! info "Directory Contents"
     For a complete listing of all files in this section, see the [Security Documentation Inventory](inventory.md).
 
-## Security Principles
+## Security Framework
 
-The platform is built on several core security principles:
+The platform is built on a comprehensive security framework that covers:
 
-1. **Least Privilege Access**: Using minimal permissions needed for container scanning
-2. **Temporary Credentials**: Employing short-lived tokens (default 15-minute lifespan)
-3. **Namespace Isolation**: Restricting access to specific namespaces
-4. **Dynamic Access Control**: Creating temporary, targeted access for scanning
-5. **No Privileged Access**: Avoiding privileged containers or elevated permissions
+1. **[Security Principles](principles/index.md)**: Core principles guiding our security design
+2. **[Risk Analysis](risk/index.md)**: Assessment of security risks and mitigations
+3. **[Compliance](compliance/index.md)**: Alignment with security standards and frameworks
+4. **[Threat Model](threat-model/index.md)**: Analysis of threats and mitigation strategies
+5. **[Recommendations](recommendations/index.md)**: Best practices and implementation guidance
 
 ## Key Security Features
 
@@ -24,21 +24,6 @@ The platform is built on several core security principles:
 | **Label-based Restrictions** | RBAC rules that can target pods by labels | Provides flexible, precise access control |
 | **Time-limited Access** | Credentials valid only for the duration of a scan | Prevents persistence of unnecessary access |
 | **Non-privileged Scanning** | Scanning without requiring privileged containers | Maintains container security boundaries |
-
-## Security Documentation
-
-For detailed information about specific security aspects, see these documents:
-
-- [Security Framework](overview.md) - General security principles and approach
-- [Risk Analysis](risk-analysis.md) - Analysis of security risks and mitigations
-- [Security Analysis](analysis.md) - Detailed security analysis of the system
-- [Compliance](compliance.md) - Compliance considerations and frameworks
-
-## Related Topics
-
-- [RBAC Configuration](../rbac/index.md) - Role-Based Access Control configuration
-- [Service Accounts](../service-accounts/index.md) - Service account management
-- [Token Management](../tokens/index.md) - Secure token handling
 
 ## Security Approach by Scanning Method
 
@@ -65,8 +50,55 @@ Each scanning approach implements security controls appropriate for its method:
 - Scans directly from within the pod
 - Implements appropriate container security contexts
 
-## Next Steps
+## Security Documentation Structure
 
-- Review the [Security Analysis](analysis.md) for a detailed security analysis
-- Explore [Compliance](compliance.md) for regulatory alignment information
-- See [RBAC Configuration](../rbac/index.md) for implementation details
+Our security documentation is organized into focused sections:
+
+### [Security Principles](principles/index.md)
+
+Core security design principles including:
+- [Least Privilege](principles/least-privilege.md)
+- [Ephemeral Credentials](principles/ephemeral-creds.md)
+- [Resource Isolation](principles/resource-isolation.md)
+- [Secure Transport](principles/secure-transport.md)
+
+### [Risk Analysis](risk/index.md)
+
+Comprehensive risk assessment including:
+- [Risk Model](risk/model.md)
+- [Kubernetes API Approach Risks](risk/kubernetes-api.md)
+- [Debug Container Approach Risks](risk/debug-container.md)
+- [Sidecar Container Approach Risks](risk/sidecar-container.md)
+- [Risk Mitigations](risk/mitigations.md)
+
+### [Compliance](compliance/index.md)
+
+Alignment with security frameworks including:
+- [DoD Instruction 8500.01](compliance/dod-8500-01.md)
+- [DISA Container Platform SRG](compliance/disa-srg.md)
+- [Kubernetes STIG](compliance/kubernetes-stig.md)
+- [CIS Kubernetes Benchmarks](compliance/cis-benchmarks.md)
+- [Approach Comparison](compliance/approach-comparison.md)
+- [Risk Documentation Requirements](compliance/risk-documentation.md)
+
+### [Threat Model](threat-model/index.md)
+
+Analysis of security threats including:
+- [Attack Vectors](threat-model/attack-vectors.md)
+- [Threat Mitigations](threat-model/threat-mitigations.md)
+- [Token Exposure](threat-model/token-exposure.md)
+- [Lateral Movement](threat-model/lateral-movement.md)
+
+### [Recommendations](recommendations/index.md)
+
+Best practices and guidance including:
+- [Enterprise Recommendations](../developer-guide/deployment/scenarios/enterprise.md)
+- [CI/CD Security](../architecture/deployment/ci-cd-deployment.md)
+- [Monitoring](../developer-guide/deployment/advanced-topics/monitoring.md)
+- [Network Security](recommendations/network.md)
+
+## Related Topics
+
+- [RBAC Configuration](../rbac/index.md) - Role-Based Access Control configuration
+- [Service Accounts](../service-accounts/index.md) - Service account management
+- [Token Management](../tokens/index.md) - Secure token handling

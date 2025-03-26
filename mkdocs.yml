@@ -123,8 +123,8 @@ nav:
   - Core Concepts:
     - Architecture:
       - Overview: architecture/index.md
-      - Workflow Diagrams: architecture/diagrams.md
-      - Workflow Processes: architecture/workflows.md
+      - Workflow Diagrams: architecture/diagrams/index.md
+      - Workflow Processes: architecture/workflows/index.md
       - Directory Contents: architecture/inventory.md
     - Scanning Approaches:
       - Overview: approaches/index.md
@@ -228,12 +228,6 @@ nav:
         - Hardening: configuration/security/hardening.md
         - Credential Management: configuration/security/credentials.md
         - RBAC Configuration: configuration/security/rbac.md
-      - Legacy:
-        - Advanced Configuration: configuration/advanced/index.md
-        - Scanning Thresholds: configuration/advanced/thresholds.md
-        - Plugin Modifications: configuration/advanced/plugin-modifications.md
-        - SAF CLI Integration: configuration/advanced/saf-cli-integration.md
-        - Directory Contents: configuration/advanced/inventory.md
     - Authentication:
       - Token Management: tokens/index.md
       - Service Accounts: service-accounts/index.md
@@ -352,6 +346,7 @@ nav:
       - Overview: contributing/index.md
       - Directory Contents: contributing/inventory.md
       - Documentation Tools: contributing/documentation-tools.md
+      - STIG/SRG API Tools: contributing/stig-api-tools.md
       - Code Snippets: contributing/code-snippets.md
       - Diagram Color Guide: contributing/diagram-color-guide.md
       - Documentation Testing:
@@ -371,6 +366,8 @@ nav:
       - Content Map: project/content-map.md
       - Documentation Refactoring: project/documentation-entry-refactoring.md
       - Documentation Review Plan: project/documentation-review-plan.md
+      - Documentation Cleanup Progress: project/documentation-cleanup-progress.md
+      - Warning Resolution Scripts: project/warning-resolution-scripts.md
       - Terminology: project/terminology.md
       - Abbreviations: includes/abbreviations.md
       - Reorganization Summaries:
@@ -383,6 +380,7 @@ nav:
     - Tools & Utilities:
       - Overview: utilities/index.md
       - Directory Contents: utilities/inventory.md
+      - Documentation Tools: project/documentation-tools.md
       - ASCII to Mermaid Conversion: utilities/ascii-to-mermaid.md
     - Archive:
       - Overview: project/archive/index.md

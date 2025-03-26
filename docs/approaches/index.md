@@ -21,7 +21,7 @@ The Kubernetes API Approach uses the train-k8s-container plugin to connect direc
 - Implements least-privilege security controls
 - Provides the most scalable and enterprise-ready solution
 
-[Learn More](kubernetes-api.md){: .md-button }
+(kubernetes-api/index.md)index.md)index.md){: .md-button }
 
 ### 2. Debug Container Approach
 
@@ -34,7 +34,7 @@ The Debug Container Approach uses ephemeral debug containers with chroot-based s
 - Uses temporary debug containers that are removed after scanning
 - Is recommended for testing environments and interim distroless scanning
 
-[Learn More](debug-container.md){: .md-button }
+(debug-container/index.md)index.md)index.md){: .md-button }
 
 ### 3. Sidecar Container Approach
 
@@ -47,15 +47,18 @@ The Sidecar Container Approach uses a CINC Auditor sidecar container with shared
 - Requires deploying containers with the sidecar configuration
 - Can access container filesystems through process namespace sharing
 
-[Learn More](sidecar-container.md){: .md-button }
+(sidecar-container/index.md)index.md)index.md){: .md-button }
 
-## Additional Resources
+## Implementation Methods
 
-### Direct Commands Approach
+### Helper Scripts vs. Direct Commands
 
-For users who prefer direct commands or need to understand the underlying mechanics, we also document how to perform scanning with raw commands instead of helper scripts:
+For users who prefer different levels of control, we offer two implementation methods:
 
-[Direct Commands](direct-commands.md){: .md-button }
+- **Helper Scripts**: Easy-to-use wrapper scripts that handle the complexity
+- **Direct Commands**: Using the underlying tools directly for more control
+
+(helper-scripts/index.md)index.md)index.md){: .md-button }
 
 ## Comparison and Decision Guidance
 
@@ -66,4 +69,4 @@ To help you select the most appropriate approach for your environment and requir
 
 ## Next Steps
 
-After selecting an approach, refer to the [Quick Start Guide](../quickstart-guide.md) for implementation steps or the [CI/CD Integration](../integration/overview.md) documentation for automated scanning setups.
+(overview/index.md)index.md)quickstart.md) for implementation steps or the [CI/CD Integration](../integration/index.md) documentation for automated scanning setups.
