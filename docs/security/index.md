@@ -27,28 +27,63 @@ The platform is built on a comprehensive security framework that covers:
 
 ## Security Approach by Scanning Method
 
-Each scanning approach implements security controls appropriate for its method:
+Each scanning approach implements security controls appropriate for its method, with varying risk profiles:
 
-### Kubernetes API Approach
+<div class="grid cards" markdown>
 
-- Uses least-privilege RBAC with temporary service account tokens
-- Requires access only to specific pods in target namespaces
-- Creates time-limited credentials for each scan
-- Most secure approach from a compliance perspective
+-   :material-kubernetes:{ .lg .middle } **Kubernetes API Approach**
 
-### Debug Container Approach
+    ---
+    
+    **Risk Level: 🟢 Low**
+    
+    - Uses least-privilege RBAC with temporary service account tokens
+    - Requires access only to specific pods in target namespaces
+    - Creates time-limited credentials for each scan
+    - Most secure approach from a compliance perspective
+    - Uses standard vendor-supported interfaces
+    
+    [Details](risk/kubernetes-api.md){ .md-button }
 
-- Creates temporary debug containers for scanning
-- Requires ephemeral container permissions
-- Removes debug containers after scanning
-- Implements appropriate RBAC controls for ephemeral container creation
+-   :material-console:{ .lg .middle } **Debug Container Approach**
 
-### Sidecar Container Approach
+    ---
+    
+    **Risk Level: 🟡 Medium**
+    
+    - Creates temporary debug containers for scanning
+    - Requires ephemeral container permissions
+    - Removes debug containers after scanning
+    - Implements appropriate RBAC controls for ephemeral container creation
+    - Temporarily breaks container isolation
+    
+    [Details](risk/debug-container.md){ .md-button }
 
-- Uses pod-level isolation with shared process namespace
-- Requires no cluster-wide permissions
-- Scans directly from within the pod
-- Implements appropriate container security contexts
+-   :material-docker:{ .lg .middle } **Sidecar Container Approach**
+
+    ---
+    
+    **Risk Level: 🔴 High**
+    
+    - Uses pod-level isolation with shared process namespace
+    - Requires no cluster-wide permissions
+    - Scans directly from within the pod
+    - Implements appropriate container security contexts
+    - Permanently breaks container isolation within pod
+    
+    [Details](risk/sidecar-container.md){ .md-button }
+
+</div>
+
+### Risk Level Comparison
+
+| Approach | Overall Risk | Required Privileges | Attack Surface | Isolation Impact | Compliance Burden | NSA/CISA Alignment |
+|----------|--------------|---------------------|----------------|------------------|-------------------|-------------------|
+| **Kubernetes API** | 🟢 Low | 🟢 Minimal | 🟢 Small | 🟢 None | 🟢 Low | 🟢 Strong (90%) |
+| **Debug Container** | 🟡 Medium | 🟡 Moderate | 🟡 Medium | 🟡 Temporary | 🟡 Medium | 🟡 Moderate (70%) |
+| **Sidecar Container** | 🔴 High | 🟡 Moderate | 🔴 Larger | 🔴 Permanent | 🔴 High | 🟠 Limited (50%) |
+
+See our [NSA/CISA Hardening Guide Compliance](compliance/nsa-cisa-hardening.md) documentation for detailed mappings.
 
 ## Security Documentation Structure
 
@@ -57,6 +92,7 @@ Our security documentation is organized into focused sections:
 ### [Security Principles](principles/index.md)
 
 Core security design principles including:
+
 - [Least Privilege](principles/least-privilege.md)
 - [Ephemeral Credentials](principles/ephemeral-creds.md)
 - [Resource Isolation](principles/resource-isolation.md)
@@ -65,6 +101,7 @@ Core security design principles including:
 ### [Risk Analysis](risk/index.md)
 
 Comprehensive risk assessment including:
+
 - [Risk Model](risk/model.md)
 - [Kubernetes API Approach Risks](risk/kubernetes-api.md)
 - [Debug Container Approach Risks](risk/debug-container.md)
@@ -74,16 +111,19 @@ Comprehensive risk assessment including:
 ### [Compliance](compliance/index.md)
 
 Alignment with security frameworks including:
+
 - [DoD Instruction 8500.01](compliance/dod-8500-01.md)
 - [DISA Container Platform SRG](compliance/disa-srg.md)
 - [Kubernetes STIG](compliance/kubernetes-stig.md)
 - [CIS Kubernetes Benchmarks](compliance/cis-benchmarks.md)
+- [NSA/CISA Kubernetes Hardening Guide](compliance/nsa-cisa-hardening.md)
 - [Approach Comparison](compliance/approach-comparison.md)
 - [Risk Documentation Requirements](compliance/risk-documentation.md)
 
 ### [Threat Model](threat-model/index.md)
 
 Analysis of security threats including:
+
 - [Attack Vectors](threat-model/attack-vectors.md)
 - [Threat Mitigations](threat-model/threat-mitigations.md)
 - [Token Exposure](threat-model/token-exposure.md)
@@ -92,6 +132,7 @@ Analysis of security threats including:
 ### [Recommendations](recommendations/index.md)
 
 Best practices and guidance including:
+
 - [Enterprise Recommendations](../developer-guide/deployment/scenarios/enterprise.md)
 - [CI/CD Security](../architecture/deployment/ci-cd-deployment.md)
 - [Monitoring](../developer-guide/deployment/advanced-topics/monitoring.md)

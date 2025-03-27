@@ -14,15 +14,15 @@
 
 | Directory | Description |
 |-----------|-------------|
-| [principles/](principles) | Core security principles documentation |
-| [risk/](risk) | Security risk analysis documentation |
-| [compliance/](compliance) | Compliance frameworks alignment documentation |
-| [threat-model/](threat-model) | Threat modeling and mitigation documentation |
-| [recommendations/](recommendations) | Security best practices and recommendations |
+| [principles/](principles/index.md) | Core security principles documentation |
+| [risk/](risk/index.md) | Security risk analysis documentation |
+| [compliance/](compliance/index.md) | Compliance frameworks alignment documentation |
+| [threat-model/](threat-model/index.md) | Threat modeling and mitigation documentation |
+| [recommendations/](recommendations/index.md) | Security best practices and recommendations |
 
 ## Security Principles Section
 
-The [principles/](principles) directory contains:
+The [principles/](principles/index.md) directory contains:
 
 | File | Description |
 |------|-------------|
@@ -35,7 +35,7 @@ The [principles/](principles) directory contains:
 
 ## Risk Analysis Section
 
-The [risk/](risk) directory contains:
+The [risk/](risk/index.md) directory contains:
 
 | File | Description |
 |------|-------------|
@@ -49,7 +49,7 @@ The [risk/](risk) directory contains:
 
 ## Compliance Section
 
-The [compliance/](compliance) directory contains:
+The [compliance/](compliance/index.md) directory contains:
 
 | File | Description |
 |------|-------------|
@@ -64,7 +64,7 @@ The [compliance/](compliance) directory contains:
 
 ## Threat Model Section
 
-The [threat-model/](threat-model) directory contains:
+The [threat-model/](threat-model/index.md) directory contains:
 
 | File | Description |
 |------|-------------|
@@ -77,7 +77,7 @@ The [threat-model/](threat-model) directory contains:
 
 ## Recommendations Section
 
-The [recommendations/](recommendations) directory contains:
+The [recommendations/](recommendations/index.md) directory contains:
 
 | File | Description |
 |------|-------------|
