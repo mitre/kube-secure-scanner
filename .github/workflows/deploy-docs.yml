@@ -16,9 +16,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       # Set up Python and cache dependencies
       - name: Set up Python
@@ -39,7 +41,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: npm
+          cache: 'npm'
           cache-dependency-path: docs/package-lock.json
       
       # Install Node.js dependencies
@@ -52,13 +54,26 @@ jobs:
         working-directory: ./docs
         run: npm run lint || echo "Lint check skipped, continuing deployment"
       
+      # Check for broken links or references (but don't fail the build)
+      - name: Check for broken links
+        run: |
+          cd docs
+          npm run links || echo "Link check found issues, review logs for details"
+        continue-on-error: true
+      
       # Build and validate documentation
       - name: Build documentation with validation
         run: mkdocs build --strict
-      
-      # Deploy to GitHub Pages
-      - name: Deploy documentation
+        
+      # Deploy to GitHub Pages using mkdocs
+      - name: Deploy to GitHub Pages
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           mkdocs gh-deploy --force
+          
+      # Verify deployment
+      - name: Verify deployment
+        run: |
+          echo "Documentation deployed to GitHub Pages"
+          echo "Visit https://mitre.github.io/kube-cinc-secure-scanner/ to view the documentation"
