@@ -6,7 +6,7 @@ This document provides a comprehensive comparison of the three container scannin
 
 | Approach | Description | Best For |
 |----------|-------------|----------|
-| **Kubernetes API Approach** | Uses the train-k8s-container plugin to directly interact with containers through the Kubernetes API | **Enterprise production environments, security/compliance-focused organizations, CI/CD pipelines at scale** |
+| **Kubernetes API Approach** | Uses train-k8s-container transport plugin directly | **Production environments, [compliance](../security/compliance/index.md)-focused organizations, CI/CD pipelines at scale** |
 | **Debug Container Approach** | Attaches ephemeral debug containers to pods with distroless containers | *Interim solution* for distroless containers when ephemeral containers are supported |
 | **Sidecar Container Approach** | Deploys scanner containers alongside target containers with shared process namespace | *Interim solution* for distroless containers with minimal Kubernetes version requirements |
 
@@ -33,16 +33,19 @@ This document provides a comprehensive comparison of the three container scannin
 ## Technical Requirements
 
 ### Kubernetes API Approach
+
 - Standard Kubernetes cluster (any version)
 - RBAC permissions to execute commands in target containers
 - For distroless containers: Enhanced plugin capabilities (in development)
 
 ### Debug Container Approach
+
 - Kubernetes 1.16+ with ephemeral containers feature enabled
 - Permissions to create debug containers
 - Privileges to access target container filesystem
 
 ### Sidecar Container Approach
+
 - Standard Kubernetes cluster (any version)
 - Ability to modify pod definitions to enable shared process namespace
 - Permissions to create pods with sidecar containers
@@ -50,6 +53,7 @@ This document provides a comprehensive comparison of the three container scannin
 ## Recommended Usage Scenarios
 
 ### Enterprise Production Environments
+
 **Recommended Approach**: Kubernetes API Approach
 
 - Lowest security risk profile
@@ -59,6 +63,7 @@ This document provides a comprehensive comparison of the three container scannin
 - Best for multi-team environments
 
 ### Distroless Containers (Interim)
+
 **Recommended Approach**: Debug Container or Sidecar Container Approach
 
 - If on Kubernetes 1.16+: Debug Container Approach
@@ -66,12 +71,14 @@ This document provides a comprehensive comparison of the three container scannin
 - Long-term: Plan for migration to Kubernetes API Approach as distroless support matures
 
 ### Local Development and Testing
+
 **Recommended Approach**: Any approach depending on container types
 
 - For standard containers: Kubernetes API Approach is simplest
 - For mixed container types: Sidecar Container Approach is most flexible
 
 ### CI/CD Pipeline Integration
+
 **Recommended Approach**: Any approach, depending on container types
 
 - All approaches work well with CI/CD pipelines
@@ -81,11 +88,13 @@ This document provides a comprehensive comparison of the three container scannin
 ## Migration Paths
 
 ### To Kubernetes API Approach (Recommended)
+
 - For standard containers: Immediate adoption
 - For distroless containers: Plan adoption as enhanced distroless support is completed
 - Maintain same commands and workflows for consistent user experience
 
 ### Between Approaches
+
 - Debug Container to Sidecar: Modify pod definitions to enable shared process
 - Sidecar to Debug Container: Ensure cluster supports ephemeral containers
 - Either to Kubernetes API: Wait for distroless support completion
@@ -108,9 +117,9 @@ For enterprise environments implementing container scanning at scale:
 
 ## Additional Resources
 
-- [Kubernetes API Approach Documentation](../approaches/kubernetes-api.md)
-- [Debug Container Approach Documentation](../approaches/debug-container.md)
-- [Sidecar Container Approach Documentation](../approaches/sidecar-container.md)
-- [Approach Decision Matrix](../approaches/decision-matrix.md)
-- [Security Risk Analysis](../security/risk-analysis.md)
+- [Kubernetes API Approach](kubernetes-api/index.md)
+- [Debug Container Approach](debug-container/index.md)
+- [Sidecar Container Approach](sidecar-container/index.md)
+- [Approach Decision Matrix](decision-matrix.md)
+- [Security Risk Analysis](../security/risk/index.md)
 - [Enterprise Integration Analysis](../overview/enterprise-integration-analysis.md)

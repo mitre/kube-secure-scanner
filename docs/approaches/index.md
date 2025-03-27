@@ -21,7 +21,7 @@ The Kubernetes API Approach uses the train-k8s-container plugin to connect direc
 - Implements least-privilege security controls
 - Provides the most scalable and enterprise-ready solution
 
-(kubernetes-api/index.md)index.md)index.md){: .md-button }
+[Kubernetes API Approach](kubernetes-api/index.md){: .md-button }
 
 ### 2. Debug Container Approach
 
@@ -34,7 +34,7 @@ The Debug Container Approach uses ephemeral debug containers with chroot-based s
 - Uses temporary debug containers that are removed after scanning
 - Is recommended for testing environments and interim distroless scanning
 
-(debug-container/index.md)index.md)index.md){: .md-button }
+[Debug Container Approach](debug-container/index.md){: .md-button }
 
 ### 3. Sidecar Container Approach
 
@@ -47,7 +47,7 @@ The Sidecar Container Approach uses a CINC Auditor sidecar container with shared
 - Requires deploying containers with the sidecar configuration
 - Can access container filesystems through process namespace sharing
 
-(sidecar-container/index.md)index.md)index.md){: .md-button }
+[Sidecar Container Approach](sidecar-container/index.md){: .md-button }
 
 ## Implementation Methods
 
@@ -58,7 +58,7 @@ For users who prefer different levels of control, we offer two implementation me
 - **Helper Scripts**: Easy-to-use wrapper scripts that handle the complexity
 - **Direct Commands**: Using the underlying tools directly for more control
 
-(helper-scripts/index.md)index.md)index.md){: .md-button }
+[Helper Scripts](helper-scripts/index.md){: .md-button }
 
 ## Comparison and Decision Guidance
 
@@ -69,4 +69,4 @@ To help you select the most appropriate approach for your environment and requir
 
 ## Next Steps
 
-(overview/index.md)index.md)quickstart.md) for implementation steps or the [CI/CD Integration](../integration/index.md) documentation for automated scanning setups.
+See our [Quickstart Guide](../quickstart-guide.md) for implementation steps or the [CI/CD Integration](../integration/index.md) documentation for automated scanning setups.

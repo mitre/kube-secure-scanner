@@ -15,7 +15,14 @@ Our container scanning solution can be used in two ways:
 
 | Helper Script | Direct Commands |
 |---------------|-----------------|
-| `./kubernetes-scripts/setup-minikube.sh --nodes=2 --with-distroless` | ```bash<br>minikube start --nodes=2<br>kubectl create namespace inspec-test<br>kubectl -n inspec-test create serviceaccount inspec-scanner<br># Create RBAC manually with kubectl apply<br>``` |
+| `./kubernetes-scripts/setup-minikube.sh --nodes=2 --with-distroless` | ```bash
+minikube start --nodes=2
+kubectl create namespace inspec-test
+kubectl -n inspec-test create serviceaccount inspec-scanner
+
+# Create RBAC manually with kubectl apply
+
+``` |
 
 ### Creating Scanning Infrastructure
 

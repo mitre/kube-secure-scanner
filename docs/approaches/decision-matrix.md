@@ -52,6 +52,7 @@ This decision matrix provides a comprehensive comparison of the three container 
 **Best Approach**: Kubernetes API Approach
 
 **Rationale**:
+
 - Designed for enterprise scalability and adoption
 - Simplest implementation with minimal overhead
 - Works well with standard containers and future distroless support
@@ -66,11 +67,12 @@ This decision matrix provides a comprehensive comparison of the three container 
 **Best Approach**: Kubernetes API Approach with Sidecar Container fallback
 
 **Rationale**:
-- Kubernetes API Approach offers best enterprise integration 
+
+- Kubernetes API Approach offers best enterprise integration
 - For current distroless containers, Sidecar Container Approach offers:
-  - Universal compatibility with all container types
-  - Works regardless of Kubernetes version
-  - Can be implemented with automated sidecar injection
+    - Universal compatibility with all container types
+    - Works regardless of Kubernetes version
+    - Can be implemented with automated sidecar injection
 - Long-term plan should be migrating to Kubernetes API Approach as distroless support matures
 
 ### Use Case 3: Advanced Kubernetes Environment (1.16+)
@@ -78,18 +80,20 @@ This decision matrix provides a comprehensive comparison of the three container 
 **Best Approach**: Kubernetes API Approach with Debug Container fallback
 
 **Rationale**:
+
 - Kubernetes API Approach is the recommended long-term solution
 - For current distroless containers, Debug Container Approach offers:
-  - Native Kubernetes ephemeral containers feature
-  - More isolated than sidecar approach
-  - Debug containers are ephemeral (removed after scan)
-  - Good balance of security and capabilities
+    - Native Kubernetes ephemeral containers feature
+    - More isolated than sidecar approach
+    - Debug containers are ephemeral (removed after scan)
+    - Good balance of security and capabilities
 
 ### Use Case 4: Highly Secure / Zero-Trust Environment
 
 **Best Approach**: Kubernetes API Approach (with fallback to Debug Container)
 
 **Rationale**:
+
 - Kubernetes API Approach has the lowest risk profile
 - Minimal permissions required
 - Minimal attack surface
@@ -100,16 +104,17 @@ This decision matrix provides a comprehensive comparison of the three container 
 **Best Approach**: Kubernetes API Approach (with appropriate interim solution for distroless containers)
 
 **Rationale**:
+
 - While all approaches are technically possible in CI/CD pipelines, the Kubernetes API Approach offers critical advantages:
-  - **Compliance**: Fully aligned with security standards and compliance frameworks as detailed in [Security Compliance Analysis](../security/compliance.md)
-  - **Scale**: Significantly lower resource overhead and faster execution for high-volume scanning (hundreds to thousands of containers)
-  - **Consistency**: Same workflow, commands, and permissions model regardless of environment
-  - **Enterprise adoption**: Simplifies cross-team standardization and governance
-  - **Security posture**: Minimizes attack surface and privilege requirements in CI/CD environments
+    - **Compliance**: Aligns with [security compliance standards](../security/compliance/index.md)
+    - **Scale**: Significantly lower resource overhead and faster execution for high-volume scanning (hundreds to thousands of containers)
+    - **Consistency**: Same workflow, commands, and permissions model regardless of environment
+    - **Enterprise adoption**: Simplifies cross-team standardization and governance
+    - **Security posture**: Minimizes attack surface and privilege requirements in CI/CD environments
 - For distroless containers in CI/CD:
-  - Use the appropriate interim solution based on cluster capabilities
-  - Plan migration path to Kubernetes API Approach as distroless support is completed
-  - Document compliance deviations if using alternative approaches
+    - Use the appropriate interim solution based on cluster capabilities
+    - Plan migration path to Kubernetes API Approach as distroless support is completed
+    - Document compliance deviations if using alternative approaches
 - While alternative approaches may work in isolated CI/CD use cases, they are not recommended for enterprise-scale implementations
 
 ## Implementation Decision Tree
@@ -137,23 +142,27 @@ This decision matrix provides a comprehensive comparison of the three container 
 ## Migration Paths
 
 ### To Kubernetes API Approach (Enterprise Recommended)
+
 - For standard containers: Immediate adoption
 - For distroless containers: Plan adoption as enhanced distroless support is completed
 - Maintain same commands and workflows across all container types for seamless user experience
 
 ### From Kubernetes API to Debug Container (for distroless containers)
+
 - Implement ephemeral container support in cluster
 - Add debug container configuration
 - Modify scan scripts to use debug container method
 - Plan migration back to Kubernetes API Approach as distroless support matures
 
 ### From Kubernetes API to Sidecar Container (for distroless containers)
+
 - Modify pod definitions to enable shareProcessNamespace
 - Add sidecar container configuration
 - Configure process detection and filesystem access
 - Plan migration back to Kubernetes API Approach as distroless support matures
 
 ### From Debug Container to Sidecar Container
+
 - Modify pod definitions to enable shareProcessNamespace
 - Configure sidecar deployment approach
 - No cluster version dependencies
@@ -183,7 +192,8 @@ For enterprise environments planning to adopt container scanning at scale, we re
 After comprehensive analysis of security compliance, enterprise scalability, operational efficiency, and implementation complexity, the **Kubernetes API Approach** emerges as the clear superior solution for container scanning in production environments.
 
 Our recommendation is based on thorough evaluation against:
-- Security compliance frameworks (DoD 8500.01, DISA Container Platform SRG, Kubernetes STIG, CIS Benchmarks)
+
+- Security compliance frameworks (DoD 8500.01, DISA Container Platform SRG, Kubernetes STIG, CIS Benchmarks, NSA/CISA Kubernetes Hardening Guide)
 - Enterprise-scale operational requirements (supporting hundreds to thousands of container scans)
 - Resource efficiency and performance considerations
 - CI/CD integration capabilities
@@ -192,6 +202,7 @@ Our recommendation is based on thorough evaluation against:
 For enterprise deployments, the Kubernetes API Approach is not just preferred but **strongly recommended** as the only approach that fully satisfies enterprise security, compliance, and scale requirements. The alternative approaches, while technically functional, introduce significant compliance challenges, security considerations, and operational complexities that make them unsuitable for enterprise-scale production use.
 
 **Strategic Direction:**
+
 1. Implement Kubernetes API Approach for standard containers immediately
 2. Use appropriate interim solutions for distroless containers with proper risk documentation
 3. Prioritize completing Kubernetes API Approach support for distroless containers
@@ -200,11 +211,14 @@ For enterprise deployments, the Kubernetes API Approach is not just preferred bu
 This strategy provides the most secure, compliant, and scalable path forward for enterprise container security.
 
 For detailed implementation guidance, refer to the specific documentation:
-- [Kubernetes API Approach](../approaches/kubernetes-api.md)
-- [Debug Container Approach](../approaches/debug-container.md) (interim distroless solution)
-- [Sidecar Container Approach](../approaches/sidecar-container.md) (interim distroless solution)
+
+- [Kubernetes API Approach](kubernetes-api/index.md)
+- [Debug Container Approach](debug-container/index.md) (interim distroless solution)
+- [Sidecar Container Approach](sidecar-container/index.md) (interim distroless solution)
 
 For comprehensive security analysis, see:
-- [Security Compliance Analysis](../security/compliance.md)
-- [Security Risk Analysis](../security/risk-analysis.md)
+
+- [Security Compliance Documentation](../security/compliance/index.md)
+- [NSA/CISA Kubernetes Hardening Guide Alignment](../security/compliance/nsa-cisa-hardening.md)
+- [Security Risk Analysis](../security/risk/index.md)
 - [Enterprise Integration Analysis](../overview/enterprise-integration-analysis.md)
