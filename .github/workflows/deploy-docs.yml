@@ -76,4 +76,4 @@ jobs:
       - name: Verify deployment
         run: |
           echo "Documentation deployed to GitHub Pages"
-          echo "Visit https://mitre.github.io/kube-cinc-secure-scanner/ to view the documentation"
+          echo "Visit https://mitre.github.io/kube-secure-scanner/ to view the documentation"
