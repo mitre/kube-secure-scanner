@@ -2,317 +2,241 @@
 
 This document helps maintain context between sessions when working on the secure container scanning project.
 
-## Documentation Reorganization Progress Summary (Updated March 25, 2025)
+## Documentation Reorganization Overview
 
-We've been implementing a comprehensive documentation reorganization to improve usability and maintainability following a consistent pattern:
-- Breaking large documents into focused subdirectories with dedicated content files
-- Creating standardized index.md and inventory.md files for each subdirectory
-- Updating navigation to reflect the new structure
-- Maintaining cross-references between related topics
+| Phase | Status | Description |
+|-------|--------|-------------|
+| **Phase 1**: Restructuring and Security Prioritization | ✅ Completed | Restructured navigation, elevated security content |
+| **Phase 2**: Learning Path Content Development | ✅ Completed | Created learning paths with security focus |
+| **Phase 3**: Task-Oriented Content Development | ✅ Completed | Created task-based documentation pages |
+| **Phase 4**: Navigation Aids and Cross-Links | 🔄 In Progress (50%) | Created site index and initial cross-references |
+| **Phase 5**: Testing and Refinement | 📋 Not Started | User testing and documentation refinement |
 
-### Completed Reorganization:
-- ✅ Approaches section - Restructured into subdirectories by approach type with focused content files
-- ✅ Security section - Restructured into principles/, risk/, compliance/, threat-model/, and recommendations/
-- ✅ Deployment scenarios - Already reorganized with subdirectories
-- ✅ Advanced topics - Already reorganized with subdirectories
-- ✅ Helm Charts - Reorganized into overview/, scanner-types/, infrastructure/, usage/, security/, and operations/
-- ✅ Configuration - Reorganized into kubeconfig/, thresholds/, plugins/, integration/, and security/
-- ✅ Architecture - Reorganized into components/, workflows/, diagrams/, deployment/, and integrations/
-- ✅ Integration - Reorganized into platforms/, workflows/, examples/, and configuration/
+**Current Focus:** Continuing Phase 4 implementation with comprehensive cross-references and navigation aids
 
-### Next Steps:
-1. Continue Phase 4 (review and refinement) of documentation refactoring:
-   - Validate cross-references between documentation files
-   - Conduct a comprehensive review of the reorganized content
-   - Fix any remaining broken links or navigation issues
-   - Ensure consistent terminology across all documentation
-2. Address remaining documentation gaps:
-   - Update any outdated content in the documentation
-   - Ensure all documentation is accurate and comprehensive
-   - Add any missing examples or explanations
-3. Implement documentation validation tools:
-   - Develop tools to validate documentation structure
-   - Add automated link checking
-   - Implement consistent formatting validation
+## Current Project Status (March 27, 2025)
 
-## Current Project State (Updated March 25, 2025)
+### Latest Accomplishments
 
-We've created a comprehensive project structure for secure Kubernetes container scanning using CINC Auditor (open-source InSpec) with the train-k8s-container transport. The project demonstrates how to implement least-privilege RBAC to minimize security risk.
+- Made significant progress on Phase 4 (Navigation Aids and Cross-Links) implementation:
+  - Created comprehensive site-index.md with complete documentation catalog
+  - Enhanced site index with visual UI elements using Material for MkDocs features:
+    - Used tabbed content for approaches section
+    - Implemented grid cards for tasks and learning paths
+    - Added icons and visual elements for better user experience
+    - Applied admonitions for better information hierarchy
+  - Added site-index.md to mkdocs.yml navigation in the Getting Started section
+  - Added site index link to the main index.md page
+  - Closed the security/compliance loop between approaches, requirements, and tasks:
+    - Added comprehensive "Compliance and Security Considerations" sections to all scanning task pages:
+      - Enhanced standard-container-scan.md with compliance alignment
+      - Enhanced distroless-container-scan.md with compliance implications and risk documentation
+      - Enhanced sidecar-container-scan.md with compliance assessment and documentation requirements
+    - Enhanced security/index.md with clear visual risk indicators:
+      - Added card-based layout for each scanning approach
+      - Implemented color-coded risk level indicators (🟢 Low, 🟡 Medium, 🔴 High)
+      - Created detailed comparison table with risk factors across approaches
+      - Used consistent styling and iconography for better risk communication
+    - Used visual card layouts to highlight compliance relationships
+    - Created explicit links between scanning methods and specific compliance requirements
+    - Added clear documentation requirements based on compliance implications
+    - Implemented consistent color-coded compliance alignment indicators
+  - Completed comprehensive NSA/CISA Kubernetes Hardening Guide integration:
+    - Created detailed documentation in docs/security/compliance/nsa-cisa-hardening.md:
+      - Added executive overview of the NSA/CISA Kubernetes Hardening Guide v1.2 (August 2022)
+      - Included a high-level implementation status table for key recommendations
+      - Created detailed approach comparison tables for five NSA/CISA categories:
+        - Pod Security Controls
+        - Network Separation and Hardening
+        - Authentication and Authorization
+        - Logging and Monitoring
+        - Vulnerability Management
+      - Provided specific YAML examples demonstrating recommended security configurations
+      - Created color-coded implementation status indicators for each recommendation
+      - Added explicit approach alignment sections:
+        - Kubernetes API Approach (90% alignment)
+        - Debug Container Approach (70% alignment) 
+        - Sidecar Container Approach (50% alignment)
+      - Documented where Sidecar approach explicitly violates NSA container isolation guidance
+      - Included detailed balancing analysis for distroless containers vs. other security controls
+      - Added comprehensive gap analysis with remediation plans for each identified gap
+      - Created links to related security documentation throughout the project
+    - Added NSA/CISA guidance to comparison matrices and approach documentation:
+      - Updated approaches/comparison.md with NSA/CISA alignment column
+      - Enhanced approaches/decision-matrix.md with compliance considerations
+      - Added NSA/CISA references to each approach's implementation documentation
+    - Integrated with existing security documentation:
+      - Added cross-references to NSA/CISA guidance in security/index.md
+      - Updated security/principles pages with NSA/CISA alignment information
+      - Enhanced security/risk documentation with NSA-specific considerations
+      - Updated security-first.md learning path with NSA/CISA compliance steps
+    - Updated project roadmap with enhanced security compliance initiatives:
+      - Added security standards roadmap section to ROADMAP.md
+      - Added "Additional Security Tool Integration" for Anchore Grype integration
+      - Created compliance documentation expansion roadmap items
+    - Updated mkdocs.yml to include NSA/CISA documentation in navigation
+  - Implemented cross-references between learning paths and related task pages:
+    - Added "Related Tasks" section to learning-paths/implementation.md
+    - Added "Related Learning Paths" section to tasks/script-deployment.md
+  - Started comprehensive UI enhancement initiative for all learning paths and tasks:
+    - Enhanced learning-paths/new-users.md with modern Material UI elements:
+      - Added grid layouts with icons for setup steps
+      - Created visual progress trackers using checkboxes
+      - Implemented tabbed content for comparing approaches
+      - Used card grids for better content organization
+    - Enhanced tasks/standard-container-scan.md with visual improvements:
+      - Redesigned overview with card grid layout
+      - Created visual troubleshooting section with colored icons and example commands
+      - Designed modern "Next Steps" section with cards and arrow icons
+      - Implemented clean grid layout for related security considerations
+    - Planned systematic enhancement of all learning path and task pages
+  - Followed UI enhancement recommendations from mkdocs-material-features-guide.md
+  - Tested all changes with MkDocs build to ensure no broken links
+  - Set foundation for continued cross-reference work in Phase 4
 
-### Completed Components
+- Completed all seven remaining task pages, finalizing Phase 3 documentation:
+  - Created gitlab-integration.md with pipeline examples and security considerations
+  - Created thresholds-configuration.md covering multi-dimensional compliance criteria
+  - Created rbac-setup.md with detailed RBAC implementation for scanners
+  - Created token-management.md focusing on secure ephemeral credentials
+  - Created helm-deployment.md with secure chart-based deployment methods
+  - Created script-deployment.md showing direct command approach with scripts
+  - Created kubernetes-setup.md providing environment preparation guidelines
+  - Implemented cross-references between complementary approaches
+  - Ensured consistent formatting and comprehensive content across all tasks
+  - Applied security architecture pattern to all new documentation
 
-1. **Documentation**
-   - Comprehensive guides organized by topic (RBAC, service accounts, tokens, etc.)
-   - Detailed integration guides for CI/CD pipelines
-   - SAF CLI integration documentation
-   - Threshold configuration guide
+- Established security documentation standards throughout the project:
+  - Created standardized "Security Architecture" sections in all task pages
+  - Implemented balanced security risk and approach presentation with:
+    - Color-coded risk indicators (🔴 High, 🟡 Medium, 🟢 Low)
+    - Clear security approach descriptions focusing on mitigations
+  - Added detailed permission layer documentation using collapsible admonitions
+  - Updated CLAUDE.md with comprehensive security documentation guidelines
+  - Ensured consistent security messaging across all documentation
+  - Applied new standards to existing task pages and learning paths:
+    - standard-container-scan.md
+    - distroless-container-scan.md
+    - sidecar-container-scan.md
+    - github-integration.md
+    - security-first.md
+    - implementation.md
 
-2. **Kubernetes Resources**
-   - YAML templates for namespace, service accounts, RBAC
-   - Label-based and name-based RBAC examples
+- Created comprehensive GitHub Actions integration task page:
+  - Created tasks/github-integration.md with detailed implementation guidance
+  - Included two integration approaches:
+    - Basic container scanning with secure RBAC setup
+    - End-to-end CI/CD pipeline with dynamic container building, deployment, and scanning
+  - Added clear explanation of permission layer separation
+  - Emphasized security best practices including time-limited tokens and least privilege RBAC
+  - Thoroughly documented the integration with practical examples and concrete workflows
+  - Addressed conceptual gap around permission layers distinction
 
-3. **Automation Scripts**
-   - kubeconfig generation script
-   - Container scanning wrapper script with SAF CLI integration
-   - Proper threshold file handling
+- Enhanced Kubernetes Setup documentation:
+  - Created three comprehensive guides in the kubernetes-setup/ directory:
+    - existing-cluster-requirements.md - Requirements for existing Kubernetes clusters
+    - minikube-setup.md - Guide for setting up Minikube for local testing
+    - best-practices.md - Security-focused best practices for Kubernetes configuration
+  - Updated kubernetes-setup/index.md to reference the new documentation
+  - Updated kubernetes-setup/inventory.md to include the new files
+  - Updated mkdocs.yml navigation to include the new Kubernetes setup pages
 
-4. **Helm Chart**
-   - Templates for all required resources
-   - Configurable values.yaml with SAF CLI settings
-   - Helper scripts deployed as configmaps
-   - Threshold configuration support
+- Continued implementing Phase 3 of the documentation reorganization plan - Task-Oriented Content Development:
+  - Created the tasks/ directory structure with index.md and inventory.md
+  - Developed a task page template with standardized sections
+  - Created task pages:
+    - standard-container-scan.md - For standard container scanning
+    - distroless-container-scan.md - For distroless container scanning
+    - sidecar-container-scan.md - For sidecar container scanning
+  - Updated mkdocs.yml navigation to include tasks in the Common Tasks section
+  - All task pages have strong security focus with security admonitions highlighting key considerations
+  - Created secure script organization with dedicated kubernetes-scripts directory
+  - Implemented symlinks to scripts in docs directory for MkDocs integration
 
-5. **GitHub Workflows**
-   - Basic setup and scan workflow
-   - Dynamic RBAC scanning workflow
-   - CI/CD pipeline workflow
-   - All properly integrated with MITRE SAF-CLI threshold validation
+- Previously completed Phase 2 of the documentation reorganization plan - Learning Path Content Development:
+  - Created the learning-paths/ directory structure with index.md and inventory.md
+  - Developed the learning path template with standardized sections
+  - Created five comprehensive learning paths:
+    - new-users.md - For new users with security focus
+    - security-first.md - Security-optimized implementation path
+    - core-concepts.md - Security principles foundation
+    - implementation.md - Implementation with security checks
+    - advanced-features.md - Advanced security features
+  - Added custom security admonitions styling to css/custom.css
+  - Updated mkdocs.yml navigation to include learning paths in the Getting Started section
+  - All learning paths have strong security focus with security admonitions highlighting key considerations
 
-6. **CINC Profiles**
-   - Example container baseline profile
+### Current Documentation Structure
+- Documentation has a multi-layered approach:
+  - Getting Started section with security content elevated
+  - Learning Paths section for guided implementation
+  - Common Tasks section for frequently performed operations
+  - Deployment Scenarios section for specific environments
+  - Technical Documentation section with comprehensive references
+  - Reference section with consolidated configuration details
 
-7. **GitLab Integration**
-   - Dedicated gitlab-examples directory
-   - Complete GitLab CI pipeline example
-
-### Latest Updates
-
-We most recently:
-1. Completed the Integration section reorganization with focused content files
-2. Created comprehensive workflow documentation files:
-   - standard-container.md - Standard container workflow integration
-   - distroless-container.md - Distroless container workflow integration
-   - sidecar-container.md - Sidecar container workflow integration
-   - security-workflows.md - Security-focused integration workflows
-3. Created practical examples files:
-   - github-examples.md - Detailed GitHub Actions workflow examples
-   - gitlab-examples.md - Detailed GitLab CI/CD pipeline examples
-4. Created configuration documentation files:
-   - environment-variables.md - Environment variable documentation
-   - secrets-management.md - Managing secrets in CI/CD pipelines
-   - thresholds-integration.md - Threshold-based compliance assessment
-   - reporting.md - Reporting options for scan results
-5. Migrated existing GitLab services content to platforms/ directory
-6. Added detailed code examples for all workflows and platforms
-7. Enhanced cross-references between related topics
-8. Updated mkdocs.yml to include all new documentation files
-
-## Latest Progress
-
-### Documentation Structure and Content Enhancement (Current Session - March 25, 2025)
-1. **Integration Section Reorganization (Completed)**
-   - ✅ Created comprehensive subdirectory structure:
-     - ✅ Created platforms/ directory for CI/CD platform integrations
-     - ✅ Created workflows/ directory for integration workflows
-     - ✅ Created examples/ directory for practical examples
-     - ✅ Created configuration/ directory for integration configuration
-   - ✅ Created index.md and inventory.md files for all subdirectories
-   - ✅ Migrated existing content to new structure:
-     - ✅ Moved github-actions.md to platforms/github-actions.md
-     - ✅ Moved gitlab.md to platforms/gitlab-ci.md
-     - ✅ Moved gitlab-services.md to platforms/gitlab-services.md
-     - ✅ Created comprehensive workflow files (standard-container.md, distroless-container.md, sidecar-container.md, security-workflows.md)
-     - ✅ Created practical examples file (github-examples.md) with detailed GitHub Actions workflows
-   - ✅ Updated main integration/index.md with overview and redirection
-   - ✅ Updated integration/inventory.md with comprehensive listing of all files
-   - ✅ Added cross-references between related topics
-   - ✅ Created integration-reorganization-summary.md documenting the reorganization
-   - ✅ Added detailed code examples for all workflows with GitHub Actions and GitLab CI
-
-2. **Architecture Section Reorganization (Completed in Previous Session)**
-   - ✅ Created comprehensive subdirectory structure:
-     - ✅ Created components/ directory for core architectural components
-     - ✅ Created workflows/ directory for workflow processes
-     - ✅ Created diagrams/ directory for architecture diagrams
-     - ✅ Created deployment/ directory for deployment architectures
-     - ✅ Created integrations/ directory for CI/CD integrations
-   - ✅ Created comprehensive content files:
-     - ✅ Created detailed component documentation (core-components.md, security-components.md, communication.md)
-     - ✅ Created workflow process documentation (standard-container.md, distroless-container.md, sidecar-container.md, security-workflows.md)
-     - ✅ Created diagram documentation (component-diagrams.md, workflow-diagrams.md, deployment-diagrams.md)
-     - ✅ Created deployment architecture documentation (script-deployment.md, helm-deployment.md, ci-cd-deployment.md)
-     - ✅ Created integration architecture documentation (github-actions.md, gitlab-ci.md, gitlab-services.md, custom-integrations.md)
-   - ✅ Created index.md and inventory.md files for all subdirectories
-   - ✅ Updated main architecture/index.md with overview and redirection
-   - ✅ Updated architecture/inventory.md with comprehensive listing of all files
-   - ✅ Added WCAG-compliant Mermaid diagrams to all architectural documentation
-   - ✅ Ensured comprehensive cross-references between related topics
-
-2. **Documentation Reorganization Implementation**
-   - ✅ Updated mkdocs.yml to include all project documentation files
-   - ✅ Included README.md files in navigation structure
-   - ✅ Added project documentation files (content-map.md, documentation-entry-refactoring.md, terminology.md)
-   - ✅ Resolved exclusion list issues in mkdocs.yml
-   - ✅ Addressed 404 errors for overview/README.md and other paths
-   - ✅ Fixed "includes/abbreviations.md" navigation issue
-   - ✅ Created documentation for terminology standardization
-   
-3. **Content Organization and Restructuring**
-   - ✅ Reorganized documentation navigation with logical grouping in mkdocs.yml
-   - ✅ Broke down large documentation pages into smaller, focused subtopic pages:
-     - ✅ Reorganized Architecture section:
-       - ✅ Created components/ directory with focused pages
-       - ✅ Created workflows/ directory with focused pages
-       - ✅ Created diagrams/ directory with focused pages
-       - ✅ Created deployment/ directory with focused pages
-       - ✅ Created integrations/ directory with focused pages
-     - ✅ Broke down `deployment/scenarios.md` into individual scenario pages in a dedicated directory
-     - ✅ Broke down `deployment/advanced-topics.md` into specialized subtopic pages
-     - ✅ Broke down `approaches` section into subdirectories for each approach
-     - ✅ Reorganized `security` section into subdirectories
-     - ✅ Reorganized `helm-charts` section into subdirectories
-     - ✅ Reorganized `configuration` section into subdirectories
-   - ✅ Created content-organization-approach.md documenting our approach to content organization
-   - ✅ Enhanced inventory files to include all new content files
-   - ✅ Improved cross-references between related topics
-   - ✅ Created dedicated index.md files for each subsection to serve as topic overviews
-
-3. **Documentation Entry Point Refactoring Progress**
-   - ✅ Completed Phase 1: Analysis and Standardization
-   - ✅ Completed Phase 2: Primary Document Refactoring
-   - ✅ Completed Phase 3: Visual and Navigation Enhancements
-   - 🔄 Phase 4: Review and Refinement (Current Focus)
-     - ✅ Analyzed documentation for inconsistencies and issues
-     - ✅ Created documentation-review-plan.md with detailed implementation plan
-     - ✅ Identified README.md vs index.md inconsistency as root cause of many navigation issues
-     - ✅ Normalized documentation structure
-     - 🔄 Fixing broken links that point to old README.md files
-     - 🔄 Validating user journey paths
-     - 🔄 Checking for terminology consistency
-     - 🔄 Addressing content redundancies
-
-4. **Documentation Structure Normalization (Significant Progress Made)**
-   - ✅ Identified the cause of 404 errors: inconsistent use of README.md vs index.md
-   - ✅ Established pattern: index.md for documentation content, README.md for GitHub browsing
-   - ✅ Created index.md files for core documentation sections
-   - ✅ Updated mkdocs.yml navigation to point to index.md files
-   - ✅ Fixed the critical content mismatch in kubernetes-api.md
-   - ✅ Started fixing cross-references between documents
-   - 🔄 Continuing to fix remaining link warnings in other files
-   - 🔄 Updating remaining cross-references between documents
-
+### Identified Documentation Gaps
+- We identified a gap in Kubernetes setup documentation that needed a three-part structure:
+  1. General Kubernetes setup best practices and guidelines
+  2. Setup requirements for existing Kubernetes clusters
+  3. Setup and configuration of Minikube for local evaluation
+- We've now filled this gap with comprehensive documentation in the kubernetes-setup/ directory
+  
 ### Next Steps
+1. Continue with Phase 4 of the documentation reorganization plan: Navigation Aids and Cross-Links
+   - Extend cross-references to all remaining learning path pages:
+     - Add "Related Tasks" sections to all learning paths
+     - Add "Related Learning Paths" sections to all task pages
+   - Implement "Related Content" sections in each major documentation page:
+     - Focus on technical content connections
+     - Prioritize security content connections second
+   - Add breadcrumb navigation to improve navigation between related sections
+   - Implement visual navigation aids like diagrams and maps
+   - Update the site index with additional visual enhancements and organization
+   - Add tag system for major content categories
 
-1. **Continue Documentation Structure Enhancement (Current Priority - March 25, 2025)**
-   - ✅ Continue applying the content organization pattern to large documentation sections:
-     - ✅ Completed security section reorganization
-     - ✅ Completed Helm Charts section reorganization
-     - ✅ Completed Configuration section reorganization
-     - ✅ Completed Architecture section reorganization
-     - ✅ Completed Integration section reorganization
-   - 🔄 Address high-priority documentation gaps before v1.0.0 release
-   - 🔄 Complete Phase 4 of documentation entry point refactoring:
-     - 🔄 Conducting comprehensive documentation review
-     - 🔄 Validating user journey paths
-     - 🔄 Testing documentation flow from different perspectives
-   - 🔄 Continue refining documentation tools and processes:
-     - ✅ Enhanced docs-tools.sh script with comprehensive logging functionality
-     - ✅ Added flexible log viewing options with intelligent defaults
-     - ✅ Implemented process management for documentation server
-     - ✅ Added custom log file path support
-     - 📅 Implement documentation validation tools
-     - 📅 Add automation for structure verification
+2. Address remaining conceptual and documentation gaps:
+   - **Security and Compliance Alignment**:
+     - "Close the loop" between scanning approaches and compliance requirements
+     - Document how each approach maps to specific compliance controls
+     - Analyze risk implications of each approach
+     - Create a clear matrix showing approach ↔ compliance ↔ risk relationships
+   
+   - **Example Status Disclaimer**:
+     - Add prominent notices at the top of project documentation
+     - Clearly indicate which examples are reference-only vs. fully tested
+     - Specifically flag CI/CD workflows and examples as reference implementations
+     - Document testing status and plans for full validation
 
-2. **Complete Container Scanning Approaches Implementation**
-   - **Approach 1 - Modified Plugin (Enterprise Solution):**
-     - 🔄 Fork and modify the train-k8s-container plugin to support distroless containers
-     - 🔄 Implement ephemeral container detection and integration directly in the plugin
-     - 🔄 Add automatic fallback to ephemeral containers when shell access fails
-     - 🔄 Create examples and documentation for this approach
-     
-   - **CI/CD Integration for All Approaches:**
-     - ✅ GitHub Actions workflow for debug container approach
-     - ✅ GitHub Actions workflow for sidecar container approach
-     - 🔄 GitHub Actions workflow for modified plugin approach
-     - ✅ GitLab CI pipeline for debug container approach 
-     - ✅ GitLab CI pipeline for sidecar container approach
-     - 🔄 GitLab CI pipeline for modified plugin approach
-     - ✅ GitLab CI with Services for sidecar container approach
-     - 🔄 Comparative demonstration pipelines
+3. Prepare for Phase 5: Testing and Refinement
+   - Develop a testing plan for documentation validation
+   - Create user journey test scenarios for common documentation paths
+   - Define metrics for documentation effectiveness and clarity
+   - Prepare templates for gathering user feedback
+   - Set up documentation review checklists focused on:
+     - Technical accuracy
+     - Documentation completeness
+     - Consistency of terminology and style
+     - Link validation and navigation integrity
+   - Establish a documentation refinement process based on feedback
 
-## Key Decisions and Latest Status
+## Key Project Details
 
-1. **Container Scanning Approaches**:
-   - **Standard Containers**: Using train-k8s-container transport plugin (stable)
-   - **Distroless Containers**: Three distinct approaches implemented
-     - Debug container approach with chroot (requires ephemeral containers feature)
-     - Sidecar container approach with shared process namespace (works universally)
-     - Modified transport plugin approach (in progress, most transparent to users)
+### Container Scanning Approaches
+- Standard Containers: Using train-k8s-container transport plugin (stable)
+- Distroless Containers: Three distinct approaches implemented
+  - Debug container approach with chroot (requires ephemeral containers feature)
+  - Sidecar container approach with shared process namespace (works universally)
+  - Modified transport plugin approach (in progress, most transparent to users)
 
-2. **CI/CD Integration**: 
-   - Multiple implementation strategies for each approach
-   - GitLab CI standard, GitLab CI with services, and GitHub Actions
-   - Comprehensive examples for all scanning approaches
-   - Shared volume and configuration approach for results collection
+### CI/CD Integration
+- Multiple implementation strategies for each approach
+- GitLab CI standard, GitLab CI with services, and GitHub Actions
+- Comprehensive examples for all scanning approaches
 
-3. **Security First**:
-   - CINC Auditor (open-source InSpec) to avoid licensing issues
-   - MITRE SAF-CLI for results processing and threshold validation
-   - Supporting both label-based and name-based RBAC approaches
-   - Using short-lived tokens (default 15 minutes) for security
-   - Least privilege principle applied throughout all implementations
-
-4. **Deployment and Configuration**:
-   - Shell scripts for direct usage and testing
-   - Modular Helm charts for production deployment
-   - Comprehensive configuration options and examples
-   - YAML-based threshold files for compliance validation
-
-5. **Latest Status (March 25, 2025)**:
-   - ✅ Three scanning approaches implemented (standard, debug container, sidecar container)
-   - ✅ CI/CD integration for all approaches (GitLab CI, GitHub Actions)
-   - ✅ Comprehensive documentation with workflow diagrams
-   - ✅ Security-focused design with least privilege RBAC
-   - 🔄 Modified transport plugin approach in progress
-   - ✅ Complete documentation reorganization and structure implementation
-   - ✅ Enhanced MkDocs implementation with optimized navigation
-   - ✅ Standardized terminology and content structure across documentation
-   - ✅ Implemented documentation entry point refactoring plan through Phase 3
-   - ✅ Enhanced documentation tools with comprehensive features
-   - ✅ Added advanced logging functionality to documentation system
-   - ✅ Created audience-specific documentation paths
-   - ✅ Fixed navigation issues and addressed 404 errors
-   - 🔄 Working on Phase 4 (Review and Refinement) of documentation refactoring
-   - ✅ Reorganized approaches section into focused subdirectories with dedicated content files
-   - ✅ Reorganized security section into principles, risk, compliance, threat-model, and recommendations subdirectories
-   - ✅ Reorganized helm-charts section into focused subdirectories with dedicated content files
-   - ✅ Reorganized configuration section into focused subdirectories with dedicated content files
-   - ✅ Reorganized architecture section into components, workflows, diagrams, deployment, and integrations subdirectories
-
-## Project Structure
-
-```
-minikube/
-├── docs/                    # Documentation
-│   ├── overview/            # Project overview
-│   ├── approaches/          # Scanning approaches
-│   ├── architecture/        # Architecture & workflows
-│   ├── security/            # Security documentation
-│   ├── configuration/       # Configuration documentation
-│   ├── rbac/                # RBAC configuration
-│   ├── service-accounts/    # Service account setup
-│   ├── tokens/              # Token management
-│   ├── integration/         # CI/CD integration
-│   ├── kubernetes-setup/    # Kubernetes setup
-│   └── helm-charts/         # Helm chart documentation
-├── scripts/                 # Automation scripts
-├── kubernetes/              # Kubernetes manifests
-│   └── templates/           # Template YAML files
-├── helm-charts/             # Modular Helm charts for deployment
-│   └── examples/            # Example threshold files
-├── github-workflows/        # GitHub Actions workflows
-├── gitlab-examples/         # GitLab CI examples
-└── examples/                # Example resources
-    ├── cinc-profiles/       # CINC Auditor profiles
-    └── generate-threshold.md # Threshold generation guide
-```
-
-## References
-
-- MITRE SAF-CLI: https://saf-cli.mitre.org/
-- MITRE SAF Thresholds: https://github.com/mitre/saf/wiki/Validation-with-Thresholds/
-- CINC Project: https://cinc.sh/
-- train-k8s-container transport: https://github.com/inspec/train-k8s-container
-- Kubernetes RBAC: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
-- Kubernetes Ephemeral Containers: https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/
-- CINC Auditor Docker: https://gitlab.com/cinc-project/docker-images/-/tree/master/docker-auditor
+### Security First Approach
+- CINC Auditor (open-source InSpec) to avoid licensing issues
+- MITRE SAF-CLI for results processing and threshold validation
+- Supporting both label-based and name-based RBAC approaches
+- Using short-lived tokens (default 15 minutes) for security
+- Least privilege principle applied throughout all implementations

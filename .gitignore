@@ -5,3 +5,7 @@ __pycache__/
 .DS_Store
 venv/
 .venv/
+**/CLAUDE.local.md
+.mkdocs-server.pid
+session-logs/
+*.log
