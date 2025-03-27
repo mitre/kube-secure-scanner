@@ -46,4 +46,4 @@ For practical implementation examples, see:
 
 - [Scanning Approaches](../approaches/index.md)
 - [Advanced Configuration](../configuration/advanced/index.md)
-- [Scanning Thresholds](../configuration/advanced/thresholds.md)
+- [Scanning Thresholds](../configuration/thresholds/index.md)

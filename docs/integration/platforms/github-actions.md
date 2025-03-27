@@ -2,7 +2,7 @@
 
 This guide explains how to use GitHub Actions for secure Kubernetes container scanning with CINC Auditor (using the train-k8s-container plugin) and MITRE SAF-CLI.
 
-> **Strategic Priority**: We strongly recommend the Kubernetes API Approach using the train-k8s-container plugin for enterprise-grade container scanning. Our highest priority is enhancing this plugin to support distroless containers. See [Approach Comparison](../../approaches/comparison.md) and [Security Compliance](../../security/compliance.md) for more details.
+> **Strategic Priority**: We strongly recommend the Kubernetes API Approach using the train-k8s-container plugin for enterprise-grade container scanning. Our highest priority is enhancing this plugin to support distroless containers. See [Approach Comparison](../../approaches/comparison.md) and [Security Compliance](../../security/compliance/index.md) for more details.
 
 ## Available Workflows
 
@@ -44,6 +44,7 @@ This workflow sets up a minikube cluster and runs a basic scan against a busybox
 5. Click **Run workflow** to start the scan
 
 The workflow will:
+
 - Set up a minikube cluster
 - Create a test pod
 - Configure restricted RBAC
@@ -64,6 +65,7 @@ This workflow demonstrates more advanced scanning with dynamic pod targeting:
 5. Click **Run workflow**
 
 The workflow will:
+
 - Create multiple pods but only label one for scanning
 - Set up label-based RBAC
 - Run CINC Auditor against the labeled container only
@@ -84,6 +86,7 @@ This workflow demonstrates a complete CI/CD pipeline with security scanning and 
 5. Click **Run workflow**
 
 The workflow will:
+
 - Create a simple test application
 - Build a container image
 - Deploy it to Kubernetes
@@ -100,7 +103,7 @@ The workflow will:
 The workflow uses [MITRE SAF-CLI](https://saf-cli.mitre.org/) for processing scan results and implementing quality gates. SAF-CLI provides:
 
 1. Formatted summaries (Markdown, JSON, etc.)
-2. Threshold-based quality gates 
+2. Threshold-based quality gates
 3. Visualization capabilities
 
 ### SAF-CLI Commands Used

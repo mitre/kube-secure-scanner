@@ -267,6 +267,19 @@ cleanup:
     - kubectl delete serviceaccount scanner-sa-$CI_PIPELINE_ID -n $NAMESPACE --ignore-not-found
 ```
 
+## Configuration {#configuration}
+
+When configuring the standard container scanning workflow, you should set the following parameters:
+
+1. **Namespace**: The Kubernetes namespace where the target pod is running
+2. **Pod Name**: The name of the pod containing the container to scan
+3. **Container Name**: The name of the container within the pod to scan
+4. **Profile Path**: The CINC Auditor profile to use for scanning
+5. **Token Duration**: Duration for the short-lived authentication token (default: 15 minutes)
+6. **SAF CLI Settings**: Configuration for threshold validation and reporting
+
+These settings can be configured through environment variables as detailed in the [Environment Variables](../configuration/environment-variables.md) documentation.
+
 ## Best Practices
 
 When integrating the standard container scanning workflow, follow these best practices:
@@ -310,4 +323,4 @@ When integrating the standard container scanning workflow, follow these best pra
 - [GitLab CI Integration](../platforms/gitlab-ci.md)
 - [GitLab Services Integration](../platforms/gitlab-services.md)
 - [Approach Mapping](../approach-mapping.md)
-- [Kubernetes API Approach](../../approaches/kubernetes-api.md)
+- [Kubernetes API Approach](../../approaches/kubernetes-api/index.md)

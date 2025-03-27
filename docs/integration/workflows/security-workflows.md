@@ -410,6 +410,6 @@ When implementing container scanning in CI/CD pipelines, follow these security b
 - [Label-Based RBAC](../../rbac/label-based.md)
 - [Service Accounts](../../service-accounts/index.md)
 - [Tokens](../../tokens/index.md)
-- [Security Analysis](../../security/analysis.md)
+- [Security Analysis](../../security/risk/index.md)
 - [GitHub Actions Integration](../platforms/github-actions.md)
 - [GitLab CI Integration](../platforms/gitlab-ci.md)

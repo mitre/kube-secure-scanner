@@ -318,6 +318,19 @@ scan_with_sidecar_service:
 # Additional stages for report generation and cleanup
 ```
 
+## Configuration {#configuration}
+
+When configuring the sidecar container scanning workflow, you should set the following parameters:
+
+1. **Namespace**: The Kubernetes namespace where the scanner pod will be created
+2. **Application Image**: The container image to scan
+3. **Scanner Image**: The CINC Auditor scanner image to use as sidecar
+4. **Profile Path**: The CINC Auditor profile to use for scanning
+5. **Process Identifier**: Method to identify the target process (default: first sleep process)
+6. **SAF CLI Settings**: Configuration for threshold validation and reporting
+
+These settings can be configured through environment variables as detailed in the [Environment Variables](../configuration/environment-variables.md) documentation.
+
 ## Best Practices
 
 When integrating the sidecar container scanning workflow, follow these best practices:
@@ -358,7 +371,7 @@ When integrating the sidecar container scanning workflow, follow these best prac
 
 ## Related Resources
 
-- [Sidecar Container Approach](../../approaches/sidecar-container.md)
+- [Sidecar Container Approach](../../approaches/sidecar-container/index.md)
 - [GitHub Actions Integration](../platforms/github-actions.md)
 - [GitLab CI Integration](../platforms/gitlab-ci.md)
 - [GitLab Services Integration](../platforms/gitlab-services.md)

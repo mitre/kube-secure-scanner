@@ -42,6 +42,7 @@ Build and maintain two specialized Docker images:
 ### 2. Provide Clear Documentation
 
 Create clear documentation that explains:
+
 - How services are used in the scanning workflow
 - When to use standard vs. distroless scanning
 - How to troubleshoot common issues

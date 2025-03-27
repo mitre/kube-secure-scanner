@@ -10,9 +10,9 @@ This page provides an inventory of all files in the platform integration section
 | [github-actions.md](github-actions.md) | GitHub Actions integration guide |
 | [gitlab-ci.md](gitlab-ci.md) | GitLab CI integration guide |
 | [gitlab-services.md](gitlab-services.md) | GitLab Services integration guide |
-| [jenkins.md](jenkins.md) | Jenkins integration guide |
-| [azure-devops.md](azure-devops.md) | Azure DevOps integration guide |
-| [custom-platforms.md](custom-platforms.md) | Custom CI/CD platform integration guide |
+| [Jenkins](index.md#jenkins-integration) | Jenkins integration guide (coming soon) |
+| [Azure DevOps](index.md#azure-devops-integration) | Azure DevOps integration guide (coming soon) |
+| [Custom Platforms](index.md#custom-platform-integration) | Custom CI/CD platform integration guide (coming soon) |
 
 ## Related Directories
 

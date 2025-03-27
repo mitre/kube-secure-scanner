@@ -8,7 +8,7 @@ This page provides an inventory of all files in the integration section of the d
 | ---- | ----------- |
 | [index.md](index.md) | Overview of CI/CD integration options |
 | [approach-mapping.md](approach-mapping.md) | Mapping of scanning approaches to CI/CD platforms |
-| [overview.md](overview.md) | General overview of integration capabilities |
+| [index.md](index.md) | General overview of integration capabilities |
 | [gitlab-services-analysis.md](gitlab-services-analysis.md) | Analysis of GitLab Services integration approach |
 
 ## Subdirectories
@@ -28,9 +28,9 @@ This page provides an inventory of all files in the integration section of the d
 | [platforms/github-actions.md](platforms/github-actions.md) | GitHub Actions integration guide |
 | [platforms/gitlab-ci.md](platforms/gitlab-ci.md) | GitLab CI integration guide |
 | [platforms/gitlab-services.md](platforms/gitlab-services.md) | GitLab Services integration guide |
-| [platforms/jenkins.md](platforms/jenkins.md) | Jenkins integration guide |
-| [platforms/azure-devops.md](platforms/azure-devops.md) | Azure DevOps integration guide |
-| [platforms/custom-platforms.md](platforms/custom-platforms.md) | Custom CI/CD platform integration guide |
+| [Jenkins Integration](platforms/index.md#jenkins-integration) | Jenkins integration guide (coming soon) |
+| [Azure DevOps Integration](platforms/index.md#azure-devops-integration) | Azure DevOps integration guide (coming soon) |
+| [Custom Platforms Integration](platforms/index.md#custom-platform-integration) | Custom CI/CD platform integration guide (coming soon) |
 
 ## Workflow Integration Files
 
@@ -49,8 +49,8 @@ This page provides an inventory of all files in the integration section of the d
 | [examples/index.md](examples/index.md) | Overview of integration examples |
 | [examples/github-examples.md](examples/github-examples.md) | GitHub Actions examples |
 | [examples/gitlab-examples.md](examples/gitlab-examples.md) | GitLab CI examples |
-| [examples/gitlab-services-examples.md](examples/gitlab-services-examples.md) | GitLab Services examples |
-| [examples/custom-examples.md](examples/custom-examples.md) | Custom integration examples |
+| [GitLab Services Examples](examples/index.md#gitlab-services-examples) | GitLab Services examples (coming soon) |
+| [Custom Integration Examples](examples/index.md#custom-integration-examples) | Custom integration examples (coming soon) |
 
 ## Configuration Files
 

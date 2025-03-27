@@ -2,7 +2,7 @@
 
 This guide explains how to integrate secure container scanning using CINC Auditor with the train-k8s-container plugin into GitLab CI/CD pipelines.
 
-> **Strategic Priority**: We strongly recommend the Kubernetes API Approach using the train-k8s-container plugin for enterprise-grade container scanning. Our highest priority is enhancing this plugin to support distroless containers. See [Approach Comparison](../../approaches/comparison.md) and [Security Compliance](../../security/compliance.md) for more details.
+> **Strategic Priority**: We strongly recommend the Kubernetes API Approach using the train-k8s-container plugin for enterprise-grade container scanning. Our highest priority is enhancing this plugin to support distroless containers. See [Approach Comparison](../../approaches/comparison.md) and [Security Compliance](../../security/compliance/index.md) for more details.
 
 ## Overview
 
@@ -402,6 +402,125 @@ jq '.profiles[0].controls[] | select(.status=="failed") | {id, title, status}' s
 
 # Examine compliance score
 jq '.profiles[0].statistics.percent_passed' scan-results.json
+```
+
+## Security Dashboard Integration {#security-dashboard-integration}
+
+GitLab provides built-in security dashboard capabilities that can be integrated with CINC Auditor scan results:
+
+### Converting Scan Results for GitLab Security Dashboard
+
+1. Create a converter script to transform CINC results into GitLab Security Report format:
+
+```yaml
+convert_results:
+  stage: report
+  needs: [run_scan]
+  script:
+    - |
+      # Install jq for JSON processing
+      apt-get update && apt-get install -y jq
+      
+      # Convert CINC report to GitLab security report format
+      jq -r '
+        {
+          "version": "2.0",
+          "vulnerabilities": [
+            .profiles[0].controls[] | 
+            select(.status=="failed") | 
+            {
+              "id": .id,
+              "category": "container_scanning",
+              "name": .title,
+              "message": .desc,
+              "description": .desc,
+              "severity": (
+                if .impact >= 0.7 then "Critical" 
+                elif .impact >= 0.4 then "High"
+                elif .impact >= 0.2 then "Medium"
+                else "Low" end
+              ),
+              "solution": .refs[0].url,
+              "scanner": {
+                "id": "cinc_auditor",
+                "name": "CINC Auditor"
+              },
+              "location": {
+                "image": env.TARGET_IMAGE,
+                "operating_system": "Linux",
+                "dependency": {
+                  "package": {}
+                }
+              },
+              "identifiers": [
+                {
+                  "type": "cinc_control",
+                  "name": .id,
+                  "value": .id
+                }
+              ]
+            }
+          ],
+          "scan": {
+            "scanner": {
+              "id": "cinc_auditor",
+              "name": "CINC Auditor",
+              "version": "5.0.0",
+              "vendor": {
+                "name": "CINC Project"
+              }
+            },
+            "analyzer": {
+              "id": "container_scanning",
+              "name": "Container Scanning",
+              "version": "1.0",
+              "vendor": {
+                "name": "GitLab"
+              }
+            },
+            "type": "container_scanning",
+            "start_time": "",
+            "end_time": "",
+            "status": "success"
+          }
+        }
+      ' scan-results.json > gl-container-scanning-report.json
+  artifacts:
+    reports:
+      container_scanning: gl-container-scanning-report.json
+```
+
+### Using GitLab Security Dashboards
+
+Once you have converted the reports, they will be automatically integrated into GitLab's security features:
+
+1. The Security Dashboard in the Security section of your project
+2. The Security tab in Merge Requests
+3. The Vulnerability Report for tracking security issues
+
+### Compliance Reports
+
+For compliance focused reports, you can also configure the pipeline to generate:
+
+```yaml
+compliance_report:
+  stage: report
+  needs: [run_scan]
+  script:
+    - |
+      # Generate compliance summary report
+      saf compliance-overview -i scan-results.json -o gl-compliance-report.json
+      
+      # Display summary in job
+      cat gl-compliance-report.json | jq .
+  artifacts:
+    paths:
+      - gl-compliance-report.json
+    reports:
+      compliance_report:
+        report_format: json
+        report_type: sast
+        report_path: gl-compliance-report.json
 ```
 
 ## Related Integration Resources

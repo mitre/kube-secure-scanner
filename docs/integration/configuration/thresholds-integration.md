@@ -324,4 +324,4 @@ saf visualize -i threshold-trends.json -o threshold-chart.html
 - [Standard Container Workflow](../workflows/standard-container.md)
 - [Security Workflows](../workflows/security-workflows.md)
 - [Reporting Configuration](./reporting.md)
-- [Advanced Thresholds Configuration](../../configuration/advanced/thresholds.md)
+- [Advanced Thresholds Configuration](../../configuration/thresholds/advanced.md)

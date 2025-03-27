@@ -345,6 +345,20 @@ cleanup:
     - kubectl delete serviceaccount debug-scanner-sa-$CI_PIPELINE_ID -n $NAMESPACE --ignore-not-found
 ```
 
+## Configuration {#configuration}
+
+When configuring the distroless container scanning workflow, you should set the following parameters:
+
+1. **Namespace**: The Kubernetes namespace where the target pod is running
+2. **Pod Name**: The name of the pod containing the container to scan
+3. **Container Name**: The name of the container within the pod to scan
+4. **Profile Path**: The CINC Auditor profile to use for scanning
+5. **Debug Container Image**: The image to use for the debug container (default: busybox:latest)
+6. **Token Duration**: Duration for the short-lived authentication token (default: 30 minutes)
+7. **SAF CLI Settings**: Configuration for threshold validation and reporting
+
+These settings can be configured through environment variables as detailed in the [Environment Variables](../configuration/environment-variables.md) documentation.
+
 ## Best Practices
 
 When integrating the distroless container scanning workflow, follow these best practices:
@@ -384,7 +398,7 @@ When integrating the distroless container scanning workflow, follow these best p
 
 ## Related Resources
 
-- [Debug Container Approach](../../approaches/debug-container.md)
+- [Debug Container Approach](../../approaches/debug-container/index.md)
 - [GitHub Actions Integration](../platforms/github-actions.md)
 - [GitLab CI Integration](../platforms/gitlab-ci.md)
 - [GitLab Services Integration](../platforms/gitlab-services.md)

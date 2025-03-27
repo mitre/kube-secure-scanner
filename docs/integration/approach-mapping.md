@@ -15,6 +15,7 @@ The Kubernetes API Approach is our recommended method for scanning containers in
 ```
 
 This workflow implements:
+
 - Complete CI/CD pipeline with build, deploy, and scan steps
 - Standard Kubernetes API-based scanning
 - SAF-CLI integration for threshold checking
@@ -27,6 +28,7 @@ This workflow implements:
 ```
 
 This workflow implements:
+
 - Label-based pod selection for targeted scanning
 - Least-privilege RBAC model
 - Dynamic service account and token creation
@@ -38,6 +40,7 @@ This workflow implements:
 ```
 
 This workflow implements:
+
 - Scanning pods in existing clusters
 - Using externally provided kubeconfig
 - Limited-duration token generation
@@ -52,6 +55,7 @@ This workflow implements:
 ```
 
 This pipeline implements:
+
 - Standard Kubernetes API approach
 - Four-stage pipeline (deploy, scan, report, cleanup)
 - SAF-CLI integration for report generation
@@ -64,6 +68,7 @@ This pipeline implements:
 ```
 
 This pipeline implements:
+
 - Label-based pod targeting
 - Restricted RBAC permissions
 - Time-bound access credentials
@@ -75,6 +80,7 @@ This pipeline implements:
 ```
 
 This pipeline uses GitLab services to provide:
+
 - Pre-configured scanning environment
 - Separation of scanning tools from main job
 - Reduced pipeline setup time
@@ -92,6 +98,7 @@ The Debug Container Approach is our interim solution for scanning distroless con
 ```
 
 This workflow implements:
+
 - Setup of a minikube cluster for testing
 - Deployment of test containers including distroless containers
 - Configuration for ephemeral debug containers
@@ -106,6 +113,7 @@ This workflow implements:
 ```
 
 This pipeline implements:
+
 - Configuration for scanning distroless containers
 - Support for ephemeral debug containers
 - Flexible profile selection
@@ -117,6 +125,7 @@ This pipeline implements:
 ```
 
 This pipeline uses GitLab services to provide:
+
 - Specialized service container for distroless scanning
 - Pre-installed dependencies for debug container approach
 - Simplified workflow for distroless container scanning
@@ -134,6 +143,7 @@ The Sidecar Container Approach is our universal interim solution with minimal pr
 ```
 
 This workflow implements:
+
 - Shared process namespace setup
 - Sidecar container deployment with CINC Auditor
 - Process identification and scanning
@@ -148,6 +158,7 @@ This workflow implements:
 ```
 
 This pipeline implements:
+
 - Pod deployment with shared process namespace
 - Sidecar scanner container configuration
 - Process-based scanning approach
@@ -159,6 +170,7 @@ This pipeline implements:
 ```
 
 This pipeline uses GitLab services to provide:
+
 - Pre-configured sidecar scanner service
 - Simplified deployment and configuration
 - Consistent scanning environment

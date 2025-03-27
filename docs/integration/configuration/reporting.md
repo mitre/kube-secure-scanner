@@ -26,6 +26,7 @@ cinc-auditor exec profile -t target --reporter json:results.json
 ```
 
 Example JSON structure:
+
 ```json
 {
   "platform": {
@@ -59,6 +60,7 @@ saf view heimdall -i results.json
 ```
 
 From the Heimdall Lite interface, users can:
+
 - Interactively explore results
 - Filter by status, impact, and other attributes
 - Export to HTML for sharing
@@ -74,6 +76,7 @@ saf view summary -i results.json --format markdown --output summary.md
 ```
 
 Example Markdown output:
+
 ```markdown
 # Scan Results Summary
 
@@ -97,6 +100,7 @@ saf convert hdf2junit -i results.json -o results.xml
 ```
 
 Benefits:
+
 - Native integration with Jenkins, GitLab, and other CI systems
 - Test result visualization
 - Historical test tracking
@@ -191,6 +195,7 @@ The SAF CLI provides threshold validation capabilities to implement quality gate
 ```
 
 Example threshold file:
+
 ```yaml
 compliance:
   overall: 80  # Overall compliance must be at least 80%

@@ -45,7 +45,8 @@ This directory contains example GitHub Action workflow files that demonstrate va
 These workflow examples are designed to be adapted to your specific environment. Each example includes detailed comments explaining the purpose of each step and how to customize it for your needs.
 
 For detailed information on which scanning approach to use in different scenarios, see:
+
 - [Approach Comparison](../approaches/comparison.md)
 - [Approach Decision Matrix](../approaches/decision-matrix.md)
 
-For detailed GitHub Actions integration instructions, see the [GitHub Actions Integration Guide](../integration/github-actions.md).
+For detailed GitHub Actions integration instructions, see the [GitHub Actions Integration Guide](../integration/platforms/github-actions.md).
