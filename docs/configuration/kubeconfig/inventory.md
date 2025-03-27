@@ -25,4 +25,4 @@ The kubeconfig directory contains documentation for Kubernetes authentication co
 - [RBAC Configuration](../../rbac/index.md)
 - [Service Accounts](../../service-accounts/index.md)
 - [Token Management](../../tokens/index.md)
-- [Security Framework](../../security/overview.md)
+- [Security Framework](../../security/index.md)

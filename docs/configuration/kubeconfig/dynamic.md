@@ -47,6 +47,7 @@ echo "Generated kubeconfig at ${OUTPUT_FILE}"
 ```
 
 Usage:
+
 ```bash
 ./generate-kubeconfig.sh inspec-test inspec-scanner ./my-kubeconfig.yaml
 ```
@@ -80,7 +81,7 @@ jobs:
             kubectl create sa inspec-scanner -n inspec-test
           
           # Generate kubeconfig for scanner
-          ./scripts/generate-kubeconfig.sh inspec-test inspec-scanner ./scanner-kubeconfig.yaml
+          ./kubernetes-scripts/generate-kubeconfig.sh inspec-test inspec-scanner ./scanner-kubeconfig.yaml
           
           # Run scan with generated kubeconfig
           KUBECONFIG=./scanner-kubeconfig.yaml cinc-auditor exec profile -t k8s-container://inspec-test/target-pod/container
@@ -100,7 +101,7 @@ container-scan:
   script:
     - |
       # Generate kubeconfig
-      ./scripts/generate-kubeconfig.sh $NAMESPACE $SERVICE_ACCOUNT ./scanner-kubeconfig.yaml
+      ./kubernetes-scripts/generate-kubeconfig.sh $NAMESPACE $SERVICE_ACCOUNT ./scanner-kubeconfig.yaml
       
       # Run scan with generated kubeconfig
       KUBECONFIG=./scanner-kubeconfig.yaml cinc-auditor exec $PROFILE_PATH \
@@ -150,5 +151,5 @@ This approach is particularly useful for automated scanning across multiple envi
 - [Kubeconfig Generation](generation.md)
 - [Kubeconfig Management](management.md)
 - [Security Considerations](security.md)
-- [GitHub Actions Integration](../../integration/github-actions.md)
-- [GitLab CI Integration](../../integration/gitlab.md)
+- [GitHub Actions Integration](../../integration/platforms/github-actions.md)
+- [GitLab CI Integration](../../integration/platforms/gitlab-ci.md)

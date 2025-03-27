@@ -70,6 +70,7 @@ skipped:
 ```
 
 The scan will fail if:
+
 - Compliance score is below 90%, OR
 - Any critical failures exist, OR
 - Any controls are skipped

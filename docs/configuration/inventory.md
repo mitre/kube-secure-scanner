@@ -67,4 +67,4 @@ The configuration directory is organized into the following subdirectories:
 - [RBAC Configuration](../rbac/index.md)
 - [Service Accounts](../service-accounts/index.md)
 - [Token Management](../tokens/index.md)
-- [Security Framework](../security/overview.md)
+- [Security Framework](../security/index.md)

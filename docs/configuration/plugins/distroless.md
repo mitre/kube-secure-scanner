@@ -181,6 +181,7 @@ cinc-auditor exec my-profile -t k8s-container://namespace/pod/container
 ```
 
 The plugin would automatically:
+
 1. Detect the container is distroless
 2. Create an ephemeral container
 3. Execute the scan through the ephemeral container

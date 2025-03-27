@@ -291,3 +291,4 @@ container-security-scan:
 - [Kubeconfig Security](../kubeconfig/security.md)
 - [Security Principles](../../security/principles/index.md)
 - [Threat Mitigations](../../security/threat-model/threat-mitigations.md)
+- [NSA/CISA Kubernetes Hardening Guide](../../security/compliance/nsa-cisa-hardening.md)

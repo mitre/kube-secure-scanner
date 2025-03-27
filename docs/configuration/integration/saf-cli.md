@@ -68,6 +68,7 @@ saf threshold -i results.json -t threshold.yml
 ```
 
 The command returns:
+
 - Exit code 0 if all thresholds are met
 - Non-zero exit code if any threshold is not met
 

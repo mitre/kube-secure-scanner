@@ -38,4 +38,4 @@ For specialized needs, explore the [Plugin Customization](plugins/index.md) docu
 - [RBAC Configuration](../rbac/index.md)
 - [Service Accounts](../service-accounts/index.md)
 - [Token Management](../tokens/index.md)
-- [Security Considerations](../security/overview.md)
+- [Security Considerations](../security/index.md)

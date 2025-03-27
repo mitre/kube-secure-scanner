@@ -14,7 +14,7 @@ The advanced configuration directory contains documentation for customizing scan
 
 ## Primary Features
 
-- **Threshold Configuration**: Settings for compliance score validation 
+- **Threshold Configuration**: Settings for compliance score validation
 - **Plugin Customization**: Modifications to scanning plugins for specific environments
 - **SAF CLI Integration**: Advanced results processing with the MITRE Security Automation Framework
 
@@ -27,5 +27,5 @@ The advanced configuration directory contains documentation for customizing scan
 ## Related Resources
 
 - [Basic Configuration](../index.md)
-- [CI/CD Integration](../../integration/overview.md)
-- [Security Framework](../../security/overview.md)
+- [CI/CD Integration](../../integration/index.md)
+- [Security Framework](../../security/index.md)

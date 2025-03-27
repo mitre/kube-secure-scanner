@@ -19,9 +19,9 @@ These configurations are typically used in enterprise environments or scenarios 
 
 ## Available Configuration Options
 
-- [Scanning Thresholds](thresholds.md) - Configuration of compliance threshold validation
-- [Plugin Modifications](plugin-modifications.md) - Customizing the behavior of scanning plugins
-- [SAF CLI Integration](saf-cli-integration.md) - Integration with MITRE SAF CLI for enhanced functionality
+- [Scanning Thresholds](../thresholds/index.md) - Configuration of compliance threshold validation
+- [Plugin Modifications](../plugins/implementation.md) - Customizing the behavior of scanning plugins
+- [SAF CLI Integration](../integration/saf-cli.md) - Integration with MITRE SAF CLI for enhanced functionality
 
 ## Common Configurations
 
@@ -54,4 +54,4 @@ saf threshold -i scan-results.json -t threshold.yml
 
 ## Next Steps
 
-After configuring your scanner, review the [CI/CD Integration](../../integration/overview.md) documentation to incorporate scanning into your deployment pipelines.
+After configuring your scanner, review the [CI/CD Integration](../../integration/index.md) documentation to incorporate scanning into your deployment pipelines.

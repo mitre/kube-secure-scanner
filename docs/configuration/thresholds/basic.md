@@ -57,6 +57,7 @@ saf threshold -i scan-results.json -t threshold.yml
 ```
 
 The command returns:
+
 - Exit code 0 if all thresholds are met
 - Non-zero exit code if any threshold is not met
 
@@ -134,6 +135,7 @@ If you're experiencing issues with thresholds:
 1. Verify your threshold file is valid YAML or JSON
 2. Check that your scan results contain the expected impact levels
 3. Use the `--debug` flag with SAF CLI for more detailed output:
+
    ```bash
    saf threshold -i scan-results.json -t threshold.yml --debug
    ```

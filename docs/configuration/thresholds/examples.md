@@ -20,6 +20,7 @@ failed:
 ```
 
 This configuration:
+
 - Requires a modest 70% compliance score
 - Enforces zero critical vulnerabilities
 - Allows up to 3 high-impact findings
@@ -47,6 +48,7 @@ skipped:
 ```
 
 This configuration:
+
 - Requires a higher 85% compliance score
 - Enforces zero critical vulnerabilities
 - Allows only 1 high-impact finding
@@ -77,6 +79,7 @@ error:
 ```
 
 This configuration:
+
 - Requires a high 95% compliance score
 - Enforces zero critical vulnerabilities
 - Enforces zero high-impact findings
@@ -176,10 +179,13 @@ To use these examples:
 
 1. Copy the appropriate example to a file (e.g., `threshold.yml`)
 2. Run your scan with the threshold file:
+
    ```bash
    ./scan-container.sh my-namespace my-pod my-container my-profile ./threshold.yml
    ```
+
 3. Alternatively, use with SAF CLI directly:
+
    ```bash
    saf threshold -i scan-results.json -t threshold.yml
    ```

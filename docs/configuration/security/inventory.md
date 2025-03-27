@@ -22,5 +22,5 @@ The security directory contains documentation for security-focused configuration
 
 - [Kubeconfig Configuration](../kubeconfig/index.md)
 - [RBAC Configuration](../../rbac/index.md)
-- [Security Considerations](../../security/overview.md)
+- [Security Considerations](../../security/index.md)
 - [Threat Model](../../security/threat-model/index.md)

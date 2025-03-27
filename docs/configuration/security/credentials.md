@@ -219,18 +219,21 @@ chmod 600 $HOME/.kube/config
 If credentials are compromised:
 
 1. **Revoke the compromised credentials** immediately
+
    ```bash
    kubectl delete serviceaccount scanner-sa -n scanner-namespace
    kubectl create serviceaccount scanner-sa -n scanner-namespace
    ```
 
 2. **Audit usage** to determine potential impact
+
    ```bash
    # Check audit logs for suspicious activity
    kubectl logs -n kube-system -l component=kube-apiserver
    ```
 
 3. **Rotate all related credentials**
+
    ```bash
    # Regenerate and distribute new credentials
    ./rotate-credentials.sh

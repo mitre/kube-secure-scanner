@@ -46,6 +46,7 @@ failed:
 ```
 
 This configuration requires:
+
 - At least 80% overall compliance
 - No critical failures
 - No more than 2 high severity failures

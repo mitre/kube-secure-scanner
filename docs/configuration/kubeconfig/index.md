@@ -46,4 +46,4 @@ Once you have created a kubeconfig file, you can [test it](generation.md#testing
 - [RBAC Configuration](../../rbac/index.md)
 - [Service Accounts](../../service-accounts/index.md)
 - [Token Management](../../tokens/index.md)
-- [Security Considerations](../../security/overview.md)
+- [Security Considerations](../../security/index.md)
