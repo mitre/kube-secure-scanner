@@ -72,6 +72,10 @@ jobs:
           folder: site
           branch: gh-pages
           clean: true
+          clean-exclude: |
+            .nojekyll
+            CNAME
+          force: true
           
       # Verify deployment
       - name: Verify deployment

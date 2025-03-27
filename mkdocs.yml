@@ -516,3 +516,7 @@ extra:
     - icon: fontawesome/solid/shield
       link: https://saf.mitre.org
       name: MITRE Security Automation Framework
+
+# Generate a .nojekyll file in the output directory to prevent GitHub Pages from using Jekyll
+extra_files:
+  - .nojekyll

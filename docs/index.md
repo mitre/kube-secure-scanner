@@ -1,9 +1,11 @@
 # Kube Secure Scanner
 
-!!! info "Release Preview v0.90"
-    This is an ongoing joint community research effort and is currently at **Release Preview (v0.90)**. Some examples, automation, pipelines, and scripts are still in the process of being fully tested and validated. We'll be releasing updates in v0.9.x versions as we work toward a stable v1.0.0 release.
+<div style="padding: 1em; margin-bottom: 1em; background-color: rgba(0, 100, 200, 0.1); border-left: 4px solid #0066cc; border-radius: 4px;">
+<h2 style="margin-top: 0; color: #0066cc;">Release Preview v0.90</h2>
+<p>This is an ongoing joint community research effort and is currently at <strong>Release Preview (v0.90)</strong>. Some examples, automation, pipelines, and scripts are still in the process of being fully tested and validated. We'll be releasing updates in v0.9.x versions as we work toward a stable v1.0.0 release.</p>
 
-    [View Project on GitHub ↗](https://github.com/mitre/kube-secure-scanner){: .md-button .md-button--primary target="_blank"}
+<a href="https://github.com/mitre/kube-secure-scanner" class="md-button md-button--primary" target="_blank">View Project on GitHub ↗</a>
+</div>
 
 ## Overview
 
