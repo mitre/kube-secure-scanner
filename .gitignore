@@ -9,3 +9,8 @@ venv/
 .mkdocs-server.pid
 session-logs/
 *.log
+
+# Claude session and recovery files
+SESSION-RECOVERY.md
+continuation-prompt.md
+CLAUDE.md
