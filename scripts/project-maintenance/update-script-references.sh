@@ -3,7 +3,7 @@
 # This script updates references to ./scripts/scan-*.sh to ./kubernetes-scripts/scan-*.sh
 # It also updates setup-minikube.sh and generate-kubeconfig.sh
 
-DOCS_DIR="/Users/alippold/github/mitre/kube-cinc-secure-scanner/docs"
+DOCS_DIR="/Users/alippold/github/mitre/kube-secure-scanner/docs"
 
 # Process markdown files only
 find "$DOCS_DIR" -name "*.md" -type f -print0 | while IFS= read -r -d '' file; do

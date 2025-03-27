@@ -36,7 +36,7 @@ This document outlines our systematic approach to stabilizing the documentation 
 1. **Create backup directory**
 
    ```bash
-   mkdir -p /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs-backup
+   mkdir -p /Users/alippold/github/mitre/kube-secure-scanner/docs-backup
    ```
 
 2. **Create TODO list document**
@@ -227,35 +227,35 @@ This document outlines our systematic approach to stabilizing the documentation 
 
 ```bash
 # Find references to old file paths
-grep -r "kubernetes-api\.md" --include="*.md" /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs | grep -v node_modules
+grep -r "kubernetes-api\.md" --include="*.md" /Users/alippold/github/mitre/kube-secure-scanner/docs | grep -v node_modules
 
 # Find all markdown files in a directory
-find /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs/approaches -type f -name "*.md" | sort
+find /Users/alippold/github/mitre/kube-secure-scanner/docs/approaches -type f -name "*.md" | sort
 
 # List reorganization summary files
-ls -la /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs/project/*reorganization*
+ls -la /Users/alippold/github/mitre/kube-secure-scanner/docs/project/*reorganization*
 ```
 
 ### Viewing Directory Structure
 
 ```bash
 # View directory structure with tree command
-tree -L 2 /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs/approaches
+tree -L 2 /Users/alippold/github/mitre/kube-secure-scanner/docs/approaches
 
 # View directory structure with limited depth
-tree -L 1 /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs
-tree -L 3 /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs/approaches
+tree -L 1 /Users/alippold/github/mitre/kube-secure-scanner/docs
+tree -L 3 /Users/alippold/github/mitre/kube-secure-scanner/docs/approaches
 ```
 
 ### Backup Operations
 
 ```bash
 # Create backup directory
-mkdir -p /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs-backup
+mkdir -p /Users/alippold/github/mitre/kube-secure-scanner/docs-backup
 
 # Move a file to backup (preserving directory structure)
-mkdir -p /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs-backup/approaches
-mv /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs/approaches/kubernetes-api.md /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs-backup/approaches/
+mkdir -p /Users/alippold/github/mitre/kube-secure-scanner/docs-backup/approaches
+mv /Users/alippold/github/mitre/kube-secure-scanner/docs/approaches/kubernetes-api.md /Users/alippold/github/mitre/kube-secure-scanner/docs-backup/approaches/
 ```
 
 ### Documentation Tools

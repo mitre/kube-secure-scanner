@@ -87,7 +87,7 @@ kubectl get nodes
 ```bash
 # Example for using the built-in container baseline profile
 # The project includes sample profiles in examples/cinc-profiles/
-cd /path/to/kube-cinc-secure-scanner
+cd /path/to/kube-secure-scanner
 ls examples/cinc-profiles/container-baseline
 ```
 

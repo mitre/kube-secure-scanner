@@ -14,4 +14,4 @@ This directory contains documentation for the technical overview and architectur
 
 The overview section serves as the main technical introduction to the project architecture, scanning approaches, and implementation details.
 
-For the full documentation, visit the [project documentation site](https://github.com/mitre/kube-cinc-secure-scanner).
+For the full documentation, visit the [project documentation site](https://github.com/mitre/kube-secure-scanner).

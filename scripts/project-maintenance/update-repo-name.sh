@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Script to update repository name references from kube-cinc-secure-scanner to kube-secure-scanner
+# Script to update repository name references from kube-secure-scanner to kube-secure-scanner
 # This script will update all documentation and configuration files with the new repository name
 
 set -e
 
-OLD_NAME="kube-cinc-secure-scanner"
+OLD_NAME="kube-secure-scanner"
 NEW_NAME="kube-secure-scanner"
 
 # Count total references before changes

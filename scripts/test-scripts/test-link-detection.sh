@@ -4,7 +4,7 @@
 set -e
 
 # Default to architecture/index.md if no file specified
-TARGET_FILE="${1:-/Users/alippold/github/mitre/kube-cinc-secure-scanner/docs/architecture/index.md}"
+TARGET_FILE="${1:-/Users/alippold/github/mitre/kube-secure-scanner/docs/architecture/index.md}"
 
 # Also create a test file with known patterns for verification
 TEST_FILE="/tmp/test-links.md"

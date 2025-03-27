@@ -41,13 +41,13 @@ To start working on documentation:
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/mitre/kube-cinc-secure-scanner.git
+   git clone https://github.com/mitre/kube-secure-scanner.git
    ```
 
 2. Navigate to the project root directory
 
    ```bash
-   cd kube-cinc-secure-scanner
+   cd kube-secure-scanner
    ```
 
 3. Run initial setup to install dependencies:

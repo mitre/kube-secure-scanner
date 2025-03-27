@@ -27,8 +27,8 @@ To set up your local development environment:
 
 ```bash
 # Clone the repository
-git clone https://github.com/mitre/kube-cinc-secure-scanner
-cd kube-cinc-secure-scanner
+git clone https://github.com/mitre/kube-secure-scanner
+cd kube-secure-scanner
 
 # Install dependencies
 cd docs

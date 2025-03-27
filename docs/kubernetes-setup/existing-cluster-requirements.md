@@ -111,8 +111,8 @@ Run this validation script to check if your cluster meets the requirements:
 
 ```bash
 # Clone the repository if you haven't already
-git clone https://github.com/mitre/kube-cinc-secure-scanner.git
-cd kube-cinc-secure-scanner
+git clone https://github.com/mitre/kube-secure-scanner.git
+cd kube-secure-scanner
 
 # Run the validation checks
 ./kubernetes-scripts/validate-cluster.sh

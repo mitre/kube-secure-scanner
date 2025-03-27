@@ -37,7 +37,7 @@ The project includes a comprehensive setup script that automates the entire Mini
 
 ```bash
 # Navigate to the project directory
-cd kube-cinc-secure-scanner
+cd kube-secure-scanner
 
 # Run the setup script with default options
 ./kubernetes-scripts/setup-minikube.sh

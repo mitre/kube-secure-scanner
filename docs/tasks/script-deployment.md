@@ -54,8 +54,8 @@ This task guides you through the hands-on approach of deploying and using Kube C
 1. Clone the repository to access the scripts:
 
 ```bash
-git clone https://github.com/mitre/kube-cinc-secure-scanner.git
-cd kube-cinc-secure-scanner
+git clone https://github.com/mitre/kube-secure-scanner.git
+cd kube-secure-scanner
 ```
 
 2. Navigate to the scripts directory:

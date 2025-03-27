@@ -37,8 +37,8 @@ In this step, you'll set up your environment to run Kube CINC Secure Scanner.
 :material-source-repository:{ .lg .middle } **Clone Repository**
 
 ```bash
-git clone https://github.com/mitre/kube-cinc-secure-scanner.git
-cd kube-cinc-secure-scanner
+git clone https://github.com/mitre/kube-secure-scanner.git
+cd kube-secure-scanner
 ```
 
 :material-kubernetes:{ .lg .middle } **Set Up Minikube**

@@ -72,5 +72,5 @@ The Helm charts follow a hierarchical relationship:
 ## Related Resources
 
 - [Main Project Documentation](../index.md)
-- [GitHub Helm Chart Source](https://github.com/mitre/kube-cinc-secure-scanner/tree/main/helm-charts)
+- [GitHub Helm Chart Source](https://github.com/mitre/kube-secure-scanner/tree/main/helm-charts)
 - [Scanning Approaches](../approaches/index.md)
