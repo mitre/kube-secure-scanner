@@ -1,6 +1,9 @@
-# Secure CINC Auditor Kubernetes Container Scanning
+# Kube Secure Scanner
 
-A comprehensive platform for securely scanning Kubernetes containers, including distroless containers, using CINC Auditor with least-privilege security controls.
+A flexible, security-focused framework for scanning containers in Kubernetes environments with multiple scanning engines. Initially built with CINC Auditor (open source InSpec), the platform provides secure RBAC configurations, multiple scanning approaches, and comprehensive CI/CD integration.
+
+!!! info "Release Preview v0.90"
+    This is an ongoing joint community research effort and is currently at **Release Preview (v0.90)**. Some examples, automation, pipelines, and scripts are still in the process of being fully tested and validated. We'll be releasing updates in v0.9.x versions as we work toward a stable v1.0.0 release.
 
 *[CINC]: CINC Is Not Chef
 *[SAF]: Security Automation Framework
@@ -60,15 +63,16 @@ A comprehensive platform for securely scanning Kubernetes containers, including 
 
 ## Scanning Approaches
 
-This project offers three distinct approaches for container scanning:
+This project offers three distinct approaches for container scanning, designed to accommodate various container types and Kubernetes environments:
 
 === "Kubernetes API Approach (Recommended)"
 
-    Direct API-based scanning using the train-k8s-container plugin. Most scalable solution with seamless integration.
+    Direct API-based scanning approach. Most scalable solution with seamless integration.
     
     - Works with standard containers now
     - Universal solution once distroless support is complete
     - No configuration changes to existing pods
+    - Flexible scanner engine support (roadmap)
     
     [Learn More](approaches/kubernetes-api/index.md){: .md-button }
 
@@ -79,16 +83,18 @@ This project offers three distinct approaches for container scanning:
     - Requires Kubernetes 1.16+ with ephemeral containers
     - Works with existing deployed containers
     - Good for testing environments
+    - Compatible with multiple scanner engines
     
     [Learn More](approaches/debug-container/index.md){: .md-button }
 
 === "Sidecar Container Approach"
 
-    CINC Auditor sidecar container with shared process namespace for any container type.
+    Scanner sidecar container with shared process namespace for any container type.
     
     - Works with any Kubernetes cluster
     - Universal compatibility
     - Must be deployed alongside target container
+    - Supports pluggable scanner engines
     
     [Learn More](approaches/sidecar-container/index.md){: .md-button }
 
@@ -122,7 +128,7 @@ The fastest way to get started is with our Quick Start guide:
 
 ## Project Roadmap
 
-Our active roadmap includes the following key initiatives:
+Our active roadmap includes the following key initiatives for the path to v1.0:
 
 <div class="grid cards" markdown>
 
@@ -142,18 +148,20 @@ Our active roadmap includes the following key initiatives:
 
     Expand scanning capabilities to new container types.
     
-    - Extend train-k8s-container plugin for distroless support
+    - Complete API-based direct scanning approach
     - Improve scan performance for specialized containers
+    - Add universal distroless container support
 
-- :material-tools:{ .lg .middle } **Additional Security Tool Integration**
+- :material-tools:{ .lg .middle } **Multi-Scanner Engine Architecture**
 
     ---
 
-    Expand beyond CINC to integrate additional security scanning tools.
+    Implement framework for integrating multiple scanning engines:
     
-    - Anchore Grype integration for vulnerability scanning
-    - Anchore Syft integration for SBOM generation
-    - Evaluate additional security tools for inclusion
+    - Scanner engine plugin interface
+    - Results normalization layer
+    - Support for vulnerability scanners and SBOM generators
+    - Scanner configuration standardization
 
 ## Core Documentation
 
