@@ -8,10 +8,10 @@ Service accounts provide identity management for secure scanner access.
 
 - **Purpose**: Establish a secure identity for the scanner within Kubernetes
 - **Features**:
-  - Temporary/ephemeral accounts for scanning operations
-  - Limited lifespan to reduce potential attack surface
-  - Namespace-specific isolation
-  - No permanent elevated privileges
+    - Temporary/ephemeral accounts for scanning operations
+    - Limited lifespan to reduce potential attack surface
+    - Namespace-specific isolation
+    - No permanent elevated privileges
 
 ## RBAC Rules
 
@@ -19,11 +19,11 @@ RBAC (Role-Based Access Control) rules enforce least-privilege access for scanni
 
 - **Purpose**: Restrict scanner access to only what is necessary
 - **Features**:
-  - Granular permission control
-  - Namespace-specific permissions
-  - Time-limited access
-  - Resource-specific limitations
-  - Label-based selection for targeted scanning
+    - Granular permission control
+    - Namespace-specific permissions
+    - Time-limited access
+    - Resource-specific limitations
+    - Label-based selection for targeted scanning
 
 ## Security Token Management
 
@@ -31,10 +31,10 @@ Security token management provides controlled access to Kubernetes resources.
 
 - **Purpose**: Secure authentication for scanning operations
 - **Features**:
-  - Short-lived token generation
-  - Automatic token expiration
-  - No persistent credential storage
-  - Rotation mechanisms for long-running scans
+    - Short-lived token generation
+    - Automatic token expiration
+    - No persistent credential storage
+    - Rotation mechanisms for long-running scans
 
 ## Kubeconfig Security
 
@@ -42,10 +42,10 @@ Kubeconfig security ensures that Kubernetes configuration is properly secured.
 
 - **Purpose**: Secure storage and management of Kubernetes access configurations
 - **Features**:
-  - Temporary kubeconfig generation
-  - Restricted permissions
-  - No shared kubeconfig files
-  - Context-specific configurations
+    - Temporary kubeconfig generation
+    - Restricted permissions
+    - No shared kubeconfig files
+    - Context-specific configurations
 
 ## Secure Plugin Configuration
 
@@ -53,10 +53,10 @@ Secure plugin configuration ensures that the transport plugin operates securely.
 
 - **Purpose**: Configure the transport plugin with secure defaults
 - **Features**:
-  - No privilege escalation
-  - Restricted filesystem access
-  - Command execution limitations
-  - Secure parameter handling
+    - No privilege escalation
+    - Restricted filesystem access
+    - Command execution limitations
+    - Secure parameter handling
 
 ## Security Component Interaction Diagram
 

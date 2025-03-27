@@ -23,7 +23,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Setup Tasks:
+#### Setup Tasks
 
 1. **Identify Target Container**:
    - Namespace, pod name, and container name are identified
@@ -64,7 +64,7 @@ flowchart TD
     style H fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Scanning Tasks:
+#### Scanning Tasks
 
 1. **Initialize CINC Auditor**:
    - CINC Auditor (InSpec) initialized with appropriate profile
@@ -113,7 +113,7 @@ flowchart TD
     style I fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Processing Tasks:
+#### Processing Tasks
 
 1. **Format Results**:
    - Raw scan results formatted for readability
@@ -145,7 +145,7 @@ flowchart TD
     style F fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Cleanup Tasks:
+#### Cleanup Tasks
 
 1. **Delete Kubeconfig**:
    - Temporary kubeconfig file securely deleted
@@ -165,17 +165,17 @@ flowchart TD
 The standard container workflow is implemented in the `scan-container.sh` script with the following parameters:
 
 ```bash
-./scripts/scan-container.sh <namespace> <pod-name> <container-name> <profile-path> [threshold_file]
+./kubernetes-scripts/scan-container.sh <namespace> <pod-name> <container-name> <profile-path> [threshold_file]
 ```
 
-### Required Parameters:
+### Required Parameters
 
 - `namespace`: Kubernetes namespace containing the target container
 - `pod-name`: Name of the pod containing the target container
 - `container-name`: Name of the target container
 - `profile-path`: Path to the InSpec profile to run
 
-### Optional Parameters:
+### Optional Parameters
 
 - `threshold_file`: Path to threshold configuration file for validation
 

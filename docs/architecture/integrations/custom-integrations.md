@@ -262,7 +262,7 @@ jobs:
       - run:
           name: Scan Container
           command: |
-            ./scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/container-baseline
+            ./kubernetes-scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/container-baseline
       - run:
           name: Validate Results
           command: |
@@ -525,5 +525,5 @@ Several tools and libraries can help with custom integrations:
 For more information on custom integrations, see:
 
 - [Enterprise Integration Analysis](../../overview/enterprise-integration-analysis.md)
-- [Integration Overview](../../integration/overview.md)
+- [Integration Overview](../../integration/index.md)
 - [Approach Mapping](../../integration/approach-mapping.md)

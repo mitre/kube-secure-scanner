@@ -14,11 +14,11 @@ The core scripts that implement the scanning functionality:
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| `scan-container.sh` | Scan standard containers | `./scripts/scan-container.sh <namespace> <pod-name> <container-name> <profile-path> [threshold_file]` |
-| `scan-distroless-container.sh` | Scan distroless containers | `./scripts/scan-distroless-container.sh <namespace> <pod-name> <container-name> <profile-path> [threshold_file]` |
-| `scan-with-sidecar.sh` | Scan using sidecar approach | `./scripts/scan-with-sidecar.sh <namespace> <pod-name> <profile-path> [threshold_file]` |
-| `setup-minikube.sh` | Set up test environment | `./scripts/setup-minikube.sh [--with-distroless]` |
-| `generate-kubeconfig.sh` | Generate secure kubeconfig | `./scripts/generate-kubeconfig.sh <namespace> <service-account> <output-file>` |
+| `scan-container.sh` | Scan standard containers | `./kubernetes-scripts/scan-container.sh <namespace> <pod-name> <container-name> <profile-path> [threshold_file]` |
+| `scan-distroless-container.sh` | Scan distroless containers | `./kubernetes-scripts/scan-distroless-container.sh <namespace> <pod-name> <container-name> <profile-path> [threshold_file]` |
+| `scan-with-sidecar.sh` | Scan using sidecar approach | `./kubernetes-scripts/scan-with-sidecar.sh <namespace> <pod-name> <profile-path> [threshold_file]` |
+| `setup-minikube.sh` | Set up test environment | `./kubernetes-scripts/setup-minikube.sh [--with-distroless]` |
+| `generate-kubeconfig.sh` | Generate secure kubeconfig | `./kubernetes-scripts/generate-kubeconfig.sh <namespace> <service-account> <output-file>` |
 
 ### 2. RBAC Templates
 
@@ -112,7 +112,7 @@ flowchart TD
 
 The script-based deployment follows this general workflow:
 
-1. **Setup**: 
+1. **Setup**:
    - User selects appropriate scanning script
    - User provides target container details
    - User provides security profile path
@@ -171,27 +171,27 @@ Scripts can be customized in several ways:
 
 ```bash
 # Standard container scan
-./scripts/scan-container.sh default nginx-pod nginx-container examples/cinc-profiles/container-baseline
+./kubernetes-scripts/scan-container.sh default nginx-pod nginx-container examples/cinc-profiles/container-baseline
 
 # Distroless container scan
-./scripts/scan-distroless-container.sh default distroless-pod distroless-container examples/cinc-profiles/container-baseline
+./kubernetes-scripts/scan-distroless-container.sh default distroless-pod distroless-container examples/cinc-profiles/container-baseline
 
 # Sidecar approach scan
-./scripts/scan-with-sidecar.sh default target-pod examples/cinc-profiles/container-baseline
+./kubernetes-scripts/scan-with-sidecar.sh default target-pod examples/cinc-profiles/container-baseline
 ```
 
 ### With Threshold Validation
 
 ```bash
 # Standard container scan with threshold validation
-./scripts/scan-container.sh default nginx-pod nginx-container examples/cinc-profiles/container-baseline examples/thresholds/moderate.yml
+./kubernetes-scripts/scan-container.sh default nginx-pod nginx-container examples/cinc-profiles/container-baseline examples/thresholds/moderate.yml
 ```
 
 ### Setting Up Test Environment
 
 ```bash
 # Setup Minikube for testing
-./scripts/setup-minikube.sh --with-distroless
+./kubernetes-scripts/setup-minikube.sh --with-distroless
 ```
 
 ## Integration with Other Systems

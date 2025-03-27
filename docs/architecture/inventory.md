@@ -5,6 +5,7 @@ This directory contains documentation about the architecture, components, workfl
 ## Contents
 
 ### Components
+
 - [Components Overview](components/index.md) - Core architectural components
 - [Components Inventory](components/inventory.md) - Components documentation inventory
 - [Core Components](components/core-components.md) - Details of main system components
@@ -12,6 +13,7 @@ This directory contains documentation about the architecture, components, workfl
 - [Communication Patterns](components/communication.md) - Component communication patterns
 
 ### Workflows
+
 - [Workflows Overview](workflows/index.md) - End-to-end workflow processes
 - [Workflows Inventory](workflows/inventory.md) - Workflows documentation inventory
 - [Standard Container Workflow](workflows/standard-container.md) - Workflow for standard containers
@@ -20,6 +22,7 @@ This directory contains documentation about the architecture, components, workfl
 - [Security Workflows](workflows/security-workflows.md) - Security-focused workflows
 
 ### Diagrams
+
 - [Diagrams Overview](diagrams/index.md) - WCAG-compliant architecture diagrams
 - [Diagrams Inventory](diagrams/inventory.md) - Diagrams documentation inventory
 - [Component Diagrams](diagrams/component-diagrams.md) - Component visualization diagrams
@@ -27,6 +30,7 @@ This directory contains documentation about the architecture, components, workfl
 - [Deployment Diagrams](diagrams/deployment-diagrams.md) - Deployment visualization diagrams
 
 ### Deployment
+
 - [Deployment Overview](deployment/index.md) - Deployment architecture options
 - [Deployment Inventory](deployment/inventory.md) - Deployment documentation inventory
 - [Script Deployment](deployment/script-deployment.md) - Script-based deployment architecture
@@ -34,6 +38,7 @@ This directory contains documentation about the architecture, components, workfl
 - [CI/CD Deployment](deployment/ci-cd-deployment.md) - CI/CD integration deployment architecture
 
 ### Integrations
+
 - [Integrations Overview](integrations/index.md) - CI/CD integration architecture
 - [Integrations Inventory](integrations/inventory.md) - Integrations documentation inventory
 - [GitHub Actions Integration](integrations/github-actions.md) - GitHub Actions integration architecture

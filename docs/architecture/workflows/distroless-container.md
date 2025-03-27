@@ -23,7 +23,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Setup Tasks:
+#### Setup Tasks
 
 1. **Identify Target Container**:
    - Namespace, pod name, and container name are identified
@@ -63,7 +63,7 @@ flowchart TD
     style F fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Debug Container Tasks:
+#### Debug Container Tasks
 
 1. **Create Debug Container**:
    - Debug container specification created with:
@@ -95,7 +95,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Scanning Tasks:
+#### Scanning Tasks
 
 1. **Initialize CINC Auditor**:
    - CINC Auditor (InSpec) initialized in debug container
@@ -141,7 +141,7 @@ flowchart TD
     style I fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Processing Tasks:
+#### Processing Tasks
 
 1. **Format Results**:
    - Raw scan results formatted for readability
@@ -174,7 +174,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Cleanup Tasks:
+#### Cleanup Tasks
 
 1. **Remove Debug Container**:
    - Debug container removed from target pod
@@ -198,17 +198,17 @@ flowchart TD
 The distroless container workflow is implemented in the `scan-distroless-container.sh` script with the following parameters:
 
 ```bash
-./scripts/scan-distroless-container.sh <namespace> <pod-name> <container-name> <profile-path> [threshold_file]
+./kubernetes-scripts/scan-distroless-container.sh <namespace> <pod-name> <container-name> <profile-path> [threshold_file]
 ```
 
-### Required Parameters:
+### Required Parameters
 
 - `namespace`: Kubernetes namespace containing the target container
 - `pod-name`: Name of the pod containing the target container
 - `container-name`: Name of the target container
 - `profile-path`: Path to the InSpec profile to run
 
-### Optional Parameters:
+### Optional Parameters
 
 - `threshold_file`: Path to threshold configuration file for validation
 
@@ -236,4 +236,4 @@ For CI/CD integration, the workflow can be adapted to run as part of:
 - GitLab CI pipelines with extended RBAC
 - Other CI/CD systems with appropriate configuration
 
-See [CI/CD Integration for Distroless Containers](../../integration/distroless-integration.md) for specific integration examples.
+See [CI/CD Integration for Distroless Containers](../../integration/workflows/distroless-container.md) for specific integration examples.

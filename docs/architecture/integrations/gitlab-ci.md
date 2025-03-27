@@ -241,7 +241,7 @@ scan-container:
   before_script:
     - *setup_cinc
   script:
-    - ./scripts/scan-container.sh $TARGET_NAMESPACE $TARGET_POD $TARGET_CONTAINER $PROFILE_PATH
+    - ./kubernetes-scripts/scan-container.sh $TARGET_NAMESPACE $TARGET_POD $TARGET_CONTAINER $PROFILE_PATH
   artifacts:
     paths:
       - results/
@@ -303,13 +303,13 @@ scan-matrix:
     - |
       case "$CONTAINER_TYPE" in
         standard)
-          ./scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/$PROFILE
+          ./kubernetes-scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/$PROFILE
           ;;
         distroless)
-          ./scripts/scan-distroless-container.sh default distroless-pod distroless-container examples/cinc-profiles/$PROFILE
+          ./kubernetes-scripts/scan-distroless-container.sh default distroless-pod distroless-container examples/cinc-profiles/$PROFILE
           ;;
         sidecar)
-          ./scripts/scan-with-sidecar.sh default target-pod examples/cinc-profiles/$PROFILE
+          ./kubernetes-scripts/scan-with-sidecar.sh default target-pod examples/cinc-profiles/$PROFILE
           ;;
       esac
 ```

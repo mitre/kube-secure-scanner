@@ -245,7 +245,7 @@ jobs:
     
     - name: Scan Standard Container
       run: |
-        ./scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/container-baseline
+        ./kubernetes-scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/container-baseline
       
     - name: Process Results
       run: |
@@ -315,13 +315,13 @@ jobs:
       run: |
         case "${{ matrix.container-type }}" in
           standard)
-            ./scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/${{ matrix.profile }}
+            ./kubernetes-scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/${{ matrix.profile }}
             ;;
           distroless)
-            ./scripts/scan-distroless-container.sh default distroless-pod distroless-container examples/cinc-profiles/${{ matrix.profile }}
+            ./kubernetes-scripts/scan-distroless-container.sh default distroless-pod distroless-container examples/cinc-profiles/${{ matrix.profile }}
             ;;
           sidecar)
-            ./scripts/scan-with-sidecar.sh default target-pod examples/cinc-profiles/${{ matrix.profile }}
+            ./kubernetes-scripts/scan-with-sidecar.sh default target-pod examples/cinc-profiles/${{ matrix.profile }}
             ;;
         esac
 ```

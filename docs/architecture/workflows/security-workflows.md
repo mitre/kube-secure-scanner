@@ -27,7 +27,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Controls:
+#### Controls
 
 1. **Target-Specific Permissions**:
    - Role limited to specific pod by name or label
@@ -55,7 +55,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Controls:
+#### Controls
 
 1. **Token Security**:
    - Token generated with minimal lifespan
@@ -82,7 +82,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Controls:
+#### Controls
 
 1. **Transport Security**:
    - TLS enforced for all API communication
@@ -109,7 +109,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Controls:
+#### Controls
 
 1. **Reliable Cleanup**:
    - Multiple cleanup mechanisms (trap handlers)

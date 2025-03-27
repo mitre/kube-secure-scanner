@@ -25,7 +25,7 @@ flowchart TD
     style I fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Deployment Tasks:
+#### Deployment Tasks
 
 1. **Create Pod Specification**:
    - Pod spec includes target container and scanner sidecar
@@ -56,7 +56,7 @@ flowchart TD
     style F fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Identification Tasks:
+#### Identification Tasks
 
 1. **Process Identification**:
    - Sidecar lists all processes in shared namespace
@@ -83,7 +83,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Scanning Tasks:
+#### Scanning Tasks
 
 1. **Initialize CINC Auditor**:
    - CINC Auditor started in sidecar container
@@ -115,7 +115,7 @@ flowchart TD
     style F fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Retrieval Tasks:
+#### Retrieval Tasks
 
 1. **Access Shared Volume**:
    - Results accessed from shared volume
@@ -146,7 +146,7 @@ flowchart TD
     style G fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Processing Tasks:
+#### Processing Tasks
 
 1. **Process with SAF CLI**:
    - MITRE SAF CLI processes scan results
@@ -169,7 +169,7 @@ flowchart TD
     style E fill:#505050,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
 ```
 
-#### Cleanup Tasks:
+#### Cleanup Tasks
 
 1. **Delete Pod**:
    - Pod containing target and sidecar deleted
@@ -184,16 +184,16 @@ flowchart TD
 The sidecar container workflow is implemented in the `scan-with-sidecar.sh` script with the following parameters:
 
 ```bash
-./scripts/scan-with-sidecar.sh <namespace> <pod-name> <profile-path> [threshold_file]
+./kubernetes-scripts/scan-with-sidecar.sh <namespace> <pod-name> <profile-path> [threshold_file]
 ```
 
-### Required Parameters:
+### Required Parameters
 
 - `namespace`: Kubernetes namespace for deploying the pod
 - `pod-name`: Name to give the pod with sidecar
 - `profile-path`: Path to the InSpec profile to run
 
-### Optional Parameters:
+### Optional Parameters
 
 - `threshold_file`: Path to threshold configuration file for validation
 
@@ -231,4 +231,4 @@ For CI/CD integration, the workflow can be adapted to run as part of:
 - GitLab CI using services containers
 - Other CI/CD systems with appropriate Kubernetes access
 
-See [Sidecar CI/CD Integration](../../integration/sidecar-integration.md) for specific integration examples.
+See [Sidecar CI/CD Integration](../../integration/workflows/sidecar-container.md) for specific integration examples.

@@ -320,7 +320,7 @@ jobs:
         curl -L https://omnitruck.cinc.sh/install.sh | sudo bash -s -- -P auditor
     
     - name: Scan container
-      run: ./scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/container-baseline
+      run: ./kubernetes-scripts/scan-container.sh default test-pod test-container examples/cinc-profiles/container-baseline
     
     - name: Upload results
       uses: actions/upload-artifact@v2
@@ -353,7 +353,7 @@ deploy-test-container:
 scan-container:
   stage: scan
   script:
-    - ./scripts/scan-container.sh $TARGET_NAMESPACE $TARGET_POD $TARGET_CONTAINER $PROFILE_PATH $THRESHOLD_FILE
+    - ./kubernetes-scripts/scan-container.sh $TARGET_NAMESPACE $TARGET_POD $TARGET_CONTAINER $PROFILE_PATH $THRESHOLD_FILE
   artifacts:
     paths:
       - results/
@@ -448,6 +448,6 @@ Several integration patterns are available:
 
 For detailed information on advanced CI/CD integration, see:
 
-- [GitHub Actions Integration](../../integration/github-actions.md)
-- [GitLab CI Integration](../../integration/gitlab.md)
-- [GitLab Services Integration](../../integration/gitlab-services.md)
+- [GitHub Actions Integration](../../integration/platforms/github-actions.md)
+- [GitLab CI Integration](../../integration/platforms/gitlab-ci.md)
+- [GitLab Services Integration](../../integration/platforms/gitlab-services.md)

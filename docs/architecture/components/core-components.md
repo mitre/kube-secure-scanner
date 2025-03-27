@@ -8,10 +8,10 @@ CINC Auditor is the primary scanning engine used by the platform.
 
 - **Purpose**: Execute security and compliance checks against container targets
 - **Features**:
-  - Open-source InSpec-compatible scanner
-  - Supports custom security profiles
-  - Produces structured JSON outputs for compliance reporting
-  - Can be extended with custom resources and plugins
+    - Open-source InSpec-compatible scanner
+    - Supports custom security profiles
+    - Produces structured JSON outputs for compliance reporting
+    - Can be extended with custom resources and plugins
 
 ## Transport Plugin (train-k8s-container)
 
@@ -19,10 +19,10 @@ The train-k8s-container transport plugin is a critical component for Kubernetes 
 
 - **Purpose**: Provide secure access to container filesystems and commands within Kubernetes
 - **Features**:
-  - Connects to Kubernetes API securely
-  - Uses pod exec API for container command execution
-  - Supports filesystem inspection
-  - Modified to support multiple container types including distroless
+    - Connects to Kubernetes API securely
+    - Uses pod exec API for container command execution
+    - Supports filesystem inspection
+    - Modified to support multiple container types including distroless
 
 ## Container Adapters
 
@@ -30,9 +30,9 @@ Container adapters provide specialized access mechanisms for different container
 
 - **Purpose**: Enable scanning of various container types including distroless containers
 - **Types**:
-  - **Standard Container Adapter**: Uses direct exec into container
-  - **Distroless Container Adapter**: Uses debug container approach
-  - **Sidecar Container Adapter**: Uses shared process namespace
+    - **Standard Container Adapter**: Uses direct exec into container
+    - **Distroless Container Adapter**: Uses debug container approach
+    - **Sidecar Container Adapter**: Uses shared process namespace
 
 ## Threshold Validation
 
@@ -40,10 +40,10 @@ Threshold validation is implemented through MITRE SAF CLI integration.
 
 - **Purpose**: Evaluate scan results against predefined compliance thresholds
 - **Features**:
-  - Configurable threshold levels
-  - Support for multiple threshold configurations
-  - Integration with CI/CD pipelines
-  - Fail/pass determination for automated workflows
+    - Configurable threshold levels
+    - Support for multiple threshold configurations
+    - Integration with CI/CD pipelines
+    - Fail/pass determination for automated workflows
 
 ## Component Interaction Model
 
