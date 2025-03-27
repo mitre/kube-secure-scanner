@@ -13,7 +13,9 @@ session-logs/
 # Claude session and recovery files
 SESSION-RECOVERY.md
 continuation-prompt.md
-CLAUDE.md
+CLAUDE*.md
+*-PROMPT.md
+*-RECOVERY.md
 
 # Backup directories
 .backup/
