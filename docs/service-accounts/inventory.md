@@ -35,4 +35,4 @@ The documentation emphasizes secure service account management:
 - [RBAC Configuration](../rbac/index.md)
 - [Token Management](../tokens/index.md)
 - [Kubeconfig Configuration](../configuration/index.md)
-- [Security Overview](../security/overview.md)
+- [Security Overview](../security/index.md)

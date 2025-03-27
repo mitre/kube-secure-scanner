@@ -36,4 +36,4 @@ The documentation emphasizes secure token management:
 - [Service Accounts](../service-accounts/index.md)
 - [RBAC Configuration](../rbac/index.md)
 - [Kubeconfig Configuration](../configuration/index.md)
-- [Security Overview](../security/overview.md)
+- [Security Overview](../security/index.md)

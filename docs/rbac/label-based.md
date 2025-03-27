@@ -49,6 +49,7 @@ Note: This role allows access to all pods in the namespace. The limitation will 
 ### 3. Script-Based Access Control
 
 Use a script to:
+
 1. Find pods with the target label
 2. Generate a temporary kubeconfig
 3. Run InSpec only against those pods

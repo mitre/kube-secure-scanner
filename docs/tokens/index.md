@@ -20,6 +20,7 @@ kubectl create token inspec-scanner -n inspec-test --duration=30m
 ```
 
 Benefits:
+
 - Automatic expiration
 - No token storage/cleanup required
 - Reduced risk if token is exposed
@@ -41,6 +42,7 @@ type: kubernetes.io/service-account-token
 ```
 
 Benefits:
+
 - Configurable expiration
 - Can be rotated with Kubernetes secrets rotation
 - Compatible with older Kubernetes tooling
@@ -138,6 +140,7 @@ echo $TOKEN | cut -d. -f2 | base64 -d 2>/dev/null | jq .
 ```
 
 This shows token metadata including:
+
 - Expiration time
 - Subject (service account)
 - Audience
