@@ -61,19 +61,21 @@ jobs:
           npm run links || echo "Link check found issues, review logs for details"
         continue-on-error: true
       
-      # Build and validate documentation
-      - name: Build documentation with validation
+      # Build documentation
+      - name: Build documentation
         run: mkdocs build --strict
-        
-      # Deploy to GitHub Pages using mkdocs
+      
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          mkdocs gh-deploy --force
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: site
+          branch: gh-pages
+          clean: true
           
       # Verify deployment
       - name: Verify deployment
         run: |
           echo "Documentation deployed to GitHub Pages"
           echo "Visit https://mitre.github.io/kube-secure-scanner/ to view the documentation"
+          echo "Note: It may take a few minutes for changes to propagate"

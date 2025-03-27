@@ -1,6 +1,7 @@
 site_name: Kube Secure Scanner
 site_url: https://mitre.github.io/kube-secure-scanner/
 site_description: A flexible, security-focused framework for scanning containers in Kubernetes environments with multiple scanning engines
+# Force rebuild with a small change
 site_author: MITRE SAF Team
 copyright: © The MITRE Corporation. Brought to you by the <a href="https://saf.mitre.org">MITRE Security Automation Framework (SAF)</a>
 
