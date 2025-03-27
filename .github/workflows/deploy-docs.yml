@@ -1,5 +1,4 @@
-name: Deploy MkDocs
-
+name: Documentation Build and Deploy
 on:
   push:
     branches:
@@ -20,23 +19,20 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
-      # Set up Python and cache dependencies
-      - name: Set up Python
+          
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.x
           cache: pip
           cache-dependency-path: docs/requirements.txt
       
-      # Install Python dependencies
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install mkdocs-material
           pip install -r docs/requirements.txt
       
-      # Set up Node.js and cache dependencies
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -44,40 +40,29 @@ jobs:
           cache: 'npm'
           cache-dependency-path: docs/package-lock.json
       
-      # Install Node.js dependencies
       - name: Install Node.js dependencies
         working-directory: ./docs
         run: npm ci || npm install
       
-      # Lint Markdown files (but don't fail the build)
       - name: Lint Markdown files
         working-directory: ./docs
         run: npm run lint || echo "Lint check skipped, continuing deployment"
-      
-      # Check for broken links or references (but don't fail the build)
-      - name: Check for broken links
-        run: |
-          cd docs
-          npm run links || echo "Link check found issues, review logs for details"
         continue-on-error: true
       
-      # Build documentation
-      - name: Build documentation
-        run: mkdocs build --strict
+      - name: Configure Git
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
       
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: site
-          branch: gh-pages
-          clean: true
-          clean-exclude: |
-            .nojekyll
-            CNAME
-          force: true
-          
-      # Verify deployment
+      - name: Ensure .nojekyll file exists
+        run: |
+          touch docs/.nojekyll
+          touch .nojekyll
+      
+      - name: Deploy documentation
+        run: |
+          mkdocs gh-deploy --force --clean --verbose
+      
       - name: Verify deployment
         run: |
           echo "Documentation deployed to GitHub Pages"

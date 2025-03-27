@@ -517,6 +517,5 @@ extra:
       link: https://saf.mitre.org
       name: MITRE Security Automation Framework
 
-# Generate a .nojekyll file in the output directory to prevent GitHub Pages from using Jekyll
-extra_files:
-  - .nojekyll
+# GitHub Pages configuration
+# Note: We're using the "Deploy from branch" model with the gh-pages branch
