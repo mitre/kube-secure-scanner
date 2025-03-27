@@ -27,7 +27,7 @@ We recommend testing in the following environments:
 
 Before running tests, ensure you have:
 
-1. **A Kubernetes Cluster**: 
+1. **A Kubernetes Cluster**:
    - For local testing: minikube with at least 2 nodes
    - For production testing: A Kubernetes cluster with appropriate access
 
@@ -49,11 +49,12 @@ Tests that validate the core scanning functionality works correctly.
 
 ```bash
 # Basic functional test example
-./scripts/setup-minikube.sh --with-distroless
-./scripts/scan-container.sh namespace-name pod-name container-name
+./kubernetes-scripts/setup-minikube.sh --with-distroless
+./kubernetes-scripts/scan-container.sh namespace-name pod-name container-name
 ```
 
 Verify that:
+
 - Scan executes without errors
 - Results are properly formatted
 - Issues are correctly identified
@@ -65,6 +66,7 @@ Tests that validate integration with various Kubernetes environments and CI/CD s
 #### CI/CD Integration Tests
 
 For each CI/CD system (GitHub Actions, GitLab CI):
+
 - Verify automated scanning works in pipelines
 - Validate pipeline success/failure based on scan results
 - Check threshold validation works correctly
@@ -72,6 +74,7 @@ For each CI/CD system (GitHub Actions, GitLab CI):
 #### Environment Integration Tests
 
 For different Kubernetes distributions:
+
 - Standard Kubernetes (various versions)
 - AKS, EKS, GKE
 - OpenShift
@@ -84,10 +87,11 @@ Tests that validate the security of the scanning implementation.
 
 ```bash
 # Test with restricted permissions
-./scripts/scan-container.sh namespace-name pod-name container-name --restricted-rbac
+./kubernetes-scripts/scan-container.sh namespace-name pod-name container-name --restricted-rbac
 ```
 
 Verify:
+
 - Scanner operates with minimal permissions
 - Timeouts work correctly for tokens
 - Resources are properly cleaned up after scan
@@ -95,6 +99,7 @@ Verify:
 #### Container Security Testing
 
 For each scanning approach:
+
 - Validate that scanning doesn't introduce vulnerabilities
 - Verify isolation between scanner and target containers
 - Test scanner with various security contexts
@@ -105,10 +110,11 @@ Tests that measure scanning performance.
 
 ```bash
 # Performance test with timing
-time ./scripts/scan-container.sh namespace-name pod-name container-name
+time ./kubernetes-scripts/scan-container.sh namespace-name pod-name container-name
 ```
 
 Measurements:
+
 - Scan initialization time
 - Scan execution time
 - Resource utilization (CPU, memory)
@@ -120,10 +126,11 @@ Tests that validate compliance requirements are met.
 
 ```bash
 # Compliance validation with thresholds
-./scripts/scan-container.sh namespace-name pod-name container-name --threshold-file threshold.yml
+./kubernetes-scripts/scan-container.sh namespace-name pod-name container-name --threshold-file threshold.yml
 ```
 
 Verify:
+
 - Compliance checks match required standards
 - Threshold validation works correctly
 - Reports include necessary compliance data
@@ -150,6 +157,7 @@ We provide automated tests to validate core functionality:
 ```
 
 The automated test suite includes:
+
 - Unit tests for helper scripts
 - Integration tests for scanning functionality
 - Regression tests for known issues
@@ -160,7 +168,7 @@ The automated test suite includes:
 
 ```bash
 # Set up minikube for testing
-./scripts/setup-minikube.sh --with-distroless
+./kubernetes-scripts/setup-minikube.sh --with-distroless
 
 # Verify minikube setup
 kubectl get nodes
@@ -170,10 +178,12 @@ kubectl get pods -A
 ### CI/CD Environment Setup
 
 For GitHub Actions:
+
 - Use the provided GitHub Actions workflows in `github-workflow-examples/`
 - Configure with appropriate secrets and environment variables
 
 For GitLab CI:
+
 - Use the provided GitLab CI pipelines in `gitlab-pipeline-examples/`
 - Configure with appropriate variables and runners
 
@@ -263,5 +273,5 @@ spec:
 After completing testing, refer to:
 
 - [Deployment Scenarios](../deployment/index.md) for production deployment
-- [Threshold Configuration](../../configuration/advanced/thresholds.md) for compliance settings
-- [CI/CD Integration](../../integration/overview.md) for pipeline setup
+- [Threshold Configuration](../../configuration/thresholds/index.md) for compliance settings
+- [CI/CD Integration](../../integration/index.md) for pipeline setup

@@ -20,6 +20,7 @@ To include code from existing files in the repository:
 ```yaml
 --8<-- "github-workflow-examples/ci-cd-pipeline.yml"
 ```
+
 ```
 
 This will render as:
@@ -36,6 +37,7 @@ You can highlight specific lines in the code:
 ```yaml hl_lines="3-5 8"
 --8<-- "github-workflow-examples/ci-cd-pipeline.yml"
 ```
+
 ```
 
 ## Adding Line Numbers
@@ -46,6 +48,7 @@ Line numbers are automatically added to code blocks, but you can disable them if
 ```yaml linenums="1"
 --8<-- "github-workflow-examples/ci-cd-pipeline.yml"
 ```
+
 ```
 
 ## Adding Annotations
@@ -59,6 +62,7 @@ You can add annotations to specific lines in code blocks:
 
 1. This line defines the workflow name
 2. These are the events that trigger the workflow
+
 ```
 
 ## Using Tabs for Multiple Code Examples

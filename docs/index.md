@@ -8,41 +8,52 @@ A comprehensive platform for securely scanning Kubernetes containers, including 
 *[K8s]: Kubernetes
 *[API]: Application Programming Interface
 
-## I am a...
+## I am a
 
 <div class="grid cards" markdown>
 
--   :shield:{ .lg .middle } **Security Leader / Decision Maker**
+- :shield:{ .lg .middle } **Security Leader / Decision Maker**
 
     ---
 
     Resources for security leaders making technology decisions:
-    
+
     - [Executive Summary](overview/executive-summary.md)
-    - [Security Analysis](security/analysis.md)
-    - [Compliance Documentation](security/compliance.md)
+    - [Security Analysis](security/risk/index.md)
+    - [Compliance Documentation](security/compliance/index.md)
     - [Enterprise Integration Analysis](overview/enterprise-integration-analysis.md)
 
--   :octicons-terminal-24:{ .lg .middle } **DevOps Engineer / Implementer**
+- :material-shield-account:{ .lg .middle } **Security Professional / Compliance Officer**
 
     ---
-    
+
+    Detailed security guidance and compliance information:
+
+    - [Security Overview](security/index.md)
+    - [Security Principles](security/principles/index.md)
+    - [Approach Security Comparison](security/compliance/approach-comparison.md)
+    - [Compliance Frameworks](security/compliance/index.md)
+
+- :octicons-terminal-24:{ .lg .middle } **DevOps Engineer / Implementer**
+
+    ---
+
     Implementation guidance and CI/CD integration examples:
-    
+
     - [Quick Start Guide](quickstart-guide.md)
     - [Approach Comparison](approaches/comparison.md)
-    - [GitHub Actions Integration](integration/github-actions.md)
-    - [GitLab CI Integration](integration/gitlab.md)
+    - [GitHub Actions Integration](integration/platforms/github-actions.md)
+    - [GitLab CI Integration](integration/platforms/gitlab-ci.md)
 
--   :material-strategy:{ .lg .middle } **Solution Architect**
+- :material-strategy:{ .lg .middle } **Solution Architect**
 
     ---
-    
+
     Technical architecture and design documentation:
-    
+
     - [Technical Overview](overview/index.md)
-    - [Architecture Diagrams](architecture/diagrams.md)
-    - [Workflow Processes](architecture/workflows.md)
+    - [Architecture Diagrams](architecture/diagrams/index.md)
+    - [Workflow Processes](architecture/workflows/index.md)
     - [Approach Decision Matrix](approaches/decision-matrix.md)
 
 </div>
@@ -59,7 +70,7 @@ This project offers three distinct approaches for container scanning:
     - Universal solution once distroless support is complete
     - No configuration changes to existing pods
     
-    [Learn More](approaches/kubernetes-api.md){: .md-button }
+    [Learn More](approaches/kubernetes-api/index.md){: .md-button }
 
 === "Debug Container Approach"
 
@@ -69,7 +80,7 @@ This project offers three distinct approaches for container scanning:
     - Works with existing deployed containers
     - Good for testing environments
     
-    [Learn More](approaches/debug-container.md){: .md-button }
+    [Learn More](approaches/debug-container/index.md){: .md-button }
 
 === "Sidecar Container Approach"
 
@@ -79,7 +90,7 @@ This project offers three distinct approaches for container scanning:
     - Universal compatibility
     - Must be deployed alongside target container
     
-    [Learn More](approaches/sidecar-container.md){: .md-button }
+    [Learn More](approaches/sidecar-container/index.md){: .md-button }
 
 ## Key Security Benefits
 
@@ -107,41 +118,77 @@ This project offers three distinct approaches for container scanning:
 The fastest way to get started is with our Quick Start guide:
 
 [Quick Start Guide](quickstart-guide.md){: .md-button .md-button--primary }
+[Site Index](site-index.md){: .md-button }
+
+## Project Roadmap
+
+Our active roadmap includes the following key initiatives:
+
+<div class="grid cards" markdown>
+
+- :material-table-lock:{ .lg .middle } **NSA/CISA Kubernetes Hardening Guide**
+
+    ---
+
+    Incorporate analysis and recommendations from the NSA/CISA Kubernetes Hardening Guide.
+    
+    - Analyze [official guidance](https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF)
+    - Reference KubeArmor implementation examples
+    - Map hardening requirements to our implementation
+
+- :material-container-outline:{ .lg .middle } **Enhanced Container Support**
+
+    ---
+
+    Expand scanning capabilities to new container types.
+    
+    - Extend train-k8s-container plugin for distroless support
+    - Improve scan performance for specialized containers
+
+- :material-tools:{ .lg .middle } **Additional Security Tool Integration**
+
+    ---
+
+    Expand beyond CINC to integrate additional security scanning tools.
+    
+    - Anchore Grype integration for vulnerability scanning
+    - Anchore Syft integration for SBOM generation
+    - Evaluate additional security tools for inclusion
 
 ## Core Documentation
 
 <div class="grid cards" markdown>
 
--   :material-compare:{ .lg .middle } **Approach Comparison**
+- :material-compare:{ .lg .middle } **Approach Comparison**
 
     ---
-    
+
     Compare the three scanning approaches side-by-side
-    
+
     [:octicons-arrow-right-24: View comparison](approaches/comparison.md)
 
--   :material-chart-timeline-variant:{ .lg .middle } **Workflow Diagrams**
+- :material-chart-timeline-variant:{ .lg .middle } **Workflow Diagrams**
 
     ---
-    
+
     Visual workflows for all scanning approaches
-    
-    [:octicons-arrow-right-24: View diagrams](architecture/diagrams.md)
 
--   :material-shield-check:{ .lg .middle } **Security Analysis**
+    [:octicons-arrow-right-24: View diagrams](architecture/diagrams/index.md)
+
+- :material-shield-check:{ .lg .middle } **Security Analysis**
 
     ---
-    
+
     Comprehensive security analysis with risk mitigation
-    
-    [:octicons-arrow-right-24: View analysis](security/analysis.md)
 
--   :material-matrix:{ .lg .middle } **Decision Matrix**
+    [:octicons-arrow-right-24: View analysis](security/risk/index.md)
+
+- :material-matrix:{ .lg .middle } **Decision Matrix**
 
     ---
-    
+
     Selection guide for the right approach
-    
+
     [:octicons-arrow-right-24: View matrix](approaches/decision-matrix.md)
 
 </div>

@@ -85,9 +85,9 @@ This phased implementation delivers immediate security benefits while positionin
 
 ## Next Steps for Decision Makers
 
-1. Review the [Security Compliance Analysis](../security/compliance.md) for detailed regulatory alignment
+1. Review the [Security Compliance Analysis](../security/compliance/index.md) for detailed regulatory alignment
 2. Examine the [Enterprise Integration Analysis](../overview/enterprise-integration-analysis.md) for adoption considerations
 3. Share the [Approach Decision Matrix](../approaches/decision-matrix.md) with your security and DevOps teams
 4. Direct implementation teams to the [Quickstart Guide](../quickstart-guide.md)
 
-For security and compliance inquiries, see our detailed [Risk Analysis](../security/risk-analysis.md).
+For security and compliance inquiries, see our detailed [Risk Analysis](../security/risk/index.md).

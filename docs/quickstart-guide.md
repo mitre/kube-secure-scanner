@@ -18,16 +18,17 @@ For the fastest possible setup, use our automated script:
 
 ```bash
 # Basic setup with a 3-node minikube cluster
-./scripts/setup-minikube.sh
+./kubernetes-scripts/setup-minikube.sh
 
 # For distroless container scanning support
-./scripts/setup-minikube.sh --with-distroless
+./kubernetes-scripts/setup-minikube.sh --with-distroless
 
 # For a customized setup
-./scripts/setup-minikube.sh --nodes=2 --driver=virtualbox
+./kubernetes-scripts/setup-minikube.sh --nodes=2 --driver=virtualbox
 ```
 
 The script will:
+
 1. Create a multi-node minikube cluster
 2. Deploy the necessary RBAC and service accounts
 3. Set up test pods

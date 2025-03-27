@@ -77,6 +77,7 @@ sequenceDiagram
 ```
 
 Technical characteristics:
+
 - Uses standard Kubernetes API (exec into pod)
 - Leverages train-k8s-container transport
 - Most secure and scalable enterprise approach
@@ -103,6 +104,7 @@ sequenceDiagram
 ```
 
 Technical characteristics:
+
 - Uses ephemeral debug containers (K8s 1.16+)
 - Requires specific Kubernetes feature flags
 - Uses chroot for filesystem access
@@ -125,6 +127,7 @@ sequenceDiagram
 ```
 
 Technical characteristics:
+
 - Uses shared process namespace in pod
 - Works with any Kubernetes version
 - Must deploy alongside target container
@@ -147,8 +150,9 @@ graph LR
 ```
 
 The RBAC model provides minimal permissions:
+
 - `get pods` - View specific pods
-- `list pods` - List available pods 
+- `list pods` - List available pods
 - `create pods/exec` - Execute commands in pod
 - Restrictions are applied at namespace, pod, and/or label level
 
@@ -222,4 +226,4 @@ The project's strategic technical roadmap:
 2. **Mid-term**: Enhance train-k8s-container plugin to support distroless containers
 3. **Long-term**: Converge on the Kubernetes API approach as the universal solution for all container types
 
-For detailed scanning workflows, see [Workflow Diagrams](../architecture/diagrams.md).
+For detailed scanning workflows, see [Workflow Diagrams](../architecture/diagrams/index.md).

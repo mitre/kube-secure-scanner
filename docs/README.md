@@ -59,6 +59,7 @@ Build and Setup:
 When working on documentation, follow these standard patterns:
 
 1. **Starting a documentation session**:
+
    ```bash
    # Install/update dependencies and start the preview server
    ./docs-tools.sh setup
@@ -66,12 +67,14 @@ When working on documentation, follow these standard patterns:
    ```
 
 2. **Validating your changes**:
+
    ```bash
    # Run all checks before committing
    ./docs-tools.sh check-all
    ```
 
 3. **Fixing common issues**:
+
    ```bash
    # Fix automatically fixable linting issues
    ./docs-tools.sh fix
@@ -81,6 +84,7 @@ When working on documentation, follow these standard patterns:
    ```
 
 4. **Finishing your session**:
+
    ```bash
    # Stop the preview server when done
    ./docs-tools.sh stop
@@ -111,7 +115,7 @@ When contributing to documentation:
 The documentation has recently undergone a comprehensive consistency update to ensure:
 
 1. Strategic recommendations are clear and consistent
-2. Terminology is standardized 
+2. Terminology is standardized
 3. File paths and references are accurate
 4. Cross-document references are working correctly
 5. The enterprise-recommended approach (Kubernetes API Approach) is clearly identified across all materials

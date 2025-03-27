@@ -63,7 +63,7 @@ SERVICE_ACCOUNT="scanner-sa"
 TARGET_POD="target-pod"
 
 # Create scanner kubeconfig
-./scripts/generate-kubeconfig.sh "$NAMESPACE" "$SERVICE_ACCOUNT"
+./kubernetes-scripts/generate-kubeconfig.sh "$NAMESPACE" "$SERVICE_ACCOUNT"
 
 # Run scanner
 cinc-auditor exec my-profile -t k8s-container://$TARGET_POD --namespace $NAMESPACE

@@ -249,3 +249,92 @@
 .copy-icon, .download-icon {
   font-size: 1em;
 }
+
+/* Custom security admonitions for learning paths */
+.md-typeset .admonition.security-focus,
+.md-typeset details.security-focus {
+  border-color: #673ab7;
+}
+
+.md-typeset .security-focus > .admonition-title,
+.md-typeset .security-focus > summary {
+  background-color: rgba(103, 58, 183, 0.1);
+  border-color: #673ab7;
+}
+
+.md-typeset .security-focus > .admonition-title::before,
+.md-typeset .security-focus > summary::before {
+  background-color: #673ab7;
+  -webkit-mask-image: var(--md-admonition-icon--tip);
+          mask-image: var(--md-admonition-icon--tip);
+}
+
+.md-typeset .admonition.security-note,
+.md-typeset details.security-note {
+  border-color: #3f51b5;
+}
+
+.md-typeset .security-note > .admonition-title,
+.md-typeset .security-note > summary {
+  background-color: rgba(63, 81, 181, 0.1);
+  border-color: #3f51b5;
+}
+
+.md-typeset .security-note > .admonition-title::before,
+.md-typeset .security-note > summary::before {
+  background-color: #3f51b5;
+  -webkit-mask-image: var(--md-admonition-icon--note);
+          mask-image: var(--md-admonition-icon--note);
+}
+
+/* Learning path progress indicators */
+.learning-path-progress {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0;
+  border-left: 3px solid #673ab7;
+  padding-left: 1em;
+}
+
+.learning-path-step {
+  position: relative;
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+
+.learning-path-step::before {
+  content: "";
+  position: absolute;
+  left: -1.85em;
+  top: 0;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  background-color: #673ab7;
+}
+
+.learning-path-step.completed::before {
+  background-color: #4caf50;
+}
+
+.learning-path-step.current::before {
+  background-color: #ff9800;
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.3);
+}
+
+.learning-path-step h3 {
+  margin-top: 0;
+}
+
+/* Security focused cards for role-based content */
+.security-card {
+  border-left: 4px solid #673ab7;
+  background-color: rgba(103, 58, 183, 0.05);
+  padding: 1em;
+  margin: 1.5em 0;
+  border-radius: 0.2em;
+}
+
+[data-md-color-scheme="slate"] .security-card {
+  background-color: rgba(103, 58, 183, 0.1);
+}

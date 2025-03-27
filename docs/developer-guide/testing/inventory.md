@@ -33,5 +33,5 @@ The documentation includes:
 
 - [Deployment Guide](../deployment/index.md)
 - [Scanning Approaches](../../approaches/index.md)
-- [CI/CD Integration](../../integration/overview.md)
-- [Threshold Configuration](../../configuration/advanced/thresholds.md)
+- [CI/CD Integration](../../integration/index.md)
+- [Threshold Configuration](../../configuration/thresholds/index.md)

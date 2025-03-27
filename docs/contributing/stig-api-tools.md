@@ -9,12 +9,14 @@ This document describes useful online tools and APIs for accessing, validating, 
 ### Web Interface
 
 The web interface allows browsing and searching STIGs and SRGs by:
+
 - Title
 - Version
 - Release date
 - Content
 
 For example, to view the Kubernetes STIG v1r11:
+
 ```
 https://cyber.trackr.live/stig/Kubernetes/1/11
 ```
@@ -22,6 +24,7 @@ https://cyber.trackr.live/stig/Kubernetes/1/11
 ### API Usage
 
 Cyber Trackr Live offers a robust API for programmatic access to STIGs and SRGs, which can be extremely valuable for:
+
 - Validation of STIG/SRG requirements in documentation
 - Automated compliance checking
 - Building tools that integrate with STIG content
@@ -45,6 +48,7 @@ curl -X GET https://cyber.trackr.live/api/stig
 This returns a JSON object with available STIGs grouped by title, including all versions and releases.
 
 Example response format:
+
 ```json
 {
   "Kubernetes": [
@@ -77,6 +81,7 @@ curl -X GET https://cyber.trackr.live/api/stig/Kubernetes/2/2
 ```
 
 This returns detailed information including:
+
 - STIG metadata (release date, version)
 - Requirements with vulnerability IDs (V-######)
 - Rule descriptions
@@ -88,12 +93,14 @@ This returns detailed information including:
 The API can be used to validate documentation against official STIG/SRG content:
 
 1. **Verify Accuracy of Requirement References**:
+
    ```bash
    # Get specific requirement
    curl -X GET https://cyber.trackr.live/api/stig/Kubernetes/2/2 | jq '.[] | select(.vulnId=="V-242407")'
    ```
 
 2. **Check for Updated Requirements**:
+
    ```bash
    # Compare versions
    curl -X GET https://cyber.trackr.live/api/stig/Kubernetes/1/11 > v1r11.json
@@ -102,6 +109,7 @@ The API can be used to validate documentation against official STIG/SRG content:
    ```
 
 3. **Extract Requirement Text**:
+
    ```bash
    # Get requirement title and description
    curl -X GET https://cyber.trackr.live/api/stig/Kubernetes/2/2 | jq '.[] | select(.vulnId=="V-242407") | {title: .title, description: .description}'

@@ -39,13 +39,17 @@ Build and Setup:
 To start working on documentation:
 
 1. Clone the repository
+
    ```bash
    git clone https://github.com/mitre/kube-cinc-secure-scanner.git
    ```
+
 2. Navigate to the project root directory
+
    ```bash
    cd kube-cinc-secure-scanner
    ```
+
 3. Run initial setup to install dependencies:
 
 ```bash
@@ -88,12 +92,14 @@ Before committing, always run the validation tools:
 ### 4. Address Any Issues
 
 For linting issues:
+
 ```bash
 # Automatically fix common style issues
 ./docs-tools.sh fix
 ```
 
 For spelling issues:
+
 ```bash
 # Run spell check and add valid terms to dictionary
 ./docs-tools.sh spell

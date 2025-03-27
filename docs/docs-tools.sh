@@ -12,9 +12,33 @@ CYAN='\033[0;36m'
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
-DOCS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(dirname "$DOCS_DIR")"
+# Determine script location and derive directory paths properly
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
+SCRIPT_NAME="$(basename "$SCRIPT_PATH")"
+
+# Handle both cases: script could be run from project root or docs directory
+if [[ "$SCRIPT_NAME" == "docs-tools.sh" && -f "$SCRIPT_DIR/mkdocs.yml" ]]; then
+  # We're in the project root with the symlink
+  PROJECT_ROOT="$SCRIPT_DIR"
+  DOCS_DIR="$PROJECT_ROOT/docs"
+else
+  # We're in the docs directory with the original script
+  DOCS_DIR="$SCRIPT_DIR"
+  PROJECT_ROOT="$(dirname "$DOCS_DIR")"
+fi
+
 PID_FILE="$DOCS_DIR/.mkdocs-server.pid"
+DEFAULT_LOG_FILE="$DOCS_DIR/.mkdocs-server.log"
+LOG_FILE="$DEFAULT_LOG_FILE"
+
+# Debug info (uncomment if needed to troubleshoot)
+# echo "SCRIPT_PATH: $SCRIPT_PATH"
+# echo "SCRIPT_DIR: $SCRIPT_DIR" 
+# echo "SCRIPT_NAME: $SCRIPT_NAME"
+# echo "PROJECT_ROOT: $PROJECT_ROOT"
+# echo "DOCS_DIR: $DOCS_DIR"
+# echo "PID_FILE: $PID_FILE"
 
 # Header display
 show_header() {
@@ -22,7 +46,14 @@ show_header() {
   echo -e "${BLUE}┃ ${BOLD}Secure CINC Auditor Kubernetes Container Scanning${NC}${BLUE}          ┃${NC}"
   echo -e "${BLUE}┃ ${BOLD}Documentation Tools${NC}${BLUE}                                        ┃${NC}"
   echo -e "${BLUE}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${NC}"
-  echo
+  echo 
+  
+  # If log file exists and isn't empty, show a notification
+  if [ -f "$LOG_FILE" ] && [ -s "$LOG_FILE" ]; then
+    echo -e "${CYAN}A log file exists at: $LOG_FILE${NC}"
+    echo -e "${CYAN}To view logs, run: ./docs-tools.sh logs${NC}"
+    echo
+  fi
 }
 
 # Help information
@@ -31,10 +62,21 @@ show_help() {
   echo
   echo -e "${CYAN}Documentation Preview:${NC}"
   echo -e "  ${GREEN}preview${NC}      - Start MkDocs server for local preview"
+  echo -e "  ${GREEN}preview --log${NC} - Start MkDocs server with logging enabled (to default log file)"
+  echo -e "  ${GREEN}preview --log path/to/file.log${NC} - Start MkDocs server with logging to specified file"
   echo -e "  ${GREEN}status${NC}       - Check status of running preview server"
   echo -e "  ${GREEN}stop${NC}         - Stop running preview server"
   echo -e "  ${GREEN}restart${NC}      - Restart preview server"
+  echo -e "  ${GREEN}restart --log${NC} - Restart preview server with logging enabled"
+  echo -e "  ${GREEN}restart --log path/to/file.log${NC} - Restart preview server with logging to specified file"
+  echo -e "  ${GREEN}logs${NC}         - View last 25 lines of the default log file"
+  echo -e "  ${GREEN}logs path/to/file.log${NC} - View last 25 lines of a specified log file"
+  echo -e "  ${GREEN}logs --all${NC}  - View the entire default log file"
+  echo -e "  ${GREEN}logs --lines=200${NC} - View last 200 lines of the default log file"
+  echo -e "  ${GREEN}logs -n 50${NC}  - View last 50 lines of the default log file"
   echo -e "  ${GREEN}serve-prod${NC}   - Serve the production build locally"
+  echo -e "  ${GREEN}serve-prod --log${NC} - Serve the production build with logging enabled"
+  echo -e "  ${GREEN}serve-prod --log path/to/file.log${NC} - Serve production build with logging to specified file"
   echo
   echo -e "${CYAN}Documentation Quality:${NC}"
   echo -e "  ${GREEN}lint${NC}         - Check Markdown files for style issues"
@@ -239,6 +281,19 @@ stop_preview() {
 
 # Preview documentation
 preview_docs() {
+  # Check for --log flag and optional custom log path
+  local logging=false
+  local custom_log_path=""
+  
+  if [[ "$1" == "--log" ]]; then
+    logging=true
+    # Check if a custom log path was provided
+    if [[ -n "$2" && "$2" != --* ]]; then
+      custom_log_path="$2"
+      LOG_FILE="$custom_log_path"
+    fi
+  fi
+
   # Check if server is already running
   if is_server_running; then
     local pid=$(cat "$PID_FILE")
@@ -254,10 +309,31 @@ preview_docs() {
   echo -e "To stop the server later, run: ${CYAN}./docs-tools.sh stop${NC}"
   echo
   
-  # Start the server in background and save PID
-  cd "$PROJECT_ROOT" && mkdocs serve &
-  local pid=$!
-  echo "$pid" > "$PID_FILE"
+  # Make sure we're in the project root where mkdocs.yml is located
+  if [ ! -f "$PROJECT_ROOT/mkdocs.yml" ]; then
+    echo -e "${RED}✗ Cannot find mkdocs.yml in $PROJECT_ROOT${NC}"
+    echo -e "Make sure you're running the script from the project root or docs directory"
+    return 1
+  fi
+  
+  # Start the server in background
+  pushd "$PROJECT_ROOT" > /dev/null
+  
+  if [ "$logging" = true ]; then
+    # With logging
+    echo "--- MkDocs Server Log Started $(date) ---" > "$LOG_FILE"
+    mkdocs serve 2>&1 | tee -a "$LOG_FILE" &
+    local pid=$!
+    echo "$pid" > "$PID_FILE"
+    echo -e "${CYAN}Log file created at: $LOG_FILE${NC}"
+  else
+    # Without logging
+    mkdocs serve &
+    local pid=$!
+    echo "$pid" > "$PID_FILE"
+  fi
+  
+  popd > /dev/null
   
   # Wait a bit to ensure server started properly
   sleep 2
@@ -272,21 +348,53 @@ preview_docs() {
 
 # Restart the preview server
 restart_preview() {
+  local logging=false
+  local custom_log_path=""
+  
+  if [[ "$1" == "--log" ]]; then
+    logging=true
+    # Check if a custom log path was provided
+    if [[ -n "$2" && "$2" != --* ]]; then
+      custom_log_path="$2"
+    fi
+  fi
+
   echo -e "${BLUE}Restarting MkDocs server...${NC}"
   stop_preview
   sleep 1
-  preview_docs
+  
+  if [ "$logging" = true ]; then
+    if [ -n "$custom_log_path" ]; then
+      preview_docs "--log" "$custom_log_path"
+    else
+      preview_docs "--log"
+    fi
+  else
+    preview_docs
+  fi
 }
 
 # Build documentation
 build_docs() {
   echo -e "${BLUE}Building documentation site...${NC}"
-  cd "$PROJECT_ROOT" && mkdocs build
-  if [ $? -eq 0 ]; then
-    echo -e "${GREEN}✓ Documentation built successfully to ${CYAN}./site/${NC} directory${NC}"
+  
+  # Make sure we're in the project root where mkdocs.yml is located
+  if [ ! -f "$PROJECT_ROOT/mkdocs.yml" ]; then
+    echo -e "${RED}✗ Cannot find mkdocs.yml in $PROJECT_ROOT${NC}"
+    echo -e "Make sure you're running the script from the project root or docs directory"
+    return 1
+  fi
+  
+  pushd "$PROJECT_ROOT" > /dev/null
+  mkdocs build
+  local result=$?
+  popd > /dev/null
+  
+  if [ $result -eq 0 ]; then
+    echo -e "${GREEN}✓ Documentation built successfully to ${CYAN}$PROJECT_ROOT/site/${NC} directory${NC}"
   else
     echo -e "${RED}✗ Documentation build failed${NC}"
-    exit 1
+    return 1
   fi
   echo
 }
@@ -297,12 +405,15 @@ lint_docs() {
   
   if ! command -v npx &> /dev/null; then
     echo -e "${RED}✗ npx not found. Please install Node.js and npm.${NC}"
-    exit 1
+    return 1
   fi
   
-  cd "$DOCS_DIR" && npx markdownlint "**/*.md" --ignore node_modules
+  pushd "$DOCS_DIR" > /dev/null
+  npx markdownlint "**/*.md" --ignore node_modules
+  local result=$?
+  popd > /dev/null
   
-  if [ $? -eq 0 ]; then
+  if [ $result -eq 0 ]; then
     echo -e "${GREEN}✓ No Markdown style issues found${NC}"
   else
     echo -e "${RED}✗ Markdown style issues found${NC}"
@@ -317,12 +428,15 @@ fix_lint_issues() {
   
   if ! command -v npx &> /dev/null; then
     echo -e "${RED}✗ npx not found. Please install Node.js and npm.${NC}"
-    exit 1
+    return 1
   fi
   
-  cd "$DOCS_DIR" && npx markdownlint "**/*.md" --ignore node_modules --fix
+  pushd "$DOCS_DIR" > /dev/null
+  npx markdownlint "**/*.md" --ignore node_modules --fix
+  local result=$?
+  popd > /dev/null
   
-  if [ $? -eq 0 ]; then
+  if [ $result -eq 0 ]; then
     echo -e "${GREEN}✓ Markdown style issues fixed${NC}"
   else
     echo -e "${YELLOW}⚠ Some Markdown style issues could not be automatically fixed${NC}"
@@ -338,12 +452,15 @@ check_spelling() {
   if ! command -v pyspelling &> /dev/null; then
     echo -e "${RED}✗ pyspelling not found${NC}"
     echo -e "  Run ${CYAN}./docs-tools.sh setup${NC} to install dependencies"
-    exit 1
+    return 1
   fi
   
-  cd "$DOCS_DIR" && pyspelling
+  pushd "$DOCS_DIR" > /dev/null
+  pyspelling
+  local result=$?
+  popd > /dev/null
   
-  if [ $? -eq 0 ]; then
+  if [ $result -eq 0 ]; then
     echo -e "${GREEN}✓ No spelling issues found${NC}"
   else
     echo -e "${RED}✗ Spelling issues found${NC}"
@@ -359,7 +476,7 @@ check_links() {
   if ! command -v linkchecker &> /dev/null; then
     echo -e "${RED}✗ linkchecker not found${NC}"
     echo -e "  Run ${CYAN}./docs-tools.sh setup${NC} to install dependencies"
-    exit 1
+    return 1
   fi
   
   if [ ! -d "$PROJECT_ROOT/site" ]; then
@@ -368,9 +485,12 @@ check_links() {
     build_docs
   fi
   
-  cd "$PROJECT_ROOT" && linkchecker --check-extern site/
+  pushd "$PROJECT_ROOT" > /dev/null
+  linkchecker --check-extern site/
+  local result=$?
+  popd > /dev/null
   
-  if [ $? -eq 0 ]; then
+  if [ $result -eq 0 ]; then
     echo -e "${GREEN}✓ No broken links found${NC}"
   else
     echo -e "${RED}✗ Broken links found${NC}"
@@ -398,6 +518,18 @@ check_all() {
 
 # Serve production build
 serve_prod() {
+  local logging=false
+  local custom_log_path=""
+  
+  if [[ "$1" == "--log" ]]; then
+    logging=true
+    # Check if a custom log path was provided
+    if [[ -n "$2" && "$2" != --* ]]; then
+      custom_log_path="$2"
+      LOG_FILE="$custom_log_path"
+    fi
+  fi
+
   echo -e "${BLUE}Serving production build...${NC}"
   
   if [ ! -d "$PROJECT_ROOT/site" ]; then
@@ -410,7 +542,86 @@ serve_prod() {
   echo -e "Press ${YELLOW}Ctrl+C${NC} to stop the server."
   echo
   
-  cd "$PROJECT_ROOT/site" && python3 -m http.server 8000
+  if [ "$logging" = true ]; then
+    echo "--- Production Server Log Started $(date) ---" > "$LOG_FILE"
+    echo -e "${CYAN}Log file created at: $LOG_FILE${NC}"
+    cd "$PROJECT_ROOT/site" && (python3 -m http.server 8000 2>&1 | tee -a "$LOG_FILE")
+  else
+    cd "$PROJECT_ROOT/site" && python3 -m http.server 8000
+  fi
+}
+
+# View logs
+view_logs() {
+  local log_to_view="$LOG_FILE"
+  local lines=25   # Default to last 25 lines
+  local show_all=false
+  local param_index=1
+  
+  # Parse parameters
+  while [[ -n "${!param_index}" ]]; do
+    local param="${!param_index}"
+    
+    if [[ "$param" == "--all" || "$param" == "-a" ]]; then
+      show_all=true
+    elif [[ "$param" == "--lines="* ]]; then
+      lines="${param#*=}"
+    elif [[ "$param" == "-n" ]]; then
+      ((param_index++))
+      if [[ -n "${!param_index}" ]]; then
+        lines="${!param_index}"
+      fi
+    elif [[ "$param" != --* && "$param" != -* && -f "$param" ]]; then
+      # If it's not a flag and is a valid file path
+      log_to_view="$param"
+    fi
+    
+    ((param_index++))
+  done
+  
+  if [ ! -f "$log_to_view" ]; then
+    echo -e "${RED}✗ No log file found at $log_to_view${NC}"
+    echo -e "Start the preview server first with ${CYAN}./docs-tools.sh preview --log${NC}"
+    return 1
+  fi
+  
+  if [ ! -s "$log_to_view" ]; then
+    echo -e "${YELLOW}⚠ Log file exists but is empty${NC}"
+    return 1
+  fi
+  
+  # Count total lines in log file
+  local total_lines=$(wc -l < "$log_to_view")
+  
+  echo -e "${BLUE}MkDocs server logs:${NC} ${CYAN}$log_to_view${NC} ${YELLOW}(total: $total_lines lines)${NC}"
+  
+  if [ "$show_all" = true ]; then
+    echo -e "${BLUE}Showing all log entries${NC}"
+    echo -e "${BLUE}----------------------------------------${NC}"
+    
+    # Use less if available, otherwise cat
+    if command -v less &> /dev/null; then
+      less -R "$log_to_view"
+    else
+      cat "$log_to_view"
+    fi
+  else
+    # Show just the last N lines
+    if [ "$lines" -gt "$total_lines" ]; then
+      lines=$total_lines
+    fi
+    
+    echo -e "${BLUE}Showing last $lines lines${NC}"
+    echo -e "${BLUE}(Use ${CYAN}--all${NC}${BLUE} to see full log or ${CYAN}--lines=NUMBER${NC}${BLUE} to change line count)${NC}"
+    echo -e "${BLUE}----------------------------------------${NC}"
+    
+    # Use less if available with tail, otherwise just tail
+    if command -v less &> /dev/null; then
+      tail -n "$lines" "$log_to_view" | less -R
+    else
+      tail -n "$lines" "$log_to_view"
+    fi
+  fi
 }
 
 # Main execution
@@ -420,7 +631,11 @@ show_header
 case "$1" in
   preview)
     check_prerequisites
-    preview_docs
+    if [[ "$2" == "--log" ]]; then
+      preview_docs "--log" "$3"
+    else
+      preview_docs
+    fi
     ;;
   status)
     server_status
@@ -430,7 +645,15 @@ case "$1" in
     ;;
   restart)
     check_prerequisites
-    restart_preview
+    if [[ "$2" == "--log" ]]; then
+      restart_preview "--log" "$3"
+    else
+      restart_preview
+    fi
+    ;;
+  logs)
+    shift # Remove 'logs' from arguments
+    view_logs "$@" # Pass all remaining arguments
     ;;
   build)
     check_prerequisites
@@ -462,7 +685,11 @@ case "$1" in
     ;;
   serve-prod)
     check_prerequisites
-    serve_prod
+    if [[ "$2" == "--log" ]]; then
+      serve_prod "--log" "$3"
+    else
+      serve_prod
+    fi
     ;;
   help|*)
     show_help
