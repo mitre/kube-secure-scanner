@@ -1,263 +1,1183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/approaches/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/common-abbreviations/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/approaches/comparison/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/quickstart-guide/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/approaches/debug-container/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/site-index/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/approaches/decision-matrix/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/approaches/direct-commands/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/comparison/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/approaches/kubernetes-api/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/decision-matrix/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/approaches/sidecar-container/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/direct-commands/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/architecture/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/architecture/diagrams/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/debug-container/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/architecture/workflows/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/debug-container/distroless-basics/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/configuration/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/debug-container/implementation/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/configuration/advanced/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/debug-container/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/configuration/advanced/plugin-modifications/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/helper-scripts/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/configuration/advanced/saf-cli-integration/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/helper-scripts/available-scripts/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/configuration/advanced/thresholds/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/helper-scripts/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/contributing/code-snippets/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/helper-scripts/scripts-vs-commands/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/contributing/diagram-color-guide/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/kubernetes-api/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/contributing/documentation-tools/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/kubernetes-api/implementation/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/contributing/testing/dark-light-mode-test/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/kubernetes-api/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/developer-guide/deployment/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/kubernetes-api/limitations/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/developer-guide/testing/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/kubernetes-api/rbac/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/examples/code-display-demo/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/sidecar-container/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/github-workflow-examples/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/sidecar-container/implementation/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/gitlab-pipeline-examples/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/sidecar-container/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/sidecar-container/pod-configuration/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/architecture/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/approaches/sidecar-container/retrieving-results/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/common-scanner/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/customization/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/distroless-scanner/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/components/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/overview/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/components/communication/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/scanner-infrastructure/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/components/core-components/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/security/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/components/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/sidecar-scanner/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/components/security-components/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/standard-scanner/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/troubleshooting/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/deployment/ci-cd-deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/helm-charts/scanner-infrastructure/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/deployment/helm-deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/includes/abbreviations/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/deployment/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/integration/approach-mapping/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/deployment/script-deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/integration/github-actions/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/diagrams/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/integration/gitlab-services-analysis/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/diagrams/component-diagrams/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/integration/gitlab-services/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/diagrams/deployment-diagrams/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/integration/gitlab/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/diagrams/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/integration/overview/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/diagrams/workflow-diagrams/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/kubernetes-setup/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/integrations/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/overview/ascii-diagrams/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/integrations/custom-integrations/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/overview/enterprise-integration-analysis/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/integrations/github-actions/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/overview/executive-summary/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/integrations/gitlab-ci/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/overview/quickstart/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/integrations/gitlab-services/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/project/changelog/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/integrations/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/project/documentation-gaps/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/workflows/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/project/roadmap/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/workflows/distroless-container/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/project/tasks/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/workflows/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/project/archive/ascii-diagrams/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/workflows/security-workflows/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/rbac/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/workflows/sidecar-container/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/rbac/label-based/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/architecture/workflows/standard-container/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/security/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/configuration/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/security/analysis/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/configuration/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/security/compliance/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/configuration/advanced/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/security/overview/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/configuration/advanced/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/security/risk-analysis/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/configuration/integration/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/service-accounts/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/configuration/integration/github/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/tokens/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/configuration/integration/gitlab/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/utilities/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/configuration/integration/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
-         <loc>https://github.com/mitre/kube-cinc-secure-scanner/utilities/ascii-to-mermaid/</loc>
-         <lastmod>2025-03-20</lastmod>
+         <loc>http://localhost:8000/configuration/integration/saf-cli/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/kubeconfig/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/kubeconfig/dynamic/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/kubeconfig/generation/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/kubeconfig/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/kubeconfig/management/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/kubeconfig/security/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/plugins/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/plugins/distroless/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/plugins/implementation/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/plugins/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/plugins/testing/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/security/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/security/credentials/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/security/hardening/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/security/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/security/rbac/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/thresholds/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/thresholds/advanced/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/thresholds/basic/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/thresholds/cicd/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/thresholds/examples/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/configuration/thresholds/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/contributing/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/contributing/code-snippets/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/contributing/diagram-color-guide/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/contributing/documentation-tools/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/contributing/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/contributing/stig-api-tools/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/contributing/testing/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/contributing/testing/dark-light-mode-test/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/contributing/testing/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/cicd-deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/helm-deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/script-deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/advanced-topics/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/advanced-topics/custom-development/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/advanced-topics/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/advanced-topics/monitoring/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/advanced-topics/scaling/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/advanced-topics/security/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/advanced-topics/specialized-environments/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/advanced-topics/verification/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/scenarios/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/scenarios/air-gapped/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/scenarios/cicd/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/scenarios/development/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/scenarios/enterprise/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/deployment/scenarios/multi-tenant/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/testing/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/developer-guide/testing/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/examples/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/examples/code-display-demo/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/examples/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/github-workflow-examples/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/github-workflow-examples/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/gitlab-pipeline-examples/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/gitlab-pipeline-examples/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/gitlab-services-examples/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/gitlab-services-examples/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/infrastructure/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/infrastructure/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/infrastructure/namespaces/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/infrastructure/rbac/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/infrastructure/service-accounts/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/operations/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/operations/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/operations/maintenance/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/operations/performance/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/operations/troubleshooting/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/overview/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/overview/architecture/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/overview/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/scanner-infrastructure/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/scanner-infrastructure/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/scanner-types/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/scanner-types/common-scanner/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/scanner-types/distroless-scanner/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/scanner-types/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/scanner-types/sidecar-scanner/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/scanner-types/standard-scanner/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/security/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/security/best-practices/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/security/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/security/rbac-hardening/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/security/risk-assessment/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/usage/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/usage/configuration/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/usage/customization/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/usage/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/helm-charts/usage/values/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/includes/abbreviations/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/approach-mapping/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/gitlab-services-analysis/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/configuration/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/configuration/environment-variables/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/configuration/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/configuration/reporting/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/configuration/secrets-management/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/configuration/thresholds-integration/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/examples/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/examples/github-examples/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/examples/gitlab-examples/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/examples/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/platforms/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/platforms/github-actions/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/platforms/gitlab-ci/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/platforms/gitlab-services/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/platforms/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/workflows/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/workflows/distroless-container/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/workflows/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/workflows/security-workflows/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/workflows/sidecar-container/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/integration/workflows/standard-container/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/kubernetes-scripts/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/kubernetes-scripts/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/kubernetes-setup/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/kubernetes-setup/best-practices/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/kubernetes-setup/existing-cluster-requirements/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/kubernetes-setup/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/kubernetes-setup/minikube-setup/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/learning-paths/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/learning-paths/advanced-features/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/learning-paths/core-concepts/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/learning-paths/implementation/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/learning-paths/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/learning-paths/new-users/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/learning-paths/security-first/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/learning-paths/template/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/overview/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/overview/ascii-diagrams/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/overview/enterprise-integration-analysis/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/overview/executive-summary/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/overview/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/approaches-reorganization-summary/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/architecture-reorganization-summary/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/changelog/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/configuration-reorganization-summary/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/content-map/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/content-organization-approach/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/documentation-cleanup-plan/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/documentation-cleanup-progress/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/documentation-coming-soon/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/documentation-entry-refactoring/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/documentation-gaps/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/documentation-review-plan/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/documentation-structure-progress/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/documentation-tools/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/helm-charts-reorganization-summary/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/integration-reorganization-summary/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/mkdocs-material-features-guide/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/project-target-organization-plan/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/roadmap/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/security-nav-update/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/security-reorganization-plan/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/security-reorganization-summary/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/tasks/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/terminology/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/warning-resolution-scripts/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/archive/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/archive/ascii-diagrams/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/project/archive/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/rbac/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/rbac/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/rbac/label-based/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/compliance/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/compliance/approach-comparison/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/compliance/cis-benchmarks/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/compliance/disa-srg/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/compliance/dod-8500-01/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/compliance/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/compliance/kubernetes-stig/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/compliance/nsa-cisa-hardening/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/compliance/risk-documentation/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/principles/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/principles/ephemeral-creds/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/principles/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/principles/least-privilege/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/principles/resource-isolation/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/principles/secure-transport/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/recommendations/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/recommendations/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/recommendations/network/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/risk/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/risk/debug-container/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/risk/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/risk/kubernetes-api/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/risk/mitigations/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/risk/model/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/risk/sidecar-container/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/threat-model/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/threat-model/attack-vectors/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/threat-model/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/threat-model/lateral-movement/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/threat-model/threat-mitigations/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/security/threat-model/token-exposure/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/service-accounts/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/service-accounts/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/distroless-container-scan/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/github-integration/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/gitlab-integration/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/helm-deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/kubernetes-setup/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/rbac-setup/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/script-deployment/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/sidecar-container-scan/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/standard-container-scan/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/template/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/thresholds-configuration/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tasks/token-management/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tokens/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/tokens/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/utilities/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/utilities/ascii-to-mermaid/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/utilities/inventory/</loc>
+         <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/utilities/mkdocs-link-fixer-proposal/</loc>
+         <lastmod>2025-03-27</lastmod>
     </url>
 </urlset>
