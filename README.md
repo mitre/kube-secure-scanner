@@ -1,6 +1,6 @@
-# Secure CINC Auditor Kubernetes Container Scanning
+# Kube Secure Scanner
 
-This project provides a comprehensive platform for securely scanning Kubernetes containers through multiple methodologies, leveraging CINC Auditor (open source InSpec) with security-focused RBAC configurations. It enables secure container compliance scanning across both standard and distroless containers in any Kubernetes environment.
+A flexible, security-focused framework for scanning containers in Kubernetes environments with multiple scanning engines. Built initially with CINC Auditor (open source InSpec), the platform provides secure RBAC configurations, multiple scanning approaches, and comprehensive CI/CD integration for validating container compliance in both standard and distroless containers.
 
 ## Project Overview
 
@@ -26,17 +26,18 @@ The platform works in both local minikube environments and existing production K
 
 ## Current Status (March 2025)
 
-The project currently offers two complete deployment methods:
+The project currently offers two complete deployment methods with flexible scanner engine support:
 
 1. **Shell Script Approach** - Simple, self-contained scripts for setup and scanning
 2. **Helm Chart Approach** - Modular Helm charts for more complex deployments
 
 Both approaches support:
-- Standard container scanning
+- Standard container scanning with pluggable scanner engines
 - Threshold validation with MITRE SAF CLI
 - CI/CD pipeline integration
 - Dynamic RBAC with least privilege
 - Token-based authentication
+- Extensible architecture for adding new scanning engines
 
 ### Distroless Container Support Status
 
@@ -381,7 +382,7 @@ failed:
 
 Visit our comprehensive documentation at:
 
-- https://mitre.github.io/kube-cinc-secure-scanner/
+- https://mitre.github.io/kube-secure-scanner/
 
 ### Documentation Management
 
@@ -523,22 +524,32 @@ Our documentation covers the following areas:
 - **Documentation Completion**: 95%
 - **Core Functionality**: 100%
 - **Testing Coverage**: 70%
-- **Next Major Milestone**: Complete Approach 1 implementation and v1.0.0 release
+- **Scanner Engine Support**: 
+  - CINC Auditor (InSpec): 100%
+  - Additional engines: Planned for post-v1.0 releases
+- **Next Major Milestone**: Complete API-based approach and v1.0.0 release
 - **Target Release Date**: May 2025
 
 ### Implementation Status
 
-1. **Distroless Container Scanning**: 
+1. **Multi-Approach Container Scanning**: 
    - ✅ Implemented three distinct approaches:
      - ✅ Ephemeral debug container (requires special cluster feature)
      - ✅ Sidecar container with shared process namespace (works universally)
-     - 🔄 Modified transport plugin (20% complete, in progress)
+     - 🔄 API-based direct scanning approach (20% complete, in progress)
    - ✅ Integrated all approaches with CI/CD examples
    - ✅ Created comprehensive documentation for all approaches
    - ✅ Completed approach comparison and decision matrix
-   - 🔄 Future work will focus on completing the transport plugin approach
+   - 🔄 Future work will focus on completing the API-based approach
 
-2. **Documentation and Resources**: 
+2. **Scanner Engine Support**:
+   - ✅ CINC Auditor (InSpec) integration complete
+   - 🔄 Extensible architecture for additional scanning engines
+   - 🔄 Plugin interface for scanner integration (planned)
+   - 🔄 Scanner results normalization layer (planned)
+   - 🔄 Support for additional scanners post-v1.0
+
+3. **Documentation and Resources**: 
    - ✅ Implemented comprehensive MkDocs documentation system
    - ✅ Created workflow diagrams for all scanning approaches
    - ✅ Developed security analysis and risk documentation
@@ -548,7 +559,7 @@ Our documentation covers the following areas:
    - ✅ Implemented dark/light mode support for diagrams
    - 🔄 Addressing high-priority documentation gaps before v1.0.0 release
 
-3. **CI/CD Integration**:
+4. **CI/CD Integration**:
    - ✅ GitLab CI standard pipeline
    - ✅ GitLab CI with services
    - ✅ GitLab CI for sidecar approach
@@ -558,11 +569,11 @@ Our documentation covers the following areas:
    - ✅ Comprehensive integration documentation
    - 🔄 Future work will include examples for other CI/CD platforms
 
-4. **Performance and Container Images**:
+5. **Performance and Container Images**:
    - ✅ Implemented services-based approach for GitLab CI
    - ✅ Created optimized sidecar container implementations
-   - 🔄 Future work will include building and publishing dedicated CINC Auditor scanner containers
-   - 🔄 Creating specialized debug container with CINC Auditor pre-installed
+   - 🔄 Future work will include building and publishing dedicated scanner containers
+   - 🔄 Creating specialized debug containers with scanners pre-installed
    - 🔄 Creating sidecar container images with optimized configurations
    - 🔄 Performance optimization with large-scale scanning
 
@@ -576,4 +587,4 @@ For a detailed view of our roadmap and project status, see:
 
 ---
 
-Developed by the project collaborators with experimental collaboration from [Claude Code](https://claude.ai/code)
+**Kube Secure Scanner** - Developed by the project collaborators with experimental collaboration from [Claude Code](https://claude.ai/code)

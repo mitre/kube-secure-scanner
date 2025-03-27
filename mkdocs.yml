@@ -1,11 +1,11 @@
-site_name: Secure CINC Auditor Kubernetes Container Scanning
+site_name: Kube Secure Scanner
 site_url: http://localhost:8000/
-site_description: A comprehensive platform for securely scanning Kubernetes containers
+site_description: A flexible, security-focused framework for scanning containers in Kubernetes environments with multiple scanning engines
 site_author: MITRE SAF Team
 copyright: © The MITRE Corporation. Brought to you by the <a href="https://saf.mitre.org">MITRE Security Automation Framework (SAF)</a>
 
-repo_name: mitre/kube-cinc-secure-scanner
-repo_url: https://github.com/mitre/kube-cinc-secure-scanner
+repo_name: mitre/kube-secure-scanner
+repo_url: https://github.com/mitre/kube-secure-scanner
 edit_uri: edit/main/docs/
 
 # Configure documentation directories
