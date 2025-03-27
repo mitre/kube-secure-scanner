@@ -14,3 +14,7 @@ session-logs/
 SESSION-RECOVERY.md
 continuation-prompt.md
 CLAUDE.md
+
+# Backup directories
+.backup/
+**/.backup/
