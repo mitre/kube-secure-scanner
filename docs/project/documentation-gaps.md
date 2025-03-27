@@ -31,67 +31,67 @@ As of March 2025, the documentation is approximately 95% complete. The documenta
 ### 1. Contributing Section Enhancements
 
 - **Missing Top-level Contributing Guide**:
-  - Create a comprehensive README.md for the contributing section
-  - Include contribution workflow, pull request process, and development guidelines
-  - Link to specialized guides (documentation tools, code snippets, diagram color guide)
+    - Create a comprehensive README.md for the contributing section
+    - Include contribution workflow, pull request process, and development guidelines
+    - Link to specialized guides (documentation tools, code snippets, diagram color guide)
 
 - **Code Contribution Guidelines**:
-  - Add specific guidelines for code contributions
-  - Include coding standards, testing requirements, and review process
-  - Provide examples of good pull requests
+    - Add specific guidelines for code contributions
+    - Include coding standards, testing requirements, and review process
+    - Provide examples of good pull requests
 
 ### 2. Testing Documentation Improvements
 
 - **Example Test Cases**:
-  - Add concrete examples of test cases for each scanning approach
-  - Include expected outputs and validation criteria
-  - Provide troubleshooting guidelines for failed tests
+    - Add concrete examples of test cases for each scanning approach
+    - Include expected outputs and validation criteria
+    - Provide troubleshooting guidelines for failed tests
 
 - **Test Coverage Requirements**:
-  - Define minimum test coverage expectations
-  - Explain how to measure and report test coverage
-  - Integrate with CI/CD validation
+    - Define minimum test coverage expectations
+    - Explain how to measure and report test coverage
+    - Integrate with CI/CD validation
 
 ### 3. Examples Directory Organization
 
 - **README Files for Example Directories**:
-  - Add README.md files to GitHub workflow examples directory
-  - Add README.md files to GitLab pipeline examples directory
-  - Create index pages that explain each example's purpose and usage
+    - Add README.md files to GitHub workflow examples directory
+    - Add README.md files to GitLab pipeline examples directory
+    - Create index pages that explain each example's purpose and usage
 
 - **Cross-references to Examples**:
-  - Ensure all examples are properly referenced from main documentation
-  - Add links from integration guides to specific examples
-  - Create a matrix of examples showing which ones apply to different scenarios
+    - Ensure all examples are properly referenced from main documentation
+    - Add links from integration guides to specific examples
+    - Create a matrix of examples showing which ones apply to different scenarios
 
 ### 4. Quick Reference Materials
 
 - **Command Quick Reference**:
-  - Create a cheat sheet for common commands
-  - Include syntax examples and parameter descriptions
-  - Format for easy printing or reference
+    - Create a cheat sheet for common commands
+    - Include syntax examples and parameter descriptions
+    - Format for easy printing or reference
 
 - **Workflow Quick Start Guides**:
-  - Develop concise guides for common workflows
-  - Include step-by-step instructions without detailed explanations
-  - Focus on practical usage scenarios
+    - Develop concise guides for common workflows
+    - Include step-by-step instructions without detailed explanations
+    - Focus on practical usage scenarios
 
 ### 5. Additional Sections to Consider
 
 - **Troubleshooting Guide**:
-  - Create a comprehensive troubleshooting section
-  - Include common errors and their resolutions
-  - Add diagnostic procedures for different environments
+    - Create a comprehensive troubleshooting section
+    - Include common errors and their resolutions
+    - Add diagnostic procedures for different environments
 
 - **Glossary**:
-  - Develop a glossary of technical terms
-  - Include project-specific terminology
-  - Ensure consistent usage across documentation
+    - Develop a glossary of technical terms
+    - Include project-specific terminology
+    - Ensure consistent usage across documentation
 
 - **FAQ Section**:
-  - Compile frequently asked questions
-  - Organize by topic area
-  - Link to detailed documentation where appropriate
+    - Compile frequently asked questions
+    - Organize by topic area
+    - Link to detailed documentation where appropriate
 
 ## Implementation Priorities
 

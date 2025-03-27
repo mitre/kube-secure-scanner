@@ -130,5 +130,5 @@ With the completion of the Helm Charts reorganization, we can now focus on:
 
 - [Content Organization Approach](content-organization-approach.md)
 - [Documentation Entry Refactoring](documentation-entry-refactoring.md)
-- [SESSION-RECOVERY.md](/SESSION-RECOVERY.md)
-- [Helm Charts Index](/docs/helm-charts/index.md)
+- Session Recovery Document (in repository root)
+- [Helm Charts Index](../helm-charts/index.md)

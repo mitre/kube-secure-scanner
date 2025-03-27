@@ -7,32 +7,38 @@ This project includes several specialized tools to help maintain cross-reference
 If you're new to these documentation tools, here's the typical workflow for fixing cross-references after a documentation reorganization:
 
 1. **Generate initial mappings file based on your documentation structure**:
+
    ```bash
    ./scripts/generate-doc-mappings.sh --output-file docs/my_mappings.txt
    ```
 
 2. **Review the generated mappings** to ensure they reflect your desired document organization:
+
    ```bash
    less docs/my_mappings.txt
    ```
 
 3. **Run the cross-reference fixer in dry-run mode** to see what changes would be made:
+
    ```bash
    ./fix-links-simple.sh --mappings docs/my_mappings.txt --verify-files --dry-run
    ```
 
 4. **Apply the changes** after reviewing the expected updates:
+
    ```bash
    ./fix-links-simple.sh --mappings docs/my_mappings.txt --verify-files
    ```
 
 5. **Test the documentation** by building and previewing:
+
    ```bash
    ./docs-tools.sh build
    ./docs-tools.sh preview
    ```
 
 6. **Process any warnings** to fix remaining broken links:
+
    ```bash
    ./docs-tools.sh build 2> mkdocs-warnings.txt
    ./scripts/generate-doc-mappings.sh --process-warnings mkdocs-warnings.txt --output-file docs/additional_mappings.txt
@@ -40,6 +46,7 @@ If you're new to these documentation tools, here's the typical workflow for fixi
    ```
 
 7. **Update navigation** if needed:
+
    ```bash
    ./scripts/update-mkdocs-nav.sh --update
    ```
@@ -51,11 +58,13 @@ If you're new to these documentation tools, here's the typical workflow for fixi
 Automatically generates path mappings for documentation cross-references by scanning the filesystem structure and analyzing the MkDocs navigation.
 
 **Usage:**
+
 ```bash
 ./scripts/generate-doc-mappings.sh [options]
 ```
 
 **Options:**
+
 - `--process-warnings FILE`: Process MkDocs warning file to add specific broken links
 - `--output-file FILE`: Specify output mapping file (default: docs/auto_mappings.txt)
 - `--append`: Append to existing mapping file instead of overwriting
@@ -66,11 +75,13 @@ Automatically generates path mappings for documentation cross-references by scan
 - `--help`: Show help message
 
 **Example:**
+
 ```bash
 ./scripts/generate-doc-mappings.sh --output-file docs/mappings.txt --verbose
 ```
 
 **Key Features:**
+
 - Automatically scans filesystem to detect index.md files and directory structure
 - Parses mkdocs.yml to understand the official navigation structure
 - Generates mappings for common path patterns (dir.md → dir/index.md)
@@ -83,11 +94,13 @@ Automatically generates path mappings for documentation cross-references by scan
 Fixes cross-references in Markdown files using a mapping file after a documentation reorganization.
 
 **Usage:**
+
 ```bash
 ./fix-links-simple.sh [options]
 ```
 
 **Options:**
+
 - `-h, --help`: Show help message
 - `-d, --dry-run`: Check for issues without making changes
 - `-q, --quiet`: Minimize output
@@ -98,11 +111,13 @@ Fixes cross-references in Markdown files using a mapping file after a documentat
 - `--docsdir DIR`: Use custom docs directory (default: ./docs)
 
 **Example:**
+
 ```bash
 ./fix-links-simple.sh --mappings docs/mappings.txt --verify-files --path architecture
 ```
 
 **Key Features:**
+
 - Handles both standard Markdown links and directory-style links
 - Tracks and reports on links that are already correctly formatted
 - Provides detailed metrics on link formats and compliance
@@ -115,11 +130,13 @@ Fixes cross-references in Markdown files using a mapping file after a documentat
 Specialized script for fixing relative path issues in Markdown links, ensuring links work correctly regardless of file location in the directory hierarchy.
 
 **Usage:**
+
 ```bash
 ./scripts/fix-relative-links.sh [options]
 ```
 
 **Options:**
+
 - `-h, --help`: Show help message
 - `-d, --dry-run`: Check for issues without making changes
 - `-q, --quiet`: Minimize output
@@ -129,11 +146,13 @@ Specialized script for fixing relative path issues in Markdown links, ensuring l
 - `-r, --report FILE`: Specify report file
 
 **Example:**
+
 ```bash
 ./scripts/fix-relative-links.sh --path approaches/debug-container --verbose
 ```
 
 **Key Features:**
+
 - Automatically calculates correct relative paths between files
 - Fixes links that MkDocs would interpret incorrectly
 - Maintains link anchors and other components
@@ -147,11 +166,13 @@ Specialized script for fixing relative path issues in Markdown links, ensuring l
 Updates the navigation section in mkdocs.yml based on the filesystem structure or a combination of auto-generation and manual structure.
 
 **Usage:**
+
 ```bash
 ./scripts/update-mkdocs-nav.sh [options]
 ```
 
 **Options:**
+
 - `--auto`: Generate navigation automatically based on filesystem
 - `--update`: Update existing navigation with new files
 - `--hybrid`: Use hybrid approach (maintain structure, add new files)
@@ -162,11 +183,13 @@ Updates the navigation section in mkdocs.yml based on the filesystem structure o
 - `--help`: Show help message
 
 **Example:**
+
 ```bash
 ./scripts/update-mkdocs-nav.sh --update --backup
 ```
 
 **Key Features:**
+
 - Multiple navigation generation modes to suit different needs
 - Preserves existing structure while adding new files when using hybrid or update modes
 - Includes new directories and files in appropriate locations
@@ -183,6 +206,7 @@ This section provides step-by-step instructions for common documentation mainten
 When moving files to new locations or changing directory structure:
 
 1. **First, move the files** to their new locations using git or filesystem operations:
+
    ```bash
    # Example: Moving a file to a new directory
    mkdir -p docs/new/directory
@@ -194,26 +218,31 @@ When moving files to new locations or changing directory structure:
    ```
 
 2. **Generate mappings** for the moved files to track the changes:
+
    ```bash
    ./scripts/generate-doc-mappings.sh --output-file docs/section_mappings.txt --verbose
    ```
 
 3. **Fix cross-references** in specific sections using the mappings:
+
    ```bash
    ./fix-links-simple.sh --mappings docs/section_mappings.txt --path path/to/section --verify-files
    ```
 
 4. **Fix relative path issues** caused by directory depth changes:
+
    ```bash
    ./scripts/fix-relative-links.sh --path path/to/section
    ```
 
 5. **Update the navigation structure** to reflect the new organization:
+
    ```bash
    ./scripts/update-mkdocs-nav.sh --update
    ```
 
 6. **Build and test the documentation** to verify changes:
+
    ```bash
    ./docs-tools.sh build
    ./docs-tools.sh preview
@@ -224,6 +253,7 @@ When moving files to new locations or changing directory structure:
 When converting single files to directory-based organization with index.md:
 
 1. **Create the directory structure** and move files:
+
    ```bash
    # For each file to convert:
    mkdir -p docs/section/file-name
@@ -231,26 +261,31 @@ When converting single files to directory-based organization with index.md:
    ```
 
 2. **Generate mappings** specifically for the conversion pattern:
+
    ```bash
    ./scripts/generate-doc-mappings.sh --output-file docs/conversion_mappings.txt
    ```
 
 3. **Update cross-references** throughout the documentation:
+
    ```bash
    ./fix-links-simple.sh --mappings docs/conversion_mappings.txt --verify-files
    ```
 
 4. **Fix any remaining relative path issues**:
+
    ```bash
    ./scripts/fix-relative-links.sh
    ```
 
 5. **Update navigation** to include new structure:
+
    ```bash
    ./scripts/update-mkdocs-nav.sh --update
    ```
 
 6. **Verify changes**:
+
    ```bash
    ./docs-tools.sh build
    ./docs-tools.sh preview
@@ -261,26 +296,31 @@ When converting single files to directory-based organization with index.md:
 When MkDocs build reports broken links:
 
 1. **Build documentation and capture warnings**:
+
    ```bash
    ./docs-tools.sh build 2> mkdocs-warnings.txt
    ```
 
 2. **Process warnings to generate mappings**:
+
    ```bash
    ./scripts/generate-doc-mappings.sh --process-warnings mkdocs-warnings.txt --output-file docs/warning_mappings.txt
    ```
 
 3. **Fix broken links** using the generated mappings:
+
    ```bash
    ./fix-links-simple.sh --mappings docs/warning_mappings.txt --verify-files
    ```
 
 4. **Fix any remaining relative path issues**:
+
    ```bash
    ./scripts/fix-relative-links.sh --path problematic/section
    ```
 
 5. **Verify fixes** with another build:
+
    ```bash
    ./docs-tools.sh build
    ```
@@ -290,6 +330,7 @@ When MkDocs build reports broken links:
 When adding new content to the documentation:
 
 1. **Create the new files** in the appropriate location:
+
    ```bash
    # For a regular file:
    touch docs/section/new-file.md
@@ -300,11 +341,13 @@ When adding new content to the documentation:
    ```
 
 2. **Update navigation** to include new files:
+
    ```bash
    ./scripts/update-mkdocs-nav.sh --update
    ```
 
 3. **Build and test** to verify integration:
+
    ```bash
    ./docs-tools.sh build
    ./docs-tools.sh preview
@@ -315,27 +358,32 @@ When adding new content to the documentation:
 To regularly check the health of documentation cross-references:
 
 1. **Verify links without making changes**:
+
    ```bash
    ./fix-links-simple.sh --verify-files --dry-run
    ```
 
 2. **Check for relative path issues**:
+
    ```bash
    ./scripts/fix-relative-links.sh --dry-run
    ```
 
 3. **Review detailed link reports**:
+
    ```bash
    less docs/.cross-reference-fixes.log
    less docs/.relative-links-fixes.log
    ```
 
 4. **Run comprehensive link checks**:
+
    ```bash
    ./docs-tools.sh links
    ```
 
 5. **Build documentation** to catch any remaining issues:
+
    ```bash
    ./docs-tools.sh build
    ```
@@ -345,6 +393,7 @@ To regularly check the health of documentation cross-references:
 To include documentation verification in CI/CD pipelines:
 
 1. **Add a documentation check step** to your CI configuration:
+
    ```yaml
    # Example GitHub Actions step
    - name: Check documentation health
@@ -355,6 +404,7 @@ To include documentation verification in CI/CD pipelines:
    ```
 
 2. **Create a reporting step** to summarize findings:
+
    ```yaml
    - name: Generate documentation health report
      if: always()
@@ -369,6 +419,7 @@ To include documentation verification in CI/CD pipelines:
 The `docs-tools.sh` script provides a comprehensive wrapper for documentation tasks, including building, previewing, linting, and checking links.
 
 **Examples:**
+
 ```bash
 # Build and check for warnings
 ./docs-tools.sh build
@@ -401,6 +452,7 @@ The `docs-tools.sh` script provides a comprehensive wrapper for documentation ta
    - Navigation updates
 
 7. **Create backups before major reorganizations**:
+
    ```bash
    cp -r docs docs-backup
    ```

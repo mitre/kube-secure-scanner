@@ -13,13 +13,14 @@ The previous structure consisted of:
 - `configuration/index.md` - Focused on kubeconfig generation
 - `configuration/inventory.md` - Directory inventory
 - `configuration/advanced/` - Subdirectory for advanced configuration
-  - `advanced/index.md` - Overview of advanced configuration
-  - `advanced/thresholds.md` - Threshold configuration documentation
-  - `advanced/plugin-modifications.md` - Plugin modification documentation
-  - `advanced/saf-cli-integration.md` - SAF CLI integration documentation
-  - `advanced/inventory.md` - Advanced directory inventory
+    - `advanced/index.md` - Overview of advanced configuration
+    - `advanced/thresholds.md` - Threshold configuration documentation
+    - `advanced/plugin-modifications.md` - Plugin modification documentation
+    - `advanced/saf-cli-integration.md` - SAF CLI integration documentation
+    - `advanced/inventory.md` - Advanced directory inventory
 
 This structure had several limitations:
+
 1. Mixed different configuration concerns in single files
 2. Inconsistent organization with some topics at root level and others in subdirectories
 3. Limited scalability for adding new configuration topics
@@ -30,46 +31,46 @@ This structure had several limitations:
 The new structure organizes content by functional area into focused subdirectories:
 
 - `configuration/` - Root directory
-  - `index.md` - Overview of configuration options
-  - `inventory.md` - Directory inventory
-  - `kubeconfig/` - Kubernetes authentication configuration
-    - `index.md` - Overview of kubeconfig configuration
+    - `index.md` - Overview of configuration options
     - `inventory.md` - Directory inventory
-    - `generation.md` - Kubeconfig generation documentation
-    - `management.md` - Kubeconfig management documentation
-    - `security.md` - Kubeconfig security documentation
-    - `dynamic.md` - Dynamic kubeconfig generation documentation
-  - `thresholds/` - Compliance threshold configuration
-    - `index.md` - Overview of threshold configuration
-    - `inventory.md` - Directory inventory
-    - `basic.md` - Basic threshold configuration
-    - `advanced.md` - Advanced threshold configuration
-    - `examples.md` - Example threshold configurations
-    - `cicd.md` - CI/CD integration for thresholds
-  - `plugins/` - Plugin customization
-    - `index.md` - Overview of plugin customization
-    - `inventory.md` - Directory inventory
-    - `distroless.md` - Distroless container support
-    - `implementation.md` - Implementation guide
-    - `testing.md` - Testing guide
-  - `integration/` - Integration configuration
-    - `index.md` - Overview of integration configuration
-    - `inventory.md` - Directory inventory
-    - `saf-cli.md` - SAF CLI integration
-    - `github.md` - GitHub Actions integration
-    - `gitlab.md` - GitLab CI integration
-  - `security/` - Security configuration
-    - `index.md` - Overview of security configuration
-    - `inventory.md` - Directory inventory
-    - `hardening.md` - Security hardening
-    - `credentials.md` - Credential management
-    - `rbac.md` - RBAC configuration
-  - `advanced/` - Legacy directory (with redirects to new locations)
-    - `index.md` - Redirects to main configuration overview
-    - `thresholds.md` - Redirects to thresholds section
-    - `plugin-modifications.md` - Redirects to plugins section
-    - `saf-cli-integration.md` - Redirects to integration section
-    - `inventory.md` - Legacy directory inventory
+    - `kubeconfig/` - Kubernetes authentication configuration
+        - `index.md` - Overview of kubeconfig configuration
+        - `inventory.md` - Directory inventory
+        - `generation.md` - Kubeconfig generation documentation
+        - `management.md` - Kubeconfig management documentation
+        - `security.md` - Kubeconfig security documentation
+        - `dynamic.md` - Dynamic kubeconfig generation documentation
+    - `thresholds/` - Compliance threshold configuration
+        - `index.md` - Overview of threshold configuration
+        - `inventory.md` - Directory inventory
+        - `basic.md` - Basic threshold configuration
+        - `advanced.md` - Advanced threshold configuration
+        - `examples.md` - Example threshold configurations
+        - `cicd.md` - CI/CD integration for thresholds
+    - `plugins/` - Plugin customization
+        - `index.md` - Overview of plugin customization
+        - `inventory.md` - Directory inventory
+        - `distroless.md` - Distroless container support
+        - `implementation.md` - Implementation guide
+        - `testing.md` - Testing guide
+    - `integration/` - Integration configuration
+        - `index.md` - Overview of integration configuration
+        - `inventory.md` - Directory inventory
+        - `saf-cli.md` - SAF CLI integration
+        - `github.md` - GitHub Actions integration
+        - `gitlab.md` - GitLab CI integration
+    - `security/` - Security configuration
+        - `index.md` - Overview of security configuration
+        - `inventory.md` - Directory inventory
+        - `hardening.md` - Security hardening
+        - `credentials.md` - Credential management
+        - `rbac.md` - RBAC configuration
+    - `advanced/` - Legacy directory (with redirects to new locations)
+        - `index.md` - Redirects to main configuration overview
+        - `thresholds.md` - Redirects to thresholds section
+        - `plugin-modifications.md` - Redirects to plugins section
+        - `saf-cli-integration.md` - Redirects to integration section
+        - `inventory.md` - Legacy directory inventory
 
 ## Content Extraction and Enhancement
 
