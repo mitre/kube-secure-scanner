@@ -136,6 +136,25 @@ This document outlines the completed components and future development plans for
   - [ ] Custom profile development tutorial
   - [ ] Integrating results with security dashboards
 
+### Security Standard Compliance
+
+- [ ] **NSA/CISA Kubernetes Hardening Guide Integration**
+  - [ ] Analyze official guidance document and recommendations
+  - [ ] Compare existing implementation against NSA/CISA requirements
+  - [ ] Identify gaps and implementation opportunities
+  - [ ] Create compliance mapping between our controls and NSA/CISA guidelines
+  - [ ] Develop documentation for NSA/CISA alignment
+  - [ ] Reference KubeArmor implementation examples where applicable
+
+### Additional Security Tool Integration
+
+- [ ] **Beyond CINC Scanning**
+  - [ ] Anchore Grype integration for vulnerability scanning
+  - [ ] Anchore Syft integration for SBOM generation
+  - [ ] Evaluate additional complementary security scanning tools
+  - [ ] Create example implementations for each tool
+  - [ ] Update documentation to reflect expanded scope
+
 ### Testing and Validation
 
 - [ ] **Container Type Testing**

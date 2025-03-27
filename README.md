@@ -437,13 +437,13 @@ Our documentation covers the following areas:
 - [GitHub Actions Integration](docs/integration/github-actions.md)
 
 #### Helm Charts Documentation
-- [Helm Charts Overview](docs/helm-charts/overview.md)
-- [Helm Chart Architecture](docs/helm-charts/architecture.md)
-- [Scanner Infrastructure](docs/helm-charts/scanner-infrastructure.md)
-- [Common Scanner](docs/helm-charts/common-scanner.md)
-- [Kubernetes API Scanner](docs/helm-charts/standard-scanner.md)
-- [Debug Container Scanner](docs/helm-charts/distroless-scanner.md)
-- [Sidecar Container Scanner](docs/helm-charts/sidecar-scanner.md)
+- [Helm Charts Overview](docs/helm-charts/overview/index.md)
+- [Helm Chart Architecture](docs/helm-charts/overview/architecture.md)
+- [Scanner Infrastructure](docs/helm-charts/infrastructure/index.md)
+- [Common Scanner](docs/helm-charts/scanner-types/common-scanner.md)
+- [Kubernetes API Scanner](docs/helm-charts/scanner-types/standard-scanner.md)
+- [Debug Container Scanner](docs/helm-charts/scanner-types/distroless-scanner.md)
+- [Sidecar Container Scanner](docs/helm-charts/scanner-types/sidecar-scanner.md)
 
 #### Development and Testing
 - [Testing Guide](docs/developer-guide/testing/README.md)
