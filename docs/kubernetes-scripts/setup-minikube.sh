@@ -1,0 +1,1 @@
+../../scripts/kubernetes/setup-minikube.sh

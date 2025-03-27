@@ -1,0 +1,1 @@
+../../scripts/kubernetes/scan-distroless-container.sh

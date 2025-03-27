@@ -1,0 +1,3772 @@
+# Cross-Reference Fix Log
+Date: Tue Mar 25 16:19:28 EDT 2025
+Mode: Update
+
+[INFO] Starting cross-reference fix with lychee
+[INFO] Extracting path mappings from content map...
+[WARN] Few mappings found in content map, adding default mappings...
+[INFO] Adding test mapping to verify script functionality...
+[INFO] Created test file at /Users/alippold/github/mitre/kube-cinc-secure-scanner/docs/test-link-file.md
+[INFO] Generated 30 path mappings
+[INFO] Processing all markdown files
+[INFO] Found 255 markdown files to process
+[INFO] Progress: 19% (50/255)
+[INFO] Progress: 39% (100/255)
+[INFO] Cross-reference fix completed
+[INFO] Total files processed: 255
+[INFO] Files with changes: 0
+[INFO] Total references updated: 0
+[DRY RUN] Would change in approaches/inventory.md: kubernetes-api/ → kubernetes-api/index.md (2 replacements)
+[DRY RUN] Would change in approaches/inventory.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/inventory.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/inventory.md: helper-scripts/ → helper-scripts/index.md (2 replacements)
+# Cross-reference fix report - Tue Mar 25 21:19:09 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/inventory.md
+- Total files processed: 1
+- Files with changes: 1
+- Total mappings applied: 4
+
+### Link References
+
+- Already correct: 1
+- Updated: 8
+- Total links: 9
+- Percentage already correct: 11.1%
+
+## Dry Run Summary
+
+- 1 file(s) would be modified
+- 8 total link references would be updated
+- Approximately 100.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/inventory.md: kubernetes-api/ → kubernetes-api/index.md (2 replacements)
+[DRY RUN] Would change in approaches/inventory.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/inventory.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/inventory.md: helper-scripts/ → helper-scripts/index.md (2 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 21:20:56 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches
+- Total files processed: 22
+- Files with changes: 5
+- Total mappings applied: 16
+
+### Link References
+
+- Already correct: 3
+- Updated: 20
+- Total links: 23
+- Percentage already correct: 13.0%
+
+## Dry Run Summary
+
+- 5 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 22.7% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+Updated in approaches/inventory.md: kubernetes-api/ → kubernetes-api/index.md (2 replacements)
+Updated in approaches/inventory.md: debug-container/ → debug-container/index.md (2 replacements)
+Updated in approaches/inventory.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+Updated in approaches/inventory.md: helper-scripts/ → helper-scripts/index.md (2 replacements)
+# Cross-reference fix report - Tue Mar 25 21:21:57 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/inventory.md
+- Total files processed: 1
+- Files with changes: 1
+- Total mappings applied: 4
+
+### Link References
+
+- Already correct: 1
+- Updated: 8
+- Total links: 9
+- Percentage already correct: 11.1%
+
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 21:24:22 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 1
+- Total mappings applied: 3
+
+### Link References
+
+- Already correct: 1
+- Updated: 3
+- Total links: 4
+- Percentage already correct: 25.0%
+
+## Dry Run Summary
+
+- 1 file(s) would be modified
+- 3 total link references would be updated
+- Approximately 20.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 21:29:36 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches
+- Total files processed: 22
+- Files with changes: 4
+- Total mappings applied: 12
+
+### Link References
+
+- Already correct: 11
+- Updated: 12
+- Total links: 23
+- Percentage already correct: 47.8%
+
+## Dry Run Summary
+
+- 4 file(s) would be modified
+- 12 total link references would be updated
+- Approximately 18.1% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+Updated in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+Updated in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+Updated in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+Updated in approaches/debug-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+Updated in approaches/debug-container/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+Updated in approaches/debug-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+Updated in approaches/sidecar-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+Updated in approaches/sidecar-container/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+Updated in approaches/sidecar-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+Updated in approaches/helper-scripts/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+Updated in approaches/helper-scripts/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+Updated in approaches/helper-scripts/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 21:31:43 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches
+- Total files processed: 22
+- Files with changes: 4
+- Total mappings applied: 12
+
+### Link References
+
+- Already correct: 11
+- Updated: 12
+- Total links: 23
+- Percentage already correct: 47.8%
+
+# Cross-reference fix report - Tue Mar 25 21:34:06 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture
+- Total files processed: 29
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Already correct: 0
+- Updated: 0
+- Total links: 0
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 21:43:06 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture
+- Total files processed: 29
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 126
+- Links identified by mappings: 0
+- Already correct: 0
+- Updated: 0
+- Coverage (mapped/total): 0%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 21:44:02 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 31
+- Links identified by mappings: 4
+- Already correct: 4
+- Updated: 0
+- Percentage already correct: 100.0%
+- Coverage (mapped/total): 12.9%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 21:44:30 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/inventory.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 30
+- Links identified by mappings: 9
+- Already correct: 9
+- Updated: 0
+- Percentage already correct: 100.0%
+- Coverage (mapped/total): 30.0%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 21:46:23 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 11
+- Links identified by mappings: 0
+- Already correct: 0
+- Updated: 0
+- Coverage (mapped/total): 0%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 22:04:30 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 11
+- Links requiring format check: 0
+  - Already correct: 0
+  - Updated: 0
+- Links already in correct format: 0
+  - index.md references: 0
+  - Specific file references: 0
+
+### Link Format Analysis
+
+- Overall format compliance: 0%
+- Coverage (analyzed/total): 0%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 22:05:35 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 11
+- Links requiring format check: 0
+  - Already correct: 0
+  - Updated: 0
+- Links already in correct format: 0
+  - index.md references: 0
+  - Specific file references: 0
+
+### Link Format Analysis
+
+- Overall format compliance: 0%
+- Coverage (analyzed/total): 0%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 22:06:40 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 11
+- Links requiring format check: 0
+  - Already correct: 0
+  - Updated: 0
+- Links already in correct format: 0
+  - index.md references: 0
+  - Specific file references: 0
+
+### Link Format Analysis
+
+- Overall format compliance: 0%
+- Coverage (analyzed/total): 0%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 22:08:57 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 11
+- Links requiring format check: 0
+  - Already correct: 0
+  - Updated: 0
+- Links already in correct format: 0
+  - index.md references: 0
+  - Specific file references: 0
+
+### Link Format Analysis
+
+- Overall format compliance: 0%
+- Coverage (analyzed/total): 0%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 22:10:02 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 11
+- Links requiring format check: 0
+  - Already correct: 0
+  - Updated: 0
+- Links already in correct format: 0
+  - index.md references: 0
+  - Specific file references: 0
+
+### Link Format Analysis
+
+- Overall format compliance: 0%
+- Coverage (analyzed/total): 0%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+# Cross-reference fix report - Tue Mar 25 22:11:10 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+
+### Link References
+
+- Total links detected in scan: 11
+- Links requiring format check: 0
+  - Already correct: 0
+  - Updated: 0
+- Links already in correct format: 0
+  - index.md references: 0
+  - Specific file references: 0
+
+### Link Format Analysis
+
+- Overall format compliance: 0%
+- Coverage (analyzed/total): 0%
+
+## Dry Run Summary
+
+No changes would be made to any files.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/distroless-basics.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/distroless-basics.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/index.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: security/ → security/index.md (2 replacements)
+[DRY RUN] Would change in approaches/comparison.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/inventory.md: kubernetes-api/ → kubernetes-api/index.md (7 replacements)
+[DRY RUN] Would change in approaches/inventory.md: debug-container/ → debug-container/index.md (6 replacements)
+[DRY RUN] Would change in approaches/inventory.md: sidecar-container/ → sidecar-container/index.md (5 replacements)
+[DRY RUN] Would change in approaches/inventory.md: helper-scripts/ → helper-scripts/index.md (5 replacements)
+[DRY RUN] Would change in approaches/inventory.md: diagrams/ → diagrams/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: security/ → security/index.md (3 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/index.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/scripts-vs-commands.md: examples/ → examples/index.md (6 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/available-scripts.md: examples/ → examples/index.md (3 replacements)
+[DRY RUN] Would change in approaches/index.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/index.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/index.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/index.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/direct-commands.md: examples/ → examples/index.md (6 replacements)
+# Cross-reference fix report - Tue Mar 25 22:17:37 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches
+- Total files processed: 22
+- Files with changes: 17
+- Total mappings applied: 73
+
+### Link References
+
+- Total links detected in scan: 177
+- Links requiring format check: 151
+  - Already correct: 40
+  - Updated: 111
+- Links already in correct format: 1520
+  - index.md references: 538
+  - Specific file references: 982
+- Directory-style links (trailing slash): 44
+- Total links needing updates: 155
+
+### Link Format Analysis
+
+- Overall format compliance: 881.3%
+- Percentage of relevant links already correct: 26.4%
+- Coverage (analyzed/total): 944.0%
+
+## Dry Run Summary
+
+- 17 file(s) would be modified
+- 111 total link references would be updated
+- Approximately 77.2% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:19:40 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+
+### Link References
+
+- Total links detected in scan: 31
+- Links requiring format check: 28
+  - Already correct: 8
+  - Updated: 20
+- Links already in correct format: 1520
+  - index.md references: 538
+  - Specific file references: 982
+- Directory-style links (trailing slash): 44
+- Total links needing updates: 64
+
+### Link Format Analysis
+
+- Overall format compliance: 4929.0%
+- Percentage of mappings already correct: 28.5%
+- Coverage (analyzed/total): 100.0%
+- Total links needing updates: 64
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:20:49 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+
+### Link References
+
+- Total links detected in scan: 31
+- Links requiring format check: 28
+  - Already correct: 8
+  - Updated: 20
+- Links already in correct format: 1520
+  - index.md references: 538
+  - Specific file references: 982
+- Directory-style links (trailing slash): 44
+- Total links needing updates: 64
+
+### Link Format Analysis
+
+- Overall format compliance: 95.9%
+- Percentage of mappings already correct: 28.5%
+- Coverage (analyzed/total): 100.0%
+- Total links needing updates: 64
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:22:54 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+
+### Link References
+
+- Total links detected in scan: 31
+- Links requiring format check: 28
+  - Already correct: 8
+  - Updated: 20
+- Links already in correct format: 29
+  - index.md references: 10
+  - Specific file references: 19
+- Directory-style links (trailing slash): 1
+- Total links needing updates: 21
+
+### Link Format Analysis
+
+- Overall format compliance: 63.7%
+- Percentage of mappings already correct: 28.5%
+- Coverage (analyzed/total): 100.0%
+- Total links needing updates: 21
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:24:52 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+
+### Link References
+
+- Total links detected in scan: 31
+- Links requiring format check: 28
+  - Already correct: 8
+  - Updated: 20
+- Links already in correct format: 29
+  - index.md references: 10
+  - Specific file references: 19
+- Directory-style links (trailing slash): 1
+- Total links needing updates: 20
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9%
+- Percentage of mappings already correct: 28.5%
+- Coverage (analyzed/total): 100.0%
+- Total links needing updates: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:28:39 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+
+### Link References
+
+- Total unique links analyzed: 49
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 75.5% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:31:31 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:36:44 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:37:30 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ❌ FAILED
+  - Total unique links (58) does not equal sum of correct (29 + 8) and needing updates (20)
+
+### Link References
+
+- Total unique links analyzed: 58
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 63.7% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:38:05 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:42:30 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:43:11 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ❌ FAILED
+  - Total unique links (58) does not equal sum of correct (29 + 8) and needing updates (20)
+
+### Link References
+
+- Total unique links analyzed: 58
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 63.7% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:43:46 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:44:08 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:45:48 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: infrastructure/ → infrastructure/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: usage/ → usage/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/standard-scanner.md: examples/ → examples/index.md (4 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/standard-scanner.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/standard-scanner.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/distroless-scanner.md: examples/ → examples/index.md (3 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/distroless-scanner.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/distroless-scanner.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/sidecar-scanner.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/sidecar-scanner.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/common-scanner.md: infrastructure/ → infrastructure/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/common-scanner.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/common-scanner.md: usage/ → usage/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:46:16 EDT 2025
+
+## Summary
+
+- Subdirectory: helm-charts/scanner-types
+- Total files processed: 6
+- Files with changes: 5
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### Link References
+
+- Total unique links analyzed: 60
+- Links managed by mappings: 21
+  - Already correctly formatted: 0
+  - Needing updates: 21
+- Other correctly formatted links: 39
+  - index.md references: 9
+  - Specific file references: 30
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 39
+
+### Link Format Analysis
+
+- Overall format compliance: 65.0% of unique links
+- Mappings already correct: 0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 21
+
+## Dry Run Summary
+
+- 5 file(s) would be modified
+- 21 total link references would be updated
+- Approximately 83.3% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: infrastructure/ → infrastructure/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/inventory.md: usage/ → usage/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/standard-scanner.md: examples/ → examples/index.md (4 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/standard-scanner.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/standard-scanner.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/distroless-scanner.md: examples/ → examples/index.md (3 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/distroless-scanner.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/distroless-scanner.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/sidecar-scanner.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/sidecar-scanner.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/common-scanner.md: infrastructure/ → infrastructure/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/common-scanner.md: operations/ → operations/index.md (1 replacements)
+[DRY RUN] Would change in helm-charts/scanner-types/common-scanner.md: usage/ → usage/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 22:47:58 EDT 2025
+
+## Summary
+
+- Subdirectory: helm-charts/scanner-types
+- Total files processed: 6
+- Files with changes: 5
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### Link References
+
+- Total unique links analyzed: 60
+- Links managed by mappings: 21
+  - Already correctly formatted: 0
+  - Needing updates: 21
+- Other correctly formatted links: 39
+  - index.md references: 9
+  - Specific file references: 30
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 39
+
+### Link Format Analysis
+
+- Overall format compliance: 65.0% of unique links
+- Mappings already correct: 0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 21
+
+## Dry Run Summary
+
+- 5 file(s) would be modified
+- 21 total link references would be updated
+- Approximately 83.3% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 23:11:12 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would skip in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would skip in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would skip in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements) [BROKEN LINK]
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 23:13:15 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 2
+- ❌ Broken links detected: 14
+  - Note: These links would be skipped in a real run
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../debug-container/ → ../debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: ../sidecar-container/ → ../sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 23:15:29 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 16
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 16
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 57
+- Links managed by mappings: 28
+  - Already correctly formatted: 8
+  - Needing updates: 20
+- Other correctly formatted links: 29
+  - index.md references: 10
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 64.9% of unique links
+- Mappings already correct: 28.5% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 20
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 20 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+Updated in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: security/ → security/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: security/ → security/index.md (0 replacements)
+# Cross-reference fix report - Tue Mar 25 23:17:20 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 10
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 120
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 17
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 17
+  - index.md references: 1
+  - Specific file references: 16
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 31
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 54.8% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Updated in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: security/ → security/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: security/ → security/index.md (0 replacements)
+# Cross-reference fix report - Tue Mar 25 23:18:32 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 10
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 120
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 31
+- Links managed by mappings: 14
+  - Already correctly formatted: 14
+  - Needing updates: 0
+- Other correctly formatted links: 17
+  - index.md references: 1
+  - Specific file references: 16
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 19
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_78189.txt
+Updated in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: security/ → security/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: security/ → security/index.md (0 replacements)
+# Cross-reference fix report - Tue Mar 25 23:20:43 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 10
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 120
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 31
+- Links managed by mappings: 14
+  - Already correctly formatted: 14
+  - Needing updates: 0
+- Other correctly formatted links: 17
+  - index.md references: 1
+  - Specific file references: 16
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 19
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_3269.txt
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/distroless-basics.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/distroless-basics.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/index.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: security/ → security/index.md (2 replacements)
+[DRY RUN] Would change in approaches/comparison.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/inventory.md: kubernetes-api/ → kubernetes-api/index.md (7 replacements)
+[DRY RUN] Would change in approaches/inventory.md: debug-container/ → debug-container/index.md (6 replacements)
+[DRY RUN] Would change in approaches/inventory.md: sidecar-container/ → sidecar-container/index.md (5 replacements)
+[DRY RUN] Would change in approaches/inventory.md: helper-scripts/ → helper-scripts/index.md (5 replacements)
+[DRY RUN] Would change in approaches/inventory.md: diagrams/ → diagrams/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: security/ → security/index.md (3 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: ../helper-scripts/ → ../helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/index.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/scripts-vs-commands.md: examples/ → examples/index.md (6 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../kubernetes-api/ → ../kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../debug-container/ → ../debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: ../sidecar-container/ → ../sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/available-scripts.md: examples/ → examples/index.md (3 replacements)
+[DRY RUN] Would change in approaches/index.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/index.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/index.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/index.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/direct-commands.md: examples/ → examples/index.md (6 replacements)
+# Cross-reference fix report - Tue Mar 25 23:24:55 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches
+- Total files processed: 22
+- Files with changes: 17
+- Total mappings applied: 67
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 67
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 307
+- Links managed by mappings: 149
+  - Already correctly formatted: 46
+  - Needing updates: 103
+- Other correctly formatted links: 158
+  - index.md references: 50
+  - Specific file references: 108
+
+### Additional Metrics
+
+- Directory-style links found: 5 (included in links needing updates)
+- Links detected in initial scan: 165
+
+### Link Format Analysis
+
+- Overall format compliance: 66.4% of unique links
+- Mappings already correct: 30.8% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 103
+
+## Dry Run Summary
+
+- 17 file(s) would be modified
+- 103 total link references would be updated
+- Approximately 77.2% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+Link details saved to: /tmp/links_detail_39494.txt
+[DRY RUN] Would change in architecture/inventory.md: workflows/ → workflows/index.md (6 replacements)
+[DRY RUN] Would change in architecture/inventory.md: diagrams/ → diagrams/index.md (5 replacements)
+[DRY RUN] Would change in architecture/inventory.md: deployment/ → deployment/index.md (5 replacements)
+[DRY RUN] Would change in architecture/inventory.md: components/ → components/index.md (5 replacements)
+[DRY RUN] Would change in architecture/inventory.md: integrations/ → integrations/index.md (6 replacements)
+[DRY RUN] Would change in architecture/diagrams/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in architecture/diagrams/index.md: deployment/ → deployment/index.md (1 replacements)
+[DRY RUN] Would change in architecture/diagrams/index.md: components/ → components/index.md (1 replacements)
+[DRY RUN] Would change in architecture/workflows/index.md: diagrams/ → diagrams/index.md (1 replacements)
+[DRY RUN] Would change in architecture/workflows/index.md: deployment/ → deployment/index.md (1 replacements)
+[DRY RUN] Would change in architecture/workflows/index.md: components/ → components/index.md (1 replacements)
+[DRY RUN] Would change in architecture/integrations/gitlab-services.md: examples/ → examples/index.md (3 replacements)
+[DRY RUN] Would change in architecture/integrations/gitlab-services.md: thresholds/ → thresholds/index.md (1 replacements)
+[DRY RUN] Would change in architecture/integrations/custom-integrations.md: examples/ → examples/index.md (4 replacements)
+[DRY RUN] Would change in architecture/integrations/custom-integrations.md: thresholds/ → thresholds/index.md (1 replacements)
+[DRY RUN] Would change in architecture/integrations/custom-integrations.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in architecture/integrations/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in architecture/integrations/index.md: deployment/ → deployment/index.md (1 replacements)
+[DRY RUN] Would change in architecture/integrations/index.md: components/ → components/index.md (1 replacements)
+[DRY RUN] Would change in architecture/integrations/gitlab-ci.md: examples/ → examples/index.md (11 replacements)
+[DRY RUN] Would change in architecture/integrations/gitlab-ci.md: thresholds/ → thresholds/index.md (1 replacements)
+[DRY RUN] Would change in architecture/integrations/github-actions.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in architecture/integrations/github-actions.md: examples/ → examples/index.md (10 replacements)
+[DRY RUN] Would change in architecture/components/security-components.md: configuration/ → configuration/index.md (1 replacements)
+[DRY RUN] Would change in architecture/components/security-components.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in architecture/components/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in architecture/components/index.md: diagrams/ → diagrams/index.md (1 replacements)
+[DRY RUN] Would change in architecture/components/index.md: deployment/ → deployment/index.md (1 replacements)
+[DRY RUN] Would change in architecture/index.md: workflows/ → workflows/index.md (2 replacements)
+[DRY RUN] Would change in architecture/index.md: diagrams/ → diagrams/index.md (2 replacements)
+[DRY RUN] Would change in architecture/index.md: deployment/ → deployment/index.md (2 replacements)
+[DRY RUN] Would change in architecture/index.md: components/ → components/index.md (2 replacements)
+[DRY RUN] Would change in architecture/index.md: integrations/ → integrations/index.md (2 replacements)
+[DRY RUN] Would change in architecture/deployment/ci-cd-deployment.md: platforms/ → platforms/index.md (3 replacements)
+[DRY RUN] Would change in architecture/deployment/ci-cd-deployment.md: examples/ → examples/index.md (7 replacements)
+[DRY RUN] Would change in architecture/deployment/ci-cd-deployment.md: thresholds/ → thresholds/index.md (1 replacements)
+[DRY RUN] Would change in architecture/deployment/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in architecture/deployment/index.md: components/ → components/index.md (1 replacements)
+[DRY RUN] Would change in architecture/deployment/index.md: integrations/ → integrations/index.md (1 replacements)
+[DRY RUN] Would change in architecture/deployment/script-deployment.md: examples/ → examples/index.md (4 replacements)
+[DRY RUN] Would change in architecture/deployment/script-deployment.md: thresholds/ → thresholds/index.md (1 replacements)
+[DRY RUN] Would change in architecture/deployment/helm-deployment.md: examples/ → examples/index.md (1 replacements)
+[DRY RUN] Would change in architecture/deployment/helm-deployment.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in architecture/deployment/helm-deployment.md: usage/ → usage/index.md (2 replacements)
+# Cross-reference fix report - Tue Mar 25 23:27:06 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture
+- Total files processed: 29
+- Files with changes: 15
+- Total mappings applied: 44
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 44
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 234
+- Links managed by mappings: 120
+  - Already correctly formatted: 13
+  - Needing updates: 107
+- Other correctly formatted links: 114
+  - index.md references: 38
+  - Specific file references: 76
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 126
+
+### Link Format Analysis
+
+- Overall format compliance: 54.2% of unique links
+- Mappings already correct: 10.8% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 107
+
+## Dry Run Summary
+
+- 15 file(s) would be modified
+- 107 total link references would be updated
+- Approximately 51.7% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+Link details saved to: /tmp/links_detail_81318.txt
+Updated in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: security/ → security/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: security/ → security/index.md (0 replacements)
+Updated in approaches/debug-container/distroless-basics.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/debug-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/debug-container/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/debug-container/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/debug-container/index.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/debug-container/index.md: security/ → security/index.md (0 replacements)
+Updated in approaches/new-index.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/new-index.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/new-index.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/new-index.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/new-index.md: overview/ → overview/index.md (0 replacements)
+Updated in approaches/comparison.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/comparison.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/comparison.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/comparison.md: security/ → security/index.md (0 replacements)
+Updated in approaches/comparison.md: overview/ → overview/index.md (0 replacements)
+Updated in approaches/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/inventory.md: diagrams/ → diagrams/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: security/ → security/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: overview/ → overview/index.md (0 replacements)
+Updated in approaches/sidecar-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/sidecar-container/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/sidecar-container/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/sidecar-container/index.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/sidecar-container/index.md: security/ → security/index.md (0 replacements)
+Updated in approaches/helper-scripts/scripts-vs-commands.md: examples/ → examples/index.md (0 replacements)
+Updated in approaches/helper-scripts/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/helper-scripts/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/helper-scripts/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/helper-scripts/available-scripts.md: examples/ → examples/index.md (0 replacements)
+Updated in approaches/index.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/index.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/index.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/index.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/direct-commands.md: examples/ → examples/index.md (0 replacements)
+# Cross-reference fix report - Tue Mar 25 23:29:08 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches
+- Total files processed: 22
+- Files with changes: 17
+- Total mappings applied: 51
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 528
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 135
+- Links managed by mappings: 36
+  - Already correctly formatted: 36
+  - Needing updates: 0
+- Other correctly formatted links: 99
+  - index.md references: 5
+  - Specific file references: 94
+
+### Additional Metrics
+
+- Directory-style links found: 5 (included in links needing updates)
+- Links detected in initial scan: 165
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 81.8% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_kubernetes-api_20250325-233256.txt
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+# Cross-reference fix report - Tue Mar 25 23:33:09 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 3
+- Total mappings applied: 10
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 10
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 43
+- Links managed by mappings: 26
+  - Already correctly formatted: 14
+  - Needing updates: 12
+- Other correctly formatted links: 17
+  - index.md references: 1
+  - Specific file references: 16
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 19
+
+### Link Format Analysis
+
+- Overall format compliance: 72.0% of unique links
+- Mappings already correct: 53.8% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 12
+
+## Dry Run Summary
+
+- 3 file(s) would be modified
+- 12 total link references would be updated
+- Approximately 60.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+Link details saved to: /tmp/links_detail_approaches_20250325-233424.txt
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (2 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/inventory.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/distroless-basics.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/index.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/new-index.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/comparison.md: security/ → security/index.md (2 replacements)
+[DRY RUN] Would change in approaches/comparison.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in approaches/inventory.md: kubernetes-api/ → kubernetes-api/index.md (7 replacements)
+[DRY RUN] Would change in approaches/inventory.md: debug-container/ → debug-container/index.md (6 replacements)
+[DRY RUN] Would change in approaches/inventory.md: sidecar-container/ → sidecar-container/index.md (5 replacements)
+[DRY RUN] Would change in approaches/inventory.md: helper-scripts/ → helper-scripts/index.md (5 replacements)
+[DRY RUN] Would change in approaches/inventory.md: diagrams/ → diagrams/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: security/ → security/index.md (3 replacements)
+[DRY RUN] Would change in approaches/decision-matrix.md: overview/ → overview/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/index.md: workflows/ → workflows/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/index.md: security/ → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/scripts-vs-commands.md: examples/ → examples/index.md (6 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/available-scripts.md: examples/ → examples/index.md (3 replacements)
+[DRY RUN] Would change in approaches/index.md: kubernetes-api/ → kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in approaches/index.md: debug-container/ → debug-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/index.md: sidecar-container/ → sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in approaches/index.md: helper-scripts/ → helper-scripts/index.md (1 replacements)
+[DRY RUN] Would change in approaches/direct-commands.md: examples/ → examples/index.md (6 replacements)
+# Cross-reference fix report - Tue Mar 25 23:35:22 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches
+- Total files processed: 22
+- Files with changes: 17
+- Total mappings applied: 51
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 51
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 284
+- Links managed by mappings: 185
+  - Already correctly formatted: 98
+  - Needing updates: 87
+- Other correctly formatted links: 99
+  - index.md references: 5
+  - Specific file references: 94
+
+### Additional Metrics
+
+- Directory-style links found: 5 (included in links needing updates)
+- Links detected in initial scan: 106
+
+### Link Format Analysis
+
+- Overall format compliance: 69.3% of unique links
+- Mappings already correct: 52.9% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 87
+
+## Dry Run Summary
+
+- 17 file(s) would be modified
+- 87 total link references would be updated
+- Approximately 77.2% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+Link details saved to: /tmp/links_detail_approaches_20250325-233629.txt
+Updated in approaches/kubernetes-api/limitations.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/limitations.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/inventory.md: security/ → security/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/kubernetes-api/index.md: security/ → security/index.md (0 replacements)
+Updated in approaches/debug-container/distroless-basics.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/debug-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/debug-container/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/debug-container/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/debug-container/index.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/debug-container/index.md: security/ → security/index.md (0 replacements)
+Updated in approaches/new-index.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/new-index.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/new-index.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/new-index.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/new-index.md: overview/ → overview/index.md (0 replacements)
+Updated in approaches/comparison.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/comparison.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/comparison.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/comparison.md: security/ → security/index.md (0 replacements)
+Updated in approaches/comparison.md: overview/ → overview/index.md (0 replacements)
+Updated in approaches/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/inventory.md: diagrams/ → diagrams/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: security/ → security/index.md (0 replacements)
+Updated in approaches/decision-matrix.md: overview/ → overview/index.md (0 replacements)
+Updated in approaches/sidecar-container/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/sidecar-container/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/sidecar-container/inventory.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/sidecar-container/index.md: workflows/ → workflows/index.md (0 replacements)
+Updated in approaches/sidecar-container/index.md: security/ → security/index.md (0 replacements)
+Updated in approaches/helper-scripts/scripts-vs-commands.md: examples/ → examples/index.md (0 replacements)
+Updated in approaches/helper-scripts/inventory.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/helper-scripts/inventory.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/helper-scripts/inventory.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/helper-scripts/available-scripts.md: examples/ → examples/index.md (0 replacements)
+Updated in approaches/index.md: kubernetes-api/ → kubernetes-api/index.md (0 replacements)
+Updated in approaches/index.md: debug-container/ → debug-container/index.md (0 replacements)
+Updated in approaches/index.md: sidecar-container/ → sidecar-container/index.md (0 replacements)
+Updated in approaches/index.md: helper-scripts/ → helper-scripts/index.md (0 replacements)
+Updated in approaches/direct-commands.md: examples/ → examples/index.md (0 replacements)
+# Cross-reference fix report - Tue Mar 25 23:37:43 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches
+- Total files processed: 22
+- Files with changes: 17
+- Total mappings applied: 51
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 528
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 197
+- Links managed by mappings: 98
+  - Already correctly formatted: 98
+  - Needing updates: 0
+- Other correctly formatted links: 99
+  - index.md references: 5
+  - Specific file references: 94
+
+### Additional Metrics
+
+- Directory-style links found: 5 (included in links needing updates)
+- Links detected in initial scan: 106
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_kubernetes-api_20250325-234648.txt
+# Cross-reference fix report - Tue Mar 25 23:47:03 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 31
+- Links managed by mappings: 14
+  - Already correctly formatted: 14
+  - Needing updates: 0
+- Other correctly formatted links: 17
+  - index.md references: 1
+  - Specific file references: 16
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 19
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Dry Run Summary
+
+No changes would be made to any files.
+Link details saved to: /tmp/links_detail_approaches_kubernetes-api_20250325-234719.txt
+# Cross-reference fix report - Tue Mar 25 23:47:34 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 31
+- Links managed by mappings: 14
+  - Already correctly formatted: 14
+  - Needing updates: 0
+- Other correctly formatted links: 17
+  - index.md references: 1
+  - Specific file references: 16
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 19
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_architecture_20250325-235621.txt
+# Cross-reference fix report - Tue Mar 25 23:57:49 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture
+- Total files processed: 29
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 127
+- Links managed by mappings: 13
+  - Already correctly formatted: 13
+  - Needing updates: 0
+- Other correctly formatted links: 114
+  - index.md references: 38
+  - Specific file references: 76
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 126
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_configuration_20250325-235802.txt
+# Cross-reference fix report - Tue Mar 25 23:59:35 EDT 2025
+
+## Summary
+
+- Subdirectory: configuration
+- Total files processed: 31
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 203
+- Links managed by mappings: 12
+  - Already correctly formatted: 12
+  - Needing updates: 0
+- Other correctly formatted links: 191
+  - index.md references: 86
+  - Specific file references: 105
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 203
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_test-links_20250326-020637.txt
+[DRY RUN] Would change in test-links/test-links.md: ../approaches/debug-container.md → ../approaches/debug-container/index.md (3 replacements)
+[DRY RUN] Would change in test-links/test-links.md: ../approaches/kubernetes-api.md → ../approaches/kubernetes-api/index.md (1 replacements)
+[DRY RUN] Would change in test-links/test-links.md: ../approaches/sidecar-container.md → ../approaches/sidecar-container/index.md (1 replacements)
+[DRY RUN] Would change in test-links/test-links.md: ../approaches/direct-commands.md → ../approaches/helper-scripts/scripts-vs-commands.md (1 replacements)
+[DRY RUN] Would change in test-links/test-links.md: ../security/overview.md → ../security/index.md (1 replacements)
+[DRY RUN] Would change in test-links/test-links.md: ../security/risk-analysis.md → ../security/risk/index.md (2 replacements)
+[DRY RUN] Would change in test-links/test-links.md: ../security/compliance.md → ../security/compliance/index.md (1 replacements)
+[DRY RUN] Would change in test-links/test-links.md: ../../approaches/debug-container.md → ../../approaches/debug-container/index.md (1 replacements)
+# Cross-reference fix report - Wed Mar 26 02:06:44 EDT 2025
+
+## Summary
+
+- Subdirectory: test-links
+- Total files processed: 1
+- Files with changes: 1
+- Total mappings applied: 8
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 8
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 27
+- Links managed by mappings: 12
+  - Already correctly formatted: 1
+  - Needing updates: 11
+- Other correctly formatted links: 15
+  - index.md references: 2
+  - Specific file references: 13
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 15
+
+### Link Format Analysis
+
+- Overall format compliance: 59.2% of unique links
+- Mappings already correct: 8.3% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 11
+
+## Dry Run Summary
+
+- 1 file(s) would be modified
+- 11 total link references would be updated
+- Approximately 100.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+Link details saved to: /tmp/links_detail_test-links_20250326-020714.txt
+Updated in test-links/test-links.md: ../approaches/debug-container.md → ../approaches/debug-container/index.md (3 replacements)
+Updated in test-links/test-links.md: ../approaches/kubernetes-api.md → ../approaches/kubernetes-api/index.md (1 replacements)
+Updated in test-links/test-links.md: ../approaches/sidecar-container.md → ../approaches/sidecar-container/index.md (1 replacements)
+Updated in test-links/test-links.md: ../approaches/direct-commands.md → ../approaches/helper-scripts/scripts-vs-commands.md (1 replacements)
+Updated in test-links/test-links.md: ../security/overview.md → ../security/index.md (1 replacements)
+Updated in test-links/test-links.md: ../security/risk-analysis.md → ../security/risk/index.md (2 replacements)
+Updated in test-links/test-links.md: ../security/compliance.md → ../security/compliance/index.md (1 replacements)
+Updated in test-links/test-links.md: ../../approaches/debug-container.md → ../../approaches/debug-container/index.md (1 replacements)
+# Cross-reference fix report - Wed Mar 26 02:07:21 EDT 2025
+
+## Summary
+
+- Subdirectory: test-links
+- Total files processed: 1
+- Files with changes: 1
+- Total mappings applied: 8
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 8
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 27
+- Links managed by mappings: 12
+  - Already correctly formatted: 1
+  - Needing updates: 11
+- Other correctly formatted links: 15
+  - index.md references: 12
+  - Specific file references: 3
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 15
+
+### Link Format Analysis
+
+- Overall format compliance: 59.2% of unique links
+- Mappings already correct: 8.3% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 11
+
+Link details saved to: /tmp/links_detail_approaches_20250326-020930.txt
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: rbac.md → rbac/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security.md → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: integration.md → integration/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/rbac.md: security.md → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/implementation.md: rbac.md → rbac/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/implementation.md: security.md → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: rbac.md → rbac/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: security.md → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/inventory.md: integration.md → integration/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/index.md: rbac.md → rbac/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/index.md: security.md → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/debug-container/index.md: integration.md → integration/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: rbac.md → rbac/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: security.md → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/inventory.md: integration.md → integration/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/index.md: rbac.md → rbac/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/index.md: security.md → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/sidecar-container/index.md: integration.md → integration/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/inventory.md: integration.md → integration/index.md (1 replacements)
+[DRY RUN] Would change in approaches/helper-scripts/index.md: integration.md → integration/index.md (1 replacements)
+Link details saved to: /tmp/links_detail_approaches_comparison.md_20250326-021334.txt
+# Cross-reference fix report - Wed Mar 26 02:13:40 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/comparison.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 7
+- Links managed by mappings: 6
+  - Already correctly formatted: 6
+  - Needing updates: 0
+- Other correctly formatted links: 1
+  - index.md references: 0
+  - Specific file references: 1
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 1
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Dry Run Summary
+
+No changes would be made to any files.
+Link details saved to: /tmp/links_detail_approaches_kubernetes-api_20250326-021353.txt
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: rbac.md → rbac/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: security.md → security/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/index.md: integration.md → integration/index.md (1 replacements)
+[DRY RUN] Would change in approaches/kubernetes-api/rbac.md: security.md → security/index.md (1 replacements)
+# Cross-reference fix report - Wed Mar 26 02:14:25 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 2
+- Total mappings applied: 4
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 4
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 30
+- Links managed by mappings: 13
+  - Already correctly formatted: 9
+  - Needing updates: 4
+- Other correctly formatted links: 17
+  - index.md references: 1
+  - Specific file references: 16
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 19
+
+### Link Format Analysis
+
+- Overall format compliance: 86.6% of unique links
+- Mappings already correct: 69.2% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 4
+
+## Dry Run Summary
+
+- 2 file(s) would be modified
+- 4 total link references would be updated
+- Approximately 40.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
+Link details saved to: /tmp/links_detail_approaches_kubernetes-api_20250326-021432.txt
+Updated in approaches/kubernetes-api/index.md: rbac.md → rbac/index.md (1 replacements)
+Updated in approaches/kubernetes-api/index.md: security.md → security/index.md (1 replacements)
+Updated in approaches/kubernetes-api/index.md: integration.md → integration/index.md (1 replacements)
+Updated in approaches/kubernetes-api/rbac.md: security.md → security/index.md (1 replacements)
+# Cross-reference fix report - Wed Mar 26 02:15:04 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/kubernetes-api
+- Total files processed: 5
+- Files with changes: 2
+- Total mappings applied: 4
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 4
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 37
+- Links managed by mappings: 20
+  - Already correctly formatted: 16
+  - Needing updates: 4
+- Other correctly formatted links: 17
+  - index.md references: 5
+  - Specific file references: 12
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 19
+
+### Link Format Analysis
+
+- Overall format compliance: 89.1% of unique links
+- Mappings already correct: 80.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 4
+
+Link details saved to: /tmp/links_detail_approaches_debug-container_20250326-021514.txt
+Updated in approaches/debug-container/implementation.md: rbac.md → rbac/index.md (1 replacements)
+Updated in approaches/debug-container/implementation.md: security.md → security/index.md (1 replacements)
+Updated in approaches/debug-container/inventory.md: rbac.md → rbac/index.md (1 replacements)
+Updated in approaches/debug-container/inventory.md: security.md → security/index.md (1 replacements)
+Updated in approaches/debug-container/inventory.md: integration.md → integration/index.md (1 replacements)
+Updated in approaches/debug-container/index.md: rbac.md → rbac/index.md (1 replacements)
+Updated in approaches/debug-container/index.md: security.md → security/index.md (1 replacements)
+Updated in approaches/debug-container/index.md: integration.md → integration/index.md (1 replacements)
+# Cross-reference fix report - Wed Mar 26 02:15:40 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/debug-container
+- Total files processed: 4
+- Files with changes: 3
+- Total mappings applied: 8
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 8
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 51
+- Links managed by mappings: 27
+  - Already correctly formatted: 19
+  - Needing updates: 8
+- Other correctly formatted links: 24
+  - index.md references: 8
+  - Specific file references: 16
+
+### Additional Metrics
+
+- Directory-style links found: 1 (included in links needing updates)
+- Links detected in initial scan: 26
+
+### Link Format Analysis
+
+- Overall format compliance: 84.3% of unique links
+- Mappings already correct: 70.3% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 8
+
+Link details saved to: /tmp/links_detail_approaches_sidecar-container_20250326-021557.txt
+Updated in approaches/sidecar-container/inventory.md: rbac.md → rbac/index.md (1 replacements)
+Updated in approaches/sidecar-container/inventory.md: security.md → security/index.md (1 replacements)
+Updated in approaches/sidecar-container/inventory.md: integration.md → integration/index.md (1 replacements)
+Updated in approaches/sidecar-container/index.md: rbac.md → rbac/index.md (1 replacements)
+Updated in approaches/sidecar-container/index.md: security.md → security/index.md (1 replacements)
+Updated in approaches/sidecar-container/index.md: integration.md → integration/index.md (1 replacements)
+# Cross-reference fix report - Wed Mar 26 02:16:17 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/sidecar-container
+- Total files processed: 3
+- Files with changes: 2
+- Total mappings applied: 6
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 6
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 41
+- Links managed by mappings: 20
+  - Already correctly formatted: 14
+  - Needing updates: 6
+- Other correctly formatted links: 21
+  - index.md references: 6
+  - Specific file references: 15
+
+### Additional Metrics
+
+- Directory-style links found: 3 (included in links needing updates)
+- Links detected in initial scan: 24
+
+### Link Format Analysis
+
+- Overall format compliance: 85.3% of unique links
+- Mappings already correct: 70.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 6
+
+Link details saved to: /tmp/links_detail_approaches_helper-scripts_20250326-021624.txt
+Updated in approaches/helper-scripts/inventory.md: integration.md → integration/index.md (1 replacements)
+Updated in approaches/helper-scripts/index.md: integration.md → integration/index.md (1 replacements)
+# Cross-reference fix report - Wed Mar 26 02:16:50 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/helper-scripts
+- Total files processed: 4
+- Files with changes: 2
+- Total mappings applied: 2
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 2
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 43
+- Links managed by mappings: 22
+  - Already correctly formatted: 20
+  - Needing updates: 2
+- Other correctly formatted links: 21
+  - index.md references: 2
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 21
+
+### Link Format Analysis
+
+- Overall format compliance: 95.3% of unique links
+- Mappings already correct: 90.9% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 2
+
+Link details saved to: /tmp/links_detail_approaches_index.md_20250326-021707.txt
+# Cross-reference fix report - Wed Mar 26 02:17:13 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 5
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 5
+  - index.md references: 1
+  - Specific file references: 4
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 5
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_decision-matrix.md_20250326-021722.txt
+# Cross-reference fix report - Wed Mar 26 02:17:28 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/decision-matrix.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 8
+- Links managed by mappings: 8
+  - Already correctly formatted: 8
+  - Needing updates: 0
+- Other correctly formatted links: 0
+  - index.md references: 0
+  - Specific file references: 0
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 0
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_security_20250326-021737.txt
+Link details saved to: /tmp/links_detail_security_index.md_20250326-021953.txt
+# Cross-reference fix report - Wed Mar 26 02:20:00 EDT 2025
+
+## Summary
+
+- Subdirectory: security/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 28
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 28
+  - index.md references: 9
+  - Specific file references: 19
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 28
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_architecture_index.md_20250326-022008.txt
+# Cross-reference fix report - Wed Mar 26 02:20:15 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 11
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 11
+  - index.md references: 8
+  - Specific file references: 3
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 11
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_integration_index.md_20250326-022036.txt
+# Cross-reference fix report - Wed Mar 26 02:20:42 EDT 2025
+
+## Summary
+
+- Subdirectory: integration/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 22
+- Links managed by mappings: 8
+  - Already correctly formatted: 8
+  - Needing updates: 0
+- Other correctly formatted links: 14
+  - index.md references: 13
+  - Specific file references: 1
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 14
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_20250326-025916.txt
+Link details saved to: /tmp/links_detail_approaches_comparison.md_20250326-030125.txt
+# Cross-reference fix report - Wed Mar 26 03:01:31 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/comparison.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 7
+- Links managed by mappings: 6
+  - Already correctly formatted: 6
+  - Needing updates: 0
+- Other correctly formatted links: 1
+  - index.md references: 0
+  - Specific file references: 1
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 1
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_decision-matrix.md_20250326-030140.txt
+# Cross-reference fix report - Wed Mar 26 03:01:46 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/decision-matrix.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 8
+- Links managed by mappings: 8
+  - Already correctly formatted: 8
+  - Needing updates: 0
+- Other correctly formatted links: 0
+  - index.md references: 0
+  - Specific file references: 0
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 0
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_index.md_20250326-030219.txt
+# Cross-reference fix report - Wed Mar 26 03:02:26 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 5
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 5
+  - index.md references: 1
+  - Specific file references: 4
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 5
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_architecture_index.md_20250326-030258.txt
+# Cross-reference fix report - Wed Mar 26 03:03:04 EDT 2025
+
+## Summary
+
+- Subdirectory: architecture/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 11
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 11
+  - index.md references: 8
+  - Specific file references: 3
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 11
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_security_new-index.md_20250326-032556.txt
+# Cross-reference fix report - Wed Mar 26 03:26:02 EDT 2025
+
+## Summary
+
+- Subdirectory: security/new-index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 37
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 37
+  - index.md references: 13
+  - Specific file references: 24
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 37
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_security_new-inventory.md_20250326-032632.txt
+# Cross-reference fix report - Wed Mar 26 03:26:38 EDT 2025
+
+## Summary
+
+- Subdirectory: security/new-inventory.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 41
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 41
+  - index.md references: 11
+  - Specific file references: 30
+
+### Additional Metrics
+
+- Directory-style links found: 10 (included in links needing updates)
+- Links detected in initial scan: 51
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 80.3% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_integration_20250326-101931.txt
+Link details saved to: /tmp/links_detail_integration_inventory.md_20250326-102713.txt
+# Cross-reference fix report - Wed Mar 26 10:27:16 EDT 2025
+
+## Summary
+
+- Subdirectory: integration/inventory.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### Link References
+
+- Total unique links analyzed: 44
+- Links managed by mappings: 8
+  - Already correctly formatted: 8
+  - Needing updates: 0
+- Other correctly formatted links: 36
+  - index.md references: 14
+  - Specific file references: 22
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 36
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_integration_platforms_index.md_20250326-102746.txt
+# Cross-reference fix report - Wed Mar 26 10:27:55 EDT 2025
+
+## Summary
+
+- Subdirectory: integration/platforms/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 10
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 10
+  - index.md references: 3
+  - Specific file references: 7
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 10
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_helper-scripts_inventory.md_20250326-110955.txt
+# Cross-reference fix report - Wed Mar 26 11:10:05 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/helper-scripts/inventory.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 12
+- Links managed by mappings: 3
+  - Already correctly formatted: 3
+  - Needing updates: 0
+- Other correctly formatted links: 9
+  - index.md references: 1
+  - Specific file references: 8
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 9
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_helper-scripts_index.md_20250326-111215.txt
+# Cross-reference fix report - Wed Mar 26 11:12:25 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/helper-scripts/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 12
+- Links managed by mappings: 3
+  - Already correctly formatted: 3
+  - Needing updates: 0
+- Other correctly formatted links: 9
+  - index.md references: 1
+  - Specific file references: 8
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 9
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_test-warnings.md_20250326-111305.txt
+# Cross-reference fix report - Wed Mar 26 11:13:15 EDT 2025
+
+## Summary
+
+- Subdirectory: test-warnings.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 6
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 6
+  - index.md references: 1
+  - Specific file references: 5
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 8
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 75.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_sidecar-container_index.md_20250326-112044.txt
+# Cross-reference fix report - Wed Mar 26 11:20:54 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/sidecar-container/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 13
+- Links managed by mappings: 3
+  - Already correctly formatted: 3
+  - Needing updates: 0
+- Other correctly formatted links: 10
+  - index.md references: 3
+  - Specific file references: 7
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 10
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Mappings already correct: 100.0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_sidecar-container_inventory.md_20250326-113450.txt
+# Cross-reference fix report - Wed Mar 26 11:35:00 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/sidecar-container/inventory.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 14
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 14
+  - index.md references: 6
+  - Specific file references: 8
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 14
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_security_recommendations_20250326-122110.txt
+Link details saved to: /tmp/links_detail_security_recommendations_index.md_20250326-122137.txt
+# Cross-reference fix report - Wed Mar 26 12:21:47 EDT 2025
+
+## Summary
+
+- Subdirectory: security/recommendations/index.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 8
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 8
+  - index.md references: 4
+  - Specific file references: 4
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 8
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_security_recommendations_inventory.md_20250326-122157.txt
+# Cross-reference fix report - Wed Mar 26 12:22:07 EDT 2025
+
+## Summary
+
+- Subdirectory: security/recommendations/inventory.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 9
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 9
+  - index.md references: 4
+  - Specific file references: 5
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 9
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Summary
+
+No changes were made to any files.
+Link details saved to: /tmp/links_detail_approaches_comparison.md_20250326-180126.txt
+# Cross-reference fix report - Wed Mar 26 18:01:37 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/comparison.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 7
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 7
+  - index.md references: 5
+  - Specific file references: 2
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 7
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Dry Run Summary
+
+No changes would be made to any files.
+Link details saved to: /tmp/links_detail_approaches_decision-matrix.md_20250326-180148.txt
+# Cross-reference fix report - Wed Mar 26 18:01:59 EDT 2025
+
+## Summary
+
+- Subdirectory: approaches/decision-matrix.md
+- Total files processed: 1
+- Files with changes: 0
+- Total mappings applied: 0
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 0
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 7
+- Links managed by mappings: 0
+  - Already correctly formatted: 0
+  - Needing updates: 0
+- Other correctly formatted links: 7
+  - index.md references: 6
+  - Specific file references: 1
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 7
+
+### Link Format Analysis
+
+- Overall format compliance: 100.0% of unique links
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 0
+
+## Dry Run Summary
+
+No changes would be made to any files.
+Link details saved to: /tmp/links_detail_test-cross-ref.md_20250326-180220.txt
+[DRY RUN] Would change in test-cross-ref.md: approaches/debug-container.md → approaches/debug-container/index.md (1 replacements)
+[DRY RUN] Would change in test-cross-ref.md: security/overview.md → security/index.md (1 replacements)
+# Cross-reference fix report - Wed Mar 26 18:02:31 EDT 2025
+
+## Summary
+
+- Subdirectory: test-cross-ref.md
+- Total files processed: 1
+- Files with changes: 1
+- Total mappings applied: 2
+- Metrics validation: ✅ PASSED
+
+### File Verification Results
+
+- Links verified: 2
+- ✅ No broken links detected
+
+### Link References
+
+- Total unique links analyzed: 5
+- Links managed by mappings: 2
+  - Already correctly formatted: 0
+  - Needing updates: 2
+- Other correctly formatted links: 3
+  - index.md references: 0
+  - Specific file references: 3
+
+### Additional Metrics
+
+- Directory-style links found: 0 (included in links needing updates)
+- Links detected in initial scan: 3
+
+### Link Format Analysis
+
+- Overall format compliance: 60.0% of unique links
+- Mappings already correct: 0% of mappings
+- Analysis coverage: 100.0% of detected links
+- Links to be updated: 2
+
+## Dry Run Summary
+
+- 1 file(s) would be modified
+- 2 total link references would be updated
+- Approximately 100.0% of files would have changes
+
+See the detailed changes above for specific files that would be modified.
