@@ -1,9 +1,31 @@
 # Kube Secure Scanner
 
-A flexible, security-focused framework for scanning containers in Kubernetes environments with multiple scanning engines. Initially built with CINC Auditor (open source InSpec), the platform provides secure RBAC configurations, multiple scanning approaches, and comprehensive CI/CD integration.
-
 !!! info "Release Preview v0.90"
     This is an ongoing joint community research effort and is currently at **Release Preview (v0.90)**. Some examples, automation, pipelines, and scripts are still in the process of being fully tested and validated. We'll be releasing updates in v0.9.x versions as we work toward a stable v1.0.0 release.
+
+    [View Project on GitHub ↗](https://github.com/mitre/kube-secure-scanner){: .md-button .md-button--primary target="_blank"}
+
+## Overview
+
+A flexible, security-focused framework for scanning containers in Kubernetes environments with multiple scanning engines. Initially built with CINC Auditor (open source InSpec), the platform provides secure RBAC configurations, multiple scanning approaches, and comprehensive CI/CD integration.
+
+<div class="grid" markdown>
+<div markdown>
+**Key Features:**
+- Multiple scanner engine support (extensible framework)
+- Three container scanning approaches for all Kubernetes environments
+- Specialized security controls with least-privilege design
+- Comprehensive documentation and integration examples
+- CI/CD pipeline integration for GitHub Actions and GitLab
+</div>
+<div markdown>
+**Quick Links:**
+[Quick Start Guide](quickstart-guide.md){: .md-button .md-button--primary }
+[Approach Comparison](approaches/comparison.md){: .md-button }
+[GitHub Actions Integration](integration/platforms/github-actions.md){: .md-button }
+[GitLab CI Integration](integration/platforms/gitlab-ci.md){: .md-button }
+</div>
+</div>
 
 *[CINC]: CINC Is Not Chef
 *[SAF]: Security Automation Framework
@@ -11,7 +33,7 @@ A flexible, security-focused framework for scanning containers in Kubernetes env
 *[K8s]: Kubernetes
 *[API]: Application Programming Interface
 
-## I am a
+## Choose Your Path
 
 <div class="grid cards" markdown>
 
@@ -121,10 +143,22 @@ This project offers three distinct approaches for container scanning, designed t
 
 ## Getting Started
 
-The fastest way to get started is with our Quick Start guide:
+The fastest way to get started is with our Quick Start guide, which walks you through:
+- Setting up a testing environment
+- Deploying the scanning infrastructure
+- Running container scans
+- Validating compliance results
 
+<div class="grid" markdown>
+<div markdown>
 [Quick Start Guide](quickstart-guide.md){: .md-button .md-button--primary }
 [Site Index](site-index.md){: .md-button }
+</div>
+<div markdown>
+[Security Overview](security/index.md){: .md-button }
+[Documentation Map](site-index.md){: .md-button }
+</div>
+</div>
 
 ## Project Roadmap
 
