@@ -27,6 +27,7 @@ The Sidecar Container Approach deploys a scanner container alongside the target 
    - Custom threshold settings for the sidecar approach
 
 This chart primarily relies on components from its dependencies:
+
 - `common-scanner`: Scanning scripts and SAF CLI integration
 - `scanner-infrastructure`: Core RBAC, service accounts, and security model
 
@@ -192,7 +193,7 @@ Alternatively, use the scan script:
 
 ```bash
 # Deploy application with scanner sidecar
-./scripts/scan-with-sidecar.sh prod-scanning my-app:latest ./profiles/container-baseline
+./kubernetes-scripts/scan-with-sidecar.sh prod-scanning my-app:latest ./profiles/container-baseline
 ```
 
 ## Limitations

@@ -23,6 +23,7 @@ The Debug Container Approach uses Kubernetes ephemeral debug containers to tempo
    - Limited to specific pods when resource names are used
 
 This chart primarily relies on components from its dependencies:
+
 - `common-scanner`: Scanning scripts and SAF CLI integration
 - `scanner-infrastructure`: Core RBAC, service accounts, and security model
 
@@ -125,10 +126,10 @@ After installing with the test pod enabled:
 
 ```bash
 # Generate kubeconfig
-./scripts/generate-kubeconfig.sh inspec-test inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh inspec-test inspec-scanner ./kubeconfig.yaml
 
 # Run distroless scan against test pod
-./scripts/scan-distroless-container.sh inspec-test distroless-target-helm distroless ./examples/cinc-profiles/container-baseline
+./kubernetes-scripts/scan-distroless-container.sh inspec-test distroless-target-helm distroless ./examples/cinc-profiles/container-baseline
 ```
 
 ### Using with Existing Distroless Applications
@@ -137,17 +138,17 @@ For scanning existing distroless application containers:
 
 ```bash
 # Generate kubeconfig
-./scripts/generate-kubeconfig.sh prod-scanning inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh prod-scanning inspec-scanner ./kubeconfig.yaml
 
 # Run scan against distroless application container
-./scripts/scan-distroless-container.sh prod-scanning my-distroless-app application-container ./examples/cinc-profiles/container-baseline
+./kubernetes-scripts/scan-distroless-container.sh prod-scanning my-distroless-app application-container ./examples/cinc-profiles/container-baseline
 ```
 
 ### Using with SAF CLI for Compliance Validation
 
 ```bash
 # Run scan with compliance validation
-./scripts/scan-distroless-container.sh prod-scanning my-distroless-app application-container \
+./kubernetes-scripts/scan-distroless-container.sh prod-scanning my-distroless-app application-container \
   ./examples/cinc-profiles/container-baseline \
   --threshold-file=./threshold.yml
 ```

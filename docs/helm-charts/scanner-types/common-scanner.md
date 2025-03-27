@@ -120,10 +120,10 @@ After installing the chart, you can use the scanning scripts:
 
 ```bash
 # Generate kubeconfig
-./scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
 
 # Run standard container scan
-./scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
+./kubernetes-scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
 ```
 
 ### Threshold Configuration Examples
@@ -152,7 +152,7 @@ Then use it in scanning:
 
 ```bash
 # Run scan with custom threshold
-./scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline --threshold-file=./threshold.yml
+./kubernetes-scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline --threshold-file=./threshold.yml
 ```
 
 ## Related Documentation

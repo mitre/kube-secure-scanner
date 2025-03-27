@@ -13,30 +13,36 @@ This section contains documentation for the Helm charts used to deploy the Secur
 The Helm charts documentation is now organized into the following sections:
 
 ### [Overview](overview/index.md)
+
 - [Architecture](overview/architecture.md)
 
 ### [Scanner Types](scanner-types/index.md)
+
 - [Common Scanner](scanner-types/common-scanner.md)
 - [Kubernetes API Scanner](scanner-types/standard-scanner.md)
 - [Debug Container Scanner](scanner-types/distroless-scanner.md)
 - [Sidecar Container Scanner](scanner-types/sidecar-scanner.md)
 
 ### [Infrastructure](infrastructure/index.md)
+
 - [RBAC Configuration](infrastructure/rbac.md)
 - [Service Accounts](infrastructure/service-accounts.md)
 - [Namespaces](infrastructure/namespaces.md)
 
 ### [Usage & Customization](usage/index.md)
+
 - [Customization Guide](usage/customization.md)
 - [Configuration Reference](usage/configuration.md)
 - [Values Files](usage/values.md)
 
 ### [Security](security/index.md)
+
 - [Best Practices](security/best-practices.md)
 - [RBAC Hardening](security/rbac-hardening.md)
 - [Risk Assessment](security/risk-assessment.md)
 
 ### [Operations](operations/index.md)
+
 - [Troubleshooting](operations/troubleshooting.md)
 - [Performance Optimization](operations/performance.md)
 - [Maintenance Procedures](operations/maintenance.md)

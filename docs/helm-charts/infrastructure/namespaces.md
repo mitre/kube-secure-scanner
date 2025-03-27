@@ -24,6 +24,7 @@ metadata:
 ```
 
 This namespace:
+
 - Isolates scanning operations from other workloads
 - Groups scanning resources together
 - Enables namespace-level security controls

@@ -9,13 +9,13 @@ The Scanner Infrastructure Helm chart provides the core infrastructure component
 - **README.md**: Original documentation (being migrated to this structure)
 - **index.md**: Main MkDocs documentation page
 - **templates/**: Kubernetes templates for infrastructure resources
-  - `configmap-scripts.yaml`: Configuration maps for scanning scripts
-  - `namespace.yaml`: Namespace creation template
-  - `rbac.yaml`: RBAC configuration with proper permissions
-  - `serviceaccount.yaml`: Service account with token configuration
+    - `configmap-scripts.yaml`: Configuration maps for scanning scripts
+    - `namespace.yaml`: Namespace creation template
+    - `rbac.yaml`: RBAC configuration with proper permissions
+    - `serviceaccount.yaml`: Service account with token configuration
 - **values.yaml**: Default values for the Helm chart
 - **examples/**: Example configurations
-  - `values-production.yaml`: Production-grade configuration
+    - `values-production.yaml`: Production-grade configuration
 
 ## Primary Features
 
@@ -27,7 +27,7 @@ The Scanner Infrastructure Helm chart provides the core infrastructure component
 ## Related Resources
 
 - [Main Helm Charts Overview](../index.md)
-- [Common Scanner Chart](../common-scanner.md)
-- [Standard Scanner Chart](../standard-scanner.md)
-- [Distroless Scanner Chart](../distroless-scanner.md)
-- [Sidecar Scanner Chart](../sidecar-scanner.md)
+- [Common Scanner Chart](../scanner-types/common-scanner.md)
+- [Standard Scanner Chart](../scanner-types/standard-scanner.md)
+- [Distroless Scanner Chart](../scanner-types/distroless-scanner.md)
+- [Sidecar Scanner Chart](../scanner-types/sidecar-scanner.md)

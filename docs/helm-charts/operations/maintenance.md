@@ -85,7 +85,7 @@ Regularly rotate service account tokens:
 kubectl delete secrets -n scanning-namespace -l kubernetes.io/service-account.name=inspec-scanner
 
 # Regenerate kubeconfig with fresh token
-./scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
 ```
 
 ## Scheduled Maintenance Procedures
@@ -121,10 +121,10 @@ kubectl get role scanner-role -n $NAMESPACE -o yaml
 
 # 5. Rotate tokens
 kubectl delete secrets -n $NAMESPACE -l kubernetes.io/service-account.name=inspec-scanner
-./scripts/generate-kubeconfig.sh $NAMESPACE inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh $NAMESPACE inspec-scanner ./kubeconfig.yaml
 
 # 6. Verify scanner functionality
-./scripts/scan-container.sh $NAMESPACE test-pod container-name ./profiles/container-baseline
+./kubernetes-scripts/scan-container.sh $NAMESPACE test-pod container-name ./profiles/container-baseline
 
 echo "Maintenance complete!"
 ```
@@ -191,7 +191,7 @@ helm upgrade standard-scanner-test ./helm-charts/standard-scanner \
   -f standard-scanner-values-backup.yaml
 
 # 4. Verify functionality in test environment
-./scripts/scan-container.sh test-namespace test-pod container-name ./profiles/container-baseline
+./kubernetes-scripts/scan-container.sh test-namespace test-pod container-name ./profiles/container-baseline
 
 # 5. Schedule production upgrade during maintenance window
 helm upgrade standard-scanner ./helm-charts/standard-scanner \

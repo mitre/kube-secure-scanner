@@ -21,6 +21,7 @@ rules:
 ```
 
 These permissions enable:
+
 - Listing pods in the target namespace
 - Executing commands in pods (for Kubernetes API scanning)
 - Getting pod details (for all scanning approaches)
@@ -37,6 +38,7 @@ rules:
 ```
 
 These permissions enable:
+
 - Creating ephemeral debug containers
 - Attaching to target containers
 

@@ -75,6 +75,7 @@ graph TD
 ```
 
 This allows:
+
 - Global values set at top level
 - Approach-specific overrides
 - Component-specific settings
@@ -121,6 +122,7 @@ graph TD
 ```
 
 Key integration points:
+
 - **CI/CD Systems**: Pipeline integration
 - **Secret Management**: External secrets for tokens
 - **Logging/Monitoring**: Result tracking and alerting

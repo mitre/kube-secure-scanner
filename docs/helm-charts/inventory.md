@@ -7,11 +7,13 @@ This document provides a directory overview of all Helm chart resources in the p
 The helm-charts directory contains all of the Helm charts documentation for the Kubernetes container scanning solution. The documentation is organized into the following subdirectories:
 
 ### Overview
+
 - **overview/index.md**: Introduction to the Helm charts
 - **overview/inventory.md**: Directory listing
 - **overview/architecture.md**: Detailed architecture documentation
 
 ### Scanner Types
+
 - **scanner-types/index.md**: Introduction to scanner types
 - **scanner-types/inventory.md**: Directory listing
 - **scanner-types/common-scanner.md**: Common scanner documentation
@@ -20,6 +22,7 @@ The helm-charts directory contains all of the Helm charts documentation for the 
 - **scanner-types/sidecar-scanner.md**: Sidecar container scanner documentation
 
 ### Infrastructure
+
 - **infrastructure/index.md**: Infrastructure overview
 - **infrastructure/inventory.md**: Directory listing
 - **infrastructure/rbac.md**: RBAC configuration documentation
@@ -27,6 +30,7 @@ The helm-charts directory contains all of the Helm charts documentation for the 
 - **infrastructure/namespaces.md**: Namespace management documentation
 
 ### Usage & Customization
+
 - **usage/index.md**: Usage and customization overview
 - **usage/inventory.md**: Directory listing
 - **usage/customization.md**: Customization guide
@@ -34,6 +38,7 @@ The helm-charts directory contains all of the Helm charts documentation for the 
 - **usage/values.md**: Values file documentation
 
 ### Security
+
 - **security/index.md**: Security overview
 - **security/inventory.md**: Directory listing
 - **security/best-practices.md**: Security best practices
@@ -41,6 +46,7 @@ The helm-charts directory contains all of the Helm charts documentation for the 
 - **security/risk-assessment.md**: Security risk assessment
 
 ### Operations
+
 - **operations/index.md**: Operations overview
 - **operations/inventory.md**: Directory listing
 - **operations/troubleshooting.md**: Troubleshooting guide
@@ -48,6 +54,7 @@ The helm-charts directory contains all of the Helm charts documentation for the 
 - **operations/maintenance.md**: Maintenance procedures
 
 ### Original Files (Legacy)
+
 - **index.md**: Main documentation page (with redirects to new structure)
 - **inventory.md**: This directory listing
 

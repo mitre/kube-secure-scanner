@@ -53,7 +53,7 @@ depends:
 EOF
 
 # Use the lightweight profile for faster scans
-./scripts/scan-container.sh scanning-namespace target-pod container-name ./basic-profile
+./kubernetes-scripts/scan-container.sh scanning-namespace target-pod container-name ./basic-profile
 ```
 
 ### 2. Resource Allocation
@@ -105,7 +105,7 @@ spec:
             command: ["/bin/sh", "-c"]
             args:
             - |
-              ./scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
+              ./kubernetes-scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
           restartPolicy: OnFailure
 ```
 
@@ -121,7 +121,7 @@ PODS=$(kubectl get pods -n $NAMESPACE -l app=target-app -o jsonpath='{.items[*].
 
 # Scan pods in parallel
 for POD in $PODS; do
-  ./scripts/scan-container.sh $NAMESPACE $POD container-name ./profiles/container-baseline --output-file=results-$POD.json &
+  ./kubernetes-scripts/scan-container.sh $NAMESPACE $POD container-name ./profiles/container-baseline --output-file=results-$POD.json &
 done
 
 # Wait for all background processes to complete
@@ -192,14 +192,14 @@ Enable CINC Auditor caching:
 # Use caching for repeated scans
 INSPEC_CACHE_ENABLED=true \
 INSPEC_CACHE_LOCATION=/tmp/inspec-cache \
-./scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
+./kubernetes-scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
 ```
 
 Disable unnecessary reporters:
 
 ```bash
 # Use only required reporters
-./scripts/scan-container.sh scanning-namespace target-pod container-name \
+./kubernetes-scripts/scan-container.sh scanning-namespace target-pod container-name \
   ./profiles/container-baseline --reporter json:/results/scan-results.json
 ```
 
@@ -243,7 +243,7 @@ Collect scan timing metrics:
 
 ```bash
 # Add timing to scan script
-time ./scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
+time ./kubernetes-scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
 
 # Output detailed timing in profiles
 control 'container-1.1' do
@@ -269,7 +269,7 @@ For CI/CD environments, focus on speed:
 
 ```bash
 # CI/CD optimized scan
-./scripts/scan-container.sh ci-namespace target-pod container-name ./profiles/ci-profile \
+./kubernetes-scripts/scan-container.sh ci-namespace target-pod container-name ./profiles/ci-profile \
   --reporter json-min:/results/scan-results.json
 ```
 
@@ -292,7 +292,7 @@ For production environments, balance thoroughness with performance:
 
 ```bash
 # Production scan with optimal balance
-./scripts/scan-container.sh prod-namespace target-pod container-name ./profiles/prod-profile \
+./kubernetes-scripts/scan-container.sh prod-namespace target-pod container-name ./profiles/prod-profile \
   --reporter json:/results/scan-results.json \
   --ignore-warning-controls  # Skip warning-level controls
 ```

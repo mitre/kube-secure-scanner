@@ -121,7 +121,7 @@ kubectl create token inspec-scanner -n scanning-namespace --duration=15m > token
 # Use token for scanning
 KUBECONFIG=/path/to/kubeconfig \
 K8S_AUTH_TOKEN=$(cat token.txt) \
-./scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
+./kubernetes-scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
 ```
 
 ### Dynamic RBAC

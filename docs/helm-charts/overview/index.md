@@ -33,6 +33,7 @@ helm-charts/
 ### Security-First Design
 
 All charts implement security best practices:
+
 - Least-privilege RBAC model
 - Short-lived access tokens
 - Non-privileged containers
@@ -42,6 +43,7 @@ All charts implement security best practices:
 ### Modularity
 
 The charts are designed for maximum flexibility:
+
 - Use only the components you need
 - Mix and match scanning approaches
 - Customize individual chart values
@@ -50,6 +52,7 @@ The charts are designed for maximum flexibility:
 ### Enterprise Integration
 
 Built-in support for enterprise environments:
+
 - CI/CD pipeline integration
 - Compliance reporting with SAF CLI
 - Threshold-based validation

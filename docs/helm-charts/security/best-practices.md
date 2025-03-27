@@ -37,10 +37,10 @@ Always generate fresh tokens for each scanning operation:
 
 ```bash
 # Generate a short-lived token before each scan
-./scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
 
 # Run scan with the fresh token
-./scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
+./kubernetes-scripts/scan-container.sh scanning-namespace target-pod container-name ./profiles/container-baseline
 
 # Remove token after scan
 rm ./kubeconfig.yaml

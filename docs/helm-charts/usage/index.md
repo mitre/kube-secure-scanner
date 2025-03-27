@@ -23,6 +23,7 @@ helm install standard-scanner ./helm-charts/standard-scanner \
 ```
 
 This setup is ideal for:
+
 - Learning how the scanning solution works
 - Testing custom profiles and configurations
 - Developing new scanning approaches
@@ -47,6 +48,7 @@ helm install scanner-components ./helm-charts/common-scanner \
 ```
 
 Production features include:
+
 - External auth provider integration (OIDC, AWS IAM, etc.)
 - Custom threshold configurations
 - Resource limits and requests

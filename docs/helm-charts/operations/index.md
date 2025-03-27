@@ -29,7 +29,7 @@ kubectl get all -n scanning-namespace -l app.kubernetes.io/instance=scanner-infr
 kubectl get serviceaccount,role,rolebinding -n scanning-namespace -l app.kubernetes.io/instance=scanner-infrastructure
 
 # Test accessibility to target pods
-./scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
 KUBECONFIG=./kubeconfig.yaml kubectl get pods -n scanning-namespace
 ```
 

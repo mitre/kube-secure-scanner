@@ -1,5 +1,8 @@
 # Scanner Infrastructure Helm Chart
 
+!!! info "Directory Inventory"
+    See the [Scanner Infrastructure Chart Inventory](inventory.md) for a complete listing of files and resources in this directory.
+
 This chart provides the core infrastructure components for secure container scanning, including:
 
 - RBAC configuration
@@ -30,7 +33,7 @@ The Scanner Infrastructure Helm chart is the foundation for all container scanni
 
 ## Usage
 
-See the main [Helm Charts](../overview.md) documentation for details on how to use this chart as part of the overall container scanning solution.
+See the main [Helm Charts](../overview/index.md) documentation for details on how to use this chart as part of the overall container scanning solution.
 
 ## Security Considerations
 
@@ -43,6 +46,6 @@ This chart is designed with security in mind:
 
 ## Related Charts
 
-- [Common Scanner](../common-scanner.md) - Common components used by all scanner types
-- [Standard Scanner](../standard-scanner.md) - For standard containers
-- [Distroless Scanner](../distroless-scanner.md) - For distroless containers
+- [Common Scanner](../scanner-types/common-scanner.md) - Common components used by all scanner types
+- [Standard Scanner](../scanner-types/standard-scanner.md) - For standard containers
+- [Distroless Scanner](../scanner-types/distroless-scanner.md) - For distroless containers

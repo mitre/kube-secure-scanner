@@ -19,6 +19,7 @@ The Kubernetes API Approach uses the `train-k8s-container` transport plugin for 
    - Demonstrates scanning capabilities
 
 This chart primarily relies on components from its dependencies:
+
 - `common-scanner`: Scanning scripts and SAF CLI integration
 - `scanner-infrastructure`: RBAC, service accounts, and security model
 
@@ -109,7 +110,7 @@ After installing with the test pod enabled:
 
 ```bash
 # Generate kubeconfig
-./scripts/generate-kubeconfig.sh inspec-test inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh inspec-test inspec-scanner ./kubeconfig.yaml
 
 # Run scan against test pod
 KUBECONFIG=./kubeconfig.yaml cinc-auditor exec ./examples/cinc-profiles/container-baseline \
@@ -122,21 +123,21 @@ For scanning existing application containers:
 
 ```bash
 # Generate kubeconfig
-./scripts/generate-kubeconfig.sh prod-scanning inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh prod-scanning inspec-scanner ./kubeconfig.yaml
 
 # Run scan against application container
 KUBECONFIG=./kubeconfig.yaml cinc-auditor exec ./examples/cinc-profiles/container-baseline \
   -t k8s-container://prod-scanning/my-application-pod/application-container
 
 # Alternatively, use the scan script
-./scripts/scan-container.sh prod-scanning my-application-pod application-container ./examples/cinc-profiles/container-baseline
+./kubernetes-scripts/scan-container.sh prod-scanning my-application-pod application-container ./examples/cinc-profiles/container-baseline
 ```
 
 ### Using with SAF CLI for Compliance Validation
 
 ```bash
 # Run scan with compliance validation
-./scripts/scan-container.sh prod-scanning my-application-pod application-container \
+./kubernetes-scripts/scan-container.sh prod-scanning my-application-pod application-container \
   ./examples/cinc-profiles/container-baseline \
   --threshold-file=./threshold.yml
 ```

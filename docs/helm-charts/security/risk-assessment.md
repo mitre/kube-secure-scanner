@@ -36,7 +36,7 @@ helm install scanner-infrastructure ./helm-charts/scanner-infrastructure \
 
 ```bash
 # Generate short-lived token
-./scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml --duration=15m
+./kubernetes-scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml --duration=15m
 
 # Remove token after use
 rm ./kubeconfig.yaml

@@ -22,6 +22,7 @@ metadata:
 ```
 
 This service account:
+
 - Acts as the identity for all scanning operations
 - Is bound to a role with specific permissions
 - Exists in the target namespace for scanning
@@ -32,10 +33,11 @@ The chart supports token generation for service account authentication:
 
 ```bash
 # Generate kubeconfig with time-limited token
-./scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
+./kubernetes-scripts/generate-kubeconfig.sh scanning-namespace inspec-scanner ./kubeconfig.yaml
 ```
 
 This process:
+
 - Creates a short-lived token (typically 1 hour)
 - Configures kubeconfig with the token
 - Provides temporary access for scanning
@@ -121,12 +123,12 @@ For automated scanning in CI/CD pipelines:
 ```bash
 # Ensure fresh token for each CI job
 before_script:
-  - ./scripts/generate-kubeconfig.sh ${NAMESPACE} ${SERVICE_ACCOUNT} ./kubeconfig.yaml
+  - ./kubernetes-scripts/generate-kubeconfig.sh ${NAMESPACE} ${SERVICE_ACCOUNT} ./kubeconfig.yaml
   - export KUBECONFIG=./kubeconfig.yaml
 
 # Run scan
 script:
-  - ./scripts/scan-container.sh ${NAMESPACE} ${POD_NAME} ${CONTAINER_NAME} ./profiles/container-baseline
+  - ./kubernetes-scripts/scan-container.sh ${NAMESPACE} ${POD_NAME} ${CONTAINER_NAME} ./profiles/container-baseline
 
 # Clean up token
 after_script:
