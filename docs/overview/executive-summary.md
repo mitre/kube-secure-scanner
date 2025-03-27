@@ -48,11 +48,13 @@ This solution strongly aligns with key regulatory requirements:
 
 - **NIST SP 800-190** (Container Security)
 - **CIS Kubernetes Benchmarks**
+- **NSA/CISA Kubernetes Hardening Guide**
 - **DoD 8500.01** and DISA Container Platform SRG
+- **Kubernetes STIG** (Security Technical Implementation Guide)
 - **PCI DSS 4.0** container security requirements
 - **HIPAA** infrastructure security guidelines
 
-The Kubernetes API Approach fully satisfies these standards, while interim approaches require documented risk acceptance.
+The Kubernetes API Approach achieves 90% alignment with these standards (with near 100% alignment once distroless support is complete), while interim approaches require documented risk acceptance.
 
 ### 3. Investment Protection
 
@@ -70,7 +72,8 @@ This staged approach ensures continuous security coverage while minimizing techn
 |-------------|---------------------|
 | Privileged Access for Scanning | Implemented least-privilege model with temporary tokens (15-minute lifespan) |
 | Configuration Errors | Provided ready-to-use scripts and Helm charts with security controls pre-configured |
-| Compliance Documentation | Included comprehensive compliance mapping and security analysis for auditors |
+| Compliance Documentation | Included comprehensive compliance mapping (NIST, CIS, NSA/CISA, DoD) and security analysis for auditors |
+| NSA/CISA Hardening Alignment | Detailed implementation guidance for all NSA/CISA Kubernetes controls with approach-specific compliance ratings |
 | Distroless Container Coverage | Multi-approach strategy with planned migration to universal solution |
 
 ## Executive Recommendation
@@ -86,8 +89,9 @@ This phased implementation delivers immediate security benefits while positionin
 ## Next Steps for Decision Makers
 
 1. Review the [Security Compliance Analysis](../security/compliance/index.md) for detailed regulatory alignment
-2. Examine the [Enterprise Integration Analysis](../overview/enterprise-integration-analysis.md) for adoption considerations
-3. Share the [Approach Decision Matrix](../approaches/decision-matrix.md) with your security and DevOps teams
-4. Direct implementation teams to the [Quickstart Guide](../quickstart-guide.md)
+2. Examine our [NSA/CISA Kubernetes Hardening Guide](../security/compliance/nsa-cisa-hardening.md) implementation
+3. Explore the [Enterprise Integration Analysis](../overview/enterprise-integration-analysis.md) for adoption considerations
+4. Share the [Approach Decision Matrix](../approaches/decision-matrix.md) with your security and DevOps teams
+5. Direct implementation teams to the [Quickstart Guide](../quickstart-guide.md)
 
-For security and compliance inquiries, see our detailed [Risk Analysis](../security/risk/index.md).
+For security and compliance inquiries, see our detailed [Risk Analysis](../security/risk/index.md) and [Compliance Documentation](../security/compliance/index.md).
