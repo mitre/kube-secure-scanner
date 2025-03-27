@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#secure-cinc-auditor-kubernetes-container-scanning" class="md-skip">
+        <a href="#kube-secure-scanner" class="md-skip">
           Skip to content
         </a>
       
@@ -10646,8 +10646,12 @@
   
 
 
-<h1 id="secure-cinc-auditor-kubernetes-container-scanning">Secure CINC Auditor Kubernetes Container Scanning<a class="headerlink" href="#secure-cinc-auditor-kubernetes-container-scanning" title="Permanent link">&para;</a></h1>
-<p>A comprehensive platform for securely scanning Kubernetes containers, including distroless containers, using CINC Auditor with least-privilege security controls.</p>
+<h1 id="kube-secure-scanner">Kube Secure Scanner<a class="headerlink" href="#kube-secure-scanner" title="Permanent link">&para;</a></h1>
+<p>A flexible, security-focused framework for scanning containers in Kubernetes environments with multiple scanning engines. Initially built with CINC Auditor (open source InSpec), the platform provides secure RBAC configurations, multiple scanning approaches, and comprehensive CI/CD integration.</p>
+<div class="admonition info">
+<p class="admonition-title">Release Preview v0.90</p>
+<p>This is an ongoing joint community research effort and is currently at <strong>Release Preview (v0.90)</strong>. Some examples, automation, pipelines, and scripts are still in the process of being fully tested and validated. We'll be releasing updates in v0.9.x versions as we work toward a stable v1.0.0 release.</p>
+</div>
 <p><em>[CINC]: CINC Is Not Chef
 </em>[SAF]: Security Automation Framework
 <em>[RBAC]: Role-Based Access Control
@@ -10703,15 +10707,16 @@
 </ul>
 </div>
 <h2 id="scanning-approaches">Scanning Approaches<a class="headerlink" href="#scanning-approaches" title="Permanent link">&para;</a></h2>
-<p>This project offers three distinct approaches for container scanning:</p>
+<p>This project offers three distinct approaches for container scanning, designed to accommodate various container types and Kubernetes environments:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Kubernetes API Approach (Recommended)</label><label for="__tabbed_1_2">Debug Container Approach</label><label for="__tabbed_1_3">Sidecar Container Approach</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Direct API-based scanning using the train-k8s-container plugin. Most scalable solution with seamless integration.</p>
+<p>Direct API-based scanning approach. Most scalable solution with seamless integration.</p>
 <ul>
 <li>Works with standard containers now</li>
 <li>Universal solution once distroless support is complete</li>
 <li>No configuration changes to existing pods</li>
+<li>Flexible scanner engine support (roadmap)</li>
 </ul>
 <p><a class="md-button" href="approaches/kubernetes-api/">Learn More</a></p>
 </div>
@@ -10721,15 +10726,17 @@
 <li>Requires Kubernetes 1.16+ with ephemeral containers</li>
 <li>Works with existing deployed containers</li>
 <li>Good for testing environments</li>
+<li>Compatible with multiple scanner engines</li>
 </ul>
 <p><a class="md-button" href="approaches/debug-container/">Learn More</a></p>
 </div>
 <div class="tabbed-block">
-<p>CINC Auditor sidecar container with shared process namespace for any container type.</p>
+<p>Scanner sidecar container with shared process namespace for any container type.</p>
 <ul>
 <li>Works with any Kubernetes cluster</li>
 <li>Universal compatibility</li>
 <li>Must be deployed alongside target container</li>
+<li>Supports pluggable scanner engines</li>
 </ul>
 <p><a class="md-button" href="approaches/sidecar-container/">Learn More</a></p>
 </div>
@@ -10765,7 +10772,7 @@
 <p><a class="md-button md-button--primary" href="quickstart-guide/">Quick Start Guide</a>
 <a class="md-button" href="site-index/">Site Index</a></p>
 <h2 id="project-roadmap">Project Roadmap<a class="headerlink" href="#project-roadmap" title="Permanent link">&para;</a></h2>
-<p>Our active roadmap includes the following key initiatives:</p>
+<p>Our active roadmap includes the following key initiatives for the path to v1.0:</p>
 <div class="grid cards">
 <ul>
 <li>
@@ -10783,18 +10790,20 @@
 <hr />
 <p>Expand scanning capabilities to new container types.</p>
 <ul>
-<li>Extend train-k8s-container plugin for distroless support</li>
+<li>Complete API-based direct scanning approach</li>
 <li>Improve scan performance for specialized containers</li>
+<li>Add universal distroless container support</li>
 </ul>
 </li>
 <li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21.71 20.29-1.42 1.42a1 1 0 0 1-1.41 0L7 9.85A3.8 3.8 0 0 1 6 10a4 4 0 0 1-3.78-5.3l2.54 2.54.53-.53 1.42-1.42.53-.53L4.7 2.22A4 4 0 0 1 10 6a3.8 3.8 0 0 1-.15 1l11.86 11.88a1 1 0 0 1 0 1.41M2.29 18.88a1 1 0 0 0 0 1.41l1.42 1.42a1 1 0 0 0 1.41 0l5.47-5.46-2.83-2.83M20 2l-4 2v2l-2.17 2.17 2 2L18 8h2l2-4Z"/></svg></span> <strong>Additional Security Tool Integration</strong></p>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21.71 20.29-1.42 1.42a1 1 0 0 1-1.41 0L7 9.85A3.8 3.8 0 0 1 6 10a4 4 0 0 1-3.78-5.3l2.54 2.54.53-.53 1.42-1.42.53-.53L4.7 2.22A4 4 0 0 1 10 6a3.8 3.8 0 0 1-.15 1l11.86 11.88a1 1 0 0 1 0 1.41M2.29 18.88a1 1 0 0 0 0 1.41l1.42 1.42a1 1 0 0 0 1.41 0l5.47-5.46-2.83-2.83M20 2l-4 2v2l-2.17 2.17 2 2L18 8h2l2-4Z"/></svg></span> <strong>Multi-Scanner Engine Architecture</strong></p>
 <hr />
-<p>Expand beyond CINC to integrate additional security scanning tools.</p>
+<p>Implement framework for integrating multiple scanning engines:</p>
 <ul>
-<li>Anchore Grype integration for vulnerability scanning</li>
-<li>Anchore Syft integration for SBOM generation</li>
-<li>Evaluate additional security tools for inclusion</li>
+<li>Scanner engine plugin interface</li>
+<li>Results normalization layer</li>
+<li>Support for vulnerability scanners and SBOM generators</li>
+<li>Scanner configuration standardization</li>
 </ul>
 </li>
 </ul>
