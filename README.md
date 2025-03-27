@@ -66,76 +66,110 @@ We now provide three distinct approaches for scanning distroless containers:
 
 ```
 .
-├── docs/                    # Comprehensive documentation
-│   ├── approaches/          # Scanning approach documentation
-│   │   ├── comparison.md    # Comparison of scanning approaches
+├── docs/                     # Comprehensive documentation
+│   ├── approaches/           # Scanning approach documentation
+│   │   ├── comparison.md     # Comparison of scanning approaches
 │   │   ├── decision-matrix.md # Decision matrix for approach selection
-│   │   ├── kubernetes-api.md # Kubernetes API approach documentation
-│   │   ├── debug-container.md # Debug container approach documentation
-│   │   ├── sidecar-container.md # Sidecar container approach documentation
-│   │   └── direct-commands.md # Direct command usage documentation
-│   ├── architecture/        # Architecture documentation
-│   │   ├── diagrams.md      # Workflow diagrams for all approaches
-│   │   └── workflows.md     # Workflow process documentation
-│   ├── configuration/       # Configuration documentation
-│   │   ├── README.md        # Kubeconfig generation
-│   │   └── advanced/        # Advanced configuration
-│   │       ├── thresholds.md # Threshold configuration guide
-│   │       └── saf-cli-integration.md # SAF CLI integration guide
-│   ├── developer-guide/     # Development and testing documentation
-│   │   ├── testing/         # Testing documentation
-│   │   └── deployment/      # Deployment scenarios
-│   ├── helm-charts/         # Helm chart documentation
-│   │   ├── overview.md      # Helm charts overview
-│   │   ├── architecture.md  # Helm chart architecture
-│   │   └── scanner-infrastructure/ # Scanner infrastructure documentation
-│   ├── integration/         # CI/CD integration guides
-│   │   ├── overview.md      # Integration overview
-│   │   ├── approach-mapping.md # Mapping approaches to CI/CD
-│   │   ├── gitlab.md        # Standard GitLab CI integration
-│   │   ├── gitlab-services.md # GitLab CI with services integration
-│   │   └── github-actions.md # GitHub Actions integration
-│   ├── kubernetes-setup/    # Kubernetes setup documentation
-│   │   └── README.md        # Kubernetes setup overview
-│   ├── project/             # Project documentation
-│   │   ├── changelog.md     # Detailed changelog
-│   │   ├── roadmap.md       # Project roadmap and timeline
-│   │   ├── tasks.md         # Task tracking
-│   │   └── documentation-gaps.md # Documentation gaps analysis
-│   ├── rbac/                # RBAC configuration guides
-│   ├── security/            # Security documentation
-│   │   ├── analysis.md      # Security analysis
-│   │   ├── compliance.md    # Compliance documentation
-│   │   ├── overview.md      # Security overview
-│   │   └── risk-analysis.md # Risk analysis
-│   ├── service-accounts/    # Service account setup
-│   └── tokens/              # Token management
-├── scripts/                 # Automation scripts
-│   ├── generate-kubeconfig.sh  # Generate restricted kubeconfig
-│   ├── scan-container.sh    # End-to-end container scanning
-│   ├── scan-distroless-container.sh # Scanning distroless containers
-│   ├── scan-with-sidecar.sh # Scanning with sidecar container approach
-│   └── setup-minikube.sh    # Multi-node minikube setup script
-├── kubernetes/              # Kubernetes manifests
-│   └── templates/           # Template YAML files
-├── helm-charts/             # Modular Helm charts for deployment
+│   │   ├── direct-commands.md # Direct command usage documentation
+│   │   ├── index.md          # Approaches overview
+│   │   ├── inventory.md      # Directory contents
+│   │   ├── debug-container/  # Debug container approach
+│   │   ├── kubernetes-api/   # Kubernetes API approach
+│   │   ├── sidecar-container/ # Sidecar container approach
+│   │   └── helper-scripts/   # Helper scripts documentation
+│   ├── architecture/         # Architecture documentation
+│   │   ├── components/       # Core and security components
+│   │   ├── deployment/       # Deployment methods
+│   │   ├── diagrams/         # Visual diagrams for workflows
+│   │   ├── integrations/     # Integration architecture
+│   │   └── workflows/        # Workflow process documentation
+│   ├── configuration/        # Configuration documentation
+│   │   ├── advanced/         # Advanced configuration
+│   │   ├── integration/      # Integration configuration
+│   │   ├── kubeconfig/       # Kubeconfig management
+│   │   ├── plugins/          # Plugins configuration
+│   │   ├── security/         # Security configuration
+│   │   └── thresholds/       # Threshold configuration
+│   ├── learning-paths/       # Guided learning paths
+│   │   ├── new-users.md      # For new users
+│   │   ├── security-first.md # Security-focused implementation
+│   │   ├── core-concepts.md  # Core concepts
+│   │   ├── implementation.md # Implementation guide
+│   │   └── advanced-features.md # Advanced features
+│   ├── tasks/                # Task-oriented guides
+│   │   ├── standard-container-scan.md # Standard container scanning
+│   │   ├── distroless-container-scan.md # Distroless container scanning
+│   │   ├── sidecar-container-scan.md # Sidecar container scanning
+│   │   ├── github-integration.md # GitHub integration
+│   │   ├── gitlab-integration.md # GitLab integration
+│   │   └── kubernetes-setup.md # Kubernetes setup
+│   ├── security/             # Security documentation
+│   │   ├── compliance/       # Compliance documentation
+│   │   │   └── nsa-cisa-hardening.md # NSA/CISA Kubernetes Hardening Guide
+│   │   ├── principles/       # Security principles
+│   │   ├── recommendations/  # Security recommendations
+│   │   ├── risk/             # Risk analysis
+│   │   └── threat-model/     # Threat modeling
+│   ├── helm-charts/          # Helm chart documentation
+│   │   ├── infrastructure/   # Infrastructure components
+│   │   ├── operations/       # Operations guidance
+│   │   ├── overview/         # Architecture overview
+│   │   ├── scanner-infrastructure/ # Scanner infrastructure
+│   │   ├── scanner-types/    # Scanner implementations
+│   │   ├── security/         # Security considerations
+│   │   └── usage/            # Usage guides
+│   ├── integration/          # CI/CD integration guides
+│   │   ├── configuration/    # Integration configuration
+│   │   ├── examples/         # Integration examples
+│   │   ├── platforms/        # Platform-specific guides
+│   │   └── workflows/        # Integration workflows
+│   ├── kubernetes-scripts/   # Kubernetes script documentation
+│   ├── kubernetes-setup/     # Kubernetes setup documentation
+│   │   ├── best-practices.md # Kubernetes best practices
+│   │   ├── existing-cluster-requirements.md # Existing cluster setup
+│   │   └── minikube-setup.md # Minikube setup guide
+│   ├── project/              # Project documentation
+│   │   ├── changelog.md      # Detailed changelog
+│   │   ├── roadmap.md        # Project roadmap
+│   │   ├── tasks.md          # Task tracking
+│   │   └── documentation-structure-progress.md # Documentation progress
+│   ├── site-index.md         # Site index with navigation aids
+│   ├── common-abbreviations.md # Common abbreviations reference
+│   ├── rbac/                 # RBAC configuration guides
+│   ├── service-accounts/     # Service account setup
+│   └── tokens/               # Token management
+├── scripts/                  # Automation scripts
+│   ├── doc-tools/            # Documentation tools
+│   │   ├── extract-doc-warnings.sh # Extract documentation warnings
+│   │   ├── fix-links.sh      # Fix documentation links
+│   │   └── track-warning-progress.sh # Track warning resolution
+│   ├── kubernetes/           # Kubernetes scripts
+│   │   ├── generate-kubeconfig.sh # Generate restricted kubeconfig
+│   │   ├── scan-container.sh # End-to-end container scanning
+│   │   ├── scan-distroless-container.sh # Distroless container scanning
+│   │   ├── scan-with-sidecar.sh # Sidecar container scanning
+│   │   └── setup-minikube.sh # Multi-node minikube setup
+│   └── project-maintenance/  # Project maintenance scripts
+├── kubernetes/               # Kubernetes manifests
+│   └── templates/            # Template YAML files
+├── helm-charts/              # Modular Helm charts for deployment
 │   ├── scanner-infrastructure/ # Core RBAC, service accounts
-│   ├── common-scanner/      # Common scanning components 
-│   ├── standard-scanner/    # Standard container scanning
-│   ├── distroless-scanner/  # Distroless container scanning
-│   └── sidecar-scanner/     # Sidecar approach for container scanning
+│   ├── common-scanner/       # Common scanning components 
+│   ├── standard-scanner/     # Standard container scanning
+│   ├── distroless-scanner/   # Distroless container scanning
+│   └── sidecar-scanner/      # Sidecar approach for container scanning
 ├── github-workflow-examples/ # GitHub Actions workflow examples
-│   ├── setup-and-scan.yml   # Basic setup and scan workflow
+│   ├── setup-and-scan.yml    # Basic setup and scan workflow
 │   ├── dynamic-rbac-scanning.yml # Dynamic pod scanning with RBAC
-│   ├── ci-cd-pipeline.yml   # Complete CI/CD pipeline with scanning
-│   └── sidecar-scanner.yml  # Sidecar container scanning workflow
+│   ├── ci-cd-pipeline.yml    # Complete CI/CD pipeline with scanning
+│   └── sidecar-scanner.yml   # Sidecar container scanning workflow
 ├── gitlab-pipeline-examples/ # GitLab CI examples
-│   ├── gitlab-ci.yml        # Standard GitLab CI configuration
+│   ├── gitlab-ci.yml         # Standard GitLab CI configuration
 │   ├── gitlab-ci-with-services.yml # GitLab CI with services
 │   ├── gitlab-ci-sidecar.yml # GitLab CI with sidecar approach
 │   └── gitlab-ci-sidecar-with-services.yml # GitLab CI sidecar with services
-└── examples/                # Example resources
-    ├── cinc-profiles/       # Example CINC Auditor profiles
+└── examples/                 # Example resources
+    ├── cinc-profiles/        # Example CINC Auditor profiles
     ├── cinc-auditor-scanner/ # Dockerfile for scanner sidecar container
     └── sidecar-scanner-pod.yaml # Example sidecar container pod
 ```
@@ -368,7 +402,7 @@ We provide a comprehensive documentation system with tools for previewing, valid
 
 #### Documentation Tools and CI/CD Scripts
 
-This project provides two main scripts for documentation management:
+This project provides a comprehensive set of documentation management tools:
 
 1. **`docs-tools.sh`** - Interactive documentation management tool for developers:
    - Located at: Available both in project root (symlinked) and in `docs/docs-tools.sh` (original)
@@ -384,6 +418,16 @@ This project provides two main scripts for documentation management:
    - Usage: Used by CI/CD pipelines or run with `./docs-ci.sh [--help]` to validate locally
    - Supports: `--help` flag for usage information and `--verbose` flag for detailed output
 
+3. **Documentation Fix Utilities** - Specialized tools for documentation maintenance:
+   - Located at: `scripts/doc-tools/`
+   - Purpose: Fix and track documentation issues
+   - Key utilities:
+     - `extract-doc-warnings.sh`: Generate comprehensive issue reports
+     - `fix-links.sh`: Fix broken links using mappings file
+     - `track-warning-progress.sh`: Monitor documentation improvements
+     - `fix-cross-references.sh`: Fix cross-references between files
+     - `generate-doc-mappings.sh`: Generate file mappings for documentation
+
 The documentation system includes:
 - MkDocs with Material theme for beautiful documentation
 - Markdown style checking with markdownlint
@@ -397,57 +441,71 @@ For more details, see [Documentation Management](docs/README.md)
 
 Our documentation covers the following areas:
 
-#### Core Documentation
-- [Project Overview](docs/overview/README.md)
-- [Quick Start Guide](docs/overview/quickstart.md)
-- [Security Considerations](docs/overview/security.md)
+#### Getting Started
+- [Site Index](docs/site-index.md)
+- [Common Abbreviations](docs/common-abbreviations.md)
 - [Executive Summary](docs/overview/executive-summary.md)
-- [Security Risk Analysis](docs/security/risk-analysis.md)
-- [Security Analysis](docs/security/analysis.md)
-- [Compliance Documentation](docs/security/compliance.md)
+- [Quick Start Guide](docs/quickstart-guide.md)
+- [Security Overview](docs/security/index.md)
+
+#### Learning Paths
+- [For New Users](docs/learning-paths/new-users.md)
+- [Security-First Implementation](docs/learning-paths/security-first.md)
+- [Core Concepts](docs/learning-paths/core-concepts.md)
+- [Implementation Guide](docs/learning-paths/implementation.md)
+- [Advanced Features](docs/learning-paths/advanced-features.md)
+
+#### Common Tasks
+- [Standard Container Scan](docs/tasks/standard-container-scan.md)
+- [Distroless Container Scan](docs/tasks/distroless-container-scan.md)
+- [Sidecar Container Scan](docs/tasks/sidecar-container-scan.md)
+- [GitHub Integration](docs/tasks/github-integration.md)
+- [GitLab Integration](docs/tasks/gitlab-integration.md)
+- [Kubernetes Setup](docs/tasks/kubernetes-setup.md)
 
 #### Approach-Specific Documentation
 - [Approach Comparison](docs/approaches/comparison.md)
 - [Decision Matrix](docs/approaches/decision-matrix.md)
-- [Kubernetes API Approach](docs/approaches/kubernetes-api.md)
-- [Debug Container Approach](docs/approaches/debug-container.md)
-- [Sidecar Container Approach](docs/approaches/sidecar-container.md)
-- [Direct Commands](docs/approaches/direct-commands.md)
+- [Kubernetes API Approach](docs/approaches/kubernetes-api/index.md)
+- [Debug Container Approach](docs/approaches/debug-container/index.md)
+- [Sidecar Container Approach](docs/approaches/sidecar-container/index.md)
+- [Helper Scripts](docs/approaches/helper-scripts/index.md)
 
-#### Visual Documentation
-- [Workflow Diagrams](docs/architecture/diagrams.md) - Mermaid diagrams for visual environments
-- [ASCII Text Diagrams](docs/project/archive/ascii-diagrams.md) - Terminal-friendly diagrams
+#### Security Documentation
+- [Security Principles](docs/security/principles/index.md)
+- [Risk Analysis](docs/security/risk/index.md)
+- [Threat Model](docs/security/threat-model/index.md)
+- [Compliance](docs/security/compliance/index.md)
+- [NSA/CISA Hardening Guide](docs/security/compliance/nsa-cisa-hardening.md)
+- [Security Recommendations](docs/security/recommendations/index.md)
 
 #### Technical Implementation
-- [RBAC Configuration](docs/rbac/README.md)
+- [RBAC Configuration](docs/rbac/index.md)
 - [Label-based RBAC](docs/rbac/label-based.md)
-- [Service Account Management](docs/service-accounts/README.md)
-- [Token Management](docs/tokens/README.md)
-- [Kubeconfig Generation](docs/configuration/README.md)
-- [Scanner Configuration](docs/configuration/advanced/README.md)
-- [SAF CLI Integration](docs/configuration/advanced/saf-cli-integration.md)
-- [Threshold Configuration](docs/configuration/advanced/thresholds.md)
+- [Service Account Management](docs/service-accounts/index.md)
+- [Token Management](docs/tokens/index.md)
+- [Kubeconfig Management](docs/configuration/kubeconfig/index.md)
+- [Threshold Configuration](docs/configuration/thresholds/index.md)
 
 #### CI/CD Integration
-- [Integration Overview](docs/integration/overview.md)
+- [Integration Overview](docs/integration/index.md)
 - [Approach Mapping](docs/integration/approach-mapping.md)
-- [GitLab CI/CD Integration](docs/integration/gitlab.md)
-- [GitLab CI with Services](docs/integration/gitlab-services.md)
-- [GitLab Services Analysis](docs/integration/gitlab-services-analysis.md)
-- [GitHub Actions Integration](docs/integration/github-actions.md)
+- [GitHub Actions](docs/integration/platforms/github-actions.md)
+- [GitLab CI](docs/integration/platforms/gitlab-ci.md)
+- [GitLab Services](docs/integration/platforms/gitlab-services.md)
 
 #### Helm Charts Documentation
 - [Helm Charts Overview](docs/helm-charts/overview/index.md)
 - [Helm Chart Architecture](docs/helm-charts/overview/architecture.md)
-- [Scanner Infrastructure](docs/helm-charts/infrastructure/index.md)
+- [Scanner Infrastructure](docs/helm-charts/scanner-infrastructure/index.md)
 - [Common Scanner](docs/helm-charts/scanner-types/common-scanner.md)
-- [Kubernetes API Scanner](docs/helm-charts/scanner-types/standard-scanner.md)
-- [Debug Container Scanner](docs/helm-charts/scanner-types/distroless-scanner.md)
-- [Sidecar Container Scanner](docs/helm-charts/scanner-types/sidecar-scanner.md)
+- [Standard Scanner](docs/helm-charts/scanner-types/standard-scanner.md)
+- [Distroless Scanner](docs/helm-charts/scanner-types/distroless-scanner.md)
+- [Sidecar Scanner](docs/helm-charts/scanner-types/sidecar-scanner.md)
 
 #### Development and Testing
-- [Testing Guide](docs/developer-guide/testing/README.md)
-- [Deployment Scenarios](docs/developer-guide/deployment/README.md)
+- [Testing Guide](docs/developer-guide/testing/index.md)
+- [Deployment Scenarios](docs/developer-guide/deployment/scenarios/index.md)
 - [Documentation Tools](docs/contributing/documentation-tools.md)
 
 ## Requirements
