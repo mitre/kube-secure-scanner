@@ -499,9 +499,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#i-am-a" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      I am a
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choose-your-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose Your Path
     </span>
   </a>
   
@@ -10574,9 +10583,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#i-am-a" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      I am a
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choose-your-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose Your Path
     </span>
   </a>
   
@@ -10647,17 +10665,36 @@
 
 
 <h1 id="kube-secure-scanner">Kube Secure Scanner<a class="headerlink" href="#kube-secure-scanner" title="Permanent link">&para;</a></h1>
-<p>A flexible, security-focused framework for scanning containers in Kubernetes environments with multiple scanning engines. Initially built with CINC Auditor (open source InSpec), the platform provides secure RBAC configurations, multiple scanning approaches, and comprehensive CI/CD integration.</p>
 <div class="admonition info">
 <p class="admonition-title">Release Preview v0.90</p>
 <p>This is an ongoing joint community research effort and is currently at <strong>Release Preview (v0.90)</strong>. Some examples, automation, pipelines, and scripts are still in the process of being fully tested and validated. We'll be releasing updates in v0.9.x versions as we work toward a stable v1.0.0 release.</p>
+<p><a class="md-button md-button--primary" href="https://github.com/mitre/kube-secure-scanner" target="_blank">View Project on GitHub ↗</a></p>
+</div>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>A flexible, security-focused framework for scanning containers in Kubernetes environments with multiple scanning engines. Initially built with CINC Auditor (open source InSpec), the platform provides secure RBAC configurations, multiple scanning approaches, and comprehensive CI/CD integration.</p>
+<div class="grid">
+<div>
+<p><strong>Key Features:</strong>
+- Multiple scanner engine support (extensible framework)
+- Three container scanning approaches for all Kubernetes environments
+- Specialized security controls with least-privilege design
+- Comprehensive documentation and integration examples
+- CI/CD pipeline integration for GitHub Actions and GitLab</p>
+</div>
+<div>
+<p><strong>Quick Links:</strong>
+<a class="md-button md-button--primary" href="quickstart-guide/">Quick Start Guide</a>
+<a class="md-button" href="approaches/comparison/">Approach Comparison</a>
+<a class="md-button" href="integration/platforms/github-actions/">GitHub Actions Integration</a>
+<a class="md-button" href="integration/platforms/gitlab-ci/">GitLab CI Integration</a></p>
+</div>
 </div>
 <p><em>[CINC]: CINC Is Not Chef
 </em>[SAF]: Security Automation Framework
 <em>[RBAC]: Role-Based Access Control
 </em>[K8s]: Kubernetes
 *[API]: Application Programming Interface</p>
-<h2 id="i-am-a">I am a<a class="headerlink" href="#i-am-a" title="Permanent link">&para;</a></h2>
+<h2 id="choose-your-path">Choose Your Path<a class="headerlink" href="#choose-your-path" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
 <ul>
 <li>
@@ -10768,9 +10805,21 @@
 </ul>
 </div>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>The fastest way to get started is with our Quick Start guide:</p>
+<p>The fastest way to get started is with our Quick Start guide, which walks you through:
+- Setting up a testing environment
+- Deploying the scanning infrastructure
+- Running container scans
+- Validating compliance results</p>
+<div class="grid">
+<div>
 <p><a class="md-button md-button--primary" href="quickstart-guide/">Quick Start Guide</a>
 <a class="md-button" href="site-index/">Site Index</a></p>
+</div>
+<div>
+<p><a class="md-button" href="security/">Security Overview</a>
+<a class="md-button" href="site-index/">Documentation Map</a></p>
+</div>
+</div>
 <h2 id="project-roadmap">Project Roadmap<a class="headerlink" href="#project-roadmap" title="Permanent link">&para;</a></h2>
 <p>Our active roadmap includes the following key initiatives for the path to v1.0:</p>
 <div class="grid cards">
