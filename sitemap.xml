@@ -2,1182 +2,1186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/common-abbreviations/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/quickstart-guide/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/site-index/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/comparison/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/decision-matrix/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/direct-commands/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/debug-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/debug-container/distroless-basics/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/debug-container/implementation/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/debug-container/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/helper-scripts/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/helper-scripts/available-scripts/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/helper-scripts/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/helper-scripts/scripts-vs-commands/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/kubernetes-api/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/kubernetes-api/implementation/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/kubernetes-api/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/kubernetes-api/limitations/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/kubernetes-api/rbac/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/sidecar-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/sidecar-container/implementation/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/sidecar-container/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/sidecar-container/pod-configuration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/approaches/sidecar-container/retrieving-results/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/components/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/components/communication/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/components/core-components/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/components/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/components/security-components/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/deployment/ci-cd-deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/deployment/helm-deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/deployment/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/deployment/script-deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/diagrams/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/diagrams/component-diagrams/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/diagrams/deployment-diagrams/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/diagrams/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/diagrams/workflow-diagrams/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/integrations/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/integrations/custom-integrations/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/integrations/github-actions/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/integrations/gitlab-ci/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/integrations/gitlab-services/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/integrations/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/workflows/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/workflows/distroless-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/workflows/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/workflows/security-workflows/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/workflows/sidecar-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/architecture/workflows/standard-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/advanced/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/advanced/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/integration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/integration/github/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/integration/gitlab/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/integration/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/integration/saf-cli/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/kubeconfig/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/kubeconfig/dynamic/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/kubeconfig/generation/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/kubeconfig/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/kubeconfig/management/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/kubeconfig/security/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/plugins/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/plugins/distroless/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/plugins/implementation/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/plugins/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/plugins/testing/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/security/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/security/credentials/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/security/hardening/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/security/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/security/rbac/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/thresholds/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/thresholds/advanced/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/thresholds/basic/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/thresholds/cicd/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/thresholds/examples/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/configuration/thresholds/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/contributing/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/contributing/code-snippets/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/contributing/diagram-color-guide/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/contributing/documentation-tools/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/contributing/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/contributing/stig-api-tools/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/contributing/testing/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/contributing/testing/dark-light-mode-test/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/contributing/testing/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/cicd-deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/helm-deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/script-deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/advanced-topics/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/advanced-topics/custom-development/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/advanced-topics/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/advanced-topics/monitoring/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/advanced-topics/scaling/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/advanced-topics/security/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/advanced-topics/specialized-environments/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/advanced-topics/verification/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/scenarios/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/scenarios/air-gapped/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/scenarios/cicd/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/scenarios/development/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/scenarios/enterprise/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/deployment/scenarios/multi-tenant/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/testing/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/developer-guide/testing/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/examples/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/examples/code-display-demo/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/examples/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/github-workflow-examples/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/github-workflow-examples/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://mitre.github.io/kube-secure-scanner/gitlab-components-examples/</loc>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/gitlab-pipeline-examples/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/gitlab-pipeline-examples/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/gitlab-services-examples/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/gitlab-services-examples/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/infrastructure/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/infrastructure/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/infrastructure/namespaces/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/infrastructure/rbac/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/infrastructure/service-accounts/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/operations/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/operations/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/operations/maintenance/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/operations/performance/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/operations/troubleshooting/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/overview/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/overview/architecture/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/overview/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/scanner-infrastructure/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/scanner-infrastructure/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/scanner-types/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/scanner-types/common-scanner/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/scanner-types/distroless-scanner/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/scanner-types/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/scanner-types/sidecar-scanner/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/scanner-types/standard-scanner/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/security/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/security/best-practices/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/security/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/security/rbac-hardening/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/security/risk-assessment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/usage/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/usage/configuration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/usage/customization/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/usage/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/helm-charts/usage/values/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/includes/abbreviations/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/approach-mapping/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/gitlab-services-analysis/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/configuration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/configuration/environment-variables/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/configuration/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/configuration/reporting/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/configuration/secrets-management/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/configuration/thresholds-integration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/examples/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/examples/github-examples/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/examples/gitlab-examples/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/examples/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/platforms/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/platforms/github-actions/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/platforms/gitlab-ci/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/platforms/gitlab-services/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/platforms/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/workflows/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/workflows/distroless-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/workflows/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/workflows/security-workflows/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/workflows/sidecar-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/integration/workflows/standard-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/kubernetes-scripts/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/kubernetes-scripts/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/kubernetes-setup/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/kubernetes-setup/best-practices/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/kubernetes-setup/existing-cluster-requirements/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/kubernetes-setup/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/kubernetes-setup/minikube-setup/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/learning-paths/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/learning-paths/advanced-features/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/learning-paths/core-concepts/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/learning-paths/implementation/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/learning-paths/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/learning-paths/new-users/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/learning-paths/security-first/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/learning-paths/template/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/overview/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/overview/ascii-diagrams/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/overview/enterprise-integration-analysis/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/overview/executive-summary/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/overview/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/approaches-reorganization-summary/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/architecture-reorganization-summary/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/changelog/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/configuration-reorganization-summary/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/content-map/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/content-organization-approach/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/documentation-cleanup-plan/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/documentation-cleanup-progress/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/documentation-coming-soon/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/documentation-entry-refactoring/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/documentation-gaps/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/documentation-review-plan/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/documentation-structure-progress/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/documentation-tools/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/helm-charts-reorganization-summary/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/integration-reorganization-summary/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/mkdocs-material-features-guide/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/project-target-organization-plan/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/roadmap/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/security-nav-update/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/security-reorganization-plan/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/security-reorganization-summary/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/tasks/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/terminology/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/warning-resolution-scripts/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/archive/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/archive/ascii-diagrams/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/project/archive/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/rbac/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/rbac/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/rbac/label-based/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/compliance/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/compliance/approach-comparison/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/compliance/cis-benchmarks/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/compliance/disa-srg/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/compliance/dod-8500-01/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/compliance/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/compliance/kubernetes-stig/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/compliance/nsa-cisa-hardening/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/compliance/risk-documentation/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/principles/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/principles/ephemeral-creds/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/principles/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/principles/least-privilege/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/principles/resource-isolation/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/principles/secure-transport/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/recommendations/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/recommendations/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/recommendations/network/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/risk/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/risk/debug-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/risk/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/risk/kubernetes-api/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/risk/mitigations/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/risk/model/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/risk/sidecar-container/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/threat-model/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/threat-model/attack-vectors/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/threat-model/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/threat-model/lateral-movement/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/threat-model/threat-mitigations/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/security/threat-model/token-exposure/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/service-accounts/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/service-accounts/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/distroless-container-scan/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/github-integration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/gitlab-integration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/helm-deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/kubernetes-setup/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/rbac-setup/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/script-deployment/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/sidecar-container-scan/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/standard-container-scan/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/template/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/thresholds-configuration/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tasks/token-management/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tokens/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/tokens/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/utilities/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/utilities/ascii-to-mermaid/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/utilities/inventory/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
     <url>
          <loc>https://mitre.github.io/kube-secure-scanner/utilities/mkdocs-link-fixer-proposal/</loc>
-         <lastmod>2025-03-27</lastmod>
+         <lastmod>2025-05-13</lastmod>
     </url>
 </urlset>

@@ -1,0 +1,63 @@
+
+spec:
+  inputs:
+    stage:
+      default: scan
+      description: The pipeline stage where this job should run
+    image:
+      default: $REGISTRY/cincproject/cinc-kubestation:0.0.1
+      description: Scanner image
+    profile:
+      default: https://github.com/mitre/redhat-enterprise-linux-9-stig-baseline/archive/main.tar.gz
+      description: InSpec profile to run against inspec-target
+    input_file:
+      default: $CI_PROJECT_DIR/inputs.yml
+      description: Input file to use for the InSpec profile
+---
+scan:
+  stage: $[[ inputs.stage ]]
+  image: $[[ inputs.image ]]
+  tags:
+    - k8s
+  allow_failure:
+    exit_codes:
+      - 100
+      - 101
+      - 1
+  script: |
+
+    echo ">>> Configuring Git and kubectl <<< "
+    base64 -d <<< $CA_FILE > ca.crt # CA_FILE is a base64 encoded CA certificate saved as a GitLab CI/CD variable
+    git config --global http.sslCAInfo ca.crt
+    git config --global http.sslVerify false
+    git config --global user.email pipeline@domain.dev
+    git config --global user.name "Pipeline"
+
+    base64 -d <<< $PIPELINE_KUBECONFIG > pipeline-kubeconfig.yml
+    export KUBECONFIG=pipeline-kubeconfig.yml
+
+    echo ">>> Vendoring InSpec profile $[[ inputs.profile ]] <<< "
+    cinc-auditor vendor $[[ inputs.profile ]] 
+
+    echo ">>> Running InSpec <<< "
+    
+     cinc-auditor exec $[[ inputs.profile ]] \
+      -t k8s-container://pipeline/inspec-target/inspec-target \
+      --input-file=$[[ inputs.inputs_file ]] \
+      --enhanced-outcomes \
+      --reporter cli json:$CI_PROJECT_DIR/reports/raw/inspec.json || true
+
+
+    echo ">>> Demonstrating that pipeline-kubeconfig is restricted in scope <<<"
+  
+    kubectl get pods -n kube-system || true
+    kubectl get all -n pipeline || true
+    kubectl get pods -n pipeline || true
+
+    chmod 644 $CI_PROJECT_DIR/reports/raw/inspec.json || true
+
+    
+  artifacts:
+    name: "$CI_JOB_NAME"
+    paths:
+    - $CI_PROJECT_DIR/reports/raw/inspec.json
