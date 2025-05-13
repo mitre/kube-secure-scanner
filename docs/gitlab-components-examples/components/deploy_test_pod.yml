@@ -1,0 +1,38 @@
+
+spec:
+  inputs:
+    stage:
+      default: deploy
+      description: The pipeline stage where this job should run
+    image:
+      default: $REGISTRY/ubi9/ubi:9.5
+      description: image to scan
+---
+deploy_test_pod:
+  stage: $[[ inputs.stage ]]
+  image: $REGISTRY/cincproject/cinc-kubestation:0.0.1
+  tags:
+    - k8s
+  script: |
+
+    base64 -d <<< $PIPELINE_KUBECONFIG > pipeline-config.yml
+
+    echo ">>> Starting test container <<< "
+    cat <<EOF > inspec-target.yml 
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: inspec-target
+    spec:
+      containers:
+      - name: inspec-target
+        image: $[[ inputs.image ]]
+        command: ['sh', '-c', 'sleep 10000']
+    EOF
+
+    kubectl --kubeconfig=pipeline-config.yml apply -f inspec-target.yml --validate=false
+
+  artifacts:
+    name: "$CI_JOB_NAME"
+    paths:
+    - inspec-target.yml

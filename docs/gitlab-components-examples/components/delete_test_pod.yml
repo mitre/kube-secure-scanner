@@ -1,0 +1,17 @@
+
+spec:
+  inputs:
+    stage:
+      default: delete
+      description: The pipeline stage where this job should run
+---
+delete_test_pod:
+  stage: $[[ inputs.stage ]]
+  image: $REGISTRY/cincproject/cinc-kubestation:0.0.1
+  tags:
+    - k8s
+  script: |
+
+    base64 -d <<< $PIPELINE_KUBECONFIG > pipeline-config.yml
+
+    kubectl --kubeconfig=pipeline-config.yml delete -f inspec-target.yml

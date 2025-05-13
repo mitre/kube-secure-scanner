@@ -1,0 +1,1 @@
+../../scripts/kubernetes/generate-kubeconfig.sh

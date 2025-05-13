@@ -1,0 +1,9 @@
+include: # pull in templates from a separate repository 'pipeline-templates' at branch 'dev'
+  - component: $CI_SERVER_FQDN/pipeline-templates/deploy_test_pod@dev
+  - component: $CI_SERVER_FQDN/pipeline-templates/validate_cce_inspec@dev
+  - component: $CI_SERVER_FQDN/pipeline-templates/delete_test_pod@dev
+
+stages:
+  - deploy
+  - scan
+  - delete
